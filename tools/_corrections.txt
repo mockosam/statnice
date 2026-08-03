@@ -1,0 +1,29 @@
+# Vědomé opravy proti zdrojovému .docx
+#
+# Každý neprázdný řádek popisuje jednu textovou jednotku ze zdrojového dokumentu,
+# která byla v HTML ÚMYSLNĚ změněna kvůli neaktuálnímu nebo chybnému právnímu údaji.
+# Skript tools/check_fidelity.py je díky tomuto seznamu nehlásí jako ztracený obsah.
+#
+# Formát:  stránka | důvod | původní text ze .docx
+#
+# Zde jsou jen ty případy, kde původní formulace na stránce nezůstala celá.
+# Většina oprav původní znění cituje přímo v poznámce „Aktualizace 2026“
+# (prvek <span class="was">), a tam žádný řádek v tomto souboru není potřeba.
+#
+# Odůvodnění a zdroje ke každé opravě jsou na etopedie/pravni-aktualnost.html.
+
+otazka-03-strategie-riziko-problem-porucha.html | 109/2002 Sb.: novela 352/2011 → 165/2024 a 37/2025 Sb. | Zákon č. 109/2002 Sb. (novelizován zák. 352/2011) — o výkonu ústavní výchovy nebo ochranné výchovy ve školských zařízeních a o preventivně výchovné péči.
+
+otazka-10-osobnost-pedagoga.html | 563/2004 Sb.: novela 379/2015 → 183/2023 Sb. (shrnutí otázky) | Pedagog ve školských zařízeních NVP musí splňovat zákonné předpoklady (zákon 563/2004, novelizován 379/2015) a mít specifické osobnostní (empatie, odolnost, autorita) a profesní (psych.-ped. vzdělání) kompetence. V zařízení působí pedagogové, psychologové (zákon o ped. prac. § 19), speciální pedagogové/etopedi (§ 18) a sociální pracovníci (zákon o sociálních službách § 109–110). Mezi terapeutické směry patří behaviorální metody, různé typy terapií a EXPRESIVNÍ terapie (arteterapie, dramaterapie, muzikoterapie, taneční terapie, ergoterapie).
+
+otazka-10-osobnost-pedagoga.html | totéž v nadpisu legislativního boxu | ⚖️ Zákon č. 563/2004 Sb. (novelizace 379/2015) o pedagogických pracovnících
+
+otazka-13-ospod-prava-ditete.html | Úmluva o právech dítěte: 3/1993 Sb. → sdělení č. 104/1991 Sb. (shrnutí otázky) | OSPOD = oddělení sociálně-právní ochrany dětí, součást odboru sociálních věcí. Má 3 hlavní agendy: terénní sociální pracovnice, pracovnice pro NRP, kurátor pro mládež. Klíčový zákon: 359/1999 Sb. Úmluva o právech dítěte (OSN, 1989) — 54 článků ve 4 kategoriích; ratifikovaly ji všechny státy kromě USA. ČR ji implementovala zákonem 3/1993 Sb. Ombudsman (Veřejný ochránce práv) — nezávislé šetření stížností na veřejnou správu; nemůže rušit rozhodnutí, ale může vyvíjet veřejný tlak.
+
+otazka-13-ospod-prava-ditete.html | totéž, doplněna data platnosti a sukcese ČR | ČR: implementace v roce 1991 zákonem č. 3/1993 Sb. Závazek podávat každých 5 let zprávu Výboru OSN.
+
+otazka-13-ospod-prava-ditete.html | totéž v tipu ke zkoušce | Zákon 359/1999 Sb. + Úmluva o právech dítěte (1989, OSN, 54 článků, ratifikováno všemi státy KROMĚ USA, v ČR zákon 3/1993 Sb.) jsou MUST-KNOW. Pamatujte si také, že OSPOD je součást OBECNÍHO úřadu obce s rozšířenou působností (ne magistrátu, ne ministerstva).
+
+otazka-14-adhd-add-odd.html | § 16 školského zákona: „kategorie zdravotního postižení“ → SVP a podpůrná opatření (novela 82/2015 Sb.) | Školský zákon č. 561/2004 Sb., § 16 — zařazuje vývojové poruchy chování do kategorie zdravotního postižení (vedle VPU, mentálního, tělesného, smyslového postižení, vad řeči, autismu).
+
+otazka-15-agrese-sikana.html | doplněno č. j. MŠMT-21149/2016 | MŠMT vydalo metodický pokyn k prevenci a řešení šikany ve školách a školských zařízeních. Pokyn definuje šikanu, popisuje stádia, role, nastavuje postup řešení.

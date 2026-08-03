@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Zdrojový dokument zůstává jen lokálně, do repozitáře se nepublikuje.
+# Kvůli tomu nelze z čistého klonu spustit tools/docx2html.py ani
+# tools/check_fidelity.py — oba potřebují .docx v adresáři source/.
+*.docx
+source/
+
+# mezivýsledek konvertoru, negeneruje se z HTML
+tools/_meta.json
