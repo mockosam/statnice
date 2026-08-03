@@ -393,7 +393,15 @@ def render_list(items: list[dict], ind: str, ctx: Ctx, key_terms: bool = False) 
         out.append("%s</%s>" % (pad, tag))
         return idx
 
-    emit(0, items[0]["lvl"], ind)
+    # Skupina může začít na hlubší úrovni, než na jaké pokračuje (např. lvl 1,1,1,0,0).
+    # emit() se u nižší úrovně zastaví, takže voláme dokola, dokud nejsou položky
+    # vyčerpané — jinak by se zbytek seznamu zahodil.
+    idx = 0
+    while idx < len(items):
+        nxt = emit(idx, items[idx]["lvl"], ind)
+        if nxt <= idx:          # pojistka proti nekonečnému cyklu
+            break
+        idx = nxt
     return out
 
 
@@ -441,6 +449,13 @@ def render_table(tbl: dict, ind: str, ctx: Ctx) -> list[str]:
     return out
 
 
+def is_list_item(b: dict) -> bool:
+    """Odstavec je položkou seznamu, má-li číslování nebo styl ListParagraph."""
+    if b["kind"] != "p" or b["style"].startswith("Heading"):
+        return False
+    return bool(b.get("num")) or b["style"] == "ListParagraph"
+
+
 def render_flow(blocks: list[dict], ind: str, ctx: Ctx, key_terms: bool = False) -> list[str]:
     """Plochý seznam bloků → HTML; seskupuje položky seznamů."""
     out, i = [], 0
@@ -454,15 +469,13 @@ def render_flow(blocks: list[dict], ind: str, ctx: Ctx, key_terms: bool = False)
                 out.extend(render_table(b, ind, ctx))
             i += 1
             continue
-        if b["style"] == "ListParagraph":
+        # Položka seznamu = odstavec s číslováním (w:numPr). Word ho umí přidat
+        # i k odstavci se stylem Normal — v tom případě to je pořád odrážka,
+        # jen bez stylu ListParagraph. Nadpisy z toho vyjímáme.
+        if is_list_item(b):
             num = b["num"]
             group = []
-            while (
-                i < len(blocks)
-                and blocks[i]["kind"] == "p"
-                and blocks[i]["style"] == "ListParagraph"
-                and blocks[i]["num"] == num
-            ):
+            while i < len(blocks) and is_list_item(blocks[i]) and blocks[i]["num"] == num:
                 group.append(blocks[i])
                 i += 1
             if ctx.mode == "glosar":
@@ -470,8 +483,15 @@ def render_flow(blocks: list[dict], ind: str, ctx: Ctx, key_terms: bool = False)
             else:
                 out.extend(render_list(group, ind, ctx, key_terms=key_terms))
             continue
-        if b["style"] == "Heading3":
-            out.append("%s<h3 id=\"%s\">%s</h3>" % (ind, ctx_id(ctx, para_text(b)), esc(strip_emoji(para_text(b))[1])))
+        # Nadpisy uvnitř toku. U etopedie je H2 odebere split_sections dřív, než
+        # se sem dostane; u psychologie se dovozují z tučného textu, takže je
+        # render_flow musí umět vykreslit sám.
+        if b["style"] in ("Heading1", "Heading2", "Heading3", "Heading4"):
+            lvl = {"Heading1": "h2", "Heading2": "h2", "Heading3": "h3", "Heading4": "h4"}[b["style"]]
+            emo, text = strip_emoji(para_text(b))
+            hemo = '<span class="hemo" aria-hidden="true">%s</span>' % emo if emo else ""
+            out.append('%s<%s id="%s">%s%s</%s>'
+                       % (ind, lvl, ctx_id(ctx, para_text(b)), hemo, esc(text), lvl))
             i += 1
             continue
         txt = inline(b, ctx)

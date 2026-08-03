@@ -170,7 +170,7 @@ def unlist_definitions(blocks: list[dict]) -> int:
     """
     n = 0
     for b in blocks:
-        if b["kind"] == "p" and b["style"] == "ListParagraph" and ptext(b).startswith("="):
+        if b["kind"] == "p" and ptext(b).startswith("=") and (b.get("num") or b["style"] == "ListParagraph"):
             b["style"], b["num"] = "Normal", None
             n += 1
     return n
@@ -179,9 +179,14 @@ def unlist_definitions(blocks: list[dict]) -> int:
 def promote_headings(blocks: list[dict]) -> int:
     """
     Tučný odstavec, který není položkou seznamu a není delší než 90 znaků,
-    slouží v tomto dokumentu jako podnadpis. Verzálkami → H2, jinak → H3.
+    slouží v tomto dokumentu jako podnadpis.
+
+    Úroveň se rozhoduje pro každou otázku zvlášť: má-li aspoň dva nadpisy
+    verzálkami, jsou verzálky H2 a ostatní H3 (zdroj tedy rozlišuje dvě
+    úrovně). Jinak jsou všechny nadpisy H2 — jednoúrovňová struktura je
+    lepší než stránka bez jediného H2, kde nefunguje obsah v levém sloupci.
     """
-    n = 0
+    cands = []
     for b in blocks:
         if b["kind"] != "p" or b.get("num") or not is_bold(b):
             continue
@@ -190,9 +195,19 @@ def promote_headings(blocks: list[dict]) -> int:
             continue
         if re.match(r"^\d{1,2}[\.\)]\s", t) and len(t) < 20:   # „1. “ u krátkých položek
             continue
-        b["style"] = "Heading2" if is_caps(t) else "Heading3"
-        n += 1
-    return n
+        cands.append(b)
+    two_levels = sum(1 for b in cands if is_caps(ptext(b))) >= 2
+    for b in cands:
+        b["style"] = "Heading2" if (not two_levels or is_caps(ptext(b))) else "Heading3"
+    return len(cands)
+
+
+"""
+Poznámka k výčtům: tento dokument přiděluje číslování (w:numPr) odstavcům se
+stylem Normal — 1722 odstavců z 2429. Ve Wordu to jsou odrážky, jen bez stylu
+ListParagraph. Řeší to `is_list_item()` v docx2html.py; žádná heuristika nad
+délkou a velikostí písmen tady není potřeba.
+"""
 
 
 # ---------------------------------------------------------------- citace
@@ -313,6 +328,9 @@ def img_html(rid: str, up: str = "") -> str:
 
 
 BIB = {}
+# ručně psané boxy „Doplněno 2026“ (kontrola aktuálnosti), klíč = číslo otázky.
+# Drží se v datovém souboru, aby je opětovné spuštění konvertoru nesmazalo.
+EXTRA = {}
 
 
 def bib_slug(key: str) -> str:
@@ -405,6 +423,9 @@ def render_question(n, short, full, body, ctx_base, prev, nxt):
     out += ["", '    <section class="sec sec-read">']
     out.extend(render_flow(body, "      ", ctx))
     out.append("    </section>")
+    extra = EXTRA.get(str(n))
+    if extra:
+        out += ["", extra]
     out += [""] + sources_box(sources, "    ")
 
     out += ["", '    <nav class="pager" aria-label="Další otázky">']
@@ -435,10 +456,14 @@ if __name__ == "__main__":
         print("V %s/ už je %d stránek otázek — bez --force nepřepisuji." % (outdir, len(existing)))
         sys.exit(2)
 
-    bibpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_bib_psychologie.json")
+    here = os.path.dirname(os.path.abspath(__file__))
+    bibpath = os.path.join(here, "_bib_psychologie.json")
     if os.path.exists(bibpath):
         BIB.update({k: v for k, v in json.load(open(bibpath, encoding="utf-8")).items()
                     if not k.startswith("_")})
+    extrapath = os.path.join(here, "_doplnky_psychologie.json")
+    if os.path.exists(extrapath):
+        EXTRA.update(json.load(open(extrapath, encoding="utf-8")))
 
     blocks, numfmt = parse_document(src)
     normalize_styles(blocks)
@@ -446,9 +471,16 @@ if __name__ == "__main__":
     first_content = max(i for i, b in enumerate(blocks[:80]) if re.match(r"^\d{1,2}\.\s", ptext(b))) + 1
     bounds = find_boundaries(blocks, toc, first_content)
     unlisted = unlist_definitions(blocks)
-    promoted = promote_headings(blocks)
-    print("definic vyřazených ze seznamů: %d" % unlisted)
 
+    # Struktura se dovozuje po jednotlivých otázkách — úroveň nadpisů se
+    # rozhoduje z toho, jak nadpisy vypadají v rámci té které otázky.
+    order_tmp = sorted(bounds.items(), key=lambda kv: kv[1])
+    promoted = 0
+    for i, (_qn, st) in enumerate(order_tmp):
+        en = order_tmp[i + 1][1] if i + 1 < len(order_tmp) else len(blocks)
+        promoted += promote_headings(blocks[st + 1:en])
+
+    print("definic vyřazených ze seznamů: %d" % unlisted)
     print("obsah: %d otázek · hranice nalezeny pro %d · podnadpisů z tučného textu: %d"
           % (len(toc), len(bounds), promoted))
     missing = [n for n in toc if n not in bounds]
