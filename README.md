@@ -5,12 +5,16 @@ Bez frameworku, bez build kroku, bez serveru — jen HTML, jedno CSS a jeden JS.
 
 Obsahuje dva předměty:
 
-| Předmět | Otázek | Kartiček | Navíc |
-|---|---|---|---|
-| **Etopedie** | 20 | 191 | glosář 105 pojmů, klíčové zákony, právní audit |
-| **Psychologie** | 19 (18 vypracovaných) | 56 | přehled 43 citovaných děl, kontrola aktuálnosti |
+| Předmět | Otázek | Kartiček | Glosář | Navíc |
+|---|---|---|---|---|
+| **Etopedie** | 20 | 151 | 105 pojmů | klíčové zákony, právní audit, aktualizační dodatek |
+| **Psychologie** | 19 (18 vypracovaných) | 56 | 39 pojmů | přehled 43 citovaných děl, kontrola aktuálnosti |
 
-Hledání i kartičky fungují napříč oběma předměty.
+Hledání prochází oba předměty; kartičky a glosář se drží předmětu, na kterém jste.
+
+Glosáře mají různý původ: etopedie ho má **ze zdrojového dokumentu** (samostatná
+kapitola se 105 hesly), psychologie ho ve zdroji nemá — jeho rejstřík je
+**sestavený z definic v textu otázek** skriptem `tools/make_glosar_psy.py`.
 
 ## Spuštění
 
@@ -45,6 +49,8 @@ psychologie/
   index.html          přehled 19 otázek + ukazatel postupu
   otazka-01-….html    jednotlivé otázky
   otazka-17-….html    stub — otázka ve zdroji není vypracovaná
+  glosar.html         GENEROVANÝ rejstřík (make_glosar_psy.py)
+  karticky.html       výběr balíčků kartiček
   literatura.html     43 citovaných děl s dohledanými údaji
   aktualnost.html     co se od 2021/2022 změnilo
   img/                obrázky ze zdrojového dokumentu
@@ -61,9 +67,13 @@ Po každé úpravě obsahu přegenerujte index pro hledání a kartičky:
 
 ```bash
 python3 tools/reindex.py
+python3 tools/make_glosar_psy.py   # jen když jste měnili definice v psychologii
 ```
 
-Skript čte **hotové HTML**, ne `.docx`, takže vaše ruční úpravy zůstanou zachovány.
+Oba skripty čtou **hotové HTML**, ne `.docx`, takže vaše ruční úpravy zůstanou
+zachovány. Výjimka: `psychologie/glosar.html` je generovaný — ruční úpravy v něm
+přepíše `make_glosar_psy.py`. Chcete-li heslo vyřadit nebo přejmenovat, upravte
+definici v příslušné otázce, případně filtr `SKIP_RE` ve skriptu.
 
 ### Konvence, na kterých závisí funkce webu
 

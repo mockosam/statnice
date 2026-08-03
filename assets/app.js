@@ -403,13 +403,17 @@
     return out;
   }
 
-  /** Kartičky ze všech stránek podle indexu v data.js; pojmy se neopakují. */
+  /**
+   * Kartičky ze stránek podle indexu v data.js; pojmy se neopakují.
+   * Na stránce předmětu se berou jen jeho kartičky — na rozcestníku všechny.
+   */
   function deckFromData(filter) {
     var out = [], seen = {};
     // otázky mají přednost před glosářem — dávají pojmu kontext
     var docs = DATA.docs.slice().sort(function (a, b) { return (a.n ? 0 : 1) - (b.n ? 0 : 1); });
     docs.forEach(function (d) {
       if (!d.c || !d.c.length) return;
+      if (SUBJECT && d.s !== SUBJECT) return;
       if (filter && !filter(d)) return;
       d.c.forEach(function (pair) {
         var key = fold(pair[0]).replace(/\(.*?\)/g, '').replace(/[^a-z0-9× ]/g, '').trim();
@@ -600,6 +604,7 @@
     if (!qhost) return;
     DATA.docs.forEach(function (d) {
       if (!d.n || !d.c || !d.c.length) return;
+      if (SUBJECT && d.s !== SUBJECT) return;
       var b = el('button', 'deck deck-q');
       b.type = 'button';
       b.appendChild(el('span', 'deck-n', String(d.c.length)));
