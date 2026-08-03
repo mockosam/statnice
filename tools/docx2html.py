@@ -36,8 +36,12 @@ import zipfile
 from collections import OrderedDict
 
 WNS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-NS = {"w": WNS}
+ANS = "http://schemas.openxmlformats.org/drawingml/2006/main"
+RNS = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
+NS = {"w": WNS, "a": ANS, "r": RNS}
 W = "{%s}" % WNS
+A = "{%s}" % ANS
+R = "{%s}" % RNS
 
 # emoji na začátku boxu → CSS třída + čitelný název typu
 BOX_TYPES = OrderedDict(
@@ -136,6 +140,11 @@ def run_parts(run) -> list[dict]:
     bold, ital = on("b"), on("i")
     out, buf = [], []
     for node in run.iter():
+        if node.tag == A + "blip":                      # vložený obrázek
+            rid = node.get(R + "embed")
+            if rid:
+                out.append({"img": rid})
+            continue
         tag = node.tag[len(W):] if node.tag.startswith(W) else node.tag
         if tag == "t":
             buf.append(node.text or "")
@@ -278,6 +287,10 @@ def inline(b: dict, ctx: Ctx, glossary_term: bool = False) -> str:
         if part.get("br"):
             out.append("<br>\n")
             continue
+        if part.get("img"):
+            # obrázky vkládá volající přes ctx.images (rId → hotový HTML)
+            out.append(getattr(ctx, "images", {}).get(part["img"], ""))
+            continue
         t = part.get("t", "")
         if not t:
             continue
@@ -359,9 +372,14 @@ def render_list(items: list[dict], ind: str, ctx: Ctx, key_terms: bool = False) 
     fmt = ctx.numfmt.get(num, {})
     out = []
 
+    # formát číslování z Wordu → značka seznamu
+    OL = {"decimal": "", "lowerLetter": ' type="a"', "upperLetter": ' type="A"',
+          "lowerRoman": ' type="i"', "upperRoman": ' type="I"'}
+
     def emit(idx: int, level: int, pad: str) -> int:
-        tag = "ol" if fmt.get(level) == "decimal" else "ul"
-        out.append("%s<%s>" % (pad, tag))
+        f = fmt.get(level, "bullet")
+        tag, attr = ("ol", OL[f]) if f in OL else ("ul", "")
+        out.append("%s<%s%s>" % (pad, tag, attr))
         while idx < len(items):
             it = items[idx]
             if it["lvl"] < level:
@@ -457,8 +475,14 @@ def render_flow(blocks: list[dict], ind: str, ctx: Ctx, key_terms: bool = False)
             i += 1
             continue
         txt = inline(b, ctx)
-        if txt and para_text(b):     # odstavce obsahující jen <br> zahodíme
-            out.append("%s<p>%s</p>" % (ind, txt))
+        # zahodíme jen odstavce, které nenesou nic než zlomy řádku
+        if txt and re.sub(r"(<br>|\s)+", "", txt):
+            if txt.lstrip().startswith("<figure"):
+                out.append("%s%s" % (ind, txt.strip()))       # obrázek nepatří do <p>
+            else:
+                # odstavec uvozený „=“ je v poznámkách definice předchozího nadpisu
+                cls = ' class="defn"' if para_text(b).startswith("=") else ""
+                out.append("%s<p%s>%s</p>" % (ind, cls, txt))
         i += 1
     return out
 

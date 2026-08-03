@@ -3,8 +3,14 @@
 Statický web se studijními materiály ke státní závěrečné zkoušce ze speciální pedagogiky.
 Bez frameworku, bez build kroku, bez serveru — jen HTML, jedno CSS a jeden JS.
 
-Momentálně obsahuje **etopedii**: 20 vypracovaných otázek, glosář 105 pojmů,
-191 kartiček, přehled klíčových zákonů a kontrolu právní aktuálnosti.
+Obsahuje dva předměty:
+
+| Předmět | Otázek | Kartiček | Navíc |
+|---|---|---|---|
+| **Etopedie** | 20 | 191 | glosář 105 pojmů, klíčové zákony, právní audit |
+| **Psychologie** | 19 (18 vypracovaných) | 56 | přehled 43 citovaných děl, kontrola aktuálnosti |
+
+Hledání i kartičky fungují napříč oběma předměty.
 
 ## Spuštění
 
@@ -35,6 +41,13 @@ etopedie/
   aktualizace-2026.html    aktualizační dodatek ze zdroje (MKN-11, novely)
   karticky.html       výběr balíčků kartiček
   jak-pracovat.html   úvod ze zdrojového dokumentu
+psychologie/
+  index.html          přehled 19 otázek + ukazatel postupu
+  otazka-01-….html    jednotlivé otázky
+  otazka-17-….html    stub — otázka ve zdroji není vypracovaná
+  literatura.html     43 citovaných děl s dohledanými údaji
+  aktualnost.html     co se od 2021/2022 změnilo
+  img/                obrázky ze zdrojového dokumentu
 source/               archivovaný originál .docx
 tools/                pomocné skripty (viz níže)
 ```
@@ -60,7 +73,9 @@ Skript čte **hotové HTML**, ne `.docx`, takže vaše ruční úpravy zůstanou
 | `<h2 id="…">`, `<h3 id="…">` | z nadpisů s `id` se skládá obsah stránky v levém sloupci |
 | `<section class="sec sec-key">` | sekce „🔑 Klíčové pojmy“ — z jejích `<li>` se dělají kartičky |
 | `<li>Pojem — definice</li>` | oddělovač je pomlčka „—“ (em dash); před ní pojem, za ní definice |
-| `<aside class="box sum\|key\|law\|tip\|warn\|link">` | barevné boxy 📌 🔑 ⚖️ 💡 ⚠️ 🔗 |
+| `<aside class="box sum\|key\|law\|tip\|warn\|link\|src">` | barevné boxy 📌 🔑 ⚖️ 💡 ⚠️ 🔗 📚 |
+| `<p class="defn">= …</p>` | definice uvozená „=“ (zápis z psychologických poznámek) |
+| `<figure class="fig">` | obrázek s popiskem |
 | `<details class="upd">` | poznámka „Aktualizace 2026“; do kartiček ani nadpisů se nepočítá |
 | `<span class="fix">` | oranžové zvýraznění opraveného údaje |
 | `<td data-label="…">` | název sloupce, který se na mobilu zobrazí u hodnoty |
@@ -78,22 +93,35 @@ Skript čte **hotové HTML**, ne `.docx`, takže vaše ruční úpravy zůstanou
 
 ### Import z Wordu
 
-Máte-li předmět jako `.docx` se stejnou strukturou (Heading 1/2/3, tabulky 1×1
-jako barevné boxy s emoji na začátku), lze ho převést:
+Konvertory jsou dva, protože oba zdrojové dokumenty měly úplně jinou strukturu:
+
+| Skript | Pro dokument, který… |
+|---|---|
+| `tools/docx2html.py` | používá styly Heading 1/2/3 a tabulky 1×1 jako barevné boxy s emoji (etopedie) |
+| `tools/docx2html_psy.py` | nadpisové styly nepoužívá, podnadpisy jsou tučné odstavce, hranice otázek se poznají z obsahu (psychologie) |
 
 ```bash
 python3 tools/docx2html.py source/nazev.docx psychopedie
+python3 tools/docx2html_psy.py 'SZO NAZEV.docx' psychopedie
 ```
 
-> Skript **odmítne přepsat** existující stránky. Pokud to opravdu chcete
+> Oba skripty **odmítnou přepsat** existující stránky. Pokud to opravdu chcete
 > (a smíříte se se ztrátou ručních úprav), přidejte `--force`.
+
+Nový dokument bude nejspíš strukturovaný ještě jinak — než začnete, vyplatí se
+zjistit, co v něm vlastně je: kolik nadpisových stylů se používá, jak jsou
+oddělené otázky a čím jsou vyznačené podnadpisy.
 
 ## Kontroly
 
 ```bash
 python3 tools/check_links.py      # vnitřní odkazy a kotvy vedou někam
-python3 tools/check_fidelity.py   # ze .docx se neztratil žádný text
 python3 tools/reindex.py          # přegenerování assets/data.js
+
+# ze .docx se neztratil žádný text — pro každý předmět zvlášť
+python3 tools/check_fidelity.py
+python3 tools/check_fidelity.py --map tools/_meta_psychologie.json \
+        'SZO PSYCHOLOGIE.docx' psychologie
 ```
 
 > **Pozor:** zdrojový `.docx` není součástí repozitáře (viz `.gitignore`).
@@ -128,14 +156,23 @@ prohlížeče — jsou tedy vázané na zařízení, nikam se neposílají.
 Soubor `.nojekyll` v korenu už je připravený — brání tomu, aby GitHub obsah
 zpracovával Jekyllem. Všechny odkazy jsou relativní, takže funguje i v podadresáři.
 
-## Právní stav
+## Aktuálnost obsahu
 
-Obsah otázek vychází ze zdrojového dokumentu; jeho vlastní aktualizační dodatek
-je zpracován ke **dubnu 2026**. Nad ním byla provedena kontrola proti platnému
-českému právu k **srpnu 2026** — nalezené chyby a mezery jsou opravené přímo
-v textu a zdokumentované na stránce `etopedie/pravni-aktualnost.html`.
+Oba materiály byly zkontrolovány proti stavu k **srpnu 2026**. Opravy a doplnění
+jsou vyznačené přímo v textu (oranžově `<span class="fix">`, s rozbalovací
+poznámkou „Aktualizace 2026“) a zdokumentované na samostatných stránkách.
 
-Legislativa se mění rychle a několik novel má odloženou účinnost na 1. 1. 2027
-a 1. 1. 2028. Před zkouškou se vyplatí rychlá kontrola na
-[e-sbirka.gov.cz](https://e-sbirka.gov.cz), [msmt.gov.cz](https://msmt.gov.cz)
-a [zakonyprolidi.cz](https://www.zakonyprolidi.cz).
+**Etopedie** — `etopedie/pravni-aktualnost.html`. Zdroj měl vlastní dodatek
+k dubnu 2026, ale i tak se našly dvě chybná čísla předpisů (Úmluva o právech
+dítěte, poradenské služby) a chybějící deinstitucionalizační novely 363/2021
+a 242/2024 Sb. Celkem 11 zjištění.
+
+**Psychologie** — `psychologie/aktualnost.html`. Dokument je z roku 2021/2022
+a žádná datovatelná tvrzení neobsahuje (necituje MKN, DSM, RVP ani žádný
+předpis), takže nebylo co opravovat. Doplněny jsou čtyři oblasti, kde se od té
+doby stav změnil: MKN-11, DSM-5-TR, revize RVP ZV a novely vyhlášek.
+
+Legislativa se mění rychle a několik změn má odloženou účinnost na 2027 a 2028.
+Před zkouškou se vyplatí rychlá kontrola na
+[e-sbirka.gov.cz](https://e-sbirka.gov.cz), [msmt.gov.cz](https://msmt.gov.cz),
+[edu.gov.cz](https://edu.gov.cz) a [zakonyprolidi.cz](https://www.zakonyprolidi.cz).

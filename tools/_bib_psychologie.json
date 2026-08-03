@@ -1,0 +1,144 @@
+{
+ "_comment": [
+  "Bibliografické údaje k citacím ze dokumentu SZO PSYCHOLOGIE.docx.",
+  "Zdrojový dokument uváděl jen zkrácené citace (Autor, rok) — plné údaje byly dohledány.",
+  "Klíč odpovídá zkrácené citaci tak, jak ji vytáhne tools/docx2html_psy.py.",
+  "Záznamy bez pole 'title' se nepodařilo spolehlivě ověřit; radši zůstávají prázdné,",
+  "než aby se do studijního materiálu dostal vymyšlený údaj."
+ ],
+
+ "Čáp, 1997": {
+  "title": "Psychologie výchovy a vyučování",
+  "imprint": "Praha: Karolinum, 1997",
+  "isbn": "80-7066-534-3"
+ },
+ "Čáp a Mareš, 2007": {
+  "title": "Psychologie pro učitele",
+  "imprint": "2. vyd. Praha: Portál, 2007",
+  "isbn": "978-80-7367-273-7"
+ },
+ "Mareš, 2007": {
+  "title": "Psychologie pro učitele",
+  "imprint": "2. vyd. Praha: Portál, 2007",
+  "isbn": "978-80-7367-273-7",
+  "note": "Zdroj cituje jednou jako „Mareš, 2007“ a jinde jako „Čáp a Mareš, 2007“ — jde o téže publikaci."
+ },
+ "Mareš, 2013": {
+  "title": "Pedagogická psychologie",
+  "imprint": "Praha: Portál, 2013",
+  "isbn": "978-80-262-0174-8"
+ },
+ "Čapek, 2010": {
+  "title": "Třídní klima a školní klima",
+  "imprint": "Praha: Grada, 2010",
+  "isbn": "978-80-247-2742-4"
+ },
+ "Vágnerová, 2002": {
+  "title": "Psychopatologie pro pomáhající profese",
+  "imprint": "Praha: Portál, 2002",
+  "isbn": "80-7178-678-0"
+ },
+ "Vágnerová, 2005": {
+  "title": "Školní poradenská psychologie pro pedagogy",
+  "imprint": "Praha: Karolinum, 2005",
+  "isbn": "80-246-1074-4"
+ },
+ "Vágnerová, 2016": {
+  "title": "Obecná psychologie: dílčí aspekty lidské psychiky a jejich orgánový základ",
+  "imprint": "Praha: Karolinum, 2016",
+  "isbn": "978-80-246-3268-1"
+ },
+ "Nolen-Hoeksema, 2012": {
+  "title": "Psychologie Atkinsonové a Hilgarda",
+  "imprint": "3., přeprac. vyd. Praha: Portál, 2012",
+  "isbn": "978-80-262-0083-3"
+ },
+ "Atkinson, 2012": {
+  "title": "Psychologie Atkinsonové a Hilgarda",
+  "imprint": "3., přeprac. vyd. Praha: Portál, 2012",
+  "isbn": "978-80-262-0083-3",
+  "note": "Zdroj cituje střídavě jako „Atkinson, 2012“ a „Nolen-Hoeksema, 2012“ — jde o téže učebnici; Atkinsonová a Hilgard jsou původní autoři, Nolen-Hoeksema vedla přepracované vydání."
+ },
+ "Helus, 2018": {
+  "title": "Úvod do psychologie",
+  "imprint": "2., přeprac. a dopl. vyd. Praha: Grada, 2018",
+  "isbn": "978-80-247-4675-3"
+ },
+ "Holeček, 2014": {
+  "title": "Psychologie v učitelské praxi",
+  "imprint": "Praha: Grada, 2014",
+  "isbn": "978-80-247-3704-1"
+ },
+ "Kassin, 2012": {
+  "title": "Psychologie",
+  "imprint": "Brno: CPress, 2012",
+  "isbn": "978-80-264-0074-5"
+ },
+ "Kolář a Šikulová, 2009": {
+  "title": "Hodnocení žáků",
+  "imprint": "2., dopl. vyd. Praha: Grada, 2009",
+  "isbn": "978-80-247-2834-6"
+ },
+ "Kosíková, 2011": {
+  "title": "Psychologie ve vzdělávání a její psychodidaktické aspekty",
+  "imprint": "Praha: Grada, 2011",
+  "isbn": "978-80-247-2433-1"
+ },
+ "Plháková, 2004": {
+  "title": "Učebnice obecné psychologie",
+  "imprint": "Praha: Academia, 2004",
+  "isbn": "80-200-1086-6"
+ },
+ "Fontana, 1997": {
+  "title": "Psychologie ve školní praxi: příručka pro učitele",
+  "imprint": "Praha: Portál, 1997",
+  "isbn": "80-7178-063-4"
+ },
+ "Grecmanová, 2008": {
+  "title": "Klima školy",
+  "imprint": "Olomouc: Hanex, 2008",
+  "isbn": "978-80-7409-010-3"
+ },
+ "Průcha, 2013": {
+  "title": "Moderní pedagogika",
+  "imprint": "Praha: Portál, 2013",
+  "isbn": "978-80-262-0456-5"
+ },
+ "Průcha, Walterová, Mareš, 2009": {
+  "title": "Pedagogický slovník",
+  "imprint": "6., rozš. a aktualiz. vyd. Praha: Portál, 2009",
+  "isbn": "978-80-7367-647-6"
+ },
+ "Colby, Abrahami a Kolhberg, 1987": {
+  "title": "The Measurement of Moral Judgment, Vol. 1: Theoretical Foundations and Research Validation",
+  "imprint": "Cambridge: Cambridge University Press, 1987",
+  "isbn": "978-0-521-24447-3",
+  "note": "Ve zdroji je jméno napsáno „Kolhberg“ — správně Lawrence Kohlberg."
+ },
+
+ "Vacek, 2010": {
+  "note": "Rok 2010 neodpovídá ani jedné Vacekově publikaci na toto téma. V úvahu přicházejí: „Rozvoj morálního vědomí žáků“ (Praha: Portál, 2008, ISBN 978-80-7367-386-4) a „Psychologie morálky a výchova charakteru žáků“ (Hradec Králové: Gaudeamus, 2011, ISBN 978-80-7435-108-2). Ověřte podle svých materiálů."
+ },
+
+ "Fayadová, 2012": {},
+ "Grecmanová, 2015": {},
+ "Holeček, Miňhová, Prunner, 2007": {},
+ "Kohoutek, 1996": {},
+ "Kosíková, 2006": {},
+ "Kozáková, 2014": {},
+ "Kučera, 2013": {},
+ "Nakonečný, 2015": {},
+ "Plháková, 2005": {},
+ "Praško a Látalová, 2013": {},
+ "Prokopová, 2000": {},
+ "Raboch a kol., 2012": {},
+ "Smolík, 2016": {},
+ "Spilková in Grecmanová, 2015": {},
+ "Urbanovská, Škobrtal, 2012": {},
+ "Vacek, 2017": {},
+ "Valenta kol., 2012": {},
+ "Vašašová, 2004": {},
+ "Walterová, 2001": {},
+ "Ďurič, 1991": {},
+ "Čáp, 2001": {}
+}

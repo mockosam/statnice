@@ -134,7 +134,9 @@ class Page(HTMLParser):
         elif tag == "dt":
             self._pending_dt = txt
         elif tag == "dd" and self._pending_dt:
-            self.terms.append((self._pending_dt, txt))
+            # <dl> používá i přehled literatury — z bibliografie kartičky nechceme
+            if self.body.get("data-kind") == "glosar":
+                self.terms.append((self._pending_dt, txt))
             self._pending_dt = None
 
     def handle_data(self, data):

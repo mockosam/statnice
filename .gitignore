@@ -8,5 +8,8 @@ __pycache__/
 *.docx
 source/
 
-# mezivýsledek konvertoru, negeneruje se z HTML
+# Mezivýsledek konvertoru etopedie — nic ho nepotřebuje, kapitoly se u etopedie
+# poznají ze stylů Heading1. (Naopak tools/_meta_psychologie.json ponechán
+# ve verzování: obsahuje mapu „stránka → rozsah bloků“, kterou používá
+# check_fidelity.py --map, protože psychologický dokument nadpisové styly nemá.)
 tools/_meta.json

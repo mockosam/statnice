@@ -44,6 +44,7 @@
   --c-warn: #f87171;
   --c-link: #94a3b8;
   --c-upd: #fb923c;
+  --c-src: #2dd4bf;
   --c-note: #94a3b8;
 
   --tint: 9%;          /* jak silně box probarvuje pozadí */
@@ -76,6 +77,7 @@
   --c-warn: #b91c1c;
   --c-link: #475569;
   --c-upd: #c2410c;
+  --c-src: #0f766e;
   --c-note: #475569;
 
   --tint: 6%;
@@ -106,6 +108,7 @@ body {
 
 /* akcent podle předmětu — u dalších předmětů sem přidejte další řádek */
 body[data-subject='etopedie'] { --subject: var(--c-sum); }
+body[data-subject='psychologie'] { --subject: var(--c-law); }
 
 a { color: var(--subject); text-decoration-color: color-mix(in srgb, var(--subject) 45%, transparent); text-underline-offset: 2px; }
 a:hover { text-decoration-color: currentColor; }
@@ -316,6 +319,8 @@ code, kbd {
 .sec-tip h2 { border-bottom-color: color-mix(in srgb, var(--c-tip) 34%, transparent); }
 .sec-warn h2 { border-bottom-color: color-mix(in srgb, var(--c-warn) 34%, transparent); }
 .sec-upd h2 { border-bottom-color: color-mix(in srgb, var(--c-upd) 34%, transparent); }
+.sec-link h2 { border-bottom-color: color-mix(in srgb, var(--c-link) 34%, transparent); }
+.sec-src h2 { border-bottom-color: color-mix(in srgb, var(--c-src) 34%, transparent); }
 
 .content p { margin: 0 0 14px; }
 .content ul, .content ol { margin: 0 0 16px; padding-left: 1.35em; }
@@ -336,6 +341,14 @@ code, kbd {
   position: absolute; left: -1.85em; top: 0;
   font: 600 12.5px/1.85 var(--mono);
   color: var(--subject);
+}
+
+/* definice uvozená „=“ (převzato ze zápisu ve zdrojových poznámkách) */
+.content p.defn {
+  border-left: 2px solid color-mix(in srgb, var(--subject) 45%, transparent);
+  padding: 2px 0 2px 13px;
+  margin: 4px 0 14px;
+  color: var(--text);
 }
 
 /* pojem odkazující do glosáře */
@@ -361,6 +374,25 @@ code, kbd {
 .box.tip  { --c: var(--c-tip); }
 .box.warn { --c: var(--c-warn); }
 .box.link { --c: var(--c-link); }
+.box.src  { --c: var(--c-src); }
+.box.src .src-note { font-size: 13.4px; color: var(--text-mute); margin-top: 4px; }
+.box.src li { line-height: 1.55; }
+.box.src li em { color: var(--head); font-style: italic; }
+
+/* čísla stran a doplňující poznámky u citací */
+.src-pages {
+  font: 500 12.2px/1.6 var(--mono);
+  letter-spacing: .01em;
+  color: var(--text-mute);
+}
+
+/* počet položek vpravo v nadpisu sekce */
+.h-count {
+  margin-left: auto;
+  font: 600 11px/1 var(--mono);
+  letter-spacing: .06em;
+  color: var(--text-mute);
+}
 
 .box h4 {
   display: flex; align-items: baseline; gap: 9px;
@@ -436,6 +468,33 @@ details.upd .was {
   border-bottom: 1px solid color-mix(in srgb, var(--c-upd) 55%, transparent);
   border-radius: 3px;
   padding: 0 2px;
+}
+
+/* ---------------------------------------------------- 7b. Obrázky */
+
+.fig {
+  margin: 22px 0;
+  padding: 16px;
+  background: var(--bg-el);
+  border: 1px solid var(--border);
+  border-radius: var(--rad);
+}
+.fig img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 6px;
+  /* diagramy jsou na bílém pozadí — v tmavém režimu je zjemníme */
+  background: #fff;
+}
+:root[data-theme='dark'] .fig img { filter: brightness(.92) contrast(1.02); }
+.fig figcaption {
+  margin-top: 12px;
+  font-size: 13.4px;
+  line-height: 1.55;
+  color: var(--text-mute);
+  text-align: center;
 }
 
 /* ---------------------------------------------------- 8. Tabulky */

@@ -1,0 +1,421 @@
+{
+ "toc": {
+  "1": "Učení a jeho pojetí v pedagogické psychologii - definice učení, obecné zákony učení a typy učení (pojetí Kuliče, tradiční pojetí učení, senzomotorické učení, učení poznatkům, učení metodám řešení problémů).",
+  "2": "Vztah učení a biologických, sociokulturních vlivů (situované, distribuované učení), smysluplné učení (meaningful learning) - charakteristiky a složky.",
+  "3": "Teorie učení z pohledu současného vzdělávání (behaviorální - Skinner, Thorndike; kognitivně psychologické - Bruner, Piaget, Bandura; humanisticky orientované koncepce – Rogers).",
+  "4": "Sociální učení (Bandura), mechanismy socializace (sociální činnosti, imitace, identifikace, sugesce, sociální zpevňování).",
+  "5": "Kognitivní procesy - vnímání, myšlení, paměť, pozornost - a jejich poruchy.",
+  "6": "Výkonové vlastnosti - vlohy, schopnosti, dovednosti, inteligence.",
+  "7": "Vztahově postojové vlastnosti - postoje a charakter - možnosti jejich ovlivňování.",
+  "8": "Psychologické aspekty hodnocení učebního výkonu žáka - funkce hodnocení, objektivita a subjektivita hodnocení, zásady pedagogicko-psychologického hodnocení (Helus).",
+  "9": "Sociální percepce, chyby při vnímání a hodnocení žáků (chyby v sociální percepci).",
+  "10": "Motivace k učebnímu výkonu - Hrabal ml., Pavelková - základní typy potřeb, ovlivňování učební motivace, kauzální atribuce.",
+  "11": "Speciální pedagog - rizikové osobnostní rysy, postoje k žákům, styly řízení.",
+  "12": "Žák jako činitel pedagogického procesu - heterogenita žákovské populace: nadaní žáci (identifikace, rozvoj - obohacování, akcelerace - Hříbková).",
+  "13": "Selhávající a neprospívající žáci (učitelské typizace - Kučera, výzkumy pražské skupiny školní etnografie, žákovská pojetí školního neúspěchu, škatulkování, práce s chybou - z věkového hlediska, procesuální práce s chybou), příčiny školního neúspěchu.",
+  "14": "Problematika sociálního zpevňování.",
+  "15": "Klima školy (ředitel - učitelé - diagnostika týmu (klima školy, OCDQ-RS, HSU)), rodiče – měření spokojenosti, měření klimatu - SWOT analýza, Dotazník školního prostředí apod.).",
+  "16": "Třídní klima (psychosociální klima třídy) - spolutvůrci klimatu, typy klimatu, vztahy mezi žáky, pedagogy - možnosti mapování vztahů, vývoj školní třídy.",
+  "17": "Řízení sociálních skupin, struktura sociální skupiny a práce s ní (cíle, hodnoty, normy, sociální role, sociální pozice).",
+  "18": "Interakce ve výchově - Piagetův a Kohlbergův model morálního vývoje.",
+  "19": "Komunikace z psychologického hlediska (Berne), bariéry v komunikaci."
+ },
+ "bounds": {
+  "1": 43,
+  "2": 198,
+  "3": 285,
+  "4": 411,
+  "5": 502,
+  "6": 816,
+  "7": 961,
+  "8": 1096,
+  "9": 1276,
+  "10": 1377,
+  "11": 1546,
+  "12": 1641,
+  "13": 1703,
+  "14": 1800,
+  "15": 1896,
+  "16": 2048,
+  "18": 2230,
+  "19": 2332
+ },
+ "missing": [
+  17
+ ],
+ "map": {
+  "otazka-01-uceni-pojeti.html": [
+   43,
+   198
+  ],
+  "otazka-02-uceni-vlivy-smysluplne.html": [
+   198,
+   285
+  ],
+  "otazka-03-teorie-uceni.html": [
+   285,
+   411
+  ],
+  "otazka-04-socialni-uceni-socializace.html": [
+   411,
+   502
+  ],
+  "otazka-05-kognitivni-procesy.html": [
+   502,
+   816
+  ],
+  "otazka-06-vykonove-vlastnosti-inteligence.html": [
+   816,
+   961
+  ],
+  "otazka-07-postoje-charakter.html": [
+   961,
+   1096
+  ],
+  "otazka-08-hodnoceni-vykonu-zaka.html": [
+   1096,
+   1276
+  ],
+  "otazka-09-socialni-percepce-chyby.html": [
+   1276,
+   1377
+  ],
+  "otazka-10-motivace-k-uceni.html": [
+   1377,
+   1546
+  ],
+  "otazka-11-specialni-pedagog.html": [
+   1546,
+   1641
+  ],
+  "otazka-12-zak-nadani-heterogenita.html": [
+   1641,
+   1703
+  ],
+  "otazka-13-selhavajici-zaci.html": [
+   1703,
+   1800
+  ],
+  "otazka-14-socialni-zpevnovani.html": [
+   1800,
+   1896
+  ],
+  "otazka-15-klima-skoly.html": [
+   1896,
+   2048
+  ],
+  "otazka-16-tridni-klima.html": [
+   2048,
+   2230
+  ],
+  "otazka-18-interakce-moralni-vyvoj.html": [
+   2230,
+   2332
+  ],
+  "otazka-19-komunikace-bariery.html": [
+   2332,
+   2429
+  ]
+ },
+ "front": [
+  "Otázky k SZZ",
+  "PSYCHOLOGIE",
+  "2021/2022",
+  "PSYCHOLOGIE",
+  "1. Učení a jeho pojetí v pedagogické psychologii - definice učení, obecné zákony učení a typy učení (pojetí Kuliče, tradiční pojetí učení, senzomotorické učení, učení poznatkům, učení metodám řešení problémů).",
+  "2. Vztah učení a biologických, sociokulturních vlivů (situované, distribuované učení), smysluplné učení (meaningful learning) - charakteristiky a složky.",
+  "3. Teorie učení z pohledu současného vzdělávání (behaviorální - Skinner, Thorndike; kognitivně psychologické - Bruner, Piaget, Bandura; humanisticky orientované koncepce – Rogers).",
+  "4. Sociální učení (Bandura), mechanismy socializace (sociální činnosti, imitace, identifikace, sugesce, sociální zpevňování).",
+  "5. Kognitivní procesy - vnímání, myšlení, paměť, pozornost - a jejich poruchy.",
+  "6. Výkonové vlastnosti - vlohy, schopnosti, dovednosti, inteligence.",
+  "7. Vztahově postojové vlastnosti - postoje a charakter - možnosti jejich ovlivňování.",
+  "8. Psychologické aspekty hodnocení učebního výkonu žáka - funkce hodnocení, objektivita a subjektivita hodnocení, zásady pedagogicko-psychologického hodnocení (Helus).",
+  "9. Sociální percepce, chyby při vnímání a hodnocení žáků (chyby v sociální percepci).",
+  "10. Motivace k učebnímu výkonu - Hrabal ml., Pavelková - základní typy potřeb, ovlivňování učební motivace, kauzální atribuce.",
+  "11. Speciální pedagog - rizikové osobnostní rysy, postoje k žákům, styly řízení.",
+  "12. Žák jako činitel pedagogického procesu - heterogenita žákovské populace: nadaní žáci (identifikace, rozvoj - obohacování, akcelerace - Hříbková).",
+  "13. Selhávající a neprospívající žáci (učitelské typizace - Kučera, výzkumy pražské skupiny školní etnografie, žákovská pojetí školního neúspěchu, škatulkování, práce s chybou - z věkového hlediska, procesuální práce s chybou), příčiny školního neúspěchu.",
+  "14. Problematika sociálního zpevňování.",
+  "15. Klima školy (ředitel - učitelé - diagnostika týmu (klima školy, OCDQ-RS, HSU)), rodiče – měření spokojenosti, měření klimatu - SWOT analýza, Dotazník školního prostředí apod.).",
+  "16. Třídní klima (psychosociální klima třídy) - spolutvůrci klimatu, typy klimatu, vztahy mezi žáky, pedagogy - možnosti mapování vztahů, vývoj školní třídy.",
+  "17. Řízení sociálních skupin, struktura sociální skupiny a práce s ní (cíle, hodnoty, normy, sociální role, sociální pozice).",
+  "18. Interakce ve výchově - Piagetův a Kohlbergův model morálního vývoje.",
+  "19. Komunikace z psychologického hlediska (Berne), bariéry v komunikaci."
+ ],
+ "questions": [
+  {
+   "n": 1,
+   "short": "Učení a jeho pojetí v pedagogické psychologii",
+   "full": "Učení a jeho pojetí v pedagogické psychologii - definice učení, obecné zákony učení a typy učení (pojetí Kuliče, tradiční pojetí učení, senzomotorické učení, učení poznatkům, učení metodám řešení problémů).",
+   "href": "otazka-01-uceni-pojeti.html",
+   "sources": {
+    "Čáp a Mareš, 2007": [],
+    "Čáp, 1997": [
+     "62",
+     "71-73"
+    ],
+    "Čáp, 2001": [],
+    "Ďurič, 1991": [],
+    "Kohoutek, 1996": [
+     "12"
+    ]
+   },
+   "cards": 2
+  },
+  {
+   "n": 2,
+   "short": "Vztah učení a biologických, sociokulturních vlivů",
+   "full": "Vztah učení a biologických, sociokulturních vlivů (situované, distribuované učení), smysluplné učení (meaningful learning) - charakteristiky a složky.",
+   "href": "otazka-02-uceni-vlivy-smysluplne.html",
+   "sources": {},
+   "cards": 0
+  },
+  {
+   "n": 3,
+   "short": "Teorie učení z pohledu současného vzdělávání",
+   "full": "Teorie učení z pohledu současného vzdělávání (behaviorální - Skinner, Thorndike; kognitivně psychologické - Bruner, Piaget, Bandura; humanisticky orientované koncepce – Rogers).",
+   "href": "otazka-03-teorie-uceni.html",
+   "sources": {
+    "Atkinson, 2012": [],
+    "Mareš, 2007": [
+     "404"
+    ]
+   },
+   "cards": 3
+  },
+  {
+   "n": 4,
+   "short": "Sociální učení",
+   "full": "Sociální učení (Bandura), mechanismy socializace (sociální činnosti, imitace, identifikace, sugesce, sociální zpevňování).",
+   "href": "otazka-04-socialni-uceni-socializace.html",
+   "sources": {
+    "Čáp a Mareš, 2007": [
+     "192"
+    ],
+    "Holeček, Miňhová, Prunner, 2007": [
+     "197"
+    ],
+    "Mareš, 2013": [
+     "41"
+    ],
+    "Vágnerová, 2005": [
+     "53",
+     "53-54"
+    ]
+   },
+   "cards": 1
+  },
+  {
+   "n": 5,
+   "short": "Kognitivní procesy",
+   "full": "Kognitivní procesy - vnímání, myšlení, paměť, pozornost - a jejich poruchy.",
+   "href": "otazka-05-kognitivni-procesy.html",
+   "sources": {
+    "Kassin, 2012": [],
+    "Kozáková, 2014": [],
+    "Nakonečný, 2015": [],
+    "Nolen-Hoeksema, 2012": [],
+    "Plháková, 2004": [],
+    "Praško a Látalová, 2013": [],
+    "Raboch a kol., 2012": [],
+    "Vágnerová, 2016": [],
+    "Valenta a kol., 2012": []
+   },
+   "cards": 3
+  },
+  {
+   "n": 6,
+   "short": "Výkonové vlastnosti",
+   "full": "Výkonové vlastnosti - vlohy, schopnosti, dovednosti, inteligence.",
+   "href": "otazka-06-vykonove-vlastnosti-inteligence.html",
+   "sources": {
+    "Čáp a Mareš, 2007": [
+     "152",
+     "153"
+    ],
+    "Čáp, 1997": [
+     "87",
+     "88"
+    ],
+    "Helus, 2018": [
+     "164"
+    ],
+    "Kučera, 2013": [
+     "101"
+    ],
+    "Vágnerová, 2002": [
+     "30",
+     "31-33",
+     "34-35"
+    ]
+   },
+   "cards": 3
+  },
+  {
+   "n": 7,
+   "short": "Vztahově postojové vlastnosti",
+   "full": "Vztahově postojové vlastnosti - postoje a charakter - možnosti jejich ovlivňování.",
+   "href": "otazka-07-postoje-charakter.html",
+   "sources": {
+    "Helus, 2018": []
+   },
+   "cards": 6
+  },
+  {
+   "n": 8,
+   "short": "Psychologické aspekty hodnocení učebního výkonu žáka",
+   "full": "Psychologické aspekty hodnocení učebního výkonu žáka - funkce hodnocení, objektivita a subjektivita hodnocení, zásady pedagogicko-psychologického hodnocení (Helus).",
+   "href": "otazka-08-hodnoceni-vykonu-zaka.html",
+   "sources": {
+    "Čáp, 1997": [
+     "249-252",
+     "252"
+    ],
+    "Kolář a Šikulová, 2009": [
+     "96-99"
+    ],
+    "Kosíková, 2006": [],
+    "Kosíková, 2011": [
+     "113"
+    ],
+    "Mareš, 2013": [
+     "85"
+    ],
+    "Urbanovská, Škobrtal, 2012": [],
+    "Vacek, 2017": [],
+    "Vašašová, 2004": []
+   },
+   "cards": 1
+  },
+  {
+   "n": 9,
+   "short": "Sociální percepce, chyby při vnímání a hodnocení žáků",
+   "full": "Sociální percepce, chyby při vnímání a hodnocení žáků (chyby v sociální percepci).",
+   "href": "otazka-09-socialni-percepce-chyby.html",
+   "sources": {},
+   "cards": 11
+  },
+  {
+   "n": 10,
+   "short": "Motivace k učebnímu výkonu",
+   "full": "Motivace k učebnímu výkonu - Hrabal ml., Pavelková - základní typy potřeb, ovlivňování učební motivace, kauzální atribuce.",
+   "href": "otazka-10-motivace-k-uceni.html",
+   "sources": {
+    "Čáp, 1997": [],
+    "Fontana, 1997": [
+     "214-215"
+    ],
+    "Nakonečný, 2015": [
+     "419,443"
+    ],
+    "Plháková, 2005": [
+     "319"
+    ],
+    "Vágnerová, 2005": []
+   },
+   "cards": 5
+  },
+  {
+   "n": 11,
+   "short": "Speciální pedagog",
+   "full": "Speciální pedagog - rizikové osobnostní rysy, postoje k žákům, styly řízení.",
+   "href": "otazka-11-specialni-pedagog.html",
+   "sources": {},
+   "cards": 2
+  },
+  {
+   "n": 12,
+   "short": "Žák jako činitel pedagogického procesu",
+   "full": "Žák jako činitel pedagogického procesu - heterogenita žákovské populace: nadaní žáci (identifikace, rozvoj - obohacování, akcelerace - Hříbková).",
+   "href": "otazka-12-zak-nadani-heterogenita.html",
+   "sources": {},
+   "cards": 1
+  },
+  {
+   "n": 13,
+   "short": "Selhávající a neprospívající žáci",
+   "full": "Selhávající a neprospívající žáci (učitelské typizace - Kučera, výzkumy pražské skupiny školní etnografie, žákovská pojetí školního neúspěchu, škatulkování, práce s chybou - z věkového hlediska, procesuální práce s chybou), příčiny školního neúspěchu.",
+   "href": "otazka-13-selhavajici-zaci.html",
+   "sources": {},
+   "cards": 0
+  },
+  {
+   "n": 14,
+   "short": "Problematika sociálního zpevňování",
+   "full": "Problematika sociálního zpevňování.",
+   "href": "otazka-14-socialni-zpevnovani.html",
+   "sources": {},
+   "cards": 8
+  },
+  {
+   "n": 15,
+   "short": "Klima školy",
+   "full": "Klima školy (ředitel - učitelé - diagnostika týmu (klima školy, OCDQ-RS, HSU)), rodiče – měření spokojenosti, měření klimatu - SWOT analýza, Dotazník školního prostředí apod.).",
+   "href": "otazka-15-klima-skoly.html",
+   "sources": {
+    "Čapek, 2010": [
+     "134"
+    ],
+    "Grecmanová, 2008": [],
+    "Grecmanová, 2015": [
+     "10",
+     "11"
+    ],
+    "Průcha, Walterová, Mareš, 2009": [
+     "124-125"
+    ],
+    "Spilková in Grecmanová, 2015": [
+     "12"
+    ],
+    "Walterová, 2001": [
+     "89"
+    ]
+   },
+   "cards": 3
+  },
+  {
+   "n": 16,
+   "short": "Třídní klima",
+   "full": "Třídní klima (psychosociální klima třídy) - spolutvůrci klimatu, typy klimatu, vztahy mezi žáky, pedagogy - možnosti mapování vztahů, vývoj školní třídy.",
+   "href": "otazka-16-tridni-klima.html",
+   "sources": {
+    "Čapek, 2010": [
+     "13"
+    ],
+    "Holeček, 2014": [
+     "118",
+     "120"
+    ],
+    "Mareš, 2013": [
+     "592"
+    ],
+    "Průcha, 2013": [
+     "125"
+    ]
+   },
+   "cards": 1
+  },
+  {
+   "n": 18,
+   "short": "Interakce ve výchově",
+   "full": "Interakce ve výchově - Piagetův a Kohlbergův model morálního vývoje.",
+   "href": "otazka-18-interakce-moralni-vyvoj.html",
+   "sources": {
+    "Colby, Abrahami a Kolhberg, 1987": [],
+    "Fayadová, 2012": [],
+    "Prokopová, 2000": [],
+    "Smolík, 2016": [],
+    "Vacek, 2010": []
+   },
+   "cards": 0
+  },
+  {
+   "n": 19,
+   "short": "Komunikace z psychologického hlediska",
+   "full": "Komunikace z psychologického hlediska (Berne), bariéry v komunikaci.",
+   "href": "otazka-19-komunikace-bariery.html",
+   "sources": {},
+   "cards": 6
+  }
+ ]
+}
