@@ -1,0 +1,99 @@
+{
+ "_comment": "Ručně psané opravy a doplňky k předmětu poradenstvi. Drží se mimo HTML, aby je opětovné spuštění tools/docx2html_spec.py nesmazalo. fixes = [hledaný text, čím se nahradí], aplikované na hotovou stránku; hledá se tolerantně k mezerám. Rozbalovací <details> se zavěšuje ZA koncovou značku </li> nebo </p>, protože uvnitř nich není platné HTML. boxes = HTML vložené za sekci Klíčové pojmy.",
+ "fixes": {
+  "1": [
+   [
+    "<strong>73/2005 Sb</strong>.",
+    "<strong>73/2005 Sb</strong>. <span class=\"fix\">[zrušena k 1. 9. 2016 → vyhl. 27/2016 Sb.]</span>"
+   ],
+   [
+    "(147/2011 Sb.)</li>",
+    "(147/2011 Sb.)</li><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>Zdrojový text uvádí <span class=\"was\">„vyhláška č. 73/2005 Sb. … ve znění pozdějších předpisů (147/2011 Sb.)“</span> jako platný předpis. Vyhláška <strong>73/2005 Sb. byla zrušena k 1. 9. 2016</strong> a nahrazena <strong>vyhláškou č. 27/2016 Sb.</strong>, o vzdělávání žáků se speciálními vzdělávacími potřebami a žáků nadaných. Spolu s ní pozbyla platnosti i novela 147/2011 Sb.</p><p><a href=\"pravni-aktualnost.html#z1\">Podrobně v právní aktuálnosti →</a></p></div></details>"
+   ],
+   [
+    "<li>Zákon <strong>101/2000 Sb. </strong>",
+    "<li>Zákon <strong>101/2000 Sb. </strong> <span class=\"fix\">[zrušen 24. 4. 2019 → zák. 110/2019 Sb. + GDPR]</span>"
+   ],
+   [
+    "<li>Zákon <strong>132/1982 Sb., </strong>",
+    "<li>Zákon <strong>132/1982 Sb., </strong> <span class=\"fix\">[zákon o rodině zrušen k 1. 1. 2014 → zák. 89/2012 Sb., občanský zákoník]</span>"
+   ],
+   [
+    "č. 182/1991 Sb. (vyhláška o sociálním zabezpečení)",
+    "č. 182/1991 Sb. (vyhláška o sociálním zabezpečení) <span class=\"fix\">[dávky pro osoby se ZP se od 1. 1. 2012 řídí zák. 329/2011 Sb. a vyhl. 388/2011 Sb.]</span>"
+   ],
+   [
+    "(až do výše 12.000 Kč/měsíc)",
+    "(až do výše 12.000 Kč/měsíc) <span class=\"fix\">[stav 2026: IV. stupeň 27 000 Kč/měsíc, v pobytové službě 23 000 Kč]</span>"
+   ],
+   [
+    "ve znění pozdějších předpisů (333/2012)",
+    "ve znění pozdějších předpisů (333/2012) <span class=\"fix\">a 183/2023 Sb. (od 1. 9. 2023 — nové kvalifikační požadavky, provázející učitel, změny u asistenta pedagoga)</span>"
+   ],
+   [
+    "60 % lidí se změněnou pracovní činností.",
+    "60 % lidí se změněnou pracovní činností. <span class=\"fix\">[oba pojmy jsou zrušené: dnes chráněné pracovní místo (§ 75) a chráněný trh práce s uznaným zaměstnavatelem nad 50 % OZP (§ 78); „změněná pracovní schopnost“ byla nahrazena „osobami se zdravotním postižením“ už v roce 2004]</span>"
+   ]
+  ],
+  "6": [
+   [
+    "<li><strong>Žáci s LMP</strong> — ZŠ praktická podle RVP ZV – LMP, pokud nejsou integrováni na „běžné“ základní škole. Ale i zde mohou být vzděláváni podle RVP ZV – LMP.</li>",
+    "<li><strong>Žáci s LMP</strong> — ZŠ praktická podle RVP ZV – LMP, pokud nejsou integrováni na „běžné“ základní škole. Ale i zde mohou být vzděláváni podle RVP ZV – LMP. <span class=\"fix\">[příloha RVP ZV pro žáky s LMP byla zrušena k 1. 9. 2016; „ZŠ praktická“ už není typ školy]</span></li><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p><strong>Příloha RVP ZV upravující vzdělávání žáků s LMP byla zrušena k 1. 9. 2016.</strong> Očekávané výstupy z ní se staly <strong>minimální doporučenou úrovní výstupů</strong> v RVP ZV, která se uplatňuje u podpůrných opatření <strong>třetího a vyššího stupně</strong>. Žáci s lehkým mentálním postižením se vzdělávají podle <strong>RVP ZV</strong>.</p><p>Se stejnou reformou zmizel typ školy „základní škola praktická“. Zůstává <strong>základní škola speciální</strong> (RVP ZŠS) a možnost třídy či školy zřízené podle <strong>§ 16 odst. 9</strong> školského zákona.</p><p><a href=\"pravni-aktualnost.html#z8\">Podrobně v právní aktuálnosti →</a></p></div></details>"
+   ]
+  ],
+  "7": [
+   [
+    "<li>Chráněná dílna je podle zákona o zaměstnanosti č. 435/2004 Sb.",
+    "<li>Chráněná dílna je podle zákona o zaměstnanosti č. 435/2004 Sb. <span class=\"fix\">[pojem zrušen novelou 367/2011 Sb. k 1. 1. 2012]</span>"
+   ],
+   [
+    "nejméně 60% těchto zaměstnanců.</li>",
+    "nejméně 60% těchto zaměstnanců.</li><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>Zákon o zaměstnanosti pojem <span class=\"was\">„chráněná (pracovní) dílna“</span> od <strong>1. 1. 2012</strong> nezná — novela <strong>367/2011 Sb.</strong> jej nahradila <strong>chráněným pracovním místem</strong> (§ 75), které vzniká písemnou dohodou s úřadem práce na dobu 3 let.</p><p>Novela <strong>327/2017 Sb.</strong> pak od <strong>1. 1. 2018</strong> zavedla <strong>chráněný trh práce</strong> a <strong>uznaného zaměstnavatele</strong>, který zaměstnává <strong>více než 50 % osob se zdravotním postižením</strong> (§ 78). Dnešní hranice je tedy 50 %, ne 60 %.</p><p><a href=\"pravni-aktualnost.html#z5\">Podrobně v právní aktuálnosti →</a></p></div></details>"
+   ]
+  ],
+  "8": [
+   [
+    "li>Školský zákon, Vyhláška č. 73/2005 Sb.",
+    "li>Školský zákon, Vyhláška č. 73/2005 Sb. <span class=\"fix\">[zrušena 2016 → vyhl. 27/2016 Sb.]</span>"
+   ]
+  ],
+  "11": [
+   [
+    "<p>Metodický pokyn č. j. 13711/2001-24.</p>",
+    "<p>Metodický pokyn č. j. 13711/2001-24. <span class=\"fix\">[formálně nezrušen, obsahově překonán § 16 ŠZ a vyhl. 27/2016 Sb.]</span></p><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>Pokyn je z roku 2004 — tedy z doby před dnešní podobou školského zákona, před <strong>§ 16</strong> a před <strong>vyhláškou 27/2016 Sb.</strong> MŠMT jej formálně nezrušilo, ale úprava hodnocení je dnes <strong>podpůrným opatřením</strong> podle § 16 ŠZ a vyhlášky 27/2016 Sb., nikoli věcí metodického pokynu.</p><p><a href=\"pravni-aktualnost.html#z14\">Podrobně v právní aktuálnosti →</a></p></div></details>"
+   ]
+  ],
+  "14": [
+   [
+    "<li>vyhláška 147/2011 Sb., o poskytování poradenských služeb",
+    "<li>vyhláška 147/2011 Sb., o poskytování poradenských služeb <span class=\"fix\">[147/2011 Sb. je novelou zrušené vyhl. 73/2005 Sb.; poradenské služby upravuje vyhl. 72/2005 Sb., která platí dál]</span>"
+   ]
+  ],
+  "17": [
+   [
+    "(Zákon č. 155/1998 Sb. o znakové řeči)</li>",
+    "(Zákon č. 155/1998 Sb. o znakové řeči) <span class=\"fix\">[od 20. 10. 2008 zákon o komunikačních systémech neslyšících a hluchoslepých osob]</span></li><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>Zákon č. 155/1998 Sb. platí, ale novelou <strong>384/2008 Sb.</strong> byl přejmenován na <strong>zákon o komunikačních systémech neslyšících a hluchoslepých osob</strong>. Zastřešující pojem <span class=\"was\">„znaková řeč“</span> se opustil: zákon dnes rozlišuje <strong>český znakový jazyk</strong> jako samostatný jazyk a <strong>komunikační systémy vycházející z českého jazyka</strong> (znakovaná čeština, prstová abeceda, Lormova abeceda…).</p><p><a href=\"pravni-aktualnost.html#z9\">Podrobně v právní aktuálnosti →</a></p></div></details>"
+   ],
+   [
+    "<strong>zákoně o znakové řeči</strong> (č. 155/1998)",
+    "<strong>zákoně o znakové řeči</strong> (č. 155/1998) <span class=\"fix\">[dnes zákon o komunikačních systémech neslyšících a hluchoslepých osob]</span>"
+   ],
+   [
+    "<strong>mění vyhláška č. 70/2021 Sb., o preventivních prohlídkách",
+    "<strong>mění vyhláška č. 70/2021 Sb.<span class=\"fix\">[správně 70/2012 Sb.]</span>, o preventivních prohlídkách"
+   ]
+  ],
+  "19": [
+   [
+    "<p>2) Vyhláška č. 73/2005 Sb.",
+    "<p>2) Vyhláška č. 73/2005 Sb. <span class=\"fix\">[zrušena 2016 → vyhl. 27/2016 Sb.]</span>"
+   ]
+  ]
+ },
+ "boxes": {
+  "4": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>MKN-11: „mentální retardace“ se už neříká</h4>\n      <p>Celá otázka je postavená na <strong>MKN-10</strong> (F70–F79 mentální retardace). Česká <strong>MKN-11</strong> platná od 14. 2. 2025 používá <strong>6A00 poruchy vývoje intelektu</strong> — lehká, středně těžká, těžká, hluboká a nově <strong>provizorní</strong> (u dětí do 4 let). Pojem „mentální retardace“ se opouští jako stigmatizující.</p>\n      <p>Kódy z MKN-10 chybné nejsou — do roku 2027 běží přechodné období, kdy se užívají obě klasifikace. Vyplatí se ale říct obojí. <a href=\"pravni-aktualnost.html#mkn11\">Přehled změn →</a></p>\n    </aside>",
+  "20": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>MKN-11: Aspergerův syndrom jako diagnóza zmizel</h4>\n      <p>Otázka pracuje s <strong>F84 pervazivní vývojové poruchy</strong> podle MKN-10. Česká <strong>MKN-11</strong> (od 14. 2. 2025) má místo nich jedinou diagnózu <strong>6A02 porucha autistického spektra</strong> s upřesněním podle úrovně intelektu a jazyka. <strong>Aspergerův syndrom (F84.5) ani atypický autismus (F84.1) už nejsou samostatné diagnózy.</strong></p>\n      <p>Dělení podle F84.x se stále používá, protože přechodné období běží do roku 2027. <a href=\"pravni-aktualnost.html#mkn11\">Přehled změn →</a></p>\n    </aside>",
+  "15": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>MKN-11: F90.1 nemá obdobu</h4>\n      <p>V <strong>MKN-11</strong> je <strong>ADHD samostatná neurovývojová porucha 6A05</strong> se třemi prezentacemi (nepozorná, hyperaktivně-impulzivní, kombinovaná). <strong>Hyperkinetická porucha chování (F90.1) v MKN-11 neexistuje</strong> — místo ní se užívá ADHD s předominantně hyperaktivně-impulzivní prezentací, případně souběžná diagnóza poruchy chování. Diagnostický manuál je dnes <strong>DSM-5-TR</strong> (2022), ne DSM-IV. <a href=\"pravni-aktualnost.html#mkn11\">Přehled změn →</a></p>\n    </aside>",
+  "3": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>MKN-11 vede hranice podtypů jinak</h4>\n      <p>Kódy <strong>F80.0–F80.2</strong> jsou z MKN-10. Česká <strong>MKN-11</strong> (od 14. 2. 2025) řadí vývojové poruchy řeči a jazyka do bloku <strong>6A01</strong> a hranice mezi podtypy vede jinak. Do roku 2027 platí obě klasifikace souběžně. <a href=\"pravni-aktualnost.html#mkn11\">Přehled změn →</a></p>\n    </aside>"
+ }
+}

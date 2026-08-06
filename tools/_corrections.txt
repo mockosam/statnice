@@ -27,3 +27,45 @@ otazka-13-ospod-prava-ditete.html | totéž v tipu ke zkoušce | Zákon 359/1999
 otazka-14-adhd-add-odd.html | § 16 školského zákona: „kategorie zdravotního postižení“ → SVP a podpůrná opatření (novela 82/2015 Sb.) | Školský zákon č. 561/2004 Sb., § 16 — zařazuje vývojové poruchy chování do kategorie zdravotního postižení (vedle VPU, mentálního, tělesného, smyslového postižení, vad řeči, autismu).
 
 otazka-15-agrese-sikana.html | doplněno č. j. MŠMT-21149/2016 | MŠMT vydalo metodický pokyn k prevenci a řešení šikany ve školách a školských zařízeních. Pokyn definuje šikanu, popisuje stádia, role, nastavuje postup řešení.
+
+
+# ---------------------------------------------------------------------------
+# Poradenství, intervence a diagnostika (zdroj: SZO SPECIÁLNÍ PEDAGOGIKA.DOCX)
+# Odůvodnění a zdroje jsou na poradenstvi/pravni-aktualnost.html.
+# ---------------------------------------------------------------------------
+
+otazka-01-poradenske-sluzby-legislativa.html | vyhl. 73/2005 Sb. zrušena k 1. 9. 2016 → 27/2016 Sb. (doplněna poznámka) | Vyhláška č. 73/2005 Sb. o vzdělávání dětí žáků a studentů se SVP a dětí, žáků a studentů mimořádně nadaných, ve znění pozdějších předpisů (147/2011 Sb.)
+
+otazka-01-poradenske-sluzby-legislativa.html | zák. 101/2000 Sb. zrušen k 24. 4. 2019 → 110/2019 Sb. + GDPR (doplněna poznámka) | Zákon 101/2000 Sb. o ochraně osobních údajů a o změně některých zákonů ve znění pozdějších předpisů Zákon č. 110/2019 Sb., Zákon o zpracování osobních údajů
+
+otazka-01-poradenske-sluzby-legislativa.html | zákon o rodině zrušen k 1. 1. 2014 → 89/2012 Sb. (doplněna poznámka) | Zákon 132/1982 Sb., kterým se mění a doplňuje Zákon o rodině č. 94/1963
+
+otazka-04-klasifikace-mentalni-retardace.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | KLASIFIKACE MENTÁLNÍ RETARDACE DLE MKN, 10. REVIZE. CHARAKTERISTIKA JEDNOTLIVÝCH STUPŇŮ MR V SOUVISLOSTI S PORADENSKÝMI ČINNOSTMI SPECIÁLNÍHO PEDAGOGA (MYŠLENÍ, ŘEČ, PSYCHICKÝ A SOMATICKÝ VÝVOJ, EMOCE, CHOVÁNÍ, MOŽNOSTI VZDĚLÁVÁNÍ).
+
+otazka-07-socialni-pece-mentalni-postizeni.html | pojem „chráněná dílna“ zrušen novelou 367/2011 Sb. → chráněné pracovní místo (doplněna poznámka) | Chráněná dílna je podle zákona o zaměstnanosti č. 435/2004 Sb. definována jako pracoviště zaměstnavatele, které je vymezeno na základě dohody s úřadem práce a je specificky přizpůsobeno pro zaměstnávání osob se zdravotním postižením. V chráněné dílně musí být v průměrném ročním počtu zaměstnáno nejméně 60% těchto zaměstnanců.
+
+otazka-08-telesne-postizeni-podpora.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | SPECIÁLNĚ PEDAGOGICKÁ PODPORA OSOB S TĚLESNÝM POSTIŽENÍM. VROZENÁ A ZÍSKANÁ TĚLESNÁ POSTIŽENÍ, PŘEHLED, CHARAKTERISTIKA, ETIOLOGIE, PREVENCE. PŘEHLED A PROJEVY CHRONICKÝCH ONEMOCNĚNÍ S DOPADEM NA AKTIVITU DÍTĚTE/ŽÁKA. NOVÉ TRENDY VE VZDĚLÁVÁNÍ ŽÁKŮ SE SOMATICKÝM POSTIŽENÍM.
+
+otazka-08-telesne-postizeni-podpora.html | vyhl. 73/2005 Sb. zrušena k 1. 9. 2016 → 27/2016 Sb. (doplněna poznámka) | Školský zákon, Vyhláška č. 73/2005 Sb., individuální, skupinová integrace v běžné škole nebo ve speciální škole určené pro žáky s jiným druhem postižení.
+
+otazka-09-diagnostika-telesne-postizeni.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | SPECIFIKA DIAGNOSTIKY U ŽÁKA S TĚLESNÝM POSTIŽENÍM A CHRONICKÝM ONEMOCNĚNÍM. ZVLÁŠTNOSTI VE VÝVOJI DÍTĚTE S TĚLESNÝM POSTIŽENÍM A ZÁCHVATOVÝM ONEMOCNĚNÍM. UCELENÁ REHABILITACE. LÉČEBNÉ, SOCIÁLNÍ, PEDAGOGICKÉ A PRACOVNÍ PROSTŘEDKY REHABILITACE.
+
+otazka-10-inkluze-telesne-postizeni.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | INKLUZE DÍTĚTE, ŽÁKA, STUDENTA S TĚLESNÝM POSTIŽENÍM DO BĚŽNÉHO ŠKOLNÍHO SYSTÉMU. EDUKAČNÍ SPECIFIKA. KOMPENZAČNÍ POMCŮKY, VÝUKOVÉ MATERIÁLY. ROLE OSOBNÍHO ASISTENTA A ASISTENTA PEDAGOGA.
+
+otazka-11-specificke-poruchy-uceni.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | SPECIFICKÉ PORUCHY UČENÍ a jejich souvislost s poruchami učení. Základní pojmy, definice, etiologie v úzu pohledu odborníků rozličných profesí.
+
+otazka-11-specificke-poruchy-uceni.html | osiřelý číslovaný nadpis otázky 11 stojí ve zdroji až za jejím obsahem; na stránce jej nese H1 | 11. SPECIFICKÉ VÝVOJOVÉ PORUCHY (PORUCHY UČENÍ A CHOVÁNÍ) V MKN – F80 AŽ F82, F90. SPECIFICKÉ PORUCHY UČNEÍ A JEJICH SOUVILOST S PORUCHAMI CHOVÁNÍ. ETIOLOGIE V ÚZU POHLEDU ODBORNÍKŮ ROZLIČNÝCH PROFESÍ. POPIS DÍLČÍCH PERCEPČNĚ-KOGNITIVNÍCH A MOTORICKÝCH FUNKCÍ A JEJICH ROZBOR – PRŮBĚH VYŠETŘENÍ, UŽITÉ DIAGNOSTICKÉ NÁSTROJE, DIAGNOSTICKÁ KRITÉRIA. SCREENING, DEPISTÁŽ, PREVENCE, INTERVENCE.
+
+otazka-14-poruchy-chovani-emoci.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | 14. PORUCHY CHOVÁNÍ A EMOCÍ Z POHLEDU RŮZNÝCH KLASIFIKAČNÍCH SYSTÉMŮ. REŽIMOVÁ OPATŘENÍ PRO PODPORU ŽÁDOUCÍHO CHOVÁNÍ VE ŠKOLÁCH A VE ŠKOLSKÝCH ZAŘÍZENÍCH PRO VÝKON ÚSTAVNÍ A OCHRANNÉ VÝCHOVY. INDIVIDUÁLNÍ PORADENSTVÍ – VEDENÍ PŘÍPADU – ŠKOLA, SEGREGOVANÉ PROSTŘEDÍ.
+
+otazka-14-poruchy-chovani-emoci.html | 147/2011 Sb. je novelou 73/2005 Sb., ne 72/2005 Sb. (doplněna poznámka) | vyhláška 147/2011 Sb., o poskytování poradenských služeb ve školách a školských poradenských zařízeních (dříve 72/2005) zajišťuje poradenské služby v rozsahu odpovídajícím počtu a vzdělávacím potřebám žáků
+
+otazka-15-adhd-hyperkineticke-poruchy.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | 15. PORUCHY CHOVÁNÍ SPOJENÉ S ADHD A HYPERKINETICKÝMI PORUCHAMI – DIAGNOSTICKÁ KRITÉRIA, PREVENCE, INTERVENCE, TERAPIE INDIVIDUÁLNÍ A SKUPINOVÁ. METODY PORADENSKÉ PRÁCE, VIDEO-TRÉNINK INTERAKCÍ, FUNKČNÍ ANALÝZA CHOVÁNÍ, PROGRAMY NA POSÍLENÍ POZORNOSTI.
+
+otazka-17-sluchove-vady.html | vyhláška o preventivních prohlídkách je 70/2012 Sb., ne 70/2021 (doplněna poznámka) | Dne 24. 2. 2021 nabyla účinnost Sbírka zákonů č. 45/2021 Sb., kterou se mění vyhláška č. 70/2021 Sb., o preventivních prohlídkách ve znění p. p. Novela vyhlášky rozšiřuje obsah všeobecné preventivní prohlídky o provedení:
+
+otazka-17-sluchove-vady.html | zák. 155/1998 Sb. od 20. 10. 2008 „o komunikačních systémech neslyšících a hluchoslepých osob“ (doplněna poznámka) | Tzv. kulturní definice hluchoty poprvé v zákoně o znakové řeči (č. 155/1998): „osoby, které považují znakovou řeč za primární formu své komunikace“
+
+otazka-19-nadani-zaci.html | vyhl. 73/2005 Sb. zrušena k 1. 9. 2016 → 27/2016 Sb. (doplněna poznámka) | 2) Vyhláška č. 73/2005 Sb., o vzdělávání dětí, žáků a studentů se speciálními vzdělávacími potřebami a dětí, žáků a studentů mimořádně nadaných; (vyhláška č. 27/2016 Sb., o vzdělávání žáků se speciálními vzdělávacími potřebami a žáků nadaných)
+
+poradenstvi/index.html | název předmětu z titulní strany dokumentu je v hlavičce webu, ne v textu otázky | SPECIÁLNÍ PEDAGOGIKA – poradenství, intervence a diagnostika

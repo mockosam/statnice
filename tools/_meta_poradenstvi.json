@@ -1,0 +1,309 @@
+{
+ "toc": {
+  "1": "Poradenské služby, aktuální legislativa. Poradenství v oblasti vzdělávání, zaměstnávání a sociální oblasti. Problematika sociálního zabezpečení, sociální dávky. Politika zaměstnanosti v České republice, aktuální legislativa týkající se zaměstnavatelů, uchazečů o práci a osob znevýhodněných na trhu práce.",
+  "2": "Speciálně pedagogická diagnostika logopedická - cíl, metody, zásady diagnostiky. Model logopedického vyšetření. Pomůcky a přístroje užívané při logopedické intervenci. Symptomatické poruchy řeči.",
+  "3": "Specifické vývojové poruchy řeči a jazyka dle MKN. Formy narušeného vývoje řeči. Možnosti logopedické intervence u jedinců s narušeným vývojem řeči.",
+  "4": "Klasifikace mentální retardace dle MKN. Charakteristika jednotlivých stupňů MR v souvislosti s poradenskými činnostmi speciálního pedagoga (myšlení, řeč, psychický a somatický vývoj, emoce, chování, možnosti vzdělávání).",
+  "5": "Specifika diagnostiky rozumových schopností dětí, žáků a studentů ve školských poradenských zařízeních. Spolupráce psychologa, speciálního pedagoga, sociálního pracovníka a dalších pracovníku z pomáhajících profesi při stanovení diagnózy.",
+  "6": "Učební plány vzdělávacích programů využívaných u žáků s mentálním postižením dle aktuální školské legislativy. Specifika intervence speciálního pedagoga směrem k dětem, žákům a studentům s MR při společném vzdělávání.",
+  "7": "Sociální péče o jedince s mentálním postižením (chráněné bydlení, osobní asistence, stacionáře, respitní péče). Společenské organizace a občanská sdružení a jimi poskytované poradenské služby. Sociálně právní pomoc těžce zdravotně postiženým osobám v rámci speciálně pedagogického poradenství. Možnosti uplatnění jedinců s mentálním postižením na trhu práce (podporované zaměstnávání, chráněné dílny).",
+  "8": "Speciálně pedagogická podpora osob s tělesným postižením. Vrozená a získaná tělesná postižení, jejich přehled, charakteristika, etiologie, prevence. Přehled a projevy chronických onemocnění s dopadem na aktivitu dítěte/žáka. Nové trendy ve vzdělávání žáků se somatickým postižením.",
+  "9": "Specifika diagnostiky žáka s tělesným postižením a chronickým onemocněním. Zvláštnosti ve vývoji dítěte s tělesným postižením a záchvatovým onemocněním. Ucelená rehabilitace. Léčebné, sociální, pedagogické a pracovní prostředky rehabilitace.",
+  "10": "Inkluze dítěte, žáka, studenta s tělesným postižením do běžného školského systému. Edukační specifika. Kompenzační pomůcky, výukové materiály. Role osobního asistenta a asistenta pedagoga.",
+  "11": "Specifické vývojové poruchy (poruchy učení a chování) v MKN – F80 až F82, F90. Specifické poruchy učení a jejich souvislost s poruchami chování. Etiologie v úzu pohledu odborníků rozličných profesí. Popis dílčích percepčně-kognitivních a motorických funkcí a jejich rozbor - průběh vyšetření, užité diagnostické nástroje, diagnostická kritéria. Screening, depistáž, prevence, intervence.",
+  "12": "Metodika počáteční výuky čtení a psaní. Charakteristika genetické metody čtení, analyticko-syntetické metody a metody čtení splývavého (SFUMATO). Systémový přístup ke vzdělávání žáků s SPU.",
+  "13": "Reedukace a kompenzace SPU, metody práce, aktuální pomůcky a výukové materiály. Studijní a profesní orientace žáků a studentů s SPU. Projevy SPU u dospělých osob. Odraz SPU v jednotlivých životních etapách člověka.",
+  "14": "Poruchy chování a emocí z pohledu různých klasifikačních systémů včetně MKN. Režimová opatření pro podporu žádoucího chování ve školách a ve školských zařízeních pro výkon ústavní a ochranné výchovy. Individuální poradenství – vedení případu – škola, segregované prostředí.",
+  "15": "Poruchy chování spojené s ADHD a hyperkinetickými poruchami – diagnostická kritéria dle MKN, prevence, intervence, terapie individuální a skupinová. Metody poradenské práce, videotrénink interakcí, funkční analýza chování, programy na posílení pozornosti.",
+  "16": "Vývoj přístupů k jedincům s poruchami chování v kontextu speciální pedagogiky – medicínský, sociální, biopsychosociální model poruchy chování. Speciálně-pedagogická diagnostika etopedická. Strategie intervence při práci s klientem s poruchou chování.",
+  "17": "Symptomatologie sluchových vad (hluchota, ohluchlost, nedoslýchavost) z hlediska české a mezinárodní klasifikace a terminologie. Diagnostika sluchového postižení. Komplexní systém poradenství. Kompenzační pomůcky. Socializace osob se sluchovým postižením. Neslyšící jako kulturní a jazyková menšina.",
+  "18": "Speciálně pedagogická podpora osob se zrakovým postižením. Přehled zrakových vad, jejich symptomy, možnosti léčby. Speciální pomůcky pro jedince nevidomé, slabozraké, se zbytky zraku a pomůcky pro jedince s poruchami binokulárního vidění. Speciálně pedagogická diagnostika zrakových funkcí. Psychické zvláštnosti jedinců se zrakovým postižením. Zraková hygiena, zraková stimulace.",
+  "19": "Nadaní žáci - legislativa týkající se edukace nadaných žáků, metody práce s nadanými žáky. Projevy chování a učení nadaných dětí s ohledem na jejich věk, jejich identifikace ve školním kolektivu, diagnostika pedagogická a speciálně pedagogická.",
+  "20": "Pervazivní vývojové poruchy dle MKN. Přehled diagnostických kritérií, klinický obraz, odlišnosti, speciálně pedagogické přístupy. Etiologie v úzu pohledu odborníků rozličných profesí."
+ },
+ "bounds": {
+  "1": 34,
+  "2": 325,
+  "3": 432,
+  "4": 853,
+  "5": 1099,
+  "6": 1402,
+  "7": 1677,
+  "8": 1908,
+  "9": 2453,
+  "10": 2551,
+  "11": 2602,
+  "12": 2821,
+  "13": 2921,
+  "14": 3075,
+  "15": 3263,
+  "16": 3437,
+  "17": 3557,
+  "18": 4432,
+  "19": 4844,
+  "20": 5258
+ },
+ "drop": [
+  2818
+ ],
+ "map": {
+  "otazka-01-poradenske-sluzby-legislativa.html": [
+   34,
+   325
+  ],
+  "otazka-02-logopedicka-diagnostika.html": [
+   325,
+   432
+  ],
+  "otazka-03-vyvojove-poruchy-reci.html": [
+   432,
+   853
+  ],
+  "otazka-04-klasifikace-mentalni-retardace.html": [
+   853,
+   1099
+  ],
+  "otazka-05-diagnostika-rozumovych-schopnosti.html": [
+   1099,
+   1402
+  ],
+  "otazka-06-ucebni-plany-mentalni-postizeni.html": [
+   1402,
+   1677
+  ],
+  "otazka-07-socialni-pece-mentalni-postizeni.html": [
+   1677,
+   1908
+  ],
+  "otazka-08-telesne-postizeni-podpora.html": [
+   1908,
+   2453
+  ],
+  "otazka-09-diagnostika-telesne-postizeni.html": [
+   2453,
+   2551
+  ],
+  "otazka-10-inkluze-telesne-postizeni.html": [
+   2551,
+   2602
+  ],
+  "otazka-11-specificke-poruchy-uceni.html": [
+   2602,
+   2821
+  ],
+  "otazka-12-metodika-cteni-psani.html": [
+   2821,
+   2921
+  ],
+  "otazka-13-reedukace-kompenzace-spu.html": [
+   2921,
+   3075
+  ],
+  "otazka-14-poruchy-chovani-emoci.html": [
+   3075,
+   3263
+  ],
+  "otazka-15-adhd-hyperkineticke-poruchy.html": [
+   3263,
+   3437
+  ],
+  "otazka-16-pristupy-poruchy-chovani.html": [
+   3437,
+   3557
+  ],
+  "otazka-17-sluchove-vady.html": [
+   3557,
+   4432
+  ],
+  "otazka-18-zrakove-postizeni.html": [
+   4432,
+   4844
+  ],
+  "otazka-19-nadani-zaci.html": [
+   4844,
+   5258
+  ],
+  "otazka-20-pervazivni-vyvojove-poruchy.html": [
+   5258,
+   5533
+  ]
+ },
+ "missing": [],
+ "skipped_images": {
+  "rId8": "logo fakulty na titulní straně",
+  "rId9": "sken vyplněného záznamového listu WISC-III s výsledky konkrétního dítěte",
+  "rId10": "sken vyplněného záznamového listu WISC-III",
+  "rId21": "spojnice diagramu (0 kB)",
+  "rId22": "spojnice diagramu",
+  "rId23": "spojnice diagramu",
+  "rId24": "spojnice diagramu",
+  "rId25": "spojnice diagramu",
+  "rId26": "spojnice diagramu",
+  "rId27": "spojnice diagramu",
+  "rId42": "snímek plochy Windows s uživatelským jménem a cestami k souborům",
+  "rId43": "snímek prohlížeče s osobní lištou záložek; předloha navíc zapovídá šíření",
+  "rId50": "snímek prohlížeče s jmenným seznamem lékařů a jejich e-mailovými adresami"
+ },
+ "questions": [
+  {
+   "n": 1,
+   "short": "Poradenské služby a legislativa",
+   "full": "Poradenské služby, aktuální legislativa. Poradenství v oblasti vzdělávání, zaměstnávání a sociální oblasti. Problematika sociálního zabezpečení, sociální dávky. Politika zaměstnanosti v České republice, aktuální legislativa týkající se zaměstnavatelů, uchazečů o práci a osob znevýhodněných na trhu práce.",
+   "href": "otazka-01-poradenske-sluzby-legislativa.html",
+   "cards": 11,
+   "words": 3583
+  },
+  {
+   "n": 2,
+   "short": "Logopedická diagnostika",
+   "full": "Speciálně pedagogická diagnostika logopedická - cíl, metody, zásady diagnostiky. Model logopedického vyšetření. Pomůcky a přístroje užívané při logopedické intervenci. Symptomatické poruchy řeči.",
+   "href": "otazka-02-logopedicka-diagnostika.html",
+   "cards": 4,
+   "words": 1338
+  },
+  {
+   "n": 3,
+   "short": "Vývojové poruchy řeči a jazyka",
+   "full": "Specifické vývojové poruchy řeči a jazyka dle MKN. Formy narušeného vývoje řeči. Možnosti logopedické intervence u jedinců s narušeným vývojem řeči.",
+   "href": "otazka-03-vyvojove-poruchy-reci.html",
+   "cards": 14,
+   "words": 5085
+  },
+  {
+   "n": 4,
+   "short": "Klasifikace mentální retardace",
+   "full": "Klasifikace mentální retardace dle MKN. Charakteristika jednotlivých stupňů MR v souvislosti s poradenskými činnostmi speciálního pedagoga (myšlení, řeč, psychický a somatický vývoj, emoce, chování, možnosti vzdělávání).",
+   "href": "otazka-04-klasifikace-mentalni-retardace.html",
+   "cards": 8,
+   "words": 3247
+  },
+  {
+   "n": 5,
+   "short": "Diagnostika rozumových schopností",
+   "full": "Specifika diagnostiky rozumových schopností dětí, žáků a studentů ve školských poradenských zařízeních. Spolupráce psychologa, speciálního pedagoga, sociálního pracovníka a dalších pracovníku z pomáhajících profesi při stanovení diagnózy.",
+   "href": "otazka-05-diagnostika-rozumovych-schopnosti.html",
+   "cards": 9,
+   "words": 3812
+  },
+  {
+   "n": 6,
+   "short": "Učební plány pro žáky s mentálním postižením",
+   "full": "Učební plány vzdělávacích programů využívaných u žáků s mentálním postižením dle aktuální školské legislativy. Specifika intervence speciálního pedagoga směrem k dětem, žákům a studentům s MR při společném vzdělávání.",
+   "href": "otazka-06-ucebni-plany-mentalni-postizeni.html",
+   "cards": 6,
+   "words": 4266
+  },
+  {
+   "n": 7,
+   "short": "Sociální péče o osoby s mentálním postižením",
+   "full": "Sociální péče o jedince s mentálním postižením (chráněné bydlení, osobní asistence, stacionáře, respitní péče). Společenské organizace a občanská sdružení a jimi poskytované poradenské služby. Sociálně právní pomoc těžce zdravotně postiženým osobám v rámci speciálně pedagogického poradenství. Možnosti uplatnění jedinců s mentálním postižením na trhu práce (podporované zaměstnávání, chráněné dílny).",
+   "href": "otazka-07-socialni-pece-mentalni-postizeni.html",
+   "cards": 9,
+   "words": 1823
+  },
+  {
+   "n": 8,
+   "short": "Podpora osob s tělesným postižením",
+   "full": "Speciálně pedagogická podpora osob s tělesným postižením. Vrozená a získaná tělesná postižení, jejich přehled, charakteristika, etiologie, prevence. Přehled a projevy chronických onemocnění s dopadem na aktivitu dítěte/žáka. Nové trendy ve vzdělávání žáků se somatickým postižením.",
+   "href": "otazka-08-telesne-postizeni-podpora.html",
+   "cards": 14,
+   "words": 6604
+  },
+  {
+   "n": 9,
+   "short": "Diagnostika žáka s tělesným postižením",
+   "full": "Specifika diagnostiky žáka s tělesným postižením a chronickým onemocněním. Zvláštnosti ve vývoji dítěte s tělesným postižením a záchvatovým onemocněním. Ucelená rehabilitace. Léčebné, sociální, pedagogické a pracovní prostředky rehabilitace.",
+   "href": "otazka-09-diagnostika-telesne-postizeni.html",
+   "cards": 12,
+   "words": 1325
+  },
+  {
+   "n": 10,
+   "short": "Inkluze žáka s tělesným postižením",
+   "full": "Inkluze dítěte, žáka, studenta s tělesným postižením do běžného školského systému. Edukační specifika. Kompenzační pomůcky, výukové materiály. Role osobního asistenta a asistenta pedagoga.",
+   "href": "otazka-10-inkluze-telesne-postizeni.html",
+   "cards": 5,
+   "words": 1013
+  },
+  {
+   "n": 11,
+   "short": "Specifické poruchy učení",
+   "full": "Specifické vývojové poruchy (poruchy učení a chování) v MKN – F80 až F82, F90. Specifické poruchy učení a jejich souvislost s poruchami chování. Etiologie v úzu pohledu odborníků rozličných profesí. Popis dílčích percepčně-kognitivních a motorických funkcí a jejich rozbor - průběh vyšetření, užité diagnostické nástroje, diagnostická kritéria. Screening, depistáž, prevence, intervence.",
+   "href": "otazka-11-specificke-poruchy-uceni.html",
+   "cards": 14,
+   "words": 3129
+  },
+  {
+   "n": 12,
+   "short": "Metodika počáteční výuky čtení a psaní",
+   "full": "Metodika počáteční výuky čtení a psaní. Charakteristika genetické metody čtení, analyticko-syntetické metody a metody čtení splývavého (SFUMATO). Systémový přístup ke vzdělávání žáků s SPU.",
+   "href": "otazka-12-metodika-cteni-psani.html",
+   "cards": 3,
+   "words": 2303
+  },
+  {
+   "n": 13,
+   "short": "Reedukace a kompenzace SPU",
+   "full": "Reedukace a kompenzace SPU, metody práce, aktuální pomůcky a výukové materiály. Studijní a profesní orientace žáků a studentů s SPU. Projevy SPU u dospělých osob. Odraz SPU v jednotlivých životních etapách člověka.",
+   "href": "otazka-13-reedukace-kompenzace-spu.html",
+   "cards": 5,
+   "words": 1817
+  },
+  {
+   "n": 14,
+   "short": "Poruchy chování a emocí",
+   "full": "Poruchy chování a emocí z pohledu různých klasifikačních systémů včetně MKN. Režimová opatření pro podporu žádoucího chování ve školách a ve školských zařízeních pro výkon ústavní a ochranné výchovy. Individuální poradenství – vedení případu – škola, segregované prostředí.",
+   "href": "otazka-14-poruchy-chovani-emoci.html",
+   "cards": 7,
+   "words": 3310
+  },
+  {
+   "n": 15,
+   "short": "ADHD a hyperkinetické poruchy",
+   "full": "Poruchy chování spojené s ADHD a hyperkinetickými poruchami – diagnostická kritéria dle MKN, prevence, intervence, terapie individuální a skupinová. Metody poradenské práce, videotrénink interakcí, funkční analýza chování, programy na posílení pozornosti.",
+   "href": "otazka-15-adhd-hyperkineticke-poruchy.html",
+   "cards": 5,
+   "words": 2760
+  },
+  {
+   "n": 16,
+   "short": "Vývoj přístupů k poruchám chování",
+   "full": "Vývoj přístupů k jedincům s poruchami chování v kontextu speciální pedagogiky – medicínský, sociální, biopsychosociální model poruchy chování. Speciálně-pedagogická diagnostika etopedická. Strategie intervence při práci s klientem s poruchou chování.",
+   "href": "otazka-16-pristupy-poruchy-chovani.html",
+   "cards": 9,
+   "words": 1729
+  },
+  {
+   "n": 17,
+   "short": "Symptomatologie sluchových vad",
+   "full": "Symptomatologie sluchových vad (hluchota, ohluchlost, nedoslýchavost) z hlediska české a mezinárodní klasifikace a terminologie. Diagnostika sluchového postižení. Komplexní systém poradenství. Kompenzační pomůcky. Socializace osob se sluchovým postižením. Neslyšící jako kulturní a jazyková menšina.",
+   "href": "otazka-17-sluchove-vady.html",
+   "cards": 9,
+   "words": 11291
+  },
+  {
+   "n": 18,
+   "short": "Podpora osob se zrakovým postižením",
+   "full": "Speciálně pedagogická podpora osob se zrakovým postižením. Přehled zrakových vad, jejich symptomy, možnosti léčby. Speciální pomůcky pro jedince nevidomé, slabozraké, se zbytky zraku a pomůcky pro jedince s poruchami binokulárního vidění. Speciálně pedagogická diagnostika zrakových funkcí. Psychické zvláštnosti jedinců se zrakovým postižením. Zraková hygiena, zraková stimulace.",
+   "href": "otazka-18-zrakove-postizeni.html",
+   "cards": 14,
+   "words": 5622
+  },
+  {
+   "n": 19,
+   "short": "Nadaní žáci",
+   "full": "Nadaní žáci - legislativa týkající se edukace nadaných žáků, metody práce s nadanými žáky. Projevy chování a učení nadaných dětí s ohledem na jejich věk, jejich identifikace ve školním kolektivu, diagnostika pedagogická a speciálně pedagogická.",
+   "href": "otazka-19-nadani-zaci.html",
+   "cards": 14,
+   "words": 6617
+  },
+  {
+   "n": 20,
+   "short": "Pervazivní vývojové poruchy",
+   "full": "Pervazivní vývojové poruchy dle MKN. Přehled diagnostických kritérií, klinický obraz, odlišnosti, speciálně pedagogické přístupy. Etiologie v úzu pohledu odborníků rozličných profesí.",
+   "href": "otazka-20-pervazivni-vyvojove-poruchy.html",
+   "cards": 6,
+   "words": 2846
+  }
+ ]
+}

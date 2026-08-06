@@ -2,14 +2,20 @@ __pycache__/
 *.pyc
 .DS_Store
 
-# Zdrojový dokument zůstává jen lokálně, do repozitáře se nepublikuje.
-# Kvůli tomu nelze z čistého klonu spustit tools/docx2html.py ani
-# tools/check_fidelity.py — oba potřebují .docx v adresáři source/.
+# Zdrojové dokumenty zůstávají jen lokálně, do repozitáře se nepublikují —
+# jsou to cizí studijní materiály a některé obsahují i osobní údaje.
+# Kvůli tomu nelze z čistého klonu spustit konvertory ani check_fidelity.py.
+# Vzory jsou uvedené v obou velikostech písmen, protože Git je case-sensitive
+# a jeden ze zdrojů přišel s příponou .DOCX.
 *.docx
+*.DOCX
+*.pdf
+*.PDF
 source/
 
 # Mezivýsledek konvertoru etopedie — nic ho nepotřebuje, kapitoly se u etopedie
-# poznají ze stylů Heading1. (Naopak tools/_meta_psychologie.json ponechán
-# ve verzování: obsahuje mapu „stránka → rozsah bloků“, kterou používá
-# check_fidelity.py --map, protože psychologický dokument nadpisové styly nemá.)
+# poznají ze stylů Heading1. (Naopak tools/_meta_psychologie.json a
+# tools/_meta_poradenstvi.json jsou ve verzování: obsahují mapu „stránka →
+# rozsah bloků“, kterou používá check_fidelity.py --map, protože tyto dokumenty
+# hranice otázek ze stylů poznat nedají.)
 tools/_meta.json

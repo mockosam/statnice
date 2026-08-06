@@ -366,6 +366,13 @@ def render_glossary(items: list[dict], ind: str, ctx: Ctx) -> list[str]:
     return out
 
 
+# Kolik položek už na stránce padlo na daný číslovaný seznam. Word umí jeden
+# seznam přerušit odrážkami a pak v něm pokračovat — bez tohoto počítadla by
+# každý úsek začínal znovu od jedničky (viz „Cílové skupiny oboru surdopedie“,
+# kde se čtyři skupiny číslovaly 1., 1., 1., 1.).
+_ol_seen: dict[tuple, int] = {}
+
+
 def render_list(items: list[dict], ind: str, ctx: Ctx, key_terms: bool = False) -> list[str]:
     """Souvislá řada ListParagraph se stejným numId → (vnořený) <ul>/<ol>."""
     num = items[0]["num"]
@@ -379,6 +386,10 @@ def render_list(items: list[dict], ind: str, ctx: Ctx, key_terms: bool = False) 
     def emit(idx: int, level: int, pad: str) -> int:
         f = fmt.get(level, "bullet")
         tag, attr = ("ol", OL[f]) if f in OL else ("ul", "")
+        if tag == "ol":
+            done = _ol_seen.get((num, level), 0)
+            if done:
+                attr += ' start="%d"' % (done + 1)
         out.append("%s<%s%s>" % (pad, tag, attr))
         while idx < len(items):
             it = items[idx]
@@ -389,6 +400,8 @@ def render_list(items: list[dict], ind: str, ctx: Ctx, key_terms: bool = False) 
                 continue
             body = inline(it, ctx, glossary_term=key_terms)
             out.append("%s  <li>%s</li>" % (pad, body))
+            if tag == "ol":
+                _ol_seen[(num, level)] = _ol_seen.get((num, level), 0) + 1
             idx += 1
         out.append("%s</%s>" % (pad, tag))
         return idx
@@ -636,6 +649,7 @@ def render_question(num, title, body, ctx_base, prev, nxt):
     """Jedna otázka → HTML."""
     global _ids
     _ids = {}
+    _ol_seen.clear()
     intro, secs = split_sections(body)
 
     qhrefs = ctx_base["qhrefs"]
@@ -736,6 +750,7 @@ def render_simple(title, chapters, ctx_base, *, kind, eyebrow, lead=None, crumb=
     """Obecná obsahová stránka (glosář, zákony, dodatek, jak pracovat)."""
     global _ids
     _ids = {}
+    _ol_seen.clear()
     mode = "glosar" if kind == "glosar" else ""
     ctx = Ctx(ctx_base["numfmt"], ctx_base["qhrefs"], ctx_base["glossary"], mode=mode)
     ctx.gl_ids = ctx_base.get("gl_ids", {})

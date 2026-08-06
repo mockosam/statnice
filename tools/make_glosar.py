@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-make_glosar_psy.py — sestaví psychologie/glosar.html z definic v otázkách.
+make_glosar.py — sestaví glosář předmětu z definic v otázkách.
 
-Zdrojový dokument psychologie **žádný glosář neobsahuje** (na rozdíl od etopedie,
-kde je samostatná kapitola se 105 hesly). Tento rejstřík je proto sestavený
-z dvojic „pojem — definice“, které se v textu jednotlivých otázek našly.
+Etopedie má glosář **ve zdrojovém dokumentu** (samostatná kapitola se 105 hesly),
+takže se jen převádí. Psychologie ani poradenství ho nemají — jejich rejstřík je
+sestavený z dvojic „pojem — definice“, které se v textu otázek našly (sekce
+🔑 Klíčové pojmy).
 
 Čte hotové HTML (přes vygenerovaný index assets/data.js), takže se do rejstříku
 propíšou i ruční úpravy otázek. Spouštějte po tools/reindex.py:
 
-    python3 tools/reindex.py && python3 tools/make_glosar_psy.py
+    python3 tools/reindex.py
+    python3 tools/make_glosar.py psychologie
+    python3 tools/make_glosar.py poradenstvi
+    python3 tools/make_glosar.py --all
+
+Pozor: cílový soubor je generovaný, ruční úpravy v něm skript přepíše. Chcete-li
+heslo vyřadit nebo přejmenovat, upravte definici v příslušné otázce, případně
+filtr SKIP_RE níž.
 """
 
 from __future__ import annotations
@@ -24,8 +32,22 @@ import unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from docx2html import FAVICON, FONTS, ICON_SEARCH, ICON_THEME, esc, slugify  # noqa: E402
 
-SUBJECT = "psychologie"
-OUT = os.path.join(SUBJECT, "glosar.html")
+# předmět → (název v navigaci, soubor s aktuálností, popis odkazu v patičce)
+SUBJECTS = {
+    "psychologie": {
+        "label": "Psychologie",
+        "foot_href": "aktualnost.html",
+        "foot_text": "aktuálnost <a href=\"aktualnost.html\">ověřena k 08/2026</a>",
+        "note": "Zdrojový dokument psychologie <strong>glosář neobsahuje</strong>.",
+    },
+    "poradenstvi": {
+        "label": "Poradenství",
+        "foot_href": "pravni-aktualnost.html",
+        "foot_text": "právní stav <a href=\"pravni-aktualnost.html\">ověřen k 08/2026</a>",
+        "note": "Zdrojový dokument ke speciální pedagogice – poradenství "
+                "<strong>glosář neobsahuje</strong>.",
+    },
+}
 
 # hesla, která nejsou pojmy — číslované podnadpisy, výčty, začátky vět
 SKIP_RE = re.compile(
@@ -49,13 +71,18 @@ def titlecase(s: str) -> str:
     return s
 
 
-def main() -> int:
+def build(subject: str) -> int:
+    cfg = SUBJECTS[subject]
+    out_path = os.path.join(subject, "glosar.html")
+
     js = open("assets/data.js", encoding="utf-8").read()
     data = json.loads(js[js.index("=") + 1:].rstrip().rstrip(";"))
 
     entries: dict[str, dict] = {}
     for doc in data["docs"]:
-        if doc.get("s") != SUBJECT or not doc.get("c"):
+        if doc.get("s") != subject or not doc.get("c"):
+            continue
+        if doc.get("k") == "glosar":        # sám sebe nečteme
             continue
         for term, definition in doc["c"]:
             term = titlecase(term.strip(" :"))
@@ -84,19 +111,17 @@ def main() -> int:
 
     items = sorted(entries.values(), key=lambda e: (deacc(e["term"]).lower(), e["term"]))
 
-    # rozdělení po písmenech
     groups: dict[str, list] = {}
     for e in items:
         groups.setdefault(deacc(e["term"])[:1].upper(), []).append(e)
 
-    body = []
-    body.append('<a class="skiplink" href="#obsah">Přeskočit na obsah</a>')
+    body = ['<a class="skiplink" href="#obsah">Přeskočit na obsah</a>']
     body += [
         '<nav class="topnav" aria-label="Hlavní navigace">',
         '  <div class="wrap topnav-in">',
         '    <a class="crumb" href="../index.html">Státnice</a>',
         '    <span class="crumb-sep" aria-hidden="true">/</span>',
-        '    <a class="crumb" href="index.html">Psychologie</a>',
+        '    <a class="crumb" href="index.html">%s</a>' % esc(cfg["label"]),
         '    <span class="crumb-sep" aria-hidden="true">/</span>',
         '    <span class="crumb crumb-cur">Glosář</span>',
         '    <span class="grow"></span>',
@@ -108,7 +133,7 @@ def main() -> int:
         "",
         '<header class="qhead qhead-plain">',
         '  <div class="wrap">',
-        '    <p class="eyebrow">Rejstřík · Psychologie</p>',
+        '    <p class="eyebrow">Rejstřík · %s</p>' % esc(cfg["label"]),
         "    <h1>Glosář pojmů</h1>",
         '    <p class="lead">%d pojmů s definicemi, jak je uvádí text jednotlivých otázek. '
         'Pište do filtru a seznam se zúží.</p>' % len(items),
@@ -126,9 +151,9 @@ def main() -> int:
         "",
         '    <aside class="box warn">',
         '      <h4><span class="bemo" aria-hidden="true">⚠️</span>Odkud tento rejstřík je</h4>',
-        '      <p>Zdrojový dokument psychologie <strong>glosář neobsahuje</strong>. Tento seznam '
-        'je sestavený z definic nalezených v textu otázek — u každého hesla je odkaz na otázku, '
-        'ze které pochází. Není to tedy autorský rejstřík, ale pomůcka pro rychlé hledání.</p>',
+        '      <p>%s Tento seznam je sestavený z definic nalezených v textu otázek — '
+        'u každého hesla je odkaz na otázku, ze které pochází. Není to tedy autorský '
+        'rejstřík, ale pomůcka pro rychlé hledání.</p>' % cfg["note"],
         "    </aside>",
     ]
 
@@ -152,15 +177,15 @@ def main() -> int:
              '      <a class="pager-r" href="karticky.html"><span>Dál →</span><strong>Kartičky</strong></a>',
              "    </nav>", "  </main>", "</div>", "",
              '<footer class="foot">', '  <div class="wrap">',
-             '    <p>Psychologie · otázky ke státní závěrečné zkoušce · '
-             'aktuálnost <a href="aktualnost.html">ověřena k 08/2026</a></p>',
+             '    <p>%s · otázky ke státní závěrečné zkoušce · %s</p>'
+             % (esc(cfg["label"]), cfg["foot_text"]),
              "  </div>", "</footer>"]
 
     head = [
         "<!doctype html>", '<html lang="cs">', "<head>", '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
-        "<title>Glosář pojmů · Psychologie · Státnice</title>",
-        '<meta name="description" content="Rejstřík %d psychologických pojmů s definicemi, '
+        "<title>Glosář pojmů · %s · Státnice</title>" % esc(cfg["label"]),
+        '<meta name="description" content="Rejstřík %d pojmů s definicemi, '
         'sestavený z textu otázek ke státní závěrečné zkoušce.">' % len(items),
         '<link rel="icon" href="%s">' % FAVICON,
         '<link rel="preconnect" href="https://fonts.googleapis.com">',
@@ -171,13 +196,30 @@ def main() -> int:
         "(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');"
         "document.documentElement.dataset.theme=t}catch(e){}</script>",
         "</head>",
-        '<body data-subject="psychologie" data-kind="glosar" data-up="../">',
+        '<body data-subject="%s" data-kind="glosar" data-up="../">' % subject,
     ]
     tail = ['<script src="../assets/data.js"></script>',
             '<script src="../assets/app.js"></script>', "</body>", "</html>", ""]
 
-    open(OUT, "w", encoding="utf-8").write("\n".join(head + body + tail))
-    print("%s: %d hesel v %d písmenných sekcích" % (OUT, len(items), len(groups)))
+    open(out_path, "w", encoding="utf-8").write("\n".join(head + body + tail))
+    print("%s: %d hesel v %d písmenných sekcích" % (out_path, len(items), len(groups)))
+    return 0
+
+
+def main() -> int:
+    args = [a for a in sys.argv[1:] if not a.startswith("-")]
+    if "--all" in sys.argv:
+        args = list(SUBJECTS)
+    if not args:
+        print("Použití: make_glosar.py <predmet> | --all   (predmety: %s)"
+              % ", ".join(SUBJECTS))
+        return 2
+    for subject in args:
+        if subject not in SUBJECTS:
+            print("Neznámý předmět %r — glosář se generuje jen pro: %s"
+                  % (subject, ", ".join(SUBJECTS)))
+            return 2
+        build(subject)
     return 0
 
 

@@ -109,6 +109,7 @@ body {
 /* akcent podle předmětu — u dalších předmětů sem přidejte další řádek */
 body[data-subject='etopedie'] { --subject: var(--c-sum); }
 body[data-subject='psychologie'] { --subject: var(--c-law); }
+body[data-subject='poradenstvi'] { --subject: var(--c-src); }
 
 a { color: var(--subject); text-decoration-color: color-mix(in srgb, var(--subject) 45%, transparent); text-underline-offset: 2px; }
 a:hover { text-decoration-color: currentColor; }
@@ -668,6 +669,7 @@ tbody td:first-child { color: var(--head); font-weight: 500; }
 .t-tip  { --c: var(--c-tip); }
 .t-warn { --c: var(--c-warn); }
 .t-upd  { --c: var(--c-upd); }
+.t-src  { --c: var(--c-src); }
 .t-link { --c: var(--c-link); }
 
 /* menší dlaždice pro doplňkové stránky předmětu */

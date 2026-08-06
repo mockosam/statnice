@@ -183,6 +183,8 @@ LABELS = {
     "jak-pracovat": "Průvodce",
     "aktualizace-2026": "Aktualizační dodatek",
     "pravni-aktualnost": "Právní audit",
+    "aktualnost": "Kontrola aktuálnosti",
+    "literatura": "Literatura",
     "karticky": "Kartičky",
     "subject-index": "Přehled předmětu",
     "hub": "Rozcestník",

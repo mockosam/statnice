@@ -79,6 +79,47 @@ def units(body) -> list[str]:
     return out
 
 
+def load_corrections(outdir: str | None = None) -> dict[str, str]:
+    """
+    tools/_corrections.txt → {squashed původní text: „stránka — důvod“}.
+
+    Soubor je společný pro všechny předměty. Je-li zadán outdir, vezmou se jen
+    řádky, jejichž stránka v tom předmětu existuje — jinak by kontrola jednoho
+    předmětu hlásila řádky ostatních předmětů jako zastaralé.
+    """
+    out: dict[str, str] = {}
+    cpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_corrections.txt")
+    if not os.path.exists(cpath):
+        return out
+    for line in open(cpath, encoding="utf-8"):
+        line = line.strip()
+        if not line or line.startswith("#") or line.count("|") < 2:
+            continue
+        page, reason, original = (p.strip() for p in line.split("|", 2))
+        if outdir:
+            # „predmet/soubor.html“ patří jen tomu předmětu; „soubor.html“ se hledá
+            # v adresáři právě kontrolovaného předmětu
+            if "/" in page:
+                if os.path.dirname(page).rstrip("/") != outdir.rstrip("/"):
+                    continue
+            elif not os.path.exists(os.path.join(outdir, page)):
+                continue
+        out[squash(original)] = "%s — %s" % (page, reason)
+    return out
+
+
+def report_corrections(fixed: list[str], corrections: dict[str, str]) -> None:
+    if fixed:
+        print("vědomě opraveno %d (právní aktualizace, viz tools/_corrections.txt):" % len(fixed))
+        for f in sorted(set(fixed)):
+            print("  ~ %s" % f)
+    stale = [v for v in corrections.values() if v not in fixed]
+    if stale:
+        print("POZOR — těmto řádkům v tools/_corrections.txt už nic neodpovídá (zastaralé?):")
+        for s in sorted(set(stale)):
+            print("  ? %s" % s)
+
+
 def check_by_map(blocks, meta, outdir) -> int:
     """
     Kontrola pro předmět, u kterého konvertor uložil mapu „soubor → rozsah bloků“.
@@ -88,6 +129,8 @@ def check_by_map(blocks, meta, outdir) -> int:
     covered = set()
     everywhere = squash("".join(
         page_text(p) for p in sorted(glob.glob("*.html") + glob.glob(os.path.join(outdir, "*.html")))))
+    corrections = load_corrections(outdir)
+    fixed: list[str] = []
     total = missing = 0
     problems: list[tuple[str, str]] = []
 
@@ -103,6 +146,9 @@ def check_by_map(blocks, meta, outdir) -> int:
                 total += 1
                 needle = squash(text)
                 if needle and needle not in hay:
+                    if needle in corrections:
+                        fixed.append(corrections[needle])
+                        continue
                     missing += 1
                     problems.append((fname, text))
 
@@ -114,11 +160,16 @@ def check_by_map(blocks, meta, outdir) -> int:
         for text in units([b]):
             total += 1
             outside += 1
-            if squash(text) not in everywhere:
+            needle = squash(text)
+            if needle and needle not in everywhere:
+                if needle in corrections:
+                    fixed.append(corrections[needle])
+                    continue
                 missing += 1
                 problems.append(("(mimo mapu, blok %d)" % i, text))
 
     print("kontrolováno %d textových jednotek (%d mimo mapu kapitol)" % (total, outside))
+    report_corrections(fixed, corrections)
     if meta.get("missing"):
         print("ve zdroji není vypracována otázka: %s" % meta["missing"])
     if problems:
@@ -173,15 +224,7 @@ def main() -> int:
     )
 
     # seznam vědomých právních oprav — ty se nehlásí jako ztracený obsah
-    corrections: dict[str, str] = {}
-    cpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_corrections.txt")
-    if os.path.exists(cpath):
-        for line in open(cpath, encoding="utf-8"):
-            line = line.strip()
-            if not line or line.startswith("#") or line.count("|") < 2:
-                continue
-            page, reason, original = (p.strip() for p in line.split("|", 2))
-            corrections[squash(original)] = "%s — %s" % (page, reason)
+    corrections = load_corrections(outdir)
 
     total = missing = 0
     problems: list[tuple[str, str]] = []
