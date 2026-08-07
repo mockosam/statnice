@@ -4,9 +4,9 @@
 make_glosar.py — sestaví glosář předmětu z definic v otázkách.
 
 Etopedie má glosář **ve zdrojovém dokumentu** (samostatná kapitola se 105 hesly),
-takže se jen převádí. Psychologie ani poradenství ho nemají — jejich rejstřík je
-sestavený z dvojic „pojem — definice“, které se v textu otázek našly (sekce
-🔑 Klíčové pojmy).
+takže se jen převádí. Psychologie, poradenství ani pedagogika ho nemají — jejich
+rejstřík je sestavený z dvojic „pojem — definice“, které se v textu otázek našly
+(sekce 🔑 Klíčové pojmy).
 
 Čte hotové HTML (přes vygenerovaný index assets/data.js), takže se do rejstříku
 propíšou i ruční úpravy otázek. Spouštějte po tools/reindex.py:
@@ -14,6 +14,7 @@ propíšou i ruční úpravy otázek. Spouštějte po tools/reindex.py:
     python3 tools/reindex.py
     python3 tools/make_glosar.py psychologie
     python3 tools/make_glosar.py poradenstvi
+    python3 tools/make_glosar.py pedagogika
     python3 tools/make_glosar.py --all
 
 Pozor: cílový soubor je generovaný, ruční úpravy v něm skript přepíše. Chcete-li
@@ -46,6 +47,12 @@ SUBJECTS = {
         "foot_text": "právní stav <a href=\"pravni-aktualnost.html\">ověřen k 08/2026</a>",
         "note": "Zdrojový dokument ke speciální pedagogice – poradenství "
                 "<strong>glosář neobsahuje</strong>.",
+    },
+    "pedagogika": {
+        "label": "Pedagogika",
+        "foot_href": "pravni-aktualnost.html",
+        "foot_text": "právní stav <a href=\"pravni-aktualnost.html\">ověřen k 08/2026</a>",
+        "note": "Zdrojový dokument pedagogiky <strong>glosář neobsahuje</strong>.",
     },
 }
 

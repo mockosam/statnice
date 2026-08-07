@@ -1,0 +1,328 @@
+{
+ "_comment": "Ručně psané opravy a doplňky k předmětu pedagogika. Drží se mimo HTML, aby je opětovné spuštění tools/docx2html_ped.py nesmazalo. fixes = [hledaný text, čím se nahradí], aplikované na hotovou stránku; hledá se tolerantně k mezerám, protože zdroj je plný nezlomitelných. Nenajde-li se text nebo není-li jednoznačný, konvertor skončí chybou. Rozbalovací <details> a <figure> se zavěšuje ZA koncovou značku </p>, </ul> nebo </ol>, protože uvnitř seznamů a odstavců nejsou platné. notes = HTML vložené PŘED sekci Klíčové pojmy (vynechané obrázky). boxes = HTML vložené ZA sekci Klíčové pojmy (právní a věcné doplňky).",
+ "fixes": {
+  "1": [
+   [
+    "<li>současná teorie výchovy pod vlivem společenských změn a liberalismu významně pozměnila výchovné priority, je kladen větší důraz na respektování individuality a svobodný rozvoj osobnosti</li> </ul>",
+    "<li>současná teorie výchovy pod vlivem společenských změn a liberalismu významně pozměnila výchovné priority, je kladen větší důraz na respektování individuality a svobodný rozvoj osobnosti</li> </ul>\n      <figure class=\"fig\">\n        <div class=\"table-wrap\"><table>\n          <thead><tr><th>Výchova <em>v širším smyslu</em> = záměrné a plánovité formování osobnosti</th></tr></thead>\n          <tbody>\n            <tr><td data-label=\"Složka\"><strong>Výchova v užším smyslu</strong> — formování citů, vůle, charakteru.<br><em>Výsledek:</em> co a jak člověk cítí, co chce.</td></tr>\n            <tr><td data-label=\"Složka\"><strong>Vzdělávání</strong> — formování intelektu, rozvíjení duševních schopností.<br><em>Výsledek:</em> co člověk ví a co dovede.</td></tr>\n            <tr><td data-label=\"Cíl\">Obojí směřuje ke <strong>všestrannému rozvíjení osobnosti</strong>.</td></tr>\n          </tbody>\n        </table></div>\n        <figcaption>Překresleno podle schématu ve zdrojovém dokumentu — tam byl naskenovaný z knihy a prosvítal jím text z rubu stránky.</figcaption>\n      </figure>"
+   ],
+   [
+    "<p><strong>Vzdělávání </strong>= proces osvojování vědomostí, dovedností návyků – řízení poznávacích činností žáka, jejichž výsledkem je vzdělání</p>",
+    "<p><strong>Vzdělávání </strong>= proces osvojování vědomostí, dovedností návyků – řízení poznávacích činností žáka, jejichž výsledkem je vzdělání</p>\n      <figure class=\"fig\">\n        <div class=\"table-wrap\"><table>\n          <thead><tr><th>Výchova</th><th>Vzdělávání</th></tr></thead>\n          <tbody>\n            <tr><td data-label=\"Výchova\">Působí především na city a vůli</td><td data-label=\"Vzdělávání\">Působí především na rozum</td></tr>\n            <tr><td data-label=\"Výchova\">Vytváří charakter člověka</td><td data-label=\"Vzdělávání\">Vytváří člověka vzdělaného</td></tr>\n          </tbody>\n        </table></div>\n        <figcaption>Rozdíl mezi výchovou a vzděláváním. Výsledkem obojího je plně rozvinutá osobnost. Překresleno podle skenu ve zdroji.</figcaption>\n      </figure>"
+   ],
+   [
+    "<p>-&gt; zakotveny v zákoně č. 561/2004 (novela 82/2015), školský zákon</p>",
+    "<p>-&gt; zakotveny v zákoně č. 561/2004 (novela 82/2015), školský zákon</p> <span class=\"fix\">[82/2015 Sb. je jen jedna z novel; dnes „ve znění pozdějších předpisů“]</span><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p><strong>Novela č. 82/2015 Sb.</strong> (účinná od 1. 9. 2016) je ta, která zavedla <strong>podpůrná opatření</strong> a zrušila kategorii „zdravotní postižení“. Od té doby má školský zákon další desítky novel — úplné znění platí <strong>ve znění zákona č. 239/2025 Sb.</strong></p><p>U zkoušky je bezpečné říct „<strong>ve znění pozdějších předpisů</strong>“. Konkrétní číslo novely je bonus, ne povinnost.</p><p><a href=\"pravni-aktualnost.html#z5\">Podrobně v právní aktuálnosti →</a></p></div></details>"
+   ],
+   [
+    "<p><strong>RVP </strong>– vymezuje povinný obsah a rozsah všech předmětů pro MŠ, ZŠ a SŠ</p>",
+    "<p><strong>RVP </strong>– vymezuje povinný obsah a rozsah všech předmětů pro MŠ, ZŠ a SŠ</p> <span class=\"fix\">[RVP nevymezuje předměty, ale vzdělávací oblasti a očekávané výstupy]</span><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>RVP <strong>nestanoví předměty</strong> — vymezuje <strong>vzdělávací oblasti a obory</strong>, <strong>očekávané výstupy</strong>, učivo a klíčové kompetence. Vyučovací předměty si z nich skládá až <strong>škola ve svém ŠVP</strong>; právě v tom je smysl dvojúrovňového kurikula.</p><p>Od zpracování dokumentu prošel RVP ZV dvěma revizemi — <strong>2021</strong> (nová informatika a digitální kompetence) a <strong>2025</strong> (dobrovolně od 2025/26, <strong>povinně od 2027/28</strong>). <a href=\"pravni-aktualnost.html#rvp\">Přehled →</a></p></div></details>"
+   ]
+  ],
+  "2": [
+   [
+    "<p>Pro účely statistické analýzy je třeba u každé proměnné určit její typ. Některé současné programové statistické systémy ho umožňují zadávat při definování proměnné nebo jsou podle typů nabízeny statistické postupy.</p>",
+    "<p>Pro účely statistické analýzy je třeba u každé proměnné určit její typ. Některé současné programové statistické systémy ho umožňují zadávat při definování proměnné nebo jsou podle typů nabízeny statistické postupy.</p>\n      <figure class=\"fig\">\n        <div class=\"table-wrap\"><table>\n          <thead><tr><th>Úroveň měření</th><th>Skupina</th><th>Dělí se dál na</th></tr></thead>\n          <tbody>\n            <tr><td data-label=\"Úroveň měření\">nominální</td><td data-label=\"Skupina\">kvalitativní → <strong>kategoriální</strong></td><td data-label=\"Dělí se dál na\">dichotomické · vícekategoriální</td></tr>\n            <tr><td data-label=\"Úroveň měření\">ordinální (pořadové)</td><td data-label=\"Skupina\">kvalitativní → <strong>kategoriální</strong></td><td data-label=\"Dělí se dál na\">dichotomické · vícekategoriální</td></tr>\n            <tr><td data-label=\"Úroveň měření\">intervalové</td><td data-label=\"Skupina\"><strong>kvantitativní</strong></td><td data-label=\"Dělí se dál na\">diskrétní · spojité</td></tr>\n            <tr><td data-label=\"Úroveň měření\">poměrové</td><td data-label=\"Skupina\"><strong>kvantitativní</strong></td><td data-label=\"Dělí se dál na\">diskrétní · spojité</td></tr>\n          </tbody>\n        </table></div>\n        <figcaption>Typy proměnných. U nominální a ordinální proměnné mluvíme o kvalitativních (kategoriálních) datech, u intervalové a poměrové o kvantitativních. Překresleno podle schématu ve zdroji.</figcaption>\n      </figure>"
+   ]
+  ],
+  "3": [
+   [
+    "<p>Při kreslení sociogramů se zpravidla znázorňuje:</p>",
+    "<p>Při kreslení sociogramů se zpravidla znázorňuje:</p>\n      <figure class=\"fig\">\n        <svg viewBox=\"0 0 460 120\" role=\"img\" aria-label=\"Značky používané v sociogramu\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><defs><marker id=\"ar-soc1\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"currentColor\" stroke=\"none\"/></marker></defs><circle cx=\"40\" cy=\"30\" r=\"15\"/><text x=\"40\" y=\"30\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">A</text><circle cx=\"170\" cy=\"30\" r=\"15\"/><text x=\"170\" y=\"30\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">B</text><line x1=\"56\" y1=\"30\" x2=\"154\" y2=\"30\" marker-end=\"url(#ar-soc1)\"/><text x=\"215\" y=\"34\" font-size=\"12.5\" fill=\"currentColor\" stroke=\"none\">jednostranný kladný výběr</text><circle cx=\"40\" cy=\"90\" r=\"15\"/><text x=\"40\" y=\"90\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">C</text><circle cx=\"170\" cy=\"90\" r=\"15\"/><text x=\"170\" y=\"90\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">D</text><line x1=\"56\" y1=\"90\" x2=\"154\" y2=\"90\" marker-end=\"url(#ar-soc1)\" stroke-dasharray=\"4 3\"/><text x=\"215\" y=\"94\" font-size=\"12.5\" fill=\"currentColor\" stroke=\"none\">jednostranný záporný výběr (odmítání)</text></svg>\n        <svg viewBox=\"0 0 460 120\" role=\"img\" aria-label=\"Vzájemné volby v sociogramu\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><defs><marker id=\"ar-soc2\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"currentColor\" stroke=\"none\"/></marker></defs><circle cx=\"40\" cy=\"30\" r=\"15\"/><text x=\"40\" y=\"30\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">E</text><circle cx=\"170\" cy=\"30\" r=\"15\"/><text x=\"170\" y=\"30\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">F</text><line x1=\"56\" y1=\"30\" x2=\"154\" y2=\"30\" marker-end=\"url(#ar-soc2)\" marker-start=\"url(#ar-soc2)\"/><text x=\"215\" y=\"34\" font-size=\"12.5\" fill=\"currentColor\" stroke=\"none\">vzájemný kladný výběr</text><circle cx=\"40\" cy=\"90\" r=\"15\"/><text x=\"40\" y=\"90\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">G</text><circle cx=\"170\" cy=\"90\" r=\"15\"/><text x=\"170\" y=\"90\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">H</text><line x1=\"56\" y1=\"90\" x2=\"154\" y2=\"90\" marker-end=\"url(#ar-soc2)\" marker-start=\"url(#ar-soc2)\" stroke-dasharray=\"4 3\"/><text x=\"215\" y=\"94\" font-size=\"12.5\" fill=\"currentColor\" stroke=\"none\">vzájemný záporný výběr</text></svg>\n        <figcaption>Značky sociogramu: plná čára = kladná volba, čárkovaná = záporná; šipka na jednom konci = jednostranná, na obou = vzájemná.</figcaption>\n      </figure>"
+   ]
+  ],
+  "5": [
+   [
+    "<p><strong>A) hledisko způsobu řízení učební činnosti žáků ve výuce</strong></p>",
+    "<p><strong>A) hledisko způsobu řízení učební činnosti žáků ve výuce</strong></p>\n      <figure class=\"fig\">\n        <div class=\"fig-row\"><svg viewBox=\"0 0 150 130\" role=\"img\" aria-label=\"Frontální výuka\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><defs><marker id=\"ar-front\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"currentColor\" stroke=\"none\"/></marker></defs><circle cx=\"24\" cy=\"65\" r=\"15\"/><text x=\"24\" y=\"65\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">U</text><circle cx=\"120\" cy=\"28\" r=\"15\"/><text x=\"120\" y=\"28\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">ž</text><circle cx=\"120\" cy=\"65\" r=\"15\"/><text x=\"120\" y=\"65\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">ž</text><circle cx=\"120\" cy=\"102\" r=\"15\"/><text x=\"120\" y=\"102\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">ž</text><line x1=\"41\" y1=\"60\" x2=\"104\" y2=\"32\" marker-end=\"url(#ar-front)\"/><line x1=\"41\" y1=\"65\" x2=\"103\" y2=\"65\" marker-end=\"url(#ar-front)\"/><line x1=\"41\" y1=\"70\" x2=\"104\" y2=\"98\" marker-end=\"url(#ar-front)\"/></svg><svg viewBox=\"0 0 150 130\" role=\"img\" aria-label=\"Individuální výuka\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><defs><marker id=\"ar-indiv\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"currentColor\" stroke=\"none\"/></marker></defs><circle cx=\"30\" cy=\"65\" r=\"15\"/><text x=\"30\" y=\"65\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">U</text><circle cx=\"115\" cy=\"65\" r=\"15\"/><text x=\"115\" y=\"65\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">ž</text><line x1=\"47\" y1=\"65\" x2=\"98\" y2=\"65\" marker-end=\"url(#ar-indiv)\" marker-start=\"url(#ar-indiv)\"/></svg><svg viewBox=\"0 0 150 130\" role=\"img\" aria-label=\"Skupinová výuka\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><defs><marker id=\"ar-skup\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"currentColor\" stroke=\"none\"/></marker></defs><circle cx=\"24\" cy=\"65\" r=\"15\"/><text x=\"24\" y=\"65\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">U</text><circle cx=\"112\" cy=\"25\" r=\"15\"/><text x=\"112\" y=\"25\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">ž</text><circle cx=\"134\" cy=\"65\" r=\"15\"/><text x=\"134\" y=\"65\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">ž</text><circle cx=\"112\" cy=\"105\" r=\"15\"/><text x=\"112\" y=\"105\" text-anchor=\"middle\" dominant-baseline=\"central\" font-size=\"12\" fill=\"currentColor\" stroke=\"none\">ž</text><line x1=\"41\" y1=\"60\" x2=\"96\" y2=\"30\" marker-end=\"url(#ar-skup)\" marker-start=\"url(#ar-skup)\"/><line x1=\"41\" y1=\"65\" x2=\"118\" y2=\"65\" marker-end=\"url(#ar-skup)\" marker-start=\"url(#ar-skup)\"/><line x1=\"41\" y1=\"70\" x2=\"96\" y2=\"100\" marker-end=\"url(#ar-skup)\" marker-start=\"url(#ar-skup)\"/><line x1=\"114\" y1=\"40\" x2=\"129\" y2=\"51\" marker-end=\"url(#ar-skup)\" marker-start=\"url(#ar-skup)\"/><line x1=\"129\" y1=\"79\" x2=\"114\" y2=\"90\" marker-end=\"url(#ar-skup)\" marker-start=\"url(#ar-skup)\"/><line x1=\"112\" y1=\"40\" x2=\"112\" y2=\"90\" marker-end=\"url(#ar-skup)\" marker-start=\"url(#ar-skup)\"/></svg></div>\n        <figcaption><strong>Komunikační struktura tří organizačních forem.</strong> Zleva: frontální (jednosměrně od učitele k žákům), individuální (obousměrně učitel – žák), skupinová (obousměrně učitel – skupina i mezi žáky navzájem). U = učitel, ž = žák. Překresleno podle Obr. 13.1–13.3 ve zdroji.</figcaption>\n      </figure>"
+   ],
+   [
+    "<p>Klasifikace výukových metod dle Maňáka a Švece (2003):</p>",
+    "<p>Klasifikace výukových metod dle Maňáka a Švece (2003):</p>\n      <figure class=\"fig\">\n        <ol class=\"fig-list\">\n          <li><strong>Klasické výukové metody</strong>\n            <ol>\n              <li>Metody slovní — vyprávění · vysvětlování · přednáška · práce s textem · rozhovor</li>\n              <li>Metody názorně-demonstrační — předvádění a pozorování · práce s obrazem · instruktáž</li>\n              <li>Metody dovednostně-praktické — napodobování · manipulování, laborování a experimentování · vytváření dovedností · produkční metody</li>\n            </ol>\n          </li>\n          <li><strong>Aktivizující metody</strong> — diskusní · heuristické (řešení problémů) · situační · inscenační · didaktické hry</li>\n          <li><strong>Komplexní výukové metody</strong> — frontální výuka · skupinová a kooperativní výuka · partnerská výuka · individuální a individualizovaná výuka, samostatná práce žáků · kritické myšlení · brainstorming · projektová výuka · výuka dramatem · otevřené učení · učení v životních situacích · televizní výuka · výuka podporovaná počítačem · sugestopedie a superlearning · hypnopedie</li>\n        </ol>\n        <figcaption>Přepsáno ze skenu ve zdrojovém dokumentu — jako text je klasifikace prohledatelná a čitelná i na mobilu.</figcaption>\n      </figure>"
+   ]
+  ],
+  "7": [
+   [
+    "<li><strong>Akreditační komise</strong> — je schvalována statutem vlády, řídí předseda, financována ze st. rozpočtu, vydává stanovisko k žádostem o akreditaci studijního programu</li>",
+    "<li><strong>Národní akreditační úřad pro terciární vzdělávání</strong> — nezávislý správní úřad, který <strong>uděluje akreditace</strong> studijním programům vysokých škol a od 1. 7. 2025 i vzdělávacím programům VOŠ. <span class=\"fix\">[nahradil Akreditační komisi, kterou uvádí zdroj; ta zanikla 1. 9. 2016]</span></li>"
+   ],
+   [
+    "<li><strong>Společná část</strong> — 2 povinné zkoušky (Čj a lit., cizí jazyk nebo MAT – bude se měnit, povinná bude MA – od roku 2021? – stále není jasné, ředitelé gymnázií protesty), max. 3 nepovinné zk.</li>",
+    "<li><strong>Společná část maturitní zkoušky</strong> — dvě povinné zkoušky: český jazyk a literatura a druhá podle volby žáka (cizí jazyk <em>nebo</em> matematika), obě <strong>pouze formou didaktického testu</strong>; nejvýše 2 nepovinné zkoušky (§ 78 školského zákona). <span class=\"fix\">[povinná matematika se nakonec nezavedla; zdroj o tom v roce 2016 jen spekuluje]</span></li>"
+   ],
+   [
+    "<li><strong>Profilová část</strong> — stanovuje RVP (ředitel) + max. 2 nepovinné zk.</li>",
+    "<li><strong>Profilová část maturitní zkoušky</strong> — zkouška z českého jazyka a literatury, zkouška z cizího jazyka (zvolil-li ho žák ve společné části) a další <strong>2 nebo 3 povinné zkoušky</strong> podle RVP oboru; nabídku, formu a témata určuje ředitel školy, nejvýše 2 nepovinné zkoušky (§ 79). <span class=\"fix\">[od roku 2021 sem patří i písemné práce a ústní zkoušky z jazyků]</span></li>"
+   ],
+   [
+    "<li><strong>Školní rok</strong> — začíná počátkem školního roku a končí 31. srpna následujícího</li>",
+    "<li><strong>Školní rok</strong> — začíná <strong>1. září</strong> a končí <strong>31. srpna</strong> následujícího kalendářního roku; člení se na období školního vyučování a školních prázdnin (§ 24 školského zákona). <span class=\"fix\">[definice ve zdroji je kruhová]</span></li>"
+   ],
+   [
+    "<li><strong>Pedagogičtí pracovníci</strong> — učitelé, ředitelé, zástupci ředitelů, vychovatelé, instruktoři tělesné výchovy, mistři a vrchní mistři, vedoucí trenéři</li>",
+    "<li><strong>Pedagogičtí pracovníci</strong> — přímou pedagogickou činnost vykonává učitel, pedagog v zařízení pro DVPP, vychovatel, speciální pedagog, <strong>školský logoped</strong>, psycholog, pedagog volného času, asistent pedagoga, trenér, metodik prevence v PPP a vedoucí pedagogický pracovník (§ 2 odst. 2 zák. č. 563/2004 Sb.). <span class=\"fix\">[výčet ve zdroji je z předpisů před rokem 2004]</span></li>"
+   ],
+   [
+    "<li><strong>Konzervatoře</strong> — Vzdělávání v konzervatoři rozvíjí znalosti, dovednosti a další schopnosti žáků získané v základním a v základním uměleckém vzdělávání, poskytuje všeobecné vzdělání a připravuje žáky pro výkon náročných uměleckých činností v oborech hudba, tanec, zpěv a hudebně dramatické umění. Úspěšným absolvováním konzervatoře získají žáci střední vzdělání ukončené maturitní zkouškou (ISCED 3A), nebo vyšší odborné vzdělání (ISCED 5B) ukončené absolutoriem.</li>",
+    "<li><strong>Konzervatoře</strong> — Vzdělávání v konzervatoři rozvíjí znalosti, dovednosti a další schopnosti žáků získané v základním a v základním uměleckém vzdělávání, poskytuje všeobecné vzdělání a připravuje žáky pro výkon náročných uměleckých činností v oborech hudba, tanec, zpěv a hudebně dramatické umění. Úspěšným absolvováním konzervatoře získají žáci střední vzdělání ukončené maturitní zkouškou (ISCED 3A), nebo vyšší odborné vzdělání (ISCED 5B) ukončené absolutoriem.</li> <span class=\"fix\">[kódy ISCED-97; dnes ISCED 3, resp. ISCED 6 podle CZ-ISCED 2011]</span>"
+   ],
+   [
+    "<li><strong>Česká školní inspekce</strong> — přímo podřízena MŠMT- v čele je ústřední inspektorka, která kontroluje vzdělanost pedagogů a žáků</li>",
+    "<li><strong>Česká školní inspekce</strong> — přímo podřízena MŠMT- v čele je ústřední inspektorka, která kontroluje vzdělanost pedagogů a žáků</li> <span class=\"fix\">[ČŠI je správní úřad a organizační složka státu, v jejím čele stojí ústřední školní inspektor; hodnotí podmínky, průběh a výsledky vzdělávání, ne „vzdělanost pedagogů“]</span>"
+   ],
+   [
+    "<li>obecní úřad obce s rozšířenou působností,</li>",
+    "<li>obecní úřad obce s rozšířenou působností,</li> <span class=\"fix\">[po reformě financování z roku 2018 už ORP školy nefinancuje]</span>"
+   ],
+   [
+    "<li>Ministerstvo školství, mládeže a tělovýchovy, případně další ministerstva u škol spadajících do jejich resortu).</li> </ul>",
+    "<li>Ministerstvo školství, mládeže a tělovýchovy, případně další ministerstva u škol spadajících do jejich resortu).</li> </ul>\n      <aside class=\"box law\">\n        <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Jak to vypadá k srpnu 2026</h4>\n        <p>Školský zákon dnes odděluje dvě věci, které zdroj slévá dohromady:</p>\n        <ul>\n          <li><strong>Územní samosprávu ve školství</strong> vykonávají podle <strong>§ 177</strong> jen <strong>obec a kraj</strong>.</li>\n          <li><strong>Státní správu</strong> vykonávají <strong>ředitel školy</strong> (§ 164 a 165), <strong>krajský úřad</strong>, <strong>Česká školní inspekce</strong> a <strong>ministerstvo</strong> (část šestnáctá).</li>\n        </ul>\n        <p><strong>Obecní úřad obce s rozšířenou působností</strong> je v celém zákoně zmíněn <strong>jedinkrát</strong> — v § 161 odst. 6 ověřuje jednotky výkonu u škol zřizovaných obcí a rozdíly hlásí krajskému úřadu. Roli článku, který školám rozepisoval rozpočet, ztratil <strong>reformou financování regionálního školství</strong> (zák. č. 101/2017 Sb., naplno od 1. 1. 2020, systém <strong>PHmax</strong>). Peníze dnes tečou MŠMT → krajský úřad → škola.</p>\n      </aside>"
+   ],
+   [
+    "a konečně zajišťovat podmínky pro výkon ústavní výchovy.</p>",
+    "a konečně zajišťovat podmínky pro výkon ústavní výchovy.</p> <span class=\"fix\">[poslední rok v MŠ je od 1. 9. 2017 povinný, včetně spádovosti — § 34 odst. 1 školského zákona]</span>"
+   ],
+   [
+    "a registrace vnitřních předpisů vysokých škol, jíž teprve nabývají platnosti.</p>",
+    "a registrace vnitřních předpisů vysokých škol, jíž teprve nabývají platnosti.</p> <span class=\"fix\">[akreditace uděluje od 1. 9. 2016 Národní akreditační úřad, ne MŠMT na stanovisko Akreditační komise]</span>"
+   ],
+   [
+    "<li>ve školách se vyučuje podle učebních plánů a osnov</li>",
+    "<li>ve školách se vyučuje podle učebních plánů a osnov</li> <span class=\"fix\">[podle RVP a z nich odvozených ŠVP; učební osnovy skončily s reformou 2004/2007]</span>"
+   ],
+   [
+    "<li>Akreditační komise – je schvalována statutem vlády, řídí předseda, financována ze st. rozpočtu, vydává stanovisko k žádostem o akreditaci studijního programu</li>",
+    "<li>Akreditační komise – je schvalována statutem vlády, řídí předseda, financována ze st. rozpočtu, vydává stanovisko k žádostem o akreditaci studijního programu</li> <span class=\"fix\">[Akreditační komise zanikla 1. 9. 2016]</span><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>Zákon č. <strong>137/2016 Sb.</strong> (novela zákona o vysokých školách) zrušil Akreditační komisi a k <strong>1. 9. 2016</strong> zřídil <strong>Národní akreditační úřad pro vysoké školství</strong>. Ten akreditace <strong>sám uděluje</strong>, nevydává jen stanovisko pro ministerstvo.</p><p>Zákonem č. <strong>52/2025 Sb.</strong> se jeho působnost od <strong>1. 7. 2025</strong> rozšířila i na <strong>vyšší odborné školy</strong> a úřad se přejmenoval na <strong>Národní akreditační úřad pro terciární vzdělávání</strong>.</p></div></details>"
+   ],
+   [
+    "<li>učitelé, ředitelé, zástupci ředitelů, vychovatelé, instruktoři tělesné výchovy, mistři a vrchní mistři, vedoucí trenéři</li>",
+    "<li>učitelé, ředitelé, zástupci ředitelů, vychovatelé, instruktoři tělesné výchovy, mistři a vrchní mistři, vedoucí trenéři</li> <span class=\"fix\">[výčet je z předpisů před rokem 2004 — platný je § 2 odst. 2 zák. 563/2004 Sb.]</span>"
+   ],
+   [
+    "<li>musí mít odbornou pedagogickou způsobilost, bezúhonný a morálně vyspělý</li>",
+    "<li>musí mít odbornou pedagogickou způsobilost, bezúhonný a morálně vyspělý</li> <span class=\"fix\">[dnes: plná svéprávnost, odborná kvalifikace, bezúhonnost, zdravotní způsobilost a znalost češtiny (§ 3)]</span><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p><strong>§ 2 odst. 2 zákona č. 563/2004 Sb.</strong> — přímou pedagogickou činnost vykonává <strong>učitel, pedagog v zařízení pro DVPP, vychovatel, speciální pedagog, školský logoped, psycholog, pedagog volného času, asistent pedagoga, trenér, metodik prevence v PPP</strong> a <strong>vedoucí pedagogický pracovník</strong>. Pozice „školský logoped“ přibyla novelou <strong>183/2023 Sb.</strong></p><p><strong>§ 3</strong> — pedagogickým pracovníkem může být ten, kdo je <strong>plně svéprávný</strong>, má <strong>odbornou kvalifikaci</strong> pro činnost, kterou vykonává, je <strong>bezúhonný</strong>, <strong>zdravotně způsobilý</strong> a <strong>prokázal znalost českého jazyka</strong>. „Morální vyspělost“ mezi předpoklady nepatří — to je formulace ze zákona č. 76/1978 Sb.</p><p>Novela <strong>183/2023 Sb.</strong> navíc zavedla <strong>adaptační období</strong> začínajícího učitele a <strong>provázejícího učitele</strong>. <a href=\"pravni-aktualnost.html#pp\">Podrobně →</a></p></div></details>"
+   ],
+   [
+    "<li>Společná část – 2 povinné zkoušky (Čj a lit., cizí jazyk nebo MAT – bude se měnit, povinná bude MA – od roku 2021? – stále není jasné, ředitelé gymnázií protesty), max. 3 nepovinné zk.</li>",
+    "<li>Společná část – 2 povinné zkoušky (Čj a lit., cizí jazyk nebo MAT – bude se měnit, povinná bude MA – od roku 2021? – stále není jasné, ředitelé gymnázií protesty), max. 3 nepovinné zk.</li> <span class=\"fix\">[od roku 2021 jen didaktické testy a nejvýše 2 nepovinné zkoušky; povinná matematika se nezavedla]</span>"
+   ],
+   [
+    "<li>Profilová část – stanovuje RVP (ředitel) + max. 2 nepovinné zk.</li>",
+    "<li>Profilová část – stanovuje RVP (ředitel) + max. 2 nepovinné zk.</li> <span class=\"fix\">[nově sem patří i ČJL a cizí jazyk — písemná práce a ústní zkouška]</span><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>Od roku 2021 platí model podle <strong>§ 77–79 školského zákona</strong>:</p><ul><li><strong>Společná část</strong> — český jazyk a literatura + jedna zkouška podle volby žáka (cizí jazyk <em>nebo</em> matematika), obojí <strong>jen didaktickým testem</strong>, hodnoceno „uspěl/neuspěl“ s procentem úspěšnosti. Nejvýše <strong>2</strong> nepovinné zkoušky.</li><li><strong>Profilová část</strong> — zkouška z <strong>ČJL</strong>, zkouška z <strong>cizího jazyka</strong> (zvolil-li ho žák ve společné části) a <strong>2 nebo 3 další povinné zkoušky</strong> podle RVP oboru. Právě sem se přesunuly <strong>písemné práce a ústní zkoušky z jazyků</strong>.</li></ul><p>Povinná maturita z matematiky, o které zdroj spekuluje, <strong>zavedena nebyla</strong>.</p></div></details>"
+   ],
+   [
+    "<p>Nejdůležitějším právním dokumentem je Školský zákon, momentálně v platném znění účinném do 31. 8. 2017.</p>",
+    "<p>Nejdůležitějším právním dokumentem je Školský zákon, momentálně v platném znění účinném do 31. 8. 2017.</p> <span class=\"fix\">[datum je z roku 2016; k 08/2026 platí znění zák. č. 239/2025 Sb.]</span>"
+   ],
+   [
+    "<p>Zákon <strong>563/2004</strong> Sb. <em>o pedagogických pracovníc</em><em>ích</em> (v aktuálním znění zákona č. 379/2015 Sb.)</p>",
+    "<p>Zákon <strong>563/2004</strong> Sb. <em>o pedagogických pracovníc</em><em>ích</em> (v aktuálním znění zákona č. 379/2015 Sb.)</p> <span class=\"fix\">[velká novela je 183/2023 Sb., účinná od 1. 9. 2023]</span>"
+   ],
+   [
+    "<p><strong>vyhláška č. 27/2016 Sb</strong>., <em>o vzdělávání žáků se speciálními vzdělávacími potřebami a žáků nadaných</em></p>",
+    "<p><strong>vyhláška č. 27/2016 Sb</strong>., <em>o vzdělávání žáků se speciálními vzdělávacími potřebami a žáků nadaných</em></p> <span class=\"fix\">[ve znění vyhl. č. 306/2025 Sb., účinné od 1. 1. 2026]</span>"
+   ],
+   [
+    "<p><strong>vyhláška č. 72/2005 Sb</strong>. (aktuálně ve znění vyhlášky č. 116/2011) <em>o poskytování poradenských služeb ve školách a školských poradenských zařízeních</em></p>",
+    "<p><strong>vyhláška č. 72/2005 Sb</strong>. (aktuálně ve znění vyhlášky č. 116/2011) <em>o poskytování poradenských služeb ve školách a školských poradenských zařízeních</em></p> <span class=\"fix\">[dnes ve znění vyhl. č. 197/2016, 46/2025 a 306/2025 Sb.]</span>"
+   ],
+   [
+    "<p>Vyšší odborné školy (od roku 1995) připravují pro kvalifikovaný výkon náročných odborných činností. Absolventům středních škol, kteří své vzdělání ukončili maturitní zkouškou, poskytují vyšší odborné vzdělání (ISCED 5B) ukončené absolutoriem.</p>",
+    "<p>Vyšší odborné školy (od roku 1995) připravují pro kvalifikovaný výkon náročných odborných činností. Absolventům středních škol, kteří své vzdělání ukončili maturitní zkouškou, poskytují vyšší odborné vzdělání (ISCED 5B) ukončené absolutoriem.</p> <span class=\"fix\">[kódy ISCED-97 (3A, 3C, 5A, 5B) nahradila v roce 2011 klasifikace ISCED 2011]</span><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>Celá pasáž o školské soustavě používá <strong>ISCED-97</strong>. Od roku 2011 platí <strong>ISCED 2011</strong> (v ČR <strong>CZ-ISCED 2011</strong>), kde písmenné přípony zmizely:</p><ul><li>gymnázium a maturitní obory SOŠ → <strong>ISCED 3</strong> (dřív 3A)</li><li>učební obory bez maturity → <strong>ISCED 3</strong> odborné (dřív 3C)</li><li>vyšší odborná škola, absolutorium → <strong>ISCED 6</strong> (dřív 5B)</li><li>bakalář → <strong>ISCED 6</strong>, magistr → <strong>ISCED 7</strong>, doktor → <strong>ISCED 8</strong> (dřív 5A a 6)</li></ul></div></details>"
+   ]
+  ],
+  "13": [
+   [
+    "<li>na škole působí na základě <strong>vyhlášky 116/2011</strong></li>",
+    "<li>na škole působí na základě <strong>vyhlášky 116/2011</strong></li> <span class=\"fix\">[116/2011 Sb. je jen novela; základním předpisem je vyhl. č. 72/2005 Sb., dnes ve znění 197/2016, 46/2025 a 306/2025 Sb.]</span>"
+   ],
+   [
+    "<li>obecné působení ŠSPPG=&gt; podepisují všichni zákonní zástupci žáků školy tzv. generální souhlas</li>",
+    "<li>obecné působení ŠSPPG=&gt; podepisují všichni zákonní zástupci žáků školy tzv. generální souhlas</li> <span class=\"fix\">[po GDPR se „generální souhlas“ nepoužívá]</span><details class=\"upd\"><summary>Aktualizace 2026</summary><div class=\"upd-body\"><p>Vyhláška č. 72/2005 Sb. dnes rozlišuje dvojí režim: <strong>běžnou poradenskou činnost školního poradenského pracoviště</strong> (depistáž, metodická podpora učitelů, práce s klimatem třídy) škola poskytuje v rámci vzdělávání, o čemž zákonné zástupce <strong>informuje</strong>; pro <strong>individuální diagnostiku a intervenci</strong> je nutný <strong>informovaný souhlas</strong> zákonného zástupce ke konkrétní službě.</p><p>Plošný „generální souhlas“ podepsaný na začátku školní docházky nesplňuje požadavky <strong>GDPR</strong> na konkrétnost a informovanost souhlasu.</p></div></details>"
+   ],
+   [
+    "z Operačního programu Vzdělávání pro konkurenceschopnost – Rozvoj a metodická podpora poradenských služeb (OP VK VIP III-RAMPS).",
+    "z Operačního programu Vzdělávání pro konkurenceschopnost – Rozvoj a metodická podpora poradenských služeb (OP VK VIP III-RAMPS). <span class=\"fix\">[OP VK skončil v roce 2015; dnes OP JAK 2021–2027 a „šablony“]</span>"
+   ],
+   [
+    "<p><em><strong>Podle Národní soustavy povolání </strong></em><em><strong>(2015) </strong></em><em><strong>Ministerstva práce a sociálních věcí</strong></em>:</p>",
+    "<p><em><strong>Podle Národní soustavy povolání </strong></em><em><strong>(2015) </strong></em><em><strong>Ministerstva práce a sociálních věcí</strong></em>:</p> <span class=\"fix\">[NSP se průběžně aktualizuje — ověřte si znění na nsp.cz]</span>"
+   ]
+  ],
+  "15": [
+   [
+    "<li>při řešení důležité prověřit případné souvislosti s klasickou šikanou =&gt; pokud probíhá klasická šikana (např. nadávky, ponižování), je nutné zjistit situaci oběti v kyberprostoru (mobil, profil, chat apod.)</li> </ul>",
+    "<li>při řešení důležité prověřit případné souvislosti s klasickou šikanou =&gt; pokud probíhá klasická šikana (např. nadávky, ponižování), je nutné zjistit situaci oběti v kyberprostoru (mobil, profil, chat apod.)</li> </ul>\n      <figure class=\"fig\">\n        <div class=\"table-wrap\"><table>\n          <thead><tr><th>Osm druhů šikanování</th><th>Příklady projevů</th></tr></thead>\n          <tbody>\n            <tr><td data-label=\"Druh\">Fyzické přímé aktivní</td><td data-label=\"Příklady\">Útočníci oběť věší do smyčky, škrtí, kopou, fackují.</td></tr>\n            <tr><td data-label=\"Druh\">Fyzické aktivní nepřímé</td><td data-label=\"Příklady\">Kápo pošle nohsledy, aby oběť zbili. Oběti jsou ničeny věci.</td></tr>\n            <tr><td data-label=\"Druh\">Fyzické pasivní přímé</td><td data-label=\"Příklady\">Agresor nedovolí oběti, aby si sedla do lavice (fyzické bránění oběti v dosahování jejích cílů).</td></tr>\n            <tr><td data-label=\"Druh\">Fyzické pasivní nepřímé</td><td data-label=\"Příklady\">Agresor odmítne oběť na její požádání pustit ze třídy na záchod (odmítnutí splnění požadavku).</td></tr>\n            <tr><td data-label=\"Druh\">Verbální aktivní přímé</td><td data-label=\"Příklady\">Nadávání, urážení, zesměšňování.</td></tr>\n            <tr><td data-label=\"Druh\">Verbální aktivní nepřímé</td><td data-label=\"Příklady\">Rozšiřování pomluv. Patří sem ale i tzv. symbolická agrese, která může být vyjádřena v kresbách, básních apod.</td></tr>\n            <tr><td data-label=\"Druh\">Verbální pasivní přímé</td><td data-label=\"Příklady\">Neodpovídání na pozdrav, otázky apod.</td></tr>\n            <tr><td data-label=\"Druh\">Verbální pasivní nepřímé</td><td data-label=\"Příklady\">Spolužáci se nezastanou oběti, je-li nespravedlivě obviněna z něčeho, co udělali její trýznitelé.</td></tr>\n          </tbody>\n        </table></div>\n        <figcaption>Kolářova klasifikace typů šikany. Přepsáno ze skenu ve zdrojovém dokumentu.</figcaption>\n      </figure>"
+   ]
+  ]
+ },
+ "notes": {
+  "1": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Vynechané obrázky</h4>\n      <p>V pasáži o cílech a obsahu edukace byl ve zdroji <strong>snímek celé obrazovky s PowerPointem</strong> — včetně <strong>jména autorky v titulkové liště</strong> a jejího hlavního panelu. Na veřejný web nepatří, snímek je vynechán. Šlo o slide „Determinanty výuky“: <strong>obsah — učitel — žáci</strong> jako vrcholy trojúhelníku, k nim charakteristiky učiva, učitelů, žáků, škol a prostředí a <strong>čas a prostor</strong> jako časové determinanty.</p>\n      <p>Druhý vynechaný slide říkal, že rozvoj jedince určují tři činitelé: <strong>vrozené a dědičné předpoklady</strong>, <strong>prostředí</strong> (materiální a sociální) a <strong>výchova a vzdělávání</strong>.</p>\n      <p>Dvě naskenovaná schémata z knih jsou naopak níž na stránce <strong>překreslená</strong> — jsou tak čitelná i na mobilu a v tisku.</p>\n    </aside>",
+  "3": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Vynechaný obrázek</h4>\n      <p>Ukázkový sociogram byl ve zdroji vložený jako <strong>vektorový soubor EMF</strong> (937 kB) — formát, který <strong>žádný prohlížeč nevykreslí</strong>. Místo něj je níž na stránce překreslená <strong>legenda značek</strong>, což je to, co se u zkoušky opravdu hodí umět.</p>\n    </aside>"
+ },
+ "boxes": {
+  "1": "    <aside class=\"box law\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Kurikulární dokumenty k srpnu 2026</h4>\n      <p>Dokument je z roku 2016/2017 a popisuje stav kurikula před dvěma revizemi. Dnes platí:</p>\n      <ul>\n        <li><strong>RVP ZV 2021</strong> — nový vzdělávací obor <strong>Informatika</strong> a <strong>digitální kompetence</strong> jako šestá klíčová kompetence.</li>\n        <li><strong>RVP ZV 2025</strong> — velká revize; podle ní se učí <strong>dobrovolně od 2025/26</strong> a <strong>povinně od 1. 9. 2027</strong> (1. a 6. ročník), ZŠ speciální do 1. 9. 2028.</li>\n        <li><strong>NPV („Bílá kniha“, 2001)</strong> jako dokument dál existuje, ale nahradily ho <strong>Strategie vzdělávací politiky ČR do roku 2030+</strong> a navazující dlouhodobé záměry.</li>\n      </ul>\n      <p><a href=\"zakony.html\">Klíčové zákony →</a> · <a href=\"pravni-aktualnost.html\">Právní aktuálnost →</a></p>\n    </aside>",
+  "2": "    <aside class=\"box law\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Co dokument z roku 2016 nemohl znát: GDPR</h4>\n      <p>Pedagogický výzkum ve škole je <strong>zpracování osobních údajů</strong>, často <strong>dětí</strong>. Od 25. 5. 2018 platí <strong>GDPR</strong> (nařízení EU 2016/679) a zákon č. <strong>110/2019 Sb.</strong> o zpracování osobních údajů. Prakticky to znamená: určit <strong>právní titul</strong> zpracování, získat <strong>informovaný souhlas zákonných zástupců</strong>, sbírat jen <strong>nezbytné údaje</strong> (minimalizace), <strong>anonymizovat nebo pseudonymizovat</strong> data a stanovit dobu uchování.</p>\n      <p>Zdrojový dokument slovo GDPR neobsahuje ani jednou — je psaný před jeho účinností. U zkoušky je to vděčný doplněk, kterým ukážete, že látku máte ověřenou k dnešnímu dni.</p>\n    </aside>",
+  "3": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Sociometrie a ochrana osobních údajů</h4>\n      <p>Sociometrický test ve třídě odhaluje <strong>vztahy konkrétních jmenovaných dětí</strong>, včetně odmítání. Po nástupu <strong>GDPR</strong> (2018) a zákona č. <strong>110/2019 Sb.</strong> proto platí: <strong>informovaný souhlas zákonných zástupců</strong>, sdělovat <strong>skupinové výsledky</strong> a ne jednotlivé pozice, sociogram <strong>nevyvěšovat</strong> a data <strong>nearchivovat déle, než je potřeba</strong>. Zdroj je z roku 2016 a nic z toho neřeší.</p>\n    </aside>",
+  "6": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Část okruhu ve zdroji chybí</h4>\n      <p>Okruh 6 podle zadání A21 zní celý takto: „Komunikace jako nástroj dosahování profesních cílů v pedagogice. Komunikační strategie a komunikační styly. Klima školy a klima třídy. <strong>Komunikace z psychologického hlediska (Berne), bariéry v komunikaci.</strong>“</p>\n      <p>Poslední větu zdrojový dokument <strong>nepokrývá vůbec</strong> — Berneho <strong>transakční analýza</strong> (stavy já Rodič – Dospělý – Dítě, komplementární a zkřížené transakce, „hry“) ani <strong>bariéry v komunikaci</strong> v něm nejsou. Není to chyba převodu, prostě tam nejsou.</p>\n      <p>Obojí máte zpracované u druhého předmětu: <a href=\"../psychologie/otazka-19-komunikace-bariery.html\">Psychologie · otázka 19 — Komunikace a bariéry →</a></p>\n    </aside>",
+  "7": "    <aside class=\"box warn\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Právně nejstarší otázka celého předmětu</h4>\n      <p>Zdroj je z roku <strong>2016/2017</strong> a tahle otázka je celá o legislativě. Oranžově <span class=\"fix\">zvýrazněné</span> údaje v textu níž jsou opravené; rozbalovací poznámky „Aktualizace 2026“ vysvětlují, co se změnilo.</p>\n      <p>Nejvíc bodů u zkoušky stojí čtyři věci, které dokument nemá: <strong>maturita se od roku 2021 dělí jinak</strong>, <strong>Akreditační komise zanikla</strong>, <strong>ORP školy nefinancuje</strong> a <strong>ISCED-97 nahradil ISCED 2011</strong>.</p>\n      <p><a href=\"zakony.html\">Klíčové zákony ve znění k 08/2026 →</a> · <a href=\"pravni-aktualnost.html\">Všech zjištění →</a></p>\n    </aside>",
+  "10": "    <aside class=\"box law\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Deset let je v téhle otázce hodně</h4>\n      <p>Text je z roku 2016 — sociální sítě v něm reprezentuje <strong>Facebook</strong>. Co k tomu k srpnu 2026 doplnit:</p>\n      <ul>\n        <li><strong>RVP ZV 2021</strong> zavedl <strong>digitální kompetenci</strong> jako klíčovou kompetenci a nový obor <strong>Informatika</strong>; revize <strong>RVP ZV 2025</strong> k tomu přidala základní vhled do <strong>umělé inteligence</strong> a strojového učení.</li>\n        <li><strong>Nařízení EU 2022/2065 (DSA)</strong> — od roku 2024 ukládá platformám povinnosti při ochraně nezletilých a při odstraňování nezákonného obsahu.</li>\n        <li><strong>Nařízení EU 2024/1689 (AI Act)</strong> — první evropská úprava umělé inteligence; do mediální gramotnosti dnes patří i rozpoznání obsahu generovaného AI a <strong>deepfake</strong>.</li>\n        <li>Ke kyberšikaně, kybergroomingu a sextingu, které zdroj popisuje správně, dnes patří i <strong>sexuální vydírání (sextortion)</strong> a <strong>zneužití AI k tvorbě intimních obrázků</strong>.</li>\n      </ul>\n    </aside>",
+  "13": "    <aside class=\"box law\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Profesní vývoj a další vzdělávání k srpnu 2026</h4>\n      <p>Část okruhu o <strong>profesním vývoji a dalším vzdělávání</strong> je právně nejvíc zestárlá — velká novela zákona o pedagogických pracovnících (č. <strong>183/2023 Sb.</strong>, účinná od 1. 9. 2023 a 1. 1. 2024) přinesla:</p>\n      <ul>\n        <li><strong>Adaptační období</strong> začínajícího učitele (<strong>2 roky</strong>) a <strong>provázejícího učitele</strong>, kterého mu ředitel určí.</li>\n        <li>Zrušení <strong>akreditací programů DVPP</strong> podle dosavadní vyhlášky — další vzdělávání je nadále povinné, ale ředitel si o jeho podobě rozhoduje volněji.</li>\n        <li>Uvolnění <strong>kvalifikačních požadavků</strong> u odborníků z praxe a nová úprava kvalifikace <strong>speciálního pedagoga</strong>; novým pedagogickým pracovníkem se stal <strong>školský logoped</strong>.</li>\n      </ul>\n      <p>K tomu institucionální změna: <strong>NÚV zanikl</strong> — od 1. 1. 2020 plní jeho i NIDV úlohy <strong>Národní pedagogický institut ČR (NPI ČR)</strong>, tedy i metodickou podporu poradenských služeb, o které text mluví.</p>\n    </aside>",
+  "15": "    <aside class=\"box law\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Čím se prevence řídí dnes</h4>\n      <p>Zdroj popisuje projevy sociální patologie věcně dobře, ale neuvádí, o co se prevence ve škole opírá. K srpnu 2026 to je:</p>\n      <ul>\n        <li><strong>§ 29 a § 31 školského zákona</strong> — povinnost školy zajišťovat bezpečnost a ochranu zdraví, výchovná opatření.</li>\n        <li><strong>Vyhláška č. 72/2005 Sb.</strong> — školní metodik prevence a jeho standardní činnosti; <strong>minimální preventivní program</strong> školy.</li>\n        <li><strong>Metodický pokyn MŠMT k šikaně</strong> (č. j. MSMT-21149/2016) a <strong>Metodické doporučení k primární prevenci rizikového chování</strong> s tematickými přílohami.</li>\n        <li><strong>Národní strategie prevence a snižování škod spojených se závislostním chováním</strong> a navazující akční plány.</li>\n        <li>U závažných případů <strong>oznamovací povinnost</strong> vůči <strong>OSPOD</strong> (zák. č. 359/1999 Sb.) a případně Policii ČR.</li>\n      </ul>\n    </aside>",
+  "18": "    <aside class=\"box law\">\n      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Co se v hodnocení a evaluaci od roku 2016 změnilo</h4>\n      <ul>\n        <li><strong>Formativní hodnocení</strong> se ze zajímavosti stalo hlavní linkou vzdělávací politiky — nese ho <strong>Strategie 2030+</strong> i revize <strong>RVP ZV 2025</strong>, která pracuje s <strong>uzlovými body</strong> a jádrovým učivem.</li>\n        <li><strong>Autoevaluace školy</strong> se řídí <strong>§ 12 školského zákona</strong> a <strong>vyhláškou č. 15/2005 Sb.</strong> ve znění pozdějších předpisů; povinnost zpracovat samostatnou <em>vlastní hodnotící zprávu</em> byla zrušena už v roce 2012, výsledky vlastního hodnocení jsou dnes součástí <strong>výroční zprávy</strong>.</li>\n        <li>Česká školní inspekce hodnotí školy podle modelu <strong>Kvalitní škola</strong> (kritéria hodnocení podmínek, průběhu a výsledků vzdělávání) a poskytuje školám nástroj <strong>InspIS</strong> pro vlastní hodnocení.</li>\n      </ul>\n    </aside>"
+ },
+ "terms": {
+  "1": {
+   "drop": [
+    "U nás"
+   ]
+  },
+  "4": {
+   "drop": [
+    "Například"
+   ],
+   "add": [
+    [
+     "Výchova",
+     "záměrné, soustavné, adresné a organizované působení na člověka směřující k všestrannému rozvoji osobnosti; cílem je dosažení trvalejších změn v chování, vývoji a jednání."
+    ],
+    [
+     "Výchova v širším slova smyslu",
+     "působení školy, rodiny, vzdělávacích zařízení, firemní výchova i sebevýchova — formování intelektu a rozvoj duševních schopností. Výsledek: co člověk ví a co dovede."
+    ],
+    [
+     "Výchova v užším slova smyslu",
+     "výchova mravní, estetická, pracovní a tělesná — formování citů, vůle a charakteru. Výsledek: co a jak člověk cítí, co chce a co ho zajímá."
+    ],
+    [
+     "Intencionální × funkcionální výchova",
+     "intencionální je záměrné bezprostřední působení na vychovávaného; funkcionální je nezáměrný rozvoj osobnosti vhodně upraveným prostředím."
+    ],
+    [
+     "Heteroedukace × autoedukace",
+     "dvě základní formy výchovy — výchova druhým jedincem a sebevýchova."
+    ],
+    [
+     "Hominizace",
+     "proces vývoje jedince jako příslušníka lidské společnosti — pomáhá rozvíjet člověka lidským způsobem. Doplňují ji enkulturace (včlenění do kultury), personalizace (vývoj vlastním specifickým způsobem) a socializace (začlenění mezi lidi)."
+    ]
+   ]
+  },
+  "5": {
+   "drop": [
+    "Na člověka působí bezpočet sociálních faktorů"
+   ]
+  },
+  "8": {
+   "drop": [
+    "Rozvíjejí u žáka kognitivní (poznávací) procesy",
+    "Rozšíření: Francie, Kanada, USA"
+   ],
+   "rename": {
+    "Ellen keyová (1849-1926)": "Ellen Keyová (1849–1926)",
+    "Jean piaget (1896-1980),": "Jean Piaget (1896–1980)",
+    "Maria montessori (1870-1952)": "Maria Montessori (1870–1952)",
+    "Rudolf steiner (1861- 1925)": "Rudolf Steiner (1861–1925)",
+    "Petr petersen (1884-1952)": "Peter Petersen (1884–1952)",
+    "Célestin freinet (1896-1966)": "Célestin Freinet (1896–1966)",
+    "John dewey (1859-1952)": "John Dewey (1859–1952)"
+   }
+  },
+  "12": {
+   "drop": [
+    "Komentář: V tomto případě jsem já",
+    "Podmínky dětí, ve kterých vyrůstají"
+   ]
+  },
+  "14": {
+   "drop": [
+    "Organizační a řídící (organizace pedagogické práce"
+   ]
+  },
+  "19": {
+   "drop": [
+    "Bůh je pojímán jako hodinář",
+    "Rozvijí osobnost pomocí"
+   ]
+  },
+  "17": {
+   "drop": [
+    "Odměna může být materiální",
+    "Etická výchova v kontextu osobnosti učitele"
+   ],
+   "add": [
+    [
+     "Etická výchova",
+     "úzce souvisí s mravní složkou výchovy; formuje názory a přesvědčení tak, aby se člověk choval podle norem, pravidel a morálky společnosti."
+    ],
+    [
+     "Morálka",
+     "soubor společenských požadavků na chování lidí; jako forma společenského vědomí je jevem historickým a třídním, mravní názory se proto mění s vývojem společnosti."
+    ],
+    [
+     "Osobnost učitele v etické výchově",
+     "učitel musí být žáky kladně přijímán, psychicky zralý a stabilní; stává se žákovi vzorem pro chování i hierarchii hodnot."
+    ],
+    [
+     "Princip koncentrace",
+     "integrace etické výchovy kolem jednoho ústředního tématu, které prostupuje všechny vzdělávací oblasti i průřezová témata — v ideálním případě formou projektu."
+    ],
+    [
+     "Výchova prožitkem skrze hru",
+     "metoda stojící na silném osobním prožitku a emocích ze hry; nutnou součástí je reflexe, ve které si účastníci uvědomí přenos zkušenosti do reality."
+    ],
+    [
+     "Učení podle modelu",
+     "mladý člověk napodobuje své vzory; modelová osoba, která zapůsobí prosociálním chováním, vzbuzuje sympatie, vážnost a úctu."
+    ],
+    [
+     "Učení posilováním druhou osobou",
+     "vnější zásah, kterým se určité jednání nebo citová reakce opakuje a upevňuje — ocenění skutku i dobrého úmyslu. Sociální odměna (pochvala, uznání) působí silněji než materiální."
+    ],
+    [
+     "Učení disciplinováním",
+     "kárání a trestání; působí omezujícím a negativním směrem, a může proto brzdit nebo odstranit nežádoucí asociální chování."
+    ]
+   ]
+  },
+  "20": {
+   "drop": [
+    "Za prostředky výchovy pokládá"
+   ],
+   "add": [
+    [
+     "Pansofie (vševěda)",
+     "představa jednotného uspořádání veškerého vědění, k níž má směřovat všechna tvořivost člověka — třetí díl Obecné porady."
+    ],
+    [
+     "Pampaedie (vševýchova)",
+     "jednotná výchova všech lidí a potřeba celoživotního vzdělávání — čtvrtý díl Obecné porady."
+    ],
+    [
+     "Obecná porada o nápravě věcí lidských",
+     "celoživotní dílo o nápravě člověka, společnosti a světa v sedmi dílech: Panegersia, Panaugia, Pansophia, Pampaedia, Panglotia, Panorthosia a Pannuthesia."
+    ],
+    [
+     "Velká didaktika (Didactica magna)",
+     "1628–1647; česky Didaktika, tj. umění umělého vyučování. Měla na ni navazovat informatoria k jednotlivým stupňům škol — vzniklo jen Informatorium školy mateřské (1632)."
+    ],
+    [
+     "Svět v obrazech (Orbis sensualium pictus)",
+     "1653; učebnice, která zavedla obrázek vedle pojmu v latině i v mateřském jazyce — od té doby se ve školách používají obrázky k vysvětlení pojmů."
+    ],
+    [
+     "Škola hrou (Schola ludus)",
+     "1654; soubor školních her sepsaný pro žáky v Šarišském Potoce."
+    ],
+    [
+     "Labyrint světa a ráj srdce",
+     "1623; ostrá kritika společnosti, v níž jsou věci nazývány nepravým jménem; v závěru vyzývá k uzavření se v „ráji srdce“."
+    ],
+    [
+     "Komenského všenápravná teze",
+     "člověk je ve své podstatě dobrý (etický optimismus), ale potřebuje výchovu (pedagogický optimismus); většina lidí nejedná dobře, protože žije v omylu z neznalosti věcí."
+    ]
+   ]
+  }
+ }
+}

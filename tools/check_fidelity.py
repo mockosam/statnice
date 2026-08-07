@@ -126,6 +126,10 @@ def check_by_map(blocks, meta, outdir) -> int:
     Text, který má být na konkrétní stránce, se hledá tam; ostatní kdekoli na webu.
     """
     bmap = meta.get("map", {})
+    # Bloky, které se vědomě nepublikují kvůli osobním údajům. Na rozdíl od
+    # tools/_corrections.txt se tu neuvádí původní text — ten by se tím dostal
+    # do repozitáře, což je přesně to, čemu se vynecháním předchází.
+    redacted = {int(k): v for k, v in meta.get("redacted", {}).items()}
     covered = set()
     everywhere = squash("".join(
         page_text(p) for p in sorted(glob.glob("*.html") + glob.glob(os.path.join(outdir, "*.html")))))
@@ -156,6 +160,9 @@ def check_by_map(blocks, meta, outdir) -> int:
     outside = 0
     for i, b in enumerate(blocks):
         if i in covered:
+            continue
+        if i in redacted:
+            fixed.append("blok %d — %s" % (i, redacted[i]))
             continue
         for text in units([b]):
             total += 1

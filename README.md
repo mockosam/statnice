@@ -3,18 +3,19 @@
 Statický web se studijními materiály ke státní závěrečné zkoušce ze speciální pedagogiky.
 Bez frameworku, bez build kroku, bez serveru — jen HTML, jedno CSS a jeden JS.
 
-Obsahuje tři předměty:
+Obsahuje čtyři předměty:
 
 | Předmět | Otázek | Kartiček z otázek | Balíček předmětu | Glosář | Navíc |
 |---|---|---|---|---|---|
 | **Poradenství** (SP – poradenství, intervence a diagnostika) | 20 | 175 | 175 | 173 pojmů | klíčové zákony, právní audit se 14 zjištěními |
+| **Pedagogika** | 20 | 216 | 216 | 215 pojmů | klíčové zákony, právní audit se 16 zjištěními, mapování na 17 okruhů zadání |
 | **Etopedie** | 20 | 86 | 151 | 105 pojmů | klíčové zákony, právní audit, aktualizační dodatek |
 | **Psychologie** | 19 | 67 | 67 | 50 pojmů | přehled 43 citovaných děl, kontrola aktuálnosti |
 
 „Balíček předmětu“ spojuje kartičky z otázek s glosářem, ale **stejný pojem bere
-jen jednou** — proto se nerovná součtu. U psychologie a poradenství jsou obě čísla
-shodná, protože jejich glosář je z těch definic sestavený. Balíček přes všechny
-předměty má po odečtení duplicit **383 kartiček**.
+jen jednou** — proto se nerovná součtu. U psychologie, poradenství a pedagogiky
+jsou obě čísla prakticky shodná, protože jejich glosář je z těch definic sestavený.
+Balíček přes všechny předměty má po odečtení duplicit **591 kartiček**.
 
 Počty se na stránkách dopočítávají za běhu z `assets/data.js` (atribut
 `data-count-for`), takže zestarat nemohou; čísla v HTML jsou jen záloha pro případ
@@ -23,8 +24,9 @@ vypnutého JavaScriptu a v této tabulce je potřeba je opravit ručně.
 Hledání prochází všechny předměty; kartičky a glosář se drží předmětu, na kterém jste.
 
 Glosáře mají různý původ: etopedie ho má **ze zdrojového dokumentu** (samostatná
-kapitola se 105 hesly), psychologie ani poradenství ho ve zdroji nemají — jejich
-rejstřík je **sestavený z definic v textu otázek** skriptem `tools/make_glosar.py`.
+kapitola se 105 hesly), psychologie, poradenství ani pedagogika ho ve zdroji
+nemají — jejich rejstřík je **sestavený z definic v textu otázek** skriptem
+`tools/make_glosar.py`.
 
 ## Spuštění
 
@@ -72,6 +74,14 @@ poradenstvi/
   zakony.html         klíčové zákony ve znění k 08/2026 + tabulka zrušených předpisů
   pravni-aktualnost.html   14 zjištění + porovnání se zadáním A21
   img/                tři audiogramy ze zdroje (jediné publikovatelné obrázky)
+pedagogika/
+  index.html          přehled 20 otázek + ukazatel postupu
+  otazka-01-….html    jednotlivé otázky
+  glosar.html         GENEROVANÝ rejstřík (make_glosar.py)
+  karticky.html       výběr balíčků kartiček
+  zakony.html         klíčové zákony ve znění k 08/2026 + tabulka zrušených předpisů
+  pravni-aktualnost.html   16 zjištění + mapa 20 stránek na 17 okruhů zadání
+  (bez img/ — ze 14 obrázků ve zdroji není publikovatelný ani jeden, viz níže)
 source/               archivovaný originál .docx
 tools/                pomocné skripty (viz níže)
 ```
@@ -118,14 +128,16 @@ ve skriptu.
    ```css
    body[data-subject='psychopedie'] { --subject: var(--c-law); }
    ```
-3. V `index.html` v korenu nahraďte dlaždici „Připravujeme“ odkazem na nový předmět.
-4. Spusťte `python3 tools/reindex.py` — hledání i kartičky předmět rovnou pojmou.
+3. V `index.html` v korenu nahraďte dlaždici „Připravujeme“ odkazem na nový předmět
+   a opravte čísla v hlavičce (počet předmětů, otázek, pojmů).
+4. Má-li mít předmět generovaný glosář, přidejte ho do `SUBJECTS` v `tools/make_glosar.py`.
+5. Spusťte `python3 tools/reindex.py` — hledání i kartičky předmět rovnou pojmou.
 
 ### Import z Wordu
 
-Konvertory jsou tři, protože každý zdrojový dokument byl strukturovaný jinak.
+Konvertory jsou čtyři, protože každý zdrojový dokument byl strukturovaný jinak.
 Vykreslování (inline formátování, seznamy, tabulky, šablona stránky) mají společné —
-oba pozdější skripty ho importují z `docx2html.py`, takže všechny předměty
+pozdější skripty ho importují z `docx2html.py`, takže všechny předměty
 vypadají stejně.
 
 | Skript | Pro dokument, který… |
@@ -133,30 +145,43 @@ vypadají stejně.
 | `tools/docx2html.py` | používá styly Heading 1/2/3 a tabulky 1×1 jako barevné boxy s emoji (etopedie) |
 | `tools/docx2html_psy.py` | nadpisové styly nepoužívá, podnadpisy jsou tučné odstavce, hranice otázek se poznají z obsahu (psychologie) |
 | `tools/docx2html_spec.py` | nadpisové styly používá, ale `Nadpis1` slouží zároveň jako nadpis otázky i sekce; hranice otázek jsou proto v ověřované mapě `QSTART` (poradenství) |
+| `tools/docx2html_ped.py` | totéž jako `_spec`, ale obsah je pole (perex se bere z nadpisu), jedna tabulka má titulkový řádek přes celou šířku a **žádný obrázek se nepublikuje** (pedagogika) |
 
 ```bash
 python3 tools/docx2html.py source/nazev.docx psychopedie
 python3 tools/docx2html_psy.py 'SZO NAZEV.docx' psychopedie
 python3 tools/docx2html_spec.py 'SZO SPECIÁLNÍ PEDAGOGIKA.DOCX' poradenstvi
+python3 tools/docx2html_ped.py 'SZZ- Padagogika (komplet).DOCX' pedagogika
 ```
 
-> Všechny tři skripty **odmítnou přepsat** existující stránky. Pokud to opravdu
+> Všechny čtyři skripty **odmítnou přepsat** existující stránky. Pokud to opravdu
 > chcete (a smíříte se se ztrátou ručních úprav), přidejte `--force`.
 
 Nový dokument bude nejspíš strukturovaný ještě jinak — než začnete, vyplatí se
 zjistit, co v něm vlastně je: kolik nadpisových stylů se používá, jak jsou
 oddělené otázky a čím jsou vyznačené podnadpisy.
 
-#### Jak konvertor poradenství drží ruční opravy
+#### Jak konvertory poradenství a pedagogiky drží ruční opravy
 
-`docx2html_spec.py` je jediný konvertor, který se dá spustit znovu bez ztráty
-právních oprav — ty nejsou v HTML, ale v `tools/_doplnky_poradenstvi.json`:
+`docx2html_spec.py` a `docx2html_ped.py` se dají spustit znovu bez ztráty
+právních oprav — ty nejsou v HTML, ale v `tools/_doplnky_poradenstvi.json`,
+resp. `tools/_doplnky_pedagogika.json`:
 
 * `fixes` — dvojice *hledaný text → čím se nahradí*, aplikované na hotovou stránku.
   Hledá se tolerantně k mezerám (zdroj je plný nezlomitelných). Pokud se text
   nenajde nebo není jednoznačný, skript to **ohlásí a skončí chybou** — nikdy
   opravu tiše nevynechá.
-* `boxes` — HTML vložené za sekci „🔑 Klíčové pojmy“ (boxy k MKN-11).
+* `boxes` — HTML vložené za sekci „🔑 Klíčové pojmy“ (boxy k MKN-11, k revizím RVP…).
+* `notes` (jen pedagogika) — HTML vložené **před** klíčové pojmy; vysvětluje,
+  který obrázek ze zdroje se nepublikuje a proč.
+* `terms` (jen pedagogika) — `drop`, `rename` a `add` pro automaticky posbírané
+  klíčové pojmy. Z nich se dělají kartičky a glosář, takže se vyplatí opravit
+  případy, kdy heuristika urve začátek věty nebo zmenší příjmení. Neexistující
+  klíč v `drop`/`rename` skript ohlásí, aby soubor tiše nezestárl.
+
+Značka `<span class="fix">` a rozbalovací `<details class="upd">` se vždy věší
+**až za koncovou značku odstavce nebo seznamu** — uvnitř nich by rozdělily text
+a `check_fidelity.py` by ho hlásil jako ztracený.
 
 Mapa `QSTART` v konvertoru se při každém spuštění **ověřuje proti textu nadpisů**.
 Když se dokument změní, skript spadne s výpisem, co nesouhlasí, místo aby
@@ -174,6 +199,8 @@ python3 tools/check_fidelity.py --map tools/_meta_psychologie.json \
         'SZO PSYCHOLOGIE.docx' psychologie
 python3 tools/check_fidelity.py --map tools/_meta_poradenstvi.json \
         'SZO SPECIÁLNÍ PEDAGOGIKA.DOCX' poradenstvi
+python3 tools/check_fidelity.py --map tools/_meta_pedagogika.json \
+        'SZZ- Padagogika (komplet).DOCX' pedagogika
 ```
 
 > **Pozor:** zdrojové dokumenty nejsou součástí repozitáře (viz `.gitignore`).
@@ -213,15 +240,25 @@ zpracovával Jekyllem. Všechny odkazy jsou relativní, takže funguje i v podad
 
 ## Aktuálnost obsahu
 
-Všechny tři materiály byly zkontrolovány proti stavu k **srpnu 2026**. Opravy
+Všechny čtyři materiály byly zkontrolovány proti stavu k **srpnu 2026**. Opravy
 a doplnění jsou vyznačené přímo v textu (oranžově `<span class="fix">`,
 s rozbalovací poznámkou „Aktualizace 2026“) a zdokumentované na samostatných
 stránkách.
 
-**Poradenství** — `poradenstvi/pravni-aktualnost.html`. Nejhorší z trojice: zdroj
-je z května 2022, vlastní dodatek nemá a cituje **šest zrušených předpisů nebo
-pojmů** jako platné — vyhl. 73/2005 Sb., zák. 101/2000 Sb., zákon o rodině,
-vyhl. 182/1991 Sb., „chráněné dílny“ a „osoby se změněnou pracovní schopností“.
+**Pedagogika** — `pedagogika/pravni-aktualnost.html`. Nejstarší zdroj na webu
+(2016/2017) a jediný bez vlastního dodatku. Teorie výchovy, didaktika ani
+filozofie výchovy nezastaraly; problémy se soustřeďují do otázky 7, kde je
+**devět ze šestnácti zjištění** — Akreditační komise zaniklá v roce 2016, model
+maturity nahrazený v roce 2021, výčet pedagogických pracovníků z předpisů před
+rokem 2004, ISCED-97 a ORP jako orgán státní správy ve školství. Dokument navíc
+**neobsahuje ani jednu zmínku o GDPR**, přestože stojí na sociometrii
+a pedagogické diagnostice. Součástí je i mapa 20 stránek na 17 okruhů zadání A21
+a upozornění na téma, které ve zdroji chybí celé (Berne, bariéry v komunikaci).
+
+**Poradenství** — `poradenstvi/pravni-aktualnost.html`. Zdroj je z května 2022,
+vlastní dodatek nemá a cituje **šest zrušených předpisů nebo pojmů** jako platné —
+vyhl. 73/2005 Sb., zák. 101/2000 Sb., zákon o rodině, vyhl. 182/1991 Sb.,
+„chráněné dílny“ a „osoby se změněnou pracovní schopností“.
 Celkem **14 zjištění**, k tomu porovnání se zadáním A21 (17 okruhů × 20 otázek)
 a upozornění na téma, které ve zdroji chybí celé (sociální exkluze, žáci s OMJ).
 
@@ -251,3 +288,14 @@ dítěte, snímek s **jmenným seznamem lékařů a jejich e-maily** a jedna př
 s výslovným zákazem dalšího šíření. U každé vynechávky je na příslušné stránce
 box, který vysvětluje, co tam bylo a proč tam není — seznam s důvody drží
 `SKIP_IMAGES` v `tools/docx2html_spec.py`.
+
+Ze 14 obrázků ve zdroji pedagogiky **nepoužíváme ani jeden** a adresář
+`pedagogika/img/` proto vůbec nevzniká. Dva z nich jsou snímek celé obrazovky
+s PowerPointem, na kterém je v titulkové liště **jméno autorky** a její hlavní
+panel; jeden je logo fakulty a jeden vektorové **EMF**, které prohlížeč
+nevykreslí. Zbytek jsou šedé skeny knižních stránek, kterými prosvítá text
+z rubu — ty jsou **překreslené nativně**: tabulky jako `<table>`, Maňákova
+klasifikace metod jako vnořený seznam a tři komunikační struktury organizačních
+forem jako inline SVG, které dědí barvu textu, takže funguje ve světlém i tmavém
+režimu a v tisku. Zdrojem překreslených verzí je `tools/_doplnky_pedagogika.json`,
+důvody vynechání drží `SKIP_IMAGES` v `tools/docx2html_ped.py`.

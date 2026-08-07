@@ -1,0 +1,331 @@
+{
+ "toc": {
+  "1": "Pedagogika v historické perspektivě – edukace jako umění vs. věda. Vztah výchovy a vzdělávání, pedagogika ve vztahu k jiným vědám. Cíle a obsah edukace, kurikulární dokumenty.",
+  "2": "Výzkum v pedagogice – hermeneutický vs. empirický (kvalitativní a kvantitativní výzkum). Etapy výzkumu (výzkumný problém, hypotézy/předpoklady, typy proměnných).",
+  "3": "Sociometrie v pedagogickém výzkumu jako jedna z metod zjišťování a analýzy mezilidských vztahů.",
+  "4": "Smysl a podmínky výchovy. Vychovatelnost člověka. Pedagogický optimismus vs. pesimismus. Hlavní složky výchovy v širším smyslu a hierarchie výchovných cílů. Metody výchovné práce.",
+  "5": "Metody a organizační formy vyučování a jejich charakteristika. Vnitřní (školní) podmínky, vnější (sociální) podmínky vyučování. Bloomova taxonomie vzdělávacích cílů. Domácí příprava. Transmisivní a konstruktivistický přístup ke vzdělávání.",
+  "6": "Komunikace jako nástroj dosahování profesních cílů v pedagogice. Komunikační strategie a komunikační styly. Klima školy a klima třídy",
+  "7": "Státní správa a samospráva ve školství, základní školská legislativa. Odborné a všeobecné vzdělávání ve vztahu k osobám se SVP. Pojetí odborného vzdělávání, jeho celoživotní dimenze.",
+  "8": "Pedagogické teorie v kontextu speciální pedagogiky.",
+  "9": "Teorie výchovy a vzdělávání z genderové perspektivy. Sociální aspekty problematiky gender.",
+  "10": "Mediální gramotnost. Rozvíjení informačních dovedností dětí. Využití médií v edukaci.",
+  "11": "Rozvíjení sociálních kompetencí. Metody rozvoje emoční a interpersonální inteligence. Podpora sebedůvěry a reálné sebehodnocení dítěte.",
+  "12": "Výchova ve volném čase. Volný čas a zájmová činnost jako prevence rizikových jevů. Nové trendy v pedagogice volného času. Perspektivy a problémy volného času v české společnosti a v zahraničí.",
+  "13": "Speciální pedagog jako povolání a specifika profese speciálního pedagoga. Profesní klíčové kompetence. Profesní vývoj, další vzdělávání",
+  "14": "Osobnost a autorita pedagoga a jejich utváření. Odborné znalosti, osobní vyspělost a kompetence pedagoga.",
+  "15": "Obecné pojetí nástrojů edukační činnosti. Problém kázně a svobody ve výchově. Nejfrekventovanější projevy sociální patologie v dětských kolektivech a jejich prevence z pohledu speciálního pedagoga.",
+  "16": "Výchovný styl v kontextu typologie osobnosti pedagoga, interakční styl. Společenské role pedagoga v kontextu makrosociálních změn. Strategie zvládání stresu pedagoga.",
+  "17": "Etika v životě člověka a metody etické výchovy. Etická dilemata v práci učitele a poradenského pracovníka.",
+  "18": "Hodnocení, evaluace. Smysl a funkce hodnocení, druhy hodnocení, formy zkoušení a hodnocení, pedagogická diagnostika. Autoevaluace žáka, pedagoga, vzdělávací instituce. Cíle, metody, nástroje a techniky využívané v procesu autoevaluace.",
+  "19": "Filozofie výchovy v historické perspektivě. Výchova v antické společnosti, křesťanství a pojem educatio. Novověk, nástup humanismu a vědeckého empirismu.",
+  "20": "Koncept výchovy a vzdělávání dle J. A. Komenského. Kontext doby a života Komenského. Komenský teolog, filozof a pedagog. Komenského pedagogická antropologie. Pansofie a všenáprava."
+ },
+ "bounds": {
+  "1": 47,
+  "2": 318,
+  "3": 431,
+  "4": 548,
+  "5": 666,
+  "6": 986,
+  "7": 1207,
+  "8": 1352,
+  "9": 1638,
+  "10": 1702,
+  "11": 1843,
+  "12": 1948,
+  "13": 2122,
+  "14": 2224,
+  "15": 2296,
+  "16": 2443,
+  "17": 2584,
+  "18": 2652,
+  "19": 2827,
+  "20": 3137
+ },
+ "drop": [],
+ "map": {
+  "otazka-01-pedagogika-historicka-perspektiva.html": [
+   47,
+   318
+  ],
+  "otazka-02-vyzkum-v-pedagogice.html": [
+   318,
+   431
+  ],
+  "otazka-03-sociometrie.html": [
+   431,
+   548
+  ],
+  "otazka-04-smysl-podminky-vychovy.html": [
+   548,
+   666
+  ],
+  "otazka-05-metody-formy-vyucovani.html": [
+   666,
+   986
+  ],
+  "otazka-06-komunikace-klima-skoly.html": [
+   986,
+   1207
+  ],
+  "otazka-07-statni-sprava-skolstvi.html": [
+   1207,
+   1352
+  ],
+  "otazka-08-pedagogicke-teorie.html": [
+   1352,
+   1638
+  ],
+  "otazka-09-gender-vychova-vzdelavani.html": [
+   1638,
+   1702
+  ],
+  "otazka-10-medialni-gramotnost.html": [
+   1702,
+   1843
+  ],
+  "otazka-11-socialni-kompetence.html": [
+   1843,
+   1948
+  ],
+  "otazka-12-vychova-ve-volnem-case.html": [
+   1948,
+   2122
+  ],
+  "otazka-13-specialni-pedagog-povolani.html": [
+   2122,
+   2224
+  ],
+  "otazka-14-osobnost-autorita-pedagoga.html": [
+   2224,
+   2296
+  ],
+  "otazka-15-kazen-svoboda-socialni-patologie.html": [
+   2296,
+   2443
+  ],
+  "otazka-16-vychovny-styl-stres.html": [
+   2443,
+   2584
+  ],
+  "otazka-17-etika-eticka-vychova.html": [
+   2584,
+   2652
+  ],
+  "otazka-18-hodnoceni-evaluace.html": [
+   2652,
+   2827
+  ],
+  "otazka-19-filozofie-vychovy.html": [
+   2827,
+   3137
+  ],
+  "otazka-20-komensky.html": [
+   3137,
+   3295
+  ]
+ },
+ "missing": [],
+ "redacted": {
+  "23": "jméno autorky z titulní strany — osobní údaj, nepublikuje se"
+ },
+ "skipped_images": {
+  "rId8": "logo fakulty na titulní straně",
+  "rId9": "sken schématu z knihy (prosvítá text z rubu); překresleno jako HTML",
+  "rId10": "sken tabulky z knihy; překreslena jako HTML tabulka",
+  "rId11": "snímek PowerPointu se jménem autorky v titulkové liště a s hlavním panelem",
+  "rId13": "totéž (druhé vložení téhož snímku)",
+  "rId12": "snímek slidu z cizí prezentace; obsah přepsán do textu",
+  "rId14": "totéž (druhé vložení téhož slidu)",
+  "rId15": "sken schématu typů proměnných; překresleno jako HTML tabulka",
+  "rId16": "vektorové EMF (937 kB) — prohlížeče ho nevykreslí",
+  "rId17": "sken Obr. 13.1 z knihy; překresleno jako inline SVG",
+  "rId18": "sken Obr. 13.2 z knihy; překresleno jako inline SVG",
+  "rId19": "sken Obr. 13.3 z knihy; překresleno jako inline SVG",
+  "rId20": "sken klasifikace metod z knihy; překreslena jako vnořený seznam",
+  "rId21": "sken Tab. 2 z knihy; překreslena jako HTML tabulka"
+ },
+ "questions": [
+  {
+   "n": 1,
+   "short": "Pedagogika v historické perspektivě",
+   "full": "Pedagogika v historické perspektivě – edukace jako umění vs. věda. Vztah výchovy a vzdělávání, pedagogika ve vztahu k jiným vědám. Cíle a obsah edukace, kurikulární dokumenty.",
+   "href": "otazka-01-pedagogika-historicka-perspektiva.html",
+   "cards": 6,
+   "secs": 9,
+   "words": 2580
+  },
+  {
+   "n": 2,
+   "short": "Výzkum v pedagogice",
+   "full": "Výzkum v pedagogice – hermeneutický vs. empirický (kvalitativní a kvantitativní výzkum). Etapy výzkumu (výzkumný problém, hypotézy/předpoklady, typy proměnných).",
+   "href": "otazka-02-vyzkum-v-pedagogice.html",
+   "cards": 7,
+   "secs": 8,
+   "words": 1278
+  },
+  {
+   "n": 3,
+   "short": "Sociometrie",
+   "full": "Sociometrie v pedagogickém výzkumu jako jedna z metod zjišťování a analýzy mezilidských vztahů.",
+   "href": "otazka-03-sociometrie.html",
+   "cards": 10,
+   "secs": 13,
+   "words": 1108
+  },
+  {
+   "n": 4,
+   "short": "Smysl a podmínky výchovy",
+   "full": "Smysl a podmínky výchovy. Vychovatelnost člověka. Pedagogický optimismus vs. pesimismus. Hlavní složky výchovy v širším smyslu a hierarchie výchovných cílů. Metody výchovné práce.",
+   "href": "otazka-04-smysl-podminky-vychovy.html",
+   "cards": 9,
+   "secs": 6,
+   "words": 1534
+  },
+  {
+   "n": 5,
+   "short": "Metody a organizační formy vyučování",
+   "full": "Metody a organizační formy vyučování a jejich charakteristika. Vnitřní (školní) podmínky, vnější (sociální) podmínky vyučování. Bloomova taxonomie vzdělávacích cílů. Domácí příprava. Transmisivní a konstruktivistický přístup ke vzdělávání.",
+   "href": "otazka-05-metody-formy-vyucovani.html",
+   "cards": 13,
+   "secs": 12,
+   "words": 3235
+  },
+  {
+   "n": 6,
+   "short": "Komunikace, klima školy a třídy",
+   "full": "Komunikace jako nástroj dosahování profesních cílů v pedagogice. Komunikační strategie a komunikační styly. Klima školy a klima třídy",
+   "href": "otazka-06-komunikace-klima-skoly.html",
+   "cards": 14,
+   "secs": 5,
+   "words": 2373
+  },
+  {
+   "n": 7,
+   "short": "Státní správa a samospráva ve školství",
+   "full": "Státní správa a samospráva ve školství, základní školská legislativa. Odborné a všeobecné vzdělávání ve vztahu k osobám se SVP. Pojetí odborného vzdělávání, jeho celoživotní dimenze.",
+   "href": "otazka-07-statni-sprava-skolstvi.html",
+   "cards": 10,
+   "secs": 8,
+   "words": 3784
+  },
+  {
+   "n": 8,
+   "short": "Pedagogické teorie",
+   "full": "Pedagogické teorie v kontextu speciální pedagogiky.",
+   "href": "otazka-08-pedagogicke-teorie.html",
+   "cards": 12,
+   "secs": 20,
+   "words": 3658
+  },
+  {
+   "n": 9,
+   "short": "Gender ve výchově a vzdělávání",
+   "full": "Teorie výchovy a vzdělávání z genderové perspektivy. Sociální aspekty problematiky gender.",
+   "href": "otazka-09-gender-vychova-vzdelavani.html",
+   "cards": 11,
+   "secs": 5,
+   "words": 1581
+  },
+  {
+   "n": 10,
+   "short": "Mediální gramotnost",
+   "full": "Mediální gramotnost. Rozvíjení informačních dovedností dětí. Využití médií v edukaci.",
+   "href": "otazka-10-medialni-gramotnost.html",
+   "cards": 13,
+   "secs": 5,
+   "words": 2449
+  },
+  {
+   "n": 11,
+   "short": "Rozvíjení sociálních kompetencí",
+   "full": "Rozvíjení sociálních kompetencí. Metody rozvoje emoční a interpersonální inteligence. Podpora sebedůvěry a reálné sebehodnocení dítěte.",
+   "href": "otazka-11-socialni-kompetence.html",
+   "cards": 11,
+   "secs": 5,
+   "words": 2323
+  },
+  {
+   "n": 12,
+   "short": "Výchova ve volném čase",
+   "full": "Výchova ve volném čase. Volný čas a zájmová činnost jako prevence rizikových jevů. Nové trendy v pedagogice volného času. Perspektivy a problémy volného času v české společnosti a v zahraničí.",
+   "href": "otazka-12-vychova-ve-volnem-case.html",
+   "cards": 12,
+   "secs": 10,
+   "words": 1748
+  },
+  {
+   "n": 13,
+   "short": "Speciální pedagog jako povolání",
+   "full": "Speciální pedagog jako povolání a specifika profese speciálního pedagoga. Profesní klíčové kompetence. Profesní vývoj, další vzdělávání",
+   "href": "otazka-13-specialni-pedagog-povolani.html",
+   "cards": 14,
+   "secs": 4,
+   "words": 1357
+  },
+  {
+   "n": 14,
+   "short": "Osobnost a autorita pedagoga",
+   "full": "Osobnost a autorita pedagoga a jejich utváření. Odborné znalosti, osobní vyspělost a kompetence pedagoga.",
+   "href": "otazka-14-osobnost-autorita-pedagoga.html",
+   "cards": 7,
+   "secs": 4,
+   "words": 1113
+  },
+  {
+   "n": 15,
+   "short": "Kázeň, svoboda a sociální patologie",
+   "full": "Obecné pojetí nástrojů edukační činnosti. Problém kázně a svobody ve výchově. Nejfrekventovanější projevy sociální patologie v dětských kolektivech a jejich prevence z pohledu speciálního pedagoga.",
+   "href": "otazka-15-kazen-svoboda-socialni-patologie.html",
+   "cards": 14,
+   "secs": 4,
+   "words": 2540
+  },
+  {
+   "n": 16,
+   "short": "Výchovný styl a zvládání stresu",
+   "full": "Výchovný styl v kontextu typologie osobnosti pedagoga, interakční styl. Společenské role pedagoga v kontextu makrosociálních změn. Strategie zvládání stresu pedagoga.",
+   "href": "otazka-16-vychovny-styl-stres.html",
+   "cards": 13,
+   "secs": 5,
+   "words": 1800
+  },
+  {
+   "n": 17,
+   "short": "Etika a etická výchova",
+   "full": "Etika v životě člověka a metody etické výchovy. Etická dilemata v práci učitele a poradenského pracovníka.",
+   "href": "otazka-17-etika-eticka-vychova.html",
+   "cards": 9,
+   "secs": 2,
+   "words": 1364
+  },
+  {
+   "n": 18,
+   "short": "Hodnocení, evaluace, autoevaluace",
+   "full": "Hodnocení, evaluace. Smysl a funkce hodnocení, druhy hodnocení, formy zkoušení a hodnocení, pedagogická diagnostika. Autoevaluace žáka, pedagoga, vzdělávací instituce. Cíle, metody, nástroje a techniky využívané v procesu autoevaluace.",
+   "href": "otazka-18-hodnoceni-evaluace.html",
+   "cards": 14,
+   "secs": 5,
+   "words": 1499
+  },
+  {
+   "n": 19,
+   "short": "Filozofie výchovy",
+   "full": "Filozofie výchovy v historické perspektivě. Výchova v antické společnosti, křesťanství a pojem educatio. Novověk, nástup humanismu a vědeckého empirismu.",
+   "href": "otazka-19-filozofie-vychovy.html",
+   "cards": 12,
+   "secs": 7,
+   "words": 4457
+  },
+  {
+   "n": 20,
+   "short": "J. A. Komenský",
+   "full": "Koncept výchovy a vzdělávání dle J. A. Komenského. Kontext doby a života Komenského. Komenský teolog, filozof a pedagog. Komenského pedagogická antropologie. Pansofie a všenáprava.",
+   "href": "otazka-20-komensky.html",
+   "cards": 9,
+   "secs": 3,
+   "words": 3726
+  }
+ ]
+}

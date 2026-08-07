@@ -110,6 +110,7 @@ body {
 body[data-subject='etopedie'] { --subject: var(--c-sum); }
 body[data-subject='psychologie'] { --subject: var(--c-law); }
 body[data-subject='poradenstvi'] { --subject: var(--c-src); }
+body[data-subject='pedagogika'] { --subject: var(--c-key); }
 
 a { color: var(--subject); text-decoration-color: color-mix(in srgb, var(--subject) 45%, transparent); text-underline-offset: 2px; }
 a:hover { text-decoration-color: currentColor; }
@@ -497,6 +498,27 @@ details.upd .was {
   color: var(--text-mute);
   text-align: center;
 }
+/* Překreslená schémata (pedagogika) — inline SVG dědí barvu textu, takže
+   funguje ve světlém i tmavém režimu a v tisku bez dalšího zásahu. */
+.fig svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  color: var(--text);
+}
+.fig-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  justify-content: center;
+  align-items: center;
+}
+.fig-row svg { width: 168px; flex: 0 0 auto; }
+.fig .table-wrap, .fig-list { margin: 0; }
+.fig-list { padding-left: 22px; }
+.fig-list ol { margin: 6px 0 8px; padding-left: 22px; }
+.fig-list li { margin: 4px 0; }
 
 /* ---------------------------------------------------- 8. Tabulky */
 
@@ -542,18 +564,24 @@ tbody td:first-child { color: var(--head); font-weight: 500; }
     margin-bottom: 10px;
     padding: 4px 0;
   }
+  /* Název sloupce je blok NAD hodnotou, ne vedle ní. Dvousloupcová mřížka tady
+     byla dřív, jenže v mřížce je každý <strong> nebo <span> uvnitř buňky
+     samostatná položka — obsah pak skákal mezi sloupcem s názvem a sloupcem
+     s hodnotou. Takhle to drží při libovolném vnitřním značkování. */
   tbody td {
     border: 0; padding: 7px 15px;
-    display: grid; grid-template-columns: minmax(0, 34%) minmax(0, 1fr); gap: 12px;
   }
   tbody td::before {
     content: attr(data-label);
+    display: block;
+    margin-bottom: 1px;
     font: 600 10px/1.6 var(--mono);
     letter-spacing: .07em; text-transform: uppercase;
     color: var(--text-mute);
     overflow-wrap: anywhere;
   }
   tbody td[data-label='']::before { display: none; }
+  tbody td:not(:last-child) { padding-bottom: 3px; }
   tbody tr:hover td { background: none; }
 }
 
