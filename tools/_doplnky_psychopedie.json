@@ -1,0 +1,918 @@
+{
+ "_comment": "Ruční doplňky ke psychopedii. Drží se mimo HTML, aby je opětovné spuštění tools/docx2html_psychopedie.py nesmazalo. Klíče: fixes = hledaný text → čím se nahradí (aplikuje se na hotovou stránku, hledá se tolerantně k mezerám, nenalezený nebo nejednoznačný text skript ohlásí a skončí chybou); boxes = HTML vložené za sekci Klíčové pojmy; notes = HTML vložené před klíčové pojmy (vynechané obrázky); terms = zásahy do klíčových pojmů (auto/drop/rename/add); written = celé stránky otázek, které zdroj nevypracoval. HTML se dá psát jako string i jako pole řádků.",
+
+ "terms": {
+  "1": {
+   "auto": false,
+   "add": [
+    ["Psychopedie", "obor speciální pedagogiky zabývající se výchovou, vzděláváním a podporou osob s mentálním postižením"],
+    ["Mentální postižení", "dnes preferovaný zastřešující termín pro snížení rozumových schopností s dopadem na adaptivní chování; širší než „mentální retardace“"],
+    ["Mentální retardace", "termín MKN-10 (F70–F79) pro stav zastaveného nebo neúplného duševního vývoje; v MKN-11 nahrazen poruchou intelektového vývoje"],
+    ["Porucha intelektového vývoje", "označení MKN-11 (6A00) pro dřívější mentální retardaci; stupeň se určuje z intelektových i adaptivních funkcí, ne jen z pásma IQ"],
+    ["Oligofrenie", "starší označení pro mentální retardaci vrozenou nebo časně získanou"],
+    ["Pseudooligofrenie", "zdánlivé snížení rozumových schopností z výchovného zanedbání či deprivace, ne z poškození CNS; je reverzibilní"],
+    ["Demence", "porucha inteligence vzniklá až po druhém roce života, tedy po dokončení základního vývoje rozumových schopností"],
+    ["Endogenní příčiny", "příčiny vnitřní, dané genetickou výbavou — dědičnost, chromozomální aberace"],
+    ["Exogenní příčiny", "příčiny vnější, působící z prostředí — infekce, intoxikace, trauma, hypoxie"],
+    ["Prenatální příčiny", "příčiny působící před narozením (infekce matky, alkohol a drogy, ozáření, Rh inkompatibilita)"],
+    ["Perinatální příčiny", "příčiny působící při porodu a krátce po něm — hypoxie, protrahovaný porod, nízká porodní hmotnost"],
+    ["Postnatální příčiny", "příčiny působící po narození — encefalitida, meningitida, úraz hlavy, těžké zanedbání"],
+    ["MKF (ICF)", "Mezinárodní klasifikace funkčních schopností, disability a zdraví; popisuje tělesné funkce a struktury, aktivity a participaci a faktory prostředí"]
+   ]
+  },
+  "2": {
+   "auto": false,
+   "add": [
+    ["Raná péče", "terénní, případně ambulantní sociální služba podle § 54 zákona č. 108/2006 Sb. pro dítě do 7 let se zdravotním postižením a pro jeho rodiče"],
+    ["Služba sociální prevence", "skupina sociálních služeb, kam raná péče patří; cílem je předejít sociálnímu vyloučení"],
+    ["Přípravný stupeň základní školy speciální", "podle § 48a školského zákona připravuje dítě s těžším mentálním postižením na vzdělávání; trvá 1 až 3 roky"],
+    ["Mateřská škola speciální", "zřizuje se pro děti od 3 do 6, případně 7 let se speciálními vzdělávacími potřebami"],
+    ["Stimulace", "cílené podněcování vývoje dítěte v době, kdy je na daný podnět nejcitlivější"],
+    ["Individuální plán rané péče", "dokument sestavený s rodinou, který určuje cíle podpory a způsob jejich dosažení"],
+    ["Klíčový pracovník", "poradce rané péče, který rodinu provází a koordinuje podporu"],
+    ["Zásady práce s rodinou", "získat informace o dítěti, rozdělit péči mezi členy rodiny, brát postižení jako výzvu, dítě nelitovat, stimulovat v pravý čas a myslet na budoucnost"]
+   ]
+  },
+  "3": {
+   "auto": false,
+   "add": [
+    ["Podpůrné opatření", "úprava obsahu, forem, metod, hodnocení a podmínek vzdělávání odpovídající potřebám žáka; člení se do pěti stupňů"],
+    ["První stupeň podpůrných opatření", "minimální úprava metod, organizace a hodnocení; poskytuje ji škola sama bez doporučení ŠPZ a nemá normovanou finanční náročnost"],
+    ["Druhý až pátý stupeň podpůrných opatření", "poskytují se na doporučení školského poradenského zařízení a s informovaným souhlasem zletilého žáka nebo zákonného zástupce"],
+    ["Plán pedagogické podpory (PLPP)", "dokument prvního stupně podpory, který zpracuje škola sama; po třech měsících se vyhodnocuje"],
+    ["Individuální vzdělávací plán (IVP)", "dokument od druhého stupně podpory, vydaný na doporučení ŠPZ a se souhlasem zákonného zástupce"],
+    ["Školské poradenské zařízení (ŠPZ)", "pedagogicko-psychologická poradna nebo speciálně pedagogické centrum; vydává doporučení k podpůrným opatřením"],
+    ["Speciálně pedagogické centrum (SPC)", "školské poradenské zařízení pro žáky s konkrétním druhem postižení, obvykle při speciální škole"],
+    ["Škola nebo třída podle § 16 odst. 9", "zřizuje se pro žáky s mentálním postižením a dalšími uvedenými druhy postižení; nahradila dřívější ZŠ praktickou"],
+    ["Základní škola speciální", "podle § 48 školského zákona vzdělává žáky se středně těžkým a těžkým mentálním postižením"],
+    ["Rehabilitační vzdělávací program", "součást RVP pro obor základní škola speciální určená žákům s nejtěžším postižením"],
+    ["RVP ZV", "Rámcový vzdělávací program pro základní vzdělávání; pro žáky s LMP obsahuje minimální doporučenou úroveň očekávaných výstupů"],
+    ["Asistent pedagoga", "podpůrné opatření od druhého stupně; pomáhá pedagogovi ve třídě, není osobním asistentem žáka"]
+   ]
+  },
+  "4": {
+   "auto": false,
+   "add": [
+    ["Učení podmiňováním", "vychází z klasického podmiňování I. P. Pavlova; podkladem je vytvoření podmíněného reflexu"],
+    ["Percepčně motorické učení", "osvojování manuálních zručností, návyků a operací"],
+    ["Verbální učení", "nejrozšířenější druh učení, spočívá v osvojení sekvence slovních spojení"],
+    ["Pojmové učení", "osvojení společné odpovědi na různé podněty, které spadají do stejné kategorie"],
+    ["Motivační metody", "stimulují práci žáků; u žáků s mentálním postižením mají zásadní význam"],
+    ["Expoziční metody", "metody podávající žákům učivo"],
+    ["Fixační metody", "metody upevňování a opakování učiva"],
+    ["Analyticko-syntetická metoda", "hlásková metoda výuky čtení používaná od roku 1864, u nás dnes nejrozšířenější"],
+    ["Globální metoda", "metoda výuky čtení vycházející z celku slova, který se až později rozkládá na části"],
+    ["Sociální čtení", "čtení a chápání piktogramů, symbolů, log a slov z běžného života bez znalosti písmen"],
+    ["Didaktické zásady", "obecná pravidla vyučování — přiměřenost, názornost, soustavnost, trvalost, aktivnost, individuální přístup"],
+    ["Klíčové kompetence", "souhrn vědomostí, dovedností, schopností a postojů; v RVP jsou východiskem pro očekávané výstupy"]
+   ]
+  },
+  "5": {
+   "auto": false,
+   "add": [
+    ["Alternativní a augmentativní komunikace (AAK)", "systémy nahrazující (alternativní) nebo doplňující (augmentativní) mluvenou řeč"],
+    ["Sociální učení", "soubor procesů, jimiž se dítě učí ve styku s druhými lidmi sociálním normám a rolím"],
+    ["Montessori pedagogika", "alternativní přístup založený na připraveném prostředí, svobodné volbě činnosti a smyslovém materiálu"],
+    ["Waldorfská pedagogika", "alternativní přístup vycházející z antroposofie R. Steinera, s epochovým vyučováním a důrazem na umělecké činnosti"],
+    ["Snoezelen", "multisenzorické prostředí pro relaxaci a stimulaci smyslů u osob s těžkým a kombinovaným postižením"],
+    ["Bazální stimulace", "koncept podpory vnímání a komunikace u osob s těžkým postižením prostřednictvím tělesných, vibračních a vestibulárních podnětů"],
+    ["Kombinované postižení", "souběh dvou a více druhů postižení u jednoho člověka, kde se dopady navzájem znásobují"],
+    ["Individuální vzdělávání", "podle § 41 školského zákona vzdělávání bez pravidelné účasti ve škole; zákon nezná pojem „domácí vzdělávání“"],
+    ["Sociální čtení", "porozumění piktogramům, symbolům, logům a globálně čteným slovům z běžného života"]
+   ]
+  },
+  "6": {
+   "auto": true,
+   "drop": ["Profesní přístup žáků s mentálním postižením", "Celoživotní vzdělávání lidí s MP"],
+   "rename": {"Pracovní terapie (činnostní terapie)": "Pracovní terapie", "Psychomotorické terapie": "Psychomotorická terapie"},
+   "add": [
+    ["Volný čas", "doba, kterou člověk může využít podle vlastní volby, po splnění povinností"],
+    ["Zájmová činnost", "cílevědomá aktivita zaměřená na uspokojení a rozvíjení zájmů, potřeb a schopností"],
+    ["Zooterapie", "terapie s účastí zvířete; patří sem hipoterapie, canisterapie a felinoterapie"],
+    ["Praktická škola dvouletá", "obor 78-62-C/02 pro žáky se středně těžkým a těžkým mentálním postižením nebo s LMP v kombinaci s dalším postižením"],
+    ["Praktická škola jednoletá", "obor 78-62-C/01, který upevňuje dovednosti z předchozího vzdělávání"],
+    ["Odborné učiliště", "střední škola připravující na výkon dělnických profesí, mezi absolventy má i žáky s LMP"],
+    ["Profesní orientace", "proces poznávání vlastních předpokladů a možností pracovního uplatnění"],
+    ["Chráněné bydlení", "pobytová sociální služba s podporou samostatnosti, alternativa ústavní péče"]
+   ]
+  },
+  "7": {
+   "auto": false,
+   "add": [
+    ["Strukturované učení", "metodika pro osoby s PAS a mentálním postižením postavená na individualizaci, strukturalizaci a vizualizaci"],
+    ["Individualizace", "přizpůsobení prostředí, úkolů a komunikace konkrétnímu člověku a jeho úrovni"],
+    ["Strukturalizace", "vytvoření předvídatelného řádu — struktura prostoru, času a činnosti"],
+    ["Struktura prostoru", "jasné vymezení, kde se která činnost dělá; snižuje nejistotu a nároky na orientaci"],
+    ["Struktura času", "denní a týdenní režim znázorněný předměty, obrázky nebo písmem"],
+    ["Struktura činnosti", "rozdělení úkolu na krok za krokem s viditelným začátkem a koncem"],
+    ["Vizualizace", "zviditelnění informace obrázkem, symbolem nebo předmětem, protože zraková informace je trvalá"],
+    ["Sociální učení", "osvojování sociálních norem, rolí a dovedností ve styku s druhými lidmi"],
+    ["Aktivizační centrum", "služba nabízející dospělým s těžším mentálním postižením smysluplnou denní činnost"],
+    ["Zásady komunikace s dospělým s MP", "mluvit k dospělému jako k dospělému, krátké věty, jedna informace, ověřit porozumění, dát čas na odpověď"]
+   ]
+  },
+  "8": {
+   "auto": false,
+   "add": [
+    ["Sebeobhajování (self-advocacy)", "hnutí, v němž lidé s mentálním postižením sami mluví za sebe, hájí svá práva a rozhodují o svém životě"],
+    ["Občanská advokacie", "dlouhodobý vztah dobrovolníka a člověka s postižením, v němž dobrovolník pomáhá hájit jeho zájmy"],
+    ["Spolurozhodování", "zapojení člověka s postižením do rozhodování o službách a záležitostech, které se ho týkají"],
+    ["Podporované rozhodování", "model, kdy člověk rozhoduje sám s pomocí důvěryhodných osob; alternativa k omezení svéprávnosti"],
+    ["Omezení svéprávnosti", "soudní opatření podle zákona č. 89/2012 Sb.; vždy jen v nezbytném rozsahu a na dobu určitou, nejdéle na 3 roky"],
+    ["Opatrovník", "osoba jmenovaná soudem, která jedná za člověka s omezenou svéprávností v určeném rozsahu"],
+    ["Deinstitucionalizace", "přechod od velkých ústavních zařízení ke službám v běžném prostředí komunity"],
+    ["Snadné čtení (easy-to-read)", "úprava textu do jednoduchého jazyka s krátkými větami a obrázky, aby byl dostupný lidem s MP"]
+   ]
+  },
+  "10": {
+   "auto": true,
+   "drop": ["Manželství osob s MP"],
+   "add": [
+    ["Svéprávnost", "způsobilost nabývat práva a zavazovat se; podle zákona č. 89/2012 Sb. ji lze pouze omezit, nikoli člověka zbavit"],
+    ["Manželství a omezená svéprávnost", "kdo má svéprávnost omezenou právě v oblasti manželství, manželství uzavřít nemůže; povolení soudu se týká nezletilého od 16 let"],
+    ["Sterilizace", "podle § 13 zákona č. 373/2011 Sb. u osoby s omezenou svéprávností jen ze zdravotních důvodů, se souhlasem opatrovníka, stanoviskem odborné komise a souhlasem soudu"],
+    ["Prevence sexuálního zneužívání", "sexuální výchova, znalost vlastního těla, právo říci ne, rozlišení dobrého a špatného dotyku a důvěryhodná osoba, které lze říct"],
+    ["Sexuální asistence", "placená služba vyškolené asistentky, která pomáhá člověku s postižením poznávat vlastní sexualitu; v ČR není zákonem upravena"],
+    ["Rodičovská odpovědnost", "souhrn práv a povinností rodiče; mentální postižení samo o sobě není důvodem k jejímu omezení"]
+   ]
+  },
+  "11": {
+   "auto": true,
+   "rename": {"Chráněné dílny": "Chráněná dílna (zrušený pojem)"},
+   "add": [
+    ["Chráněné pracovní místo", "podle § 75 zákona č. 435/2004 Sb. místo zřízené na základě dohody s Úřadem práce, obsazené nejméně 3 roky, na které ÚP poskytuje příspěvek"],
+    ["Osoba se zdravotním postižením (OZP)", "podle zákona o zaměstnanosti osoba invalidní v prvním až třetím stupni nebo zdravotně znevýhodněná"],
+    ["Povinný podíl", "zaměstnavatel s více než 25 zaměstnanci musí zaměstnávat 4 % OZP, odebírat výrobky nebo odvést do státního rozpočtu"],
+    ["Pracovní rehabilitace", "podle § 69 souvislá činnost zaměřená na získání a udržení vhodného zaměstnání osoby se zdravotním postižením"],
+    ["Otevřený trh práce", "běžné pracovní prostředí bez zvláštních úprav, cíl podporovaného zaměstnávání"],
+    ["Pracovní asistent", "podporuje člověka s postižením přímo na pracovišti, jeho podpora se postupně snižuje"]
+   ]
+  },
+  "12": {
+   "auto": true,
+   "drop": ["Uživatel má možnost", "Některé výhody TP"],
+   "add": [
+    ["Tranzitní program", "program „Ze školy do práce“ pro studenty posledních ročníků, který propojuje školu, praxi u zaměstnavatele a podporované zaměstnávání"],
+    ["Job klub", "skupinová příprava na hledání práce — životopis, telefonát, pohovor, orientace v inzerátech"],
+    ["Nácvik pracovních dovedností", "trénink konkrétních úkonů i dovedností kolem práce: dojíždění, docházka, komunikace s kolegy, přestávky"],
+    ["Podpora zaměstnavatele", "informace o postižení, zaškolení kolegů, pomoc s úpravou pracovního místa a jednání o příspěvcích"],
+    ["Přirozená podpora", "podpora ze strany kolegů na pracovišti, která postupně nahrazuje pracovního asistenta"],
+    ["Individuální plán", "písemně stanovené cíle uživatele a kroky k jejich dosažení, pravidelně vyhodnocované"]
+   ]
+  },
+  "13": {
+   "auto": true,
+   "drop": ["Dle místa v životě člověka", "Dle počtu zapojených osob", "Psychické aktivity", "Sociální aktivity", "Relaxace"],
+   "add": [
+    ["Stárnutí osob s mentálním postižením", "nastupuje dříve než u ostatní populace, u Downova syndromu bývá spojeno s časným rozvojem demence"],
+    ["Bazální stimulace", "koncept podpory vnímání a komunikace tělesnými, vibračními a vestibulárními podněty; užívá se i u seniorů s těžkým postižením"],
+    ["Reminiscence", "práce se vzpomínkami jako aktivizační a terapeutická metoda"],
+    ["Denní stacionář", "ambulantní sociální služba nabízející denní program a podporu, klient se vrací domů"],
+    ["Odlehčovací služba (respitní péče)", "dočasně převezme péči, aby si pečující rodina mohla odpočinout"],
+    ["Domov pro osoby se zdravotním postižením", "pobytová sociální služba podle zákona č. 108/2006 Sb."],
+    ["Příspěvek na péči", "dávka podle zákona č. 108/2006 Sb. ve čtyřech stupních podle míry závislosti na pomoci jiné osoby"],
+    ["Paliativní přístup", "péče zaměřená na kvalitu života a mírnění utrpení v pokročilé fázi nemoci"]
+   ]
+  },
+  "14": {
+   "auto": false,
+   "add": [
+    ["Speciálně pedagogická diagnostika", "poznávání osobnosti člověka se zdravotním postižením se zaměřením na možnosti jeho edukace a podpory"],
+    ["Diferenciální diagnostika", "rozlišení podobně se projevujících stavů — mentální postižení, pseudooligofrenie, demence, PAS, těžká NKS"],
+    ["Klinické (nestandardizované) metody", "pozorování, rozhovor, anamnéza, analýza výsledků činnosti; pružné a individuální, obtížně srovnatelné"],
+    ["Testové (standardizované) metody", "všem osobám se předkládá stejný materiál za stejných podmínek, výsledek se porovnává s normou"],
+    ["Vývojové škály", "zachycují úroveň vývoje dítěte v jednotlivých oblastech proti věkové normě"],
+    ["Vyšetření adaptivních dovedností", "hodnotí zvládání běžného života — sebeobsluhu, komunikaci, sociální dovednosti; v MKN-11 je rovnocenné s IQ"],
+    ["Anamnéza", "údaje o dosavadním vývoji; rodinná, osobní, sociální a školní"],
+    ["Katamnéza", "sledování dalšího vývoje po ukončení intervence"],
+    ["Hra jako diagnostická situace", "přirozené prostředí, v němž lze pozorovat komunikaci, motoriku, sociální dovednosti i řešení problémů"],
+    ["Interdisciplinární tým", "spolupráce speciálního pedagoga, psychologa, lékaře, logopeda a sociálního pracovníka"],
+    ["Laterlita", "přednostní užívání jedné strany těla; v ČR se vyšetřuje testem Matějčka a Žlaba"]
+   ]
+  },
+  "15": {
+   "auto": true,
+   "add": [
+    ["Pervazivní vývojová porucha", "porucha zasahující („pervazivně“ pronikající) celou osobnost a všechny oblasti vývoje"],
+    ["Porucha autistického spektra (PAS)", "neurovývojová porucha s obtížemi v sociální komunikaci a interakci a s omezenými, opakujícími se vzorci chování; v MKN-11 jediná kategorie 6A02"],
+    ["Triáda příznaků", "podle MKN-10 narušení sociální interakce, komunikace a představivosti s repetitivním chováním; MKN-11 užívá dvě domény"],
+    ["Aspergerův syndrom", "podtyp MKN-10 (F84.5) bez opoždění řeči a s dobrým intelektem; v MKN-11 už jako samostatná diagnóza neexistuje"],
+    ["Atypický autismus", "podtyp MKN-10 (F84.1), kdy nejsou naplněna všechna kritéria nebo se porucha projeví po třetím roce"],
+    ["Rettův syndrom", "geneticky podmíněná porucha (mutace genu MECP2) postihující téměř výhradně dívky, se ztrátou získaných dovedností"],
+    ["Echolálie", "opakování slyšených slov a vět, bezprostřední nebo oddálené"],
+    ["Teorie mysli", "schopnost představit si duševní stavy druhých; u PAS bývá oslabena"],
+    ["Stereotypní chování", "opakované pohyby nebo činnosti bez zjevného účelu, které snižují napětí"]
+   ]
+  },
+  "16": {
+   "auto": false,
+   "add": [
+    ["TEACCH program", "Treatment and Education of Autistic and related Communication handicapped Children; program strukturovaného učení vzniklý v Severní Karolíně"],
+    ["Strukturované učení", "individualizace, strukturalizace, vizualizace a předvídatelnost jako základ vzdělávání žáků s PAS"],
+    ["Vizuální podpora", "obrázkový nebo předmětový rozvrh, procesuální schéma a pracovní systém, které nesou informaci trvale"],
+    ["Pracovní systém zleva doprava", "úkoly připravené v boxech tak, aby žák poznal, co má dělat, kolik toho je a kdy skončí"],
+    ["Nácvik sociálních dovedností", "cílené učení konkrétních sociálních situací modelováním, scénářem a hraním rolí"],
+    ["Sociální scénář (social story)", "krátký text z pohledu dítěte, který popisuje situaci a očekávané chování"],
+    ["Motivační systém", "odměna navázaná na splnění úkolu, u žáků s PAS často žetonový systém"],
+    ["Problémové chování", "chování ohrožující žáka nebo okolí; řeší se funkční analýzou, tedy zjištěním, čeho tím žák dosahuje"],
+    ["Asistent pedagoga u žáka s PAS", "podpůrné opatření umožňující individualizaci a nácvik dovedností ve třídě"]
+   ]
+  },
+  "17": {
+   "auto": true,
+   "drop": ["Výuka má šest fází"],
+   "rename": {
+    "Piktogramy": "Piktogram",
+    "Makaton": "Makaton",
+    "Bliss": "Blissymbolics (Bliss)"
+   },
+   "add": [
+    ["Lormova abeceda", "dotyková abeceda vpisovaná do dlaně, užívaná u osob s hluchoslepotou"],
+    ["Komunikační kniha", "osobní soubor symbolů, obrázků a slov, z nichž člověk skládá sdělení"],
+    ["Komunikační tabulka", "plocha se symboly, na které uživatel ukazuje; sestavuje se individuálně"],
+    ["Fáze nácviku VOKS", "navázání kontaktu, používání obrázků s dalšími lidmi, výběr mezi obrázky, skládání vět, odpověď na otázku „Co chceš?“ a komentování"],
+    ["Prstová abeceda", "znázornění jednotlivých písmen polohami prstů, doplněk komunikace u osob se sluchovým postižením"],
+    ["Alternativní komunikace", "systém nahrazující mluvenou řeč tam, kde se nevytvořila nebo se ztratila"],
+    ["Augmentativní komunikace", "systém doplňující a podporující existující, ale nedostatečně srozumitelnou řeč"]
+   ]
+  }
+ },
+
+ "fixes": {
+  "1": [
+   [
+    "I zde platí velký význam péče rodiny.</p>",
+    "I zde platí velký význam péče rodiny.</p>\n      <details class=\"upd\">\n        <summary>Aktualizace 2026</summary>\n        <div class=\"upd-body\">\n          <p>Zdrojový text uvádí <span class=\"was\">„rehabilitačních tříd pomocných praktických škol“</span>. Taková škola ovšem <strong>nikdy neexistovala</strong> — jde o smíchání dvou různých typů: <strong>pomocné školy</strong> (zrušena 2005, nahradila ji základní škola speciální) a <strong>praktické školy</strong> (obor středního vzdělání, který platí dál).</p>\n          <p>Dnešní správné označení: <strong>třídy základní školy speciální</strong> vzdělávající podle <strong>rehabilitačního vzdělávacího programu</strong>. <a href=\"pravni-aktualnost.html#skoly\">Přehled školských typů →</a></p>\n        </div>\n      </details>"
+   ],
+   [
+    "hovoří o tzv. podpůrných opatřeních ve vztahu ke vzdělávání dětí, žáků a studentů se speciálními vzdělávacími potřebami.</p>",
+    "hovoří o tzv. podpůrných opatřeních ve vztahu ke vzdělávání dětí, žáků a studentů se speciálními vzdělávacími potřebami.</p>\n      <details class=\"upd\">\n        <summary>Aktualizace 2026</summary>\n        <div class=\"upd-body\">\n          <p>Zdroj uvádí <span class=\"was\">„Vyhláška 27/2016 – nově 416/2017“</span>. Novela vyhlášku <strong>nenahrazuje</strong>, jen ji mění. K srpnu 2026 platí <strong>vyhláška č. 27/2016 Sb. ve znění pozdějších předpisů</strong>, naposledy vyhlášky <strong>č. 306/2025 Sb.</strong> s účinností od 1. 1. 2026.</p>\n          <p>Systém <strong>pěti stupňů</strong> podpůrných opatření se nezměnil. <a href=\"pravni-aktualnost.html#nove-nyni\">Proč je „nyní X“ zavádějící →</a></p>\n        </div>\n      </details>"
+   ]
+  ],
+  "2": [
+   [
+    "+ vztahující se dokumenty:</p>",
+    "+ vztahující se dokumenty:</p>\n      <details class=\"upd\">\n        <summary>Aktualizace 2026</summary>\n        <div class=\"upd-body\">\n          <p>Zdroj uvádí <span class=\"was\">„zákonem 561/2005 … (nově 178/2016)“</span>. Školský zákon je ale <strong>č. 561/2004 Sb.</strong>, ne 561/2005 — rok 2005 nesou jeho <em>prováděcí vyhlášky</em>, což je pravděpodobný zdroj záměny. Totéž platí o „563/2005“ v seznamu níž: zákon o pedagogických pracovnících je <strong>č. 563/2004 Sb.</strong></p>\n          <p>K srpnu 2026 platí školský zákon ve znění pozdějších předpisů, naposledy velké novely <strong>č. 267/2025 Sb.</strong> (účinnost od 1. 9. 2025, převážná část od 1. 1. 2026). <a href=\"pravni-aktualnost.html#chybna-cisla\">Přehled chybných čísel →</a></p>\n        </div>\n      </details>"
+   ],
+   [
+    "<li>563/2005 o pedagogických pracovnících (nově 379/2015)</li>",
+    "<li>563/2005 o pedagogických pracovnících (nově 379/2015) <span class=\"fix\">— správně č. 563/2004 Sb., ve znění novely č. 183/2023 Sb.</span></li>"
+   ],
+   [
+    "<li>Vyhláška MŠMT 14/2005 (nově 218/2016) o předškolním vzdělávání</li>",
+    "<li>Vyhláška MŠMT 14/2005 (nově 218/2016) o předškolním vzdělávání <span class=\"fix\">— otázka 3 uvádí u téže vyhlášky číslo 208/2016; platná je základní vyhláška č. 14/2005 Sb. ve znění pozdějších předpisů.</span></li>"
+   ],
+   [
+    "ve znění pozdějších předpisů. – nově 189/2016.",
+    "ve znění pozdějších předpisů. – nově 189/2016. <span class=\"fix\">Novela zákon nenahrazuje: platí zákon č. 108/2006 Sb. ve znění pozdějších předpisů, naposledy č. 38/2025 Sb. Vymezení rané péče v § 54 (dítě do 7 let) se nezměnilo.</span>"
+   ]
+  ],
+  "3": [
+   [
+    "<li>vyhláška MŠMT č. 13/2005 Sb., o středním vzdělávání a vzdělávání v konzervatoři.</li>",
+    "<li>vyhláška MŠMT č. 13/2005 Sb., o středním vzdělávání a vzdělávání v konzervatoři. <span class=\"fix\">Platí dál — k 08/2026 ve znění vyhlášek č. 306/2025 a 533/2025 Sb.</span></li>"
+   ]
+  ],
+  "4": [
+   [
+    "<strong>Odkaz: http://www.nuv.cz/t/rvp-pro-zakladni-vzdelavani</strong>",
+    "<strong>Odkaz: http://www.nuv.cz/t/rvp-pro-zakladni-vzdelavani</strong> <span class=\"fix\">Odkaz je mrtvý — Národní ústav pro vzdělávání zanikl 1. 1. 2020 a jeho agendu převzal <a href=\"https://www.npi.cz\">Národní pedagogický institut ČR</a>. Kurikulární dokumenty jsou na <a href=\"https://revize.rvp.cz\">revize.rvp.cz</a>.</span>"
+   ],
+   [
+    "<strong>Odkaz: http://www.nuv.cz/t/ramcove-programy-pro-specialni-vzdelavani</strong>",
+    "<strong>Odkaz: http://www.nuv.cz/t/ramcove-programy-pro-specialni-vzdelavani</strong> <span class=\"fix\">Rovněž mrtvý odkaz, viz výše — dnes NPI ČR.</span>"
+   ]
+  ],
+  "10": [
+   [
+    "se za ideální řešení považuje potvrzení partnerského vztahu osob s mentálním postižením alespoň zasnoubením.</p>",
+    "se za ideální řešení považuje potvrzení partnerského vztahu osob s mentálním postižením alespoň zasnoubením.</p>\n      <details class=\"upd\">\n        <summary>Aktualizace 2026 — tato pasáž stojí na právu před rokem 2014</summary>\n        <div class=\"upd-body\">\n          <p>Zdroj uvádí: <span class=\"was\">„manželství je právně podmíněno plnoletostí a způsobilostí k právním úkonům. Pokud je osoba zbavena právní způsobilosti, může uzavřít manželství jen s povolením soudu.“</span> Od účinnosti zákona č. <strong>89/2012 Sb., občanského zákoníku</strong> (1. 1. 2014) je to chybné ve třech bodech:</p>\n          <ul>\n            <li>pojem „způsobilost k právním úkonům“ nahradila <strong>svéprávnost</strong>;</li>\n            <li><strong>zbavení svéprávnosti bylo zrušeno</strong> — svéprávnost lze jen <em>omezit</em>, v nezbytném rozsahu a nejdéle na 3 roky;</li>\n            <li>kdo má svéprávnost omezenou právě v oblasti manželství, manželství <strong>uzavřít nemůže</strong>. Povolení soudu se týká <strong>nezletilého, který dovršil 16 let</strong>.</li>\n          </ul>\n          <p>Slovo „svéprávnost“ se v celém zdrojovém dokumentu nevyskytuje ani jednou. <a href=\"pravni-aktualnost.html#svepravnost\">Podrobně v právní aktuálnosti →</a></p>\n        </div>\n      </details>"
+   ]
+  ],
+  "11": [
+   [
+    "<li>Chráněná dílna je podle zákona o zaměstnanosti č. 435/2004 Sb. definována",
+    "<li><span class=\"fix\">Pozor — pojem „chráněná dílna“ ze zákona o zaměstnanosti vypustil zákon č. 367/2011 Sb. k 1. 1. 2012. Dnešní nástroj je <strong>chráněné pracovní místo</strong> podle § 75, popsané níže.</span> Chráněná dílna je podle zákona o zaměstnanosti č. 435/2004 Sb. definována"
+   ]
+  ],
+  "15": [
+   [
+    "Základní vzdělávání lze realizovat podle zvláštností a potřeb dětí s PAS těmito způsoby:</p>",
+    "Základní vzdělávání lze realizovat podle zvláštností a potřeb dětí s PAS těmito způsoby:</p>\n      <details class=\"upd\">\n        <summary>Aktualizace 2026 — citovaná vyhláška je deset let zrušená</summary>\n        <div class=\"upd-body\">\n          <p>Zdroj uvádí jako platný předpis <span class=\"was\">„vyhlášku č. 73/2005 O vzdělávání dětí, žáků a studentů se speciálními potřebami a dětí, žáků a studentů mimořádně nadaných“</span>. Vyhláška č. 73/2005 Sb. byla <strong>zrušena k 1. 9. 2016</strong>; nahradila ji <strong>vyhláška č. 27/2016 Sb.</strong>, o vzdělávání žáků se speciálními vzdělávacími potřebami a žáků nadaných, která zavedla dnešní systém pěti stupňů podpůrných opatření. K srpnu 2026 platí ve znění vyhlášky č. 306/2025 Sb.</p>\n          <p>Je to <strong>nejvážnější právní nález celého materiálu</strong> — a zdroj si tu odporuje sám: <a href=\"otazka-03-vzdelavaci-system-podpurna-opatreni.html\">otázka 3</a> správné číslo 27/2016 uvádí. <a href=\"pravni-aktualnost.html#vyhlaska-73\">Podrobně v právní aktuálnosti →</a></p>\n        </div>\n      </details>"
+   ]
+  ]
+ },
+
+ "notes": {
+  "1": [
+  "    <aside class=\"box warn\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Dva obrázky ze zdroje jsou tady přepsané do textu</h4>",
+  "      <p>Zdrojový dokument má v této otázce dva obrázky, které ale <strong>nejsou obrázky</strong> — je to text vyfocený jako obrázek: výčet starších výrazů pro mentální retardaci a snímek webové stránky s dějinami oboru. Jako obrázky by byly nedostupné hledání, kartičkám, čtečkám i tisku, takže jsou <strong>přepsané do textu</strong> níže (sekce „Starší výrazy“ a „Dějiny psychopedie v českých zemích“).</p>",
+  "    </aside>"
+  ],
+  "17": [
+  "    <aside class=\"box warn\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Ukázky symbolů jsou překreslené</h4>",
+  "      <p>Zdroj má u piktogramů, Makatonu a Blissu tři obrázky stažené z internetu bez doložené licence (u Makatonu navíc s <em>anglickými</em> popisky) — na veřejný web nepatří. Piktogramy a skládací logika Blissu jsou proto <strong>překreslené nativně</strong> jako vektorová grafika, která funguje ve světlém i tmavém režimu a v tisku. Makaton je licencovaný systém znaků, takže je popsaný slovy.</p>",
+  "    </aside>"
+  ]
+ },
+
+ "boxes": {
+  "1": [
+  "    <aside class=\"box warn\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>MKN-11: „mentální retardace“ se opouští</h4>",
+  "      <p>Celá otázka stojí na <strong>MKN-10</strong> (F70–F79 mentální retardace, klasifikace WHO z roku 1992). <strong>MKN-11</strong> vstoupila celosvětově v platnost <strong>1. 1. 2022</strong> a aktualizovanou oficiální českou verzi zveřejnila WHO v <strong>únoru 2026</strong>. Místo mentální retardace zavádí <strong>poruchy intelektového vývoje (6A00)</strong> — lehkou, středně těžkou, těžkou, hlubokou a nově <strong>provizorní</strong> (u dětí do 4 let, kde ještě nelze spolehlivě hodnotit). Stupeň se určuje z <strong>intelektových i adaptivních funkcí</strong>, nejen z pásma IQ.</p>",
+  "      <p><strong>Kódy F70–F79 zatím chybné nejsou.</strong> V ČR je stále platná MKN-10 (česká tabelární část ve znění od 1. 1. 2026) a zavedení MKN-11 se očekává až <strong>okolo roku 2028</strong>. U zkoušky se vyplatí umět obojí a říct, kam se terminologie posouvá. <a href=\"pravni-aktualnost.html#mkn11\">Podrobně v právní aktuálnosti →</a></p>",
+  "    </aside>",
+  "",
+  "    <aside class=\"box law\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>MKF (ICF) — třetí klasifikace, kterou zadání žádá</h4>",
+  "      <p>Okruh zadání A21 chce klasifikaci mentálního postižení podle <strong>MKN, DSM i MKF (ICF)</strong>. Zdrojový dokument MKF nezmiňuje ani jednou, proto tady:</p>",
+  "      <p><strong>Mezinárodní klasifikace funkčních schopností, disability a zdraví</strong> neklasifikuje diagnózu, ale <em>fungování</em>. Doplňuje MKN: MKN říká, co člověku je, MKF co z toho v životě vyplývá. Vychází z <strong>biopsychosociálního modelu</strong> — disabilita není vlastnost člověka, ale výsledek souhry zdravotního stavu a prostředí.</p>",
+  "      <ul>",
+  "        <li><strong>Tělesné funkce a struktury</strong> — jak funguje tělo a jeho části</li>",
+  "        <li><strong>Aktivity a participace</strong> — co člověk dělá a jak se zapojuje do života</li>",
+  "        <li><strong>Faktory prostředí</strong> — bariéry a podpora v okolí (rodina, škola, služby, postoje)</li>",
+  "        <li><strong>Osobní faktory</strong> — věk, pohlaví, životní zkušenost, motivace</li>",
+  "      </ul>",
+  "      <p>Ke každé položce se přidává <strong>kvalifikátor</strong> vyjadřující míru obtíží. ÚZIS s Univerzitou Karlovou vydal druhé aktualizované české vydání; pro praxi existují zkrácené <strong>core sets</strong>, mezi nimi i dětské varianty pro <strong>autismus a ADHD</strong>. Pro speciální pedagogiku je MKF blízká právě tím, že popisuje potřebu podpory — stejnou logikou jako podpůrná opatření.</p>",
+  "    </aside>",
+  "",
+  "    <aside class=\"box link\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">🔗</span>Starší výrazy pro mentální retardaci</h4>",
+  "      <p><em>Přepis obrázku ze zdroje. Jde o historické termíny — dnes jsou nepřijatelné a uvádějí se jen jako doklad vývoje oboru.</em></p>",
+  "      <p>Duševně chybní, duševně úchylní, duševně abnormální, duševně opoždění, duševně defektní, rozumově chybní, děti s chybným rozumovým vývojem, rozumově zaostalí, slabomyslní, oligofrenní, mentálně defektní, mentálně subnormální, mentálně opoždění, <strong>debilita, imbecilita, idiocie</strong>.</p>",
+  "      <p>Poslední trojice byla do poloviny 20. století oficiální odbornou terminologií pro tři stupně; její přechod do nadávky je učebnicový příklad toho, proč se v oboru názvy obměňují.</p>",
+  "    </aside>",
+  "",
+  "    <aside class=\"box link\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">🔗</span>Dějiny psychopedie v českých zemích</h4>",
+  "      <p><em>Přepis druhého obrázku ze zdroje (snímek webové stránky).</em></p>",
+  "      <ul>",
+  "        <li><strong>1871</strong> — založen <strong>Ernestinum</strong>, první ústav pro děti s mentálním postižením v Praze, zpočátku i jako útulek. U jeho vzniku stál <strong>Karel Slavoj Amerling</strong>, lékař a pedagog.</li>",
+  "        <li><strong>Karel Herfort</strong> — položil základy vědeckého výzkumu v oboru. Zavedl pozorovací karty zaznamenávající pokroky a projevy klientů. Výchova dětí zahrnovala rozvoj smyslů, estetiku, hudební a pracovní výchovu, košíkářské dílny a práci na zahradě.</li>",
+  "        <li><strong>1896</strong> — otevřena první <strong>pomocná škola v Praze</strong> u sv. Jakuba; <strong>1908</strong> Kladno, na Moravě <strong>1919</strong> Brno.</li>",
+  "        <li><strong>Čádovy sjezdy</strong>:",
+  "          <ul>",
+  "            <li><strong>1909</strong> — První český sjezd pro péči o slabomyslné a školství pomocné, s heslem „Zakládejte řádné ústavy pro slabomyslné a dobré pomocné školy“.</li>",
+  "            <li><strong>1911</strong> — sjezd řeší pomocné školy a ústavy na Moravě.</li>",
+  "            <li>třetí sjezd — zlepšení života osob s mentálním postižením z hlediska pedagogického, lékařského, právního a sociálního postavení; základ vědeckého výzkumu (Eisová, 1983).</li>",
+  "          </ul>",
+  "        </li>",
+  "        <li><strong>1948</strong> — zákon o jednotné škole ruší pomocné školy a zavádí <strong>zvláštní školy</strong>.</li>",
+  "        <li><strong>1980</strong> — obnovení pomocných škol.</li>",
+  "        <li><strong>dnes</strong> — společné vzdělávání, tedy podpora žáka s mentálním postižením v běžné škole.</li>",
+  "      </ul>",
+  "      <p>Zdroj u roku 1948 dodává, že do zvláštních škol byli zařazováni i žáci, kteří neznali jazyk — a jako pseudooligofrenii popisuje případy dětí z romských rodin. Tuto praxi <strong>Evropský soud pro lidská práva</strong> v rozsudku velkého senátu <strong>D. H. a ostatní proti České republice</strong> (13. 11. 2007) označil za <strong>nepřímou diskriminaci</strong> v přístupu ke vzdělání. Je to dobrý příklad rozdílu mezi skutečným mentálním postižením a <strong>sociálním znevýhodněním</strong>.</p>",
+  "    </aside>"
+  ],
+
+  "3": [
+  "    <aside class=\"box law\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Legislativa ve znění k srpnu 2026</h4>",
+  "      <p>Zdroj je z roku 2018 a u každého předpisu píše „nyní X“, jako by novela předpis nahradila. <strong>Nenahrazuje — mění ho.</strong> Platné citace jsou tyto:</p>",
+  "      <div class=\"table-wrap\">",
+  "        <table>",
+  "          <thead><tr><th>Předpis</th><th>Stav k 08/2026</th></tr></thead>",
+  "          <tbody>",
+  "            <tr><td data-label=\"Předpis\">zák. č. <strong>561/2004 Sb.</strong>, školský zákon</td><td data-label=\"Stav k 08/2026\">platí; velká novela <strong>č. 267/2025 Sb.</strong> — účinnost od 1. 9. 2025, převážná část od <strong>1. 1. 2026</strong></td></tr>",
+  "            <tr><td data-label=\"Předpis\">zák. č. <strong>563/2004 Sb.</strong>, o pedagogických pracovnících</td><td data-label=\"Stav k 08/2026\">platí; novela <strong>č. 183/2023 Sb.</strong> od 1. 9. 2023 (mj. kvalifikace speciálního pedagoga)</td></tr>",
+  "            <tr><td data-label=\"Předpis\">vyhl. č. <strong>27/2016 Sb.</strong>, o vzdělávání žáků se SVP</td><td data-label=\"Stav k 08/2026\">platí; naposledy <strong>č. 306/2025 Sb.</strong> od 1. 1. 2026</td></tr>",
+  "            <tr><td data-label=\"Předpis\">vyhl. č. <strong>72/2005 Sb.</strong>, o poradenských službách</td><td data-label=\"Stav k 08/2026\">platí; ve znění <strong>č. 46/2025 a 306/2025 Sb.</strong></td></tr>",
+  "            <tr><td data-label=\"Předpis\">vyhl. č. <strong>48/2005 Sb.</strong>, o základním vzdělávání</td><td data-label=\"Stav k 08/2026\">platí ve znění pozdějších předpisů</td></tr>",
+  "            <tr><td data-label=\"Předpis\">vyhl. č. <strong>14/2005 Sb.</strong>, o předškolním vzdělávání</td><td data-label=\"Stav k 08/2026\">platí ve znění pozdějších předpisů</td></tr>",
+  "            <tr><td data-label=\"Předpis\">vyhl. č. <strong>13/2005 Sb.</strong>, o středním vzdělávání</td><td data-label=\"Stav k 08/2026\">platí; ve znění <strong>č. 306/2025 a 533/2025 Sb.</strong></td></tr>",
+  "            <tr><td data-label=\"Předpis\">vyhl. č. <s>73/2005 Sb.</s></td><td data-label=\"Stav k 08/2026\"><strong>zrušena</strong> k 1. 9. 2016, nahradila ji 27/2016 Sb. (zdroj ji přesto v otázce 15 cituje jako platnou)</td></tr>",
+  "          </tbody>",
+  "        </table>",
+  "      </div>",
+  "      <p>Nejbezpečnější způsob citace u zkoušky: <strong>základní číslo předpisu + „ve znění pozdějších předpisů“</strong>. Čísla novel se mění každý rok, základní číslo ne.</p>",
+  "    </aside>",
+  "",
+  "    <aside class=\"box tip\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">💡</span>Systém podpůrných opatření se nezměnil</h4>",
+  "      <p>Dobrá zpráva pro učení: <strong>pět stupňů podpůrných opatření platí dál</strong>. První stupeň poskytuje škola sama, bez doporučení ŠPZ, na základě <strong>plánu pedagogické podpory</strong> a bez normované finanční náročnosti. Druhý až pátý stupeň se poskytují <strong>na doporučení školského poradenského zařízení</strong> a s informovaným souhlasem zletilého žáka nebo zákonného zástupce.</p>",
+  "      <p>Novela č. 306/2025 Sb. (od 1. 1. 2026) mění především <strong>financování</strong> podpůrných opatření a stabilizuje podpůrné pozice jako běžnou součást pedagogických týmů základních škol. Struktura stupňů, PLPP a IVP zůstává.</p>",
+  "    </aside>"
+  ],
+
+  "4": [
+  "    <aside class=\"box upd\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">📅</span>Revize RVP ZV — časový plán</h4>",
+  "      <p>Zdroj popisuje RVP ve stavu před rokem 2018 a odkazuje na lhůty (1. 9. 2016, 1. 9. 2018), které dávno uplynuly. Aktuální stav:</p>",
+  "      <ul>",
+  "        <li>Podle <strong>revidovaného RVP ZV (2025)</strong> mohou školy učit <strong>dobrovolně od září 2025</strong>.</li>",
+  "        <li><strong>Povinně od září 2028</strong>, minimálně v 1. a 6. ročníku.</li>",
+  "        <li>Modelové ŠVP jsou k dispozici jako vzor od února 2025.</li>",
+  "        <li>Zůstává <strong>digitální kompetence</strong> jako klíčová kompetence; do informatiky přibyl základní vhled do strojového učení a umělé inteligence.</li>",
+  "      </ul>",
+  "      <p>Pro žáky s lehkým mentálním postižením se dnes využívá <strong>minimální doporučená úroveň očekávaných výstupů</strong> uvnitř RVP ZV — samostatná příloha RVP ZV–LMP byla zrušena vyhláškou č. 27/2016 Sb.</p>",
+  "    </aside>"
+  ],
+
+  "6": [
+  "    <aside class=\"box tip\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">💡</span>Praktická škola tu zastaralá <em>není</em></h4>",
+  "      <p>Na jiných místech materiálu je „praktická škola“ opravovaná jako přežitek — tady ne. <strong>Praktická škola dvouletá (78-62-C/02)</strong> a <strong>praktická škola jednoletá (78-62-C/01)</strong> jsou platné, aktivní obory středního vzdělání i v roce 2026.</p>",
+  "      <p>Rozlišujte dvě různé věci se stejným slovem:</p>",
+  "      <ul>",
+  "        <li><strong>Základní škola praktická</strong> — druh <em>základní</em> školy, <strong>zrušený</strong> k 1. 9. 2016; dnes škola nebo třída zřízená podle § 16 odst. 9 školského zákona.</li>",
+  "        <li><strong>Praktická škola jednoletá / dvouletá</strong> — obory <em>středního</em> vzdělání, které <strong>platí dál</strong>. Dvouletá je pro žáky se středně těžkým a těžkým mentálním postižením nebo s LMP v kombinaci s dalším postižením, jednoletá upevňuje dovednosti z předchozího vzdělávání.</li>",
+  "      </ul>",
+  "    </aside>"
+  ],
+
+  "10": [
+  "    <aside class=\"box law\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Svéprávnost, manželství a sterilizace podle platného práva</h4>",
+  "      <p>Tato otázka je právně nejzastaralejší částí materiálu — vznikla před <strong>zákonem č. 89/2012 Sb., občanským zákoníkem</strong>, který platí od <strong>1. 1. 2014</strong>. Slovo „svéprávnost“ se ve zdroji nevyskytuje ani jednou.</p>",
+  "      <ul>",
+  "        <li><strong>Zbavení způsobilosti k právním úkonům bylo zrušeno.</strong> Svéprávnost lze pouze <strong>omezit</strong>, vždy jen v nezbytném rozsahu, na dobu určitou — nejdéle na <strong>3 roky</strong> — a soud musí člověka vyslechnout.</li>",
+  "        <li><strong>Manželství:</strong> kdo má svéprávnost omezenou právě v oblasti manželství, <strong>manželství uzavřít nemůže</strong>. Povolení soudu, o kterém zdroj mluví, se týká <strong>nezletilého, který dovršil 16 let</strong>. Uzavře-li přesto manželství osoba s omezenou svéprávností, soud je za neplatné <em>neprohlásí</em>, pokud se z něj narodilo živé dítě.</li>",
+  "        <li><strong>Sterilizace</strong> se řídí <strong>§ 13 zákona č. 373/2011 Sb.</strong>, o specifických zdravotních službách: u osoby s omezenou svéprávností jen <strong>ze zdravotních důvodů</strong> a při splnění všech tří podmínek — písemný souhlas <strong>opatrovníka</strong>, kladné stanovisko <strong>odborné komise</strong> a <strong>souhlas soudu</strong>. Novela č. 202/2017 Sb. i tady nahradila „zbavenou způsobilost“ za „omezenou svéprávnost“.</li>",
+  "        <li><strong>Rodičovská odpovědnost:</strong> mentální postižení samo o sobě není důvodem k jejímu omezení ani k odebrání dítěte. Rozhoduje se podle skutečné schopnosti o dítě pečovat, s ohledem na dostupnou podporu.</li>",
+  "      </ul>",
+  "      <p>Moderní alternativou k omezení svéprávnosti je <strong>podporované rozhodování</strong> — člověk rozhoduje sám s pomocí důvěryhodných osob. Vychází z <strong>čl. 12 Úmluvy o právech osob se zdravotním postižením</strong>.</p>",
+  "    </aside>"
+  ],
+
+  "11": [
+  "    <aside class=\"box law\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Chráněná dílna → chráněné pracovní místo</h4>",
+  "      <p>Pojem <strong>„chráněná dílna“ zákon o zaměstnanosti nezná</strong> — vypustil ho zákon č. 367/2011 Sb. s účinností od <strong>1. 1. 2012</strong>. Definice, kterou zdroj uvádí jako zákonnou (pracoviště podle dohody s úřadem práce, nejméně 60 % zaměstnanců se ZP), je tedy více než deset let neplatná. V praxi se slovo dál používá, ale u zkoušky je potřeba znát platný nástroj.</p>",
+  "      <div class=\"table-wrap\">",
+  "        <table>",
+  "          <thead><tr><th>Nástroj</th><th>Ustanovení</th><th>Podstata</th></tr></thead>",
+  "          <tbody>",
+  "            <tr><td data-label=\"Nástroj\">Chráněné pracovní místo</td><td data-label=\"Ustanovení\">§ 75</td><td data-label=\"Podstata\">místo zřízené na základě <strong>písemné dohody s Úřadem práce</strong>, obsazené nejméně <strong>3 roky</strong>; ÚP poskytuje příspěvek na zřízení a na provoz</td></tr>",
+  "            <tr><td data-label=\"Nástroj\">Pracovní rehabilitace</td><td data-label=\"Ustanovení\">§ 69</td><td data-label=\"Podstata\">souvislá činnost k získání a udržení vhodného zaměstnání osoby se ZP</td></tr>",
+  "            <tr><td data-label=\"Nástroj\">Povinný podíl</td><td data-label=\"Ustanovení\">§ 81</td><td data-label=\"Podstata\">zaměstnavatel s více než 25 zaměstnanci: <strong>4 % OZP</strong>, nebo odběr výrobků a služeb, nebo odvod do státního rozpočtu</td></tr>",
+  "            <tr><td data-label=\"Nástroj\">Podporované zaměstnávání</td><td data-label=\"Ustanovení\">—</td><td data-label=\"Podstata\">není samostatným institutem zákona; jde o službu směřující na <strong>otevřený trh práce</strong> s podporou pracovního asistenta</td></tr>",
+  "          </tbody>",
+  "        </table>",
+  "      </div>",
+  "      <p>Zastaralý je i pojem <strong>„osoba se změněnou pracovní schopností“</strong>. Dnešní kategorie je <strong>osoba se zdravotním postižením (OZP)</strong> — invalidní v prvním až třetím stupni, nebo zdravotně znevýhodněná. Zaměstnávání se dále řídí <strong>zákonem č. 262/2006 Sb., zákoníkem práce</strong>.</p>",
+  "    </aside>"
+  ],
+
+  "13": [
+  "    <aside class=\"box law\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Služby pro seniory s mentálním postižením</h4>",
+  "      <p>Rámcem je <strong>zákon č. 108/2006 Sb., o sociálních službách</strong>, ve znění pozdějších předpisů (naposledy velká novela <strong>č. 38/2025 Sb.</strong>). Relevantní služby: <strong>domov pro osoby se zdravotním postižením</strong>, <strong>chráněné bydlení</strong>, <strong>denní</strong> a <strong>týdenní stacionář</strong>, <strong>odlehčovací služba</strong>, <strong>osobní asistence</strong> a <strong>pečovatelská služba</strong>.</p>",
+  "      <p><strong>Příspěvek na péči</strong> se přiznává ve <strong>čtyřech stupních</strong> podle míry závislosti na pomoci jiné osoby. Směřování politiky je <strong>deinstitucionalizační</strong> — od velkých domovů ke komunitním službám.</p>",
+  "      <p>Specifikum, které zdroj nezmiňuje: u lidí s <strong>Downovým syndromem</strong> nastupuje stárnutí výrazně dřív a bývá spojeno s <strong>časným rozvojem Alzheimerovy demence</strong>, často už po čtyřicátém roce. Odlišit demenci od základního postižení je proto klíčový diagnostický úkol — pomáhá srovnání s dřívější úrovní adaptivních dovedností, ne testování IQ.</p>",
+  "    </aside>"
+  ],
+
+  "15": [
+  "    <aside class=\"box warn\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Podtypy F84.x v MKN-11 zanikly</h4>",
+  "      <p>Otázka vyjmenovává podtypy podle <strong>MKN-10</strong>: F84.0 dětský autismus, F84.1 atypický autismus, F84.2 Rettův syndrom, F84.3 jiná dezintegrační porucha, F84.5 <strong>Aspergerův syndrom</strong>, F84.8 a F84.9. <strong>MKN-11 tyto podtypy ruší</strong> a nahrazuje je jedinou kategorií <strong>6A02 porucha autistického spektra</strong>, kde se místo podtypu popisuje, zda je přítomna porucha intelektového vývoje a jaká je úroveň funkčního jazyka. Stejným směrem šel už DSM-5 v roce 2013.</p>",
+  "      <p><strong>Aspergerův syndrom tak jako diagnóza zmizel</strong> — část lidí se s ním ovšem dál identifikuje a v literatuře se pojem drží. Zmizelo i dělení na <strong>vysoce, středně a nízko funkční autismus</strong>, které otázka uvádí; nahradila ho úroveň potřebné podpory, protože „funkčnost“ se u téhož člověka mění podle prostředí a nároků.</p>",
+  "      <p>Pozor na dvě formulace ve zdroji: kapitola V MKN-10 se jmenuje <strong>„Poruchy duševní a poruchy chování“</strong>, ne „duševní nemoci“; a <strong>Rettův syndrom</strong> je dnes veden jako samostatná geneticky podmíněná porucha (mutace genu <em>MECP2</em>), ne jako podtyp autismu. <a href=\"pravni-aktualnost.html#mkn11\">Podrobně v právní aktuálnosti →</a></p>",
+  "    </aside>"
+  ],
+
+  "16": [
+  "    <aside class=\"box src\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">📚</span>Odkud tato otázka je</h4>",
+  "      <p>Zdrojový dokument u této otázky sám uvádí pramen: <em>Metodické postupy ve vzdělávání dětí s poruchami autistického spektra</em> — <strong>Metodický portál RVP</strong>. Text je z něj zřejmě přebíraný ve velkých blocích, proto tu najdete odstavce na půl stránky. Při ústní zkoušce je dobré umět materiál stručně převyprávět vlastními slovy a případně na pramen odkázat.</p>",
+  "      <p>Metodická podpora ke vzdělávání žáků s PAS dnes patří <strong>Národnímu pedagogickému institutu ČR</strong> (NPI ČR), který v roce 2020 převzal agendu zaniklého Národního ústavu pro vzdělávání.</p>",
+  "    </aside>"
+  ],
+
+  "17": [
+  "    <aside class=\"box link\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">🔗</span>Bliss: jak se symboly skládají</h4>",
+  "      <p><em>Překreslená ukázka ze zdroje. Bliss je pojmové písmo — význam vzniká kombinací několika základních tvarů, a proto lze vytvořit i slovo, pro které hotový symbol neexistuje.</em></p>",
+  "      <figure class=\"fig\">",
+  "        <div class=\"fig-row\">",
+  "          <svg viewBox=\"0 0 150 90\" role=\"img\" aria-label=\"Symbol Bliss pro koně: lomená linie připomínající hřbet a nohy.\">",
+  "            <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\">",
+  "              <path d=\"M22 26 V54\"/>",
+  "              <path d=\"M22 54 L44 34 L66 54 L88 34 L110 54\"/>",
+  "              <path d=\"M110 54 V26\"/>",
+  "            </g>",
+  "            <text x=\"75\" y=\"80\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">KŮŇ</text>",
+  "          </svg>",
+  "          <svg viewBox=\"0 0 190 90\" role=\"img\" aria-label=\"Symbol Bliss pro zebru: symbol koně doplněný svislým pruhem.\">",
+  "            <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\" stroke-linejoin=\"round\" stroke-linecap=\"round\">",
+  "              <path d=\"M22 26 V54\"/>",
+  "              <path d=\"M22 54 L44 34 L66 54 L88 34 L110 54\"/>",
+  "              <path d=\"M110 54 V26\"/>",
+  "              <path d=\"M136 22 V58\"/>",
+  "              <path d=\"M150 22 V58\"/>",
+  "            </g>",
+  "            <text x=\"95\" y=\"80\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">KŮŇ + PRUH = ZEBRA</text>",
+  "          </svg>",
+  "        </div>",
+  "        <figcaption>Zdroj ukazuje i složitější příklad: <strong>čtyřnohé zvíře + voda a zem + skákat = žába</strong>. Právě tato skládací logika je důvod, proč Bliss jako jediný ze systémů AAK umožňuje zachovat gramatická pravidla.</figcaption>",
+  "      </figure>",
+  "    </aside>",
+  "",
+  "    <aside class=\"box link\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">🔗</span>Piktogramy: podoba a užití</h4>",
+  "      <p><em>Překreslená ukázka. Piktogram je zjednodušený černobílý obrázek s jedním významem, obvykle s napsaným slovem pod ním — aby symbol současně učil čtení.</em></p>",
+  "      <figure class=\"fig\">",
+  "        <div class=\"fig-row\">",
+  "          <svg viewBox=\"0 0 90 100\" role=\"img\" aria-label=\"Piktogram PSÁT: ruka držící tužku nad linkou.\">",
+  "            <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\">",
+  "              <rect x=\"8\" y=\"8\" width=\"74\" height=\"64\"/>",
+  "              <path d=\"M20 60 H70\"/>",
+  "              <path d=\"M56 22 L64 30 L36 58 L28 50 Z\"/>",
+  "              <path d=\"M28 50 L26 60 L36 58\"/>",
+  "            </g>",
+  "            <text x=\"45\" y=\"92\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">PSÁT</text>",
+  "          </svg>",
+  "          <svg viewBox=\"0 0 90 100\" role=\"img\" aria-label=\"Piktogram ČÍST: postava držící otevřenou knihu.\">",
+  "            <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\">",
+  "              <rect x=\"8\" y=\"8\" width=\"74\" height=\"64\"/>",
+  "              <circle cx=\"34\" cy=\"26\" r=\"7\"/>",
+  "              <path d=\"M34 33 V48\"/>",
+  "              <path d=\"M24 62 L44 62 L56 44\"/>",
+  "              <path d=\"M44 40 L62 34 L62 52 L44 58 Z\"/>",
+  "              <path d=\"M53 37 V55\"/>",
+  "            </g>",
+  "            <text x=\"45\" y=\"92\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">ČÍST</text>",
+  "          </svg>",
+  "          <svg viewBox=\"0 0 90 100\" role=\"img\" aria-label=\"Piktogram POČÍTAT: počitadlo se třemi řadami korálků.\">",
+  "            <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linejoin=\"round\" stroke-linecap=\"round\">",
+  "              <rect x=\"8\" y=\"8\" width=\"74\" height=\"64\"/>",
+  "              <rect x=\"20\" y=\"18\" width=\"50\" height=\"44\"/>",
+  "              <path d=\"M20 29 H70 M20 40 H70 M20 51 H70\"/>",
+  "              <circle cx=\"31\" cy=\"29\" r=\"4\"/><circle cx=\"43\" cy=\"29\" r=\"4\"/>",
+  "              <circle cx=\"55\" cy=\"40\" r=\"4\"/>",
+  "              <circle cx=\"31\" cy=\"51\" r=\"4\"/><circle cx=\"43\" cy=\"51\" r=\"4\"/><circle cx=\"55\" cy=\"51\" r=\"4\"/>",
+  "            </g>",
+  "            <text x=\"45\" y=\"92\" text-anchor=\"middle\" font-size=\"13\" fill=\"currentColor\">POČÍTAT</text>",
+  "          </svg>",
+  "        </div>",
+  "        <figcaption>Zdroj obsahuje sadu dvanácti piktogramů (psát, počítat, číst, uči se, stříhat, plavat, kreslit, cvičit, skákat, zpívat, vím, vařit). Tři jsou tu překreslené jako ukázka; sada ze zdroje má nedoloženou licenci, proto se nepublikuje.</figcaption>",
+  "      </figure>",
+  "    </aside>",
+  "",
+  "    <aside class=\"box tip\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">💡</span>Jak se ty systémy od sebe liší</h4>",
+  "      <div class=\"table-wrap\">",
+  "        <table>",
+  "          <thead><tr><th>Systém</th><th>Nosič</th><th>Pro koho hlavně</th></tr></thead>",
+  "          <tbody>",
+  "            <tr><td data-label=\"Systém\">Piktogramy</td><td data-label=\"Nosič\">obrázkový symbol + slovo</td><td data-label=\"Pro koho hlavně\">kdo nedekóduje písmo; orientace v prostoru a v denním režimu</td></tr>",
+  "            <tr><td data-label=\"Systém\">Bliss</td><td data-label=\"Nosič\">pojmové písmo skládané z tvarů</td><td data-label=\"Pro koho hlavně\">kdo zvládne abstrakci; jediný systém udržující gramatiku</td></tr>",
+  "            <tr><td data-label=\"Systém\">Makaton</td><td data-label=\"Nosič\">manuální znak + mluvené slovo</td><td data-label=\"Pro koho hlavně\">obtížně srozumitelná řeč; znak řeč doprovází, nenahrazuje</td></tr>",
+  "            <tr><td data-label=\"Systém\">VOKS / PECS</td><td data-label=\"Nosič\">výměna obrázkové kartičky</td><td data-label=\"Pro koho hlavně\">PAS; učí <strong>iniciativu</strong> — dítě samo podá kartičku, aby něco získalo</td></tr>",
+  "            <tr><td data-label=\"Systém\">Lormova abeceda</td><td data-label=\"Nosič\">dotyky do dlaně</td><td data-label=\"Pro koho hlavně\">hluchoslepota</td></tr>",
+  "          </tbody>",
+  "        </table>",
+  "      </div>",
+  "      <p>Klíčový rozdíl, na který se u zkoušky ptá: <strong>alternativní</strong> komunikace mluvenou řeč <em>nahrazuje</em>, <strong>augmentativní</strong> ji <em>doplňuje a podporuje</em>. Tentýž systém může u jednoho člověka plnit první roli a u druhého druhou.</p>",
+  "      <p>K Makatonu ještě dvě věci, které zdroj neuvádí: je to <strong>licencovaný systém</strong> s vlastním výcvikem a jeho slovník je záměrně malý — jádro tvoří několik set nejpotřebnějších pojmů, protože cílem je rychlá funkční komunikace, ne úplný jazyk.</p>",
+  "    </aside>"
+  ]
+ },
+
+ "written": {
+  "9": {
+   "note": [
+   "    <aside class=\"box warn\">",
+   "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Tato otázka ve zdroji vypracovaná není</h4>",
+   "      <p>Zdrojový dokument má u této otázky jen nadpis — mezi dvěma řádky hvězdiček není ani slovo. Výklad níže je <strong>dopsaný z literatury a z veřejných zdrojů</strong> a právní stav je ověřen k srpnu 2026. V zadání A21 jde o <strong>okruh 5</strong>, takže vynechat ji nelze. <strong>Ověřte si ji proti svému kurzu</strong> — na rozdíl od ostatních stránek nevychází z materiálu, který vám dala škola. <a href=\"pravni-aktualnost.html#dopsane-otazky\">Proč a jak jsou otázky dopsané →</a></p>",
+   "    </aside>"
+   ],
+   "terms": [
+    ["Inclusion International", "celosvětová federace organizací lidí s mentálním postižením a jejich rodin; vznikla roku 1960, do roku 1994 nesla název ILSMH"],
+    ["Inclusion Europe", "evropská asociace hájící práva lidí s mentálním postižením a jejich rodin; prosazuje standard snadného čtení"],
+    ["Special Olympics", "celosvětové sportovní hnutí pro osoby s mentálním postižením, založené roku 1968; na rozdíl od paralympiády není výběrové"],
+    ["SPMP ČR", "Společnost pro podporu lidí s mentálním postižením v České republice; nejstarší česká organizace v oboru, vznikla roku 1969"],
+    ["NRZP ČR", "Národní rada osob se zdravotním postižením ČR, zastřešující zástupce organizací osob se zdravotním postižením vůči státu; vznikla roku 2000"],
+    ["NAUTIS", "Národní ústav pro autismus, dříve APLA Praha; největší poskytovatel služeb pro osoby s PAS v ČR"],
+    ["Úmluva o právech osob se zdravotním postižením", "mezinárodní smlouva OSN, pro ČR platná od 28. 10. 2009 a vyhlášená pod č. 10/2010 Sb. m. s."],
+    ["Opční protokol k Úmluvě", "doplňkový protokol umožňující individuální stížnost k Výboru OSN; pro ČR platný až od 23. 9. 2021, čtrnáct let po podpisu"],
+    ["Článek 24 Úmluvy", "zakotvuje právo na inkluzivní vzdělávání a povinnost státu poskytnout přiměřené úpravy"],
+    ["Přiměřená úprava", "nezbytná úprava, která umožní člověku s postižením uplatnit práva a nepředstavuje nepřiměřenou zátěž; její odepření je diskriminací"],
+    ["Národní plán podpory rovných příležitostí", "vládní strategický dokument pro osoby se zdravotním postižením; aktuální na období 2026–2030, schválen 27. 4. 2026"],
+    ["Prohlášení ze Salamanky", "dokument UNESCO z roku 1994, který prosadil vzdělávání dětí se SVP v běžných školách jako pravidlo"],
+    ["„Nic o nás bez nás“", "zásada, že o opatřeních týkajících se lidí s postižením se nerozhoduje bez jejich účasti; vyjádřena v čl. 4 odst. 3 Úmluvy"]
+   ],
+   "body": [
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"mezinarodni-organizace\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Mezinárodní organizace</h2>",
+   "      <p>Mezinárodní organizace v oboru vznikaly ve dvou vlnách. Ta první, po druhé světové válce, byla <strong>rodičovská</strong> — zakládali ji rodiče dětí, o které se stát nestaral. Ta druhá, od 70. a 80. let, je <strong>sebeobhájecká</strong>: mluví za sebe lidé s postižením sami.</p>",
+   "      <ul>",
+   "        <li><strong>Inclusion International</strong> — celosvětová federace organizací lidí s mentálním postižením a jejich rodin, vznikla roku 1960. Do roku 1994 se jmenovala <strong>ILSMH</strong> (Mezinárodní liga společností pro osoby s mentálním handicapem); změna názvu sama dobře ukazuje posun od „handicapu“ k <strong>inkluzi</strong>.</li>",
+   "        <li><strong>Inclusion Europe</strong> — evropská odnož, hájí práva lidí s mentálním postižením a jejich rodin vůči institucím EU. Spravuje evropský standard <strong>snadného čtení</strong> (easy-to-read) a logo, které texty v této úpravě označuje.</li>",
+   "        <li><strong>Special Olympics</strong> — sportovní hnutí pro osoby s mentálním postižením, vzniklo roku 1968 z iniciativy Eunice Kennedy Shriverové. Zásadní odlišnost od paralympiády: <strong>není výběrové</strong>, startovat může každý, a soutěží se v divizích podle výkonnosti, aby měl každý reálnou šanci.</li>",
+   "        <li><strong>Down Syndrome International</strong> — celosvětová organizace pro osoby s Downovým syndromem; stojí za <strong>Světovým dnem Downova syndromu 21. 3.</strong> (datum odkazuje na trisomii 21. chromozomu).</li>",
+   "        <li><strong>Autism-Europe</strong> — evropská asociace organizací osob s PAS a jejich rodin.</li>",
+   "        <li><strong>EASPD</strong> — Evropská asociace poskytovatelů služeb pro osoby s postižením; partner pro vyjednávání o kvalitě služeb.</li>",
+   "        <li><strong>WHO</strong> a <strong>UNESCO</strong> — nejsou organizacemi osob s postižením, ale určují rámec: WHO vydává MKN a MKF, UNESCO stojí za <strong>Prohlášením ze Salamanky</strong>.</li>",
+   "      </ul>",
+   "      <aside class=\"box tip\">",
+   "        <h4><span class=\"bemo\" aria-hidden=\"true\">💡</span>V čem je jejich význam</h4>",
+   "        <p>Nejde jen o pomoc jednotlivcům. Mezinárodní organizace <strong>měnily jazyk oboru</strong> (od „mentálně retardovaného“ k „člověku s mentálním postižením“), <strong>prosadily deinstitucionalizaci</strong> a <strong>napsaly Úmluvu</strong> — ta je první lidskoprávní smlouvou OSN, na jejímž vzniku se přímo podílely organizace lidí s postižením. To je praktický obsah zásady „nic o nás bez nás“.</p>",
+   "      </aside>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"organizace-v-cr\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Organizace a občanská sdružení v ČR</h2>",
+   "      <p>Terminologická poznámka: <em>občanské sdružení</em> jako právní forma zanikla s občanským zákoníkem — od 1. 1. 2014 se tyto organizace vedou jako <strong>spolky</strong>, případně jako obecně prospěšné společnosti či ústavy. Pojem ze zadání je tedy starší než platné právo.</p>",
+   "      <div class=\"table-wrap\">",
+   "        <table>",
+   "          <thead><tr><th>Organizace</th><th>Zaměření</th></tr></thead>",
+   "          <tbody>",
+   "            <tr><td data-label=\"Organizace\"><strong>SPMP ČR</strong> — Společnost pro podporu lidí s mentálním postižením</td><td data-label=\"Zaměření\">nejstarší v oboru (1969, původně Sdružení pro pomoc mentálně postiženým); rodičovská a svépomocná základna, pobyty, osvěta, obhajoba zájmů</td></tr>",
+   "            <tr><td data-label=\"Organizace\"><strong>NRZP ČR</strong> — Národní rada osob se zdravotním postižením</td><td data-label=\"Zaměření\">od roku 2000 zastřešuje organizace osob se ZP a je hlavním partnerem státu při přípravě legislativy</td></tr>",
+   "            <tr><td data-label=\"Organizace\"><strong>NAUTIS</strong> — Národní ústav pro autismus</td><td data-label=\"Zaměření\">dříve APLA Praha; diagnostika, rané intervence, sociální služby a metodická podpora u PAS</td></tr>",
+   "            <tr><td data-label=\"Organizace\"><strong>Rytmus</strong></td><td data-label=\"Zaměření\">podporované zaměstnávání, tranzitní program a podpora ve vzdělávání; do ČR přinesl metodiku podporovaného zaměstnávání</td></tr>",
+   "            <tr><td data-label=\"Organizace\"><strong>Quip</strong></td><td data-label=\"Zaměření\">kvalita sociálních služeb, transformace ústavů, podporované rozhodování</td></tr>",
+   "            <tr><td data-label=\"Organizace\"><strong>Společnost DUHA</strong></td><td data-label=\"Zaměření\">podpora dospělých lidí s mentálním postižením v bydlení a zaměstnání</td></tr>",
+   "            <tr><td data-label=\"Organizace\"><strong>Down syndrom CZ</strong></td><td data-label=\"Zaměření\">podpora rodin dětí s Downovým syndromem, raná péče, osvěta</td></tr>",
+   "            <tr><td data-label=\"Organizace\"><strong>Diakonie ČCE</strong>, <strong>Charita ČR</strong>, <strong>Naděje</strong></td><td data-label=\"Zaměření\">velcí poskytovatelé pobytových, ambulantních i terénních služeb s celostátní sítí</td></tr>",
+   "          </tbody>",
+   "        </table>",
+   "      </div>",
+   "      <p>Pro zkoušku stačí umět <strong>několik organizací dobře</strong> a vědět, čím se od sebe liší rolí: <em>svépomoc a obhajoba</em> (SPMP, sebeobhájecké skupiny), <em>zastřešení a vyjednávání se státem</em> (NRZP), <em>poskytování služeb</em> (Diakonie, Charita, NAUTIS) a <em>metodika a změna systému</em> (Quip, Rytmus).</p>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-law\">",
+   "      <h2 id=\"vladni-dokumenty\"><span class=\"hemo\" aria-hidden=\"true\">⚖️</span>Dokumenty zajišťující rovný přístup ke vzdělávání</h2>",
+   "      <p>Otázka chce „vládní dokumenty“, ale u zkoušky se hodí seřadit je podle právní síly — od mezinárodní smlouvy dolů k prováděcí vyhlášce.</p>",
+   "      <div class=\"table-wrap\">",
+   "        <table>",
+   "          <thead><tr><th>Dokument</th><th>Platnost pro ČR</th><th>Co zajišťuje</th></tr></thead>",
+   "          <tbody>",
+   "            <tr><td data-label=\"Dokument\"><strong>Úmluva o právech osob se zdravotním postižením</strong> (č. 10/2010 Sb. m. s.)</td><td data-label=\"Platnost pro ČR\">od <strong>28. 10. 2009</strong></td><td data-label=\"Co zajišťuje\"><strong>čl. 24</strong> právo na inkluzivní vzdělávání a přiměřené úpravy; <strong>čl. 12</strong> rovnost před zákonem a podporované rozhodování</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>Opční protokol k Úmluvě</strong></td><td data-label=\"Platnost pro ČR\">od <strong>23. 9. 2021</strong></td><td data-label=\"Co zajišťuje\">možnost <strong>individuální stížnosti</strong> k Výboru OSN po vyčerpání vnitrostátních opravných prostředků</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>Úmluva o právech dítěte</strong> (č. 104/1991 Sb.)</td><td data-label=\"Platnost pro ČR\">od roku 1991</td><td data-label=\"Co zajišťuje\">nejlepší zájem dítěte, právo na vzdělání, zákaz diskriminace</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>Prohlášení ze Salamanky</strong> (UNESCO, 1994)</td><td data-label=\"Platnost pro ČR\">politický dokument</td><td data-label=\"Co zajišťuje\">běžná škola jako <strong>pravidlo</strong>, speciální jako výjimka — myšlenkový základ společného vzdělávání</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>Standardní pravidla OSN</strong> (1993)</td><td data-label=\"Platnost pro ČR\">politický dokument</td><td data-label=\"Co zajišťuje\">vyrovnávání příležitostí; předchůdce Úmluvy, právně nezávazná</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>Národní plán podpory rovných příležitostí pro osoby se zdravotním postižením 2026–2030</strong></td><td data-label=\"Platnost pro ČR\">schválen vládou <strong>27. 4. 2026</strong> (usnesení č. 260)</td><td data-label=\"Co zajišťuje\">už <strong>osmý</strong> plán od roku 1992; <strong>13 strategických oblastí</strong>, struktura kopíruje Úmluvu; navazuje na plán 2021–2025</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>Strategie vzdělávací politiky ČR do roku 2030+</strong></td><td data-label=\"Platnost pro ČR\">vládní strategie</td><td data-label=\"Co zajišťuje\">snižování nerovností ve vzdělávání jako jeden ze dvou hlavních cílů</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>zák. č. 561/2004 Sb., § 16</strong></td><td data-label=\"Platnost pro ČR\">zákon</td><td data-label=\"Co zajišťuje\">nárok na <strong>podpůrná opatření</strong> bezplatně; § 16 odst. 9 umožňuje školu či třídu zřízenou pro žáky s daným postižením</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>vyhl. č. 27/2016 Sb.</strong></td><td data-label=\"Platnost pro ČR\">vyhláška, ve znění č. 306/2025 Sb.</td><td data-label=\"Co zajišťuje\">pět stupňů podpůrných opatření, PLPP, IVP, asistent pedagoga</td></tr>",
+   "            <tr><td data-label=\"Dokument\"><strong>zák. č. 198/2009 Sb.</strong>, antidiskriminační zákon</td><td data-label=\"Platnost pro ČR\">zákon</td><td data-label=\"Co zajišťuje\">zákaz diskriminace v přístupu ke vzdělání; <strong>odepření přiměřené úpravy je diskriminace</strong></td></tr>",
+   "          </tbody>",
+   "        </table>",
+   "      </div>",
+   "      <aside class=\"box warn\">",
+   "        <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Deklarace práv z roku 1971</h4>",
+   "        <p>Zdrojový dokument na jiných místech cituje <em>Deklaraci práv mentálně retardovaných osob</em> (OSN, 1971). Historicky je důležitá — poprvé mezinárodně vyslovila, že lidé s mentálním postižením mají stejná práva jako ostatní. Dnes ji ale <strong>plně překrývá Úmluva</strong>, je právně nezávazná a její název je nepřijatelný. Uvádějte ji jako historický mezník, ne jako platný zdroj práv.</p>",
+   "      </aside>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-tip\">",
+   "      <h2 id=\"jak-to-spojit\"><span class=\"hemo\" aria-hidden=\"true\">💡</span>Jak odpověď složit</h2>",
+   "      <p>Osa, která drží celou otázku pohromadě: <strong>od péče k právům</strong>. Nejdřív se o lidi s mentálním postižením někdo staral (charita, ústav), pak za ně mluvili rodiče (ILSMH, SPMP), pak dostali práva na papíře (Deklarace 1971, Standardní pravidla 1993) a nakonec vymahatelná práva a vlastní hlas (Úmluva 2006, Opční protokol, sebeobhájecká hnutí).</p>",
+   "      <p>Praktický dopad na školu: rovný přístup ke vzdělávání dnes <strong>není dobrá vůle ředitele</strong>, ale nárok — podpůrná opatření se poskytují bezplatně a jejich odepření je porušením antidiskriminačního zákona i Úmluvy.</p>",
+   "    </section>"
+   ]
+  },
+
+  "18": {
+   "note": [
+   "    <aside class=\"box warn\">",
+   "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Tato otázka ve zdroji vypracovaná není</h4>",
+   "      <p>Zdrojový dokument má u této otázky jen nadpis. Výklad níže je <strong>dopsaný z literatury</strong>, ověřený k srpnu 2026. V zadání A21 jde přitom o <strong>okruh 1</strong>, tedy o první téma celého bloku psychopedie. <strong>Ověřte si ji proti svému kurzu.</strong> Navazující obsah ke stejnému tématu najdete v <a href=\"otazka-17-piktogramy-makaton-bliss-voks.html\">otázce 17</a> a v <a href=\"otazka-05-alternativni-programy-aak.html\">otázce 5</a>. <a href=\"pravni-aktualnost.html#dopsane-otazky\">Proč a jak jsou otázky dopsané →</a></p>",
+   "    </aside>"
+   ],
+   "terms": [
+    ["Alternativní komunikace", "systém, který mluvenou řeč nahrazuje tam, kde se nevytvořila nebo se ztratila"],
+    ["Augmentativní komunikace", "systém, který existující, ale nedostatečně srozumitelnou řeč doplňuje a podporuje"],
+    ["VOCA", "komunikační pomůcka s hlasovým výstupem (voice output communication aid), od jednotlačítkové po počítač s hlasovým syntetizérem"],
+    ["No-tech pomůcky", "prostředky bez techniky — gesta, mimika, předměty, komunikační tabulka a kniha"],
+    ["Low-tech pomůcky", "jednoduchá elektronika s jedním či několika vzkazy, například tlačítko s nahranou zprávou"],
+    ["High-tech pomůcky", "počítač, tablet nebo komunikátor s dynamickou obrazovkou, hlasovým výstupem a rozsáhlým slovníkem"],
+    ["Přístupová metoda", "způsob, jakým uživatel pomůcku ovládá — přímý dotyk, spínač, ukazovátko na hlavě nebo očima"],
+    ["Skenování", "postupné nabízení polí, z nichž uživatel v pravou chvíli jedno potvrdí spínačem; užívá se při těžkém tělesném postižení"],
+    ["Skenování s pomocí partnera", "komunikační partner nabízí možnosti hlasem nebo hmatem a uživatel signálem potvrdí; nevyžaduje žádnou techniku"],
+    ["Očnicové ovládání (eye-tracking)", "ovládání pomůcky pohledem, když člověk nemůže hýbat rukama ani hlavou"],
+    ["Modelování (aided language stimulation)", "komunikační partner sám používá symboly, když mluví, aby uživatel viděl systém v akci"],
+    ["Předpoklad kompetence", "východisko AAK: nemluvící člověk se považuje za schopného rozumět a rozhodovat, dokud se neprokáže jinak"],
+    ["Získaná ztráta řeči", "ztráta již vytvořené komunikace po cévní mozkové příhodě, poranění mozku nebo při ALS; typická situace dospělých"],
+    ["Příspěvek na zvláštní pomůcku", "dávka podle zákona č. 329/2011 Sb., z níž lze hradit komunikační pomůcku"]
+   ],
+   "body": [
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"aak-vymezeni\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Vymezení a dělení AAK</h2>",
+   "      <p><strong>Alternativní a augmentativní komunikace</strong> je soubor systémů a pomůcek, které umožňují dorozumět se člověku, jehož mluvená řeč nevznikla, je nesrozumitelná nebo se ztratila. Rozdíl v názvu není kosmetický:</p>",
+   "      <ul>",
+   "        <li><strong>alternativní</strong> — řeč <em>nahrazuje</em> (člověk nemluví vůbec),</li>",
+   "        <li><strong>augmentativní</strong> — řeč <em>doplňuje a podporuje</em> (člověk mluví, ale nesrozumitelně nebo málo).</li>",
+   "      </ul>",
+   "      <p>Tentýž systém může u jednoho člověka plnit první roli a u druhého druhou — rozhoduje funkce, ne typ pomůcky. AAK se dělí také podle míry techniky na <strong>no-tech</strong>, <strong>low-tech</strong> a <strong>high-tech</strong>; dobrý komunikační systém bývá <strong>víceúrovňový</strong>, protože tablet se vybije, ale gesto a komunikační kniha fungují vždy.</p>",
+   "      <aside class=\"box warn\">",
+   "        <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Dva nejčastější mýty</h4>",
+   "        <p><strong>„AAK zabrání rozvoji řeči.“</strong> Neplatí — výzkum ukazuje opak: symboly a znaky mluvenou řeč spíš podporují, protože snižují tlak a frustraci a nabízejí model jazyka.</p>",
+   "        <p><strong>„Nejdřív musí prokázat, že rozumí.“</strong> Také neplatí. Vychází se z <strong>předpokladu kompetence</strong> — bez možnosti se vyjádřit nelze porozumění vůbec doložit, takže čekání na důkaz je uzavřený kruh.</p>",
+   "      </aside>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"deti-vs-dospeli\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Rozdílnost u dětí a u dospělých</h2>",
+   "      <p>Toto je jádro otázky. Rozdíl nespočívá v pomůckách — ty jsou stejné — ale ve <strong>výchozí situaci</strong>. U dítěte se komunikace <em>staví</em>, u dospělého se většinou <em>obnovuje nebo udržuje</em>.</p>",
+   "      <div class=\"table-wrap\">",
+   "        <table>",
+   "          <thead><tr><th>Hledisko</th><th>Dítě</th><th>Dospělý</th></tr></thead>",
+   "          <tbody>",
+   "            <tr><td data-label=\"Hledisko\">Výchozí situace</td><td data-label=\"Dítě\">řeč se nevytvořila — vrozené postižení, PAS, DMO</td><td data-label=\"Dospělý\">často <strong>získaná ztráta</strong> — CMP, poranění mozku, ALS, nádor; nebo pokračování celoživotního postižení</td></tr>",
+   "            <tr><td data-label=\"Hledisko\">Cíl</td><td data-label=\"Dítě\">vybudovat jazyk, spolu s ním i myšlení a vztahy</td><td data-label=\"Dospělý\">zachovat <strong>autonomii, role a identitu</strong>; umožnit rozhodovat o vlastním životě</td></tr>",
+   "            <tr><td data-label=\"Hledisko\">Slovník</td><td data-label=\"Dítě\">roste s vývojem; hra, jídlo, rodina, škola; hodně sloves pro skládání vět</td><td data-label=\"Dospělý\">podle skutečných rolí — práce, peníze, zdraví, partnerství, stížnost, odmítnutí; <strong>bez infantilních obsahů</strong></td></tr>",
+   "            <tr><td data-label=\"Hledisko\">Kdo se učí</td><td data-label=\"Dítě\">především <strong>rodina</strong> a škola; učí se hrou a v běžných situacích</td><td data-label=\"Dospělý\">partner, kolegové, personál služby; klíčové je <strong>zaškolení okolí</strong>, které se často mění</td></tr>",
+   "            <tr><td data-label=\"Hledisko\">Gramotnost</td><td data-label=\"Dítě\">většinou začíná od symbolů; písmo přichází později</td><td data-label=\"Dospělý\">u získané ztráty bývá <strong>písmo zachováno</strong> → hláskování je nejrychlejší a nejpřesnější cesta</td></tr>",
+   "            <tr><td data-label=\"Hledisko\">Postoj k pomůcce</td><td data-label=\"Dítě\">přijímá ji jako samozřejmost</td><td data-label=\"Dospělý\">může ji <strong>odmítat</strong> — je viditelným znakem ztráty; hraje roli ostych a rychlost proti mluvené řeči</td></tr>",
+   "            <tr><td data-label=\"Hledisko\">Vývoj potřeb</td><td data-label=\"Dítě\">systém se rozšiřuje</td><td data-label=\"Dospělý\">u progresivních nemocí (ALS) se přístupová metoda musí <strong>plánovaně zjednodušovat</strong> — od dotyku ke spínači k očím</td></tr>",
+   "          </tbody>",
+   "        </table>",
+   "      </div>",
+   "      <p>U <strong>seniorů</strong> přistupuje ještě zhoršený zrak, sluch a jemná motorika, takže se volí velké kontrastní symboly, méně polí na stránce a jednoduché ovládání. U demence pomáhá spíš <strong>komunikační kniha se fotografiemi</strong> a vzpomínkami než abstraktní symbolový systém.</p>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"aak-a-socializace\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>AAK jako prvek socializace</h2>",
+   "      <p>Komunikace není jen přenos informace — je to <strong>podmínka vztahu a účasti</strong>. Bez ní se člověk nedostane k rozhodování o sobě, ke vzdělávání ani k práci, a to bez ohledu na to, jak dobré má rozumové schopnosti.</p>",
+   "      <ul>",
+   "        <li><strong>Od pasivity k iniciativě.</strong> Kdo nemá jak něco žádat, naučí se čekat, až za něj někdo rozhodne. Odtud pojem <strong>naučená bezmocnost</strong>. Systémy jako VOKS/PECS proto začínají tím, že dítě samo podá kartičku — učí se, že <em>komunikací se něco stane</em>.</li>",
+   "        <li><strong>Problémové chování jako komunikace.</strong> Křik, agrese nebo sebepoškozování bývají jediným dostupným způsobem, jak říct „nechci“, „bolí to“, „už dost“. Funkční analýza chování a zavedení AAK problémové chování často <strong>výrazně zmírní</strong> — protože sdělení jde vyjádřit jinak.</li>",
+   "        <li><strong>Právo říct ne.</strong> Do slovníku patří od začátku <strong>odmítnutí, stížnost a volba</strong>, ne jen názvy věcí. Bez nich nelze mluvit o sebeurčení ani o ochraně před zneužíváním.</li>",
+   "        <li><strong>Účast ve skupině.</strong> Ve třídě nebo ve službě rozhoduje, zda systém znají i <strong>vrstevníci</strong>. Když symboly umí jen asistent, komunikace zůstane u dospělého a socializační efekt se nedostaví.</li>",
+   "      </ul>",
+   "      <p>Zásada <strong>modelování</strong> z toho plyne přímo: partner sám používá symboly, když mluví. Nikdo se nenaučí jazyk, který nikdy neviděl používat.</p>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"pomucky-hlasovy-vystup\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Pomůcky s hlasovým výstupem a bez něj</h2>",
+   "      <p>Zadání rozlišuje počítač <strong>s hlasovým výstupem a bez</strong> hlasového výstupu. Rozdíl je praktický: hlasový výstup dělá sdělení <strong>slyšitelným pro kohokoli</strong> a na dálku, bez něj musí partner dívat se na obrazovku.</p>",
+   "      <div class=\"table-wrap\">",
+   "        <table>",
+   "          <thead><tr><th>Kategorie</th><th>Příklady</th><th>Silná stránka</th><th>Slabina</th></tr></thead>",
+   "          <tbody>",
+   "            <tr><td data-label=\"Kategorie\"><strong>Bez hlasového výstupu</strong></td><td data-label=\"Příklady\">komunikační tabulka a kniha, piktogramy, Bliss, E-Tran rámeček pro komunikaci pohledem, psaní na klávesnici bez syntézy</td><td data-label=\"Silná stránka\">nezávislé na baterii a poruše, levné, okamžitě dostupné, snadno se upraví</td><td data-label=\"Slabina\">partner musí být blízko a sledovat; nelze zavolat o pomoc ani mluvit ve skupině</td></tr>",
+   "            <tr><td data-label=\"Kategorie\"><strong>S hlasovým výstupem (VOCA)</strong></td><td data-label=\"Příklady\">jednotlačítkový komunikátor s nahraným vzkazem, komunikátor s několika poli, tablet nebo počítač s mřížkovou aplikací a syntézou řeči</td><td data-label=\"Silná stránka\">sdělení uslyší i ten, kdo systém nezná; funguje na dálku, ve skupině, po telefonu; posiluje iniciativu</td><td data-label=\"Slabina\">cena, závislost na napájení a údržbě, nutné zaškolení okolí, riziko zastarání</td></tr>",
+   "          </tbody>",
+   "        </table>",
+   "      </div>",
+   "      <p>Druhá, na praxi ještě důležitější osa je <strong>přístupová metoda</strong> — jak člověk pomůcku ovládá: přímý dotyk prstem, ukazovátko na hlavě, jeden <strong>spínač se skenováním</strong>, ovládání <strong>pohledem</strong>, nebo <strong>skenování s pomocí partnera</strong> bez jakékoli techniky. Volba pomůcky bez vyřešené přístupové metody je nejčastější důvod, proč drahý přístroj skončí ve skříni.</p>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"podle-druhu-postizeni\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Specifika podle druhu postižení</h2>",
+   "      <ul>",
+   "        <li><strong>Kombinované postižení</strong> — základní pravidlo je <strong>multimodalita</strong>: současně gesto, předmět, symbol i hlasový výstup. U nejtěžších forem se pracuje s <strong>hmatovými symboly</strong> a skutečnými předměty a se skenováním s pomocí partnera. Vychází se z <strong>bazální stimulace</strong> a ze čtení nepatrných signálů (změna dechu, napětí, mimika).</li>",
+   "        <li><strong>Sluchové postižení</strong> — primárním jazykem je <strong>český znakový jazyk</strong>, což není AAK, ale plnohodnotný jazyk menšiny. AAK se uplatní až u <strong>přidruženého</strong> postižení: obrázkové systémy, Makaton, psaná podoba. Nosným kanálem je zrak, hlasový výstup je pro komunikaci se slyšícím okolím.</li>",
+   "        <li><strong>Zrakové postižení</strong> — vizuální symboly padají, nastupují <strong>reálné předměty, hmatové symboly a Braillovo písmo</strong>. Hlasový výstup je zásadní, protože nese informaci sluchem; využívá se <strong>sluchové skenování</strong> (pomůcka možnosti postupně předčítá). U hluchoslepoty <strong>Lormova abeceda</strong> a taktilní znakový jazyk.</li>",
+   "        <li><strong>Tělesné postižení</strong> — u DMO či poranění bývá rozumová složka zachována, takže hlavní otázka je <strong>přístupová metoda</strong>, ne obsah. Spínač, ukazovátko na hlavě, očnicové ovládání, skenování. Pozor na dysartrii: nesrozumitelná řeč <strong>není známkou nižšího intelektu</strong>.</li>",
+   "        <li><strong>Nemluvící s neporušeným intelektem</strong> (anartrie, těžká apraxie řeči, ALS) — potřebují <strong>otevřený, neomezený slovník</strong>, tedy hláskování a psaní se syntézou řeči, ne omezenou sadu obrázků. U progresivních nemocí se doporučuje <strong>banking hlasu</strong>, tedy nahrání vlastního hlasu, dokud to jde.</li>",
+   "        <li><strong>PAS</strong> — pracuje se s vizuální podporou a strukturou; nejrozšířenější je <strong>VOKS/PECS</strong>, který učí právě iniciativu, viz <a href=\"otazka-17-piktogramy-makaton-bliss-voks.html\">otázka 17</a>.</li>",
+   "      </ul>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-law\">",
+   "      <h2 id=\"ramec-a-financovani\"><span class=\"hemo\" aria-hidden=\"true\">⚖️</span>Kdo AAK zavádí a kdo ji zaplatí</h2>",
+   "      <ul>",
+   "        <li><strong>Ve škole</strong> je AAK <strong>podpůrným opatřením</strong> podle § 16 zákona č. 561/2004 Sb. a vyhlášky č. 27/2016 Sb. Doporučuje ji <strong>školské poradenské zařízení</strong> — u narušené komunikační schopnosti typicky SPC pro vady řeči — a zapisuje se do IVP. Poskytuje se <strong>bezplatně</strong>.</li>",
+   "        <li><strong>Ve zdravotnictví</strong> je klíčovou profesí <strong>klinický logoped</strong>; komunikační pomůcky mohou být hrazeny jako zdravotnické prostředky.</li>",
+   "        <li><strong>V sociální oblasti</strong> lze pomůcku hradit z <strong>příspěvku na zvláštní pomůcku</strong> podle zákona č. 329/2011 Sb.; provoz a podporu pokrývají služby podle zákona č. 108/2006 Sb. (raná péče, osobní asistence, sociálně aktivizační služby).</li>",
+   "        <li><strong>Právním základem</strong> je <strong>čl. 21 Úmluvy o právech osob se zdravotním postižením</strong> — svoboda projevu a přístup k informacím, výslovně včetně <em>alternativní a augmentativní komunikace</em>. Není to tedy laskavost, ale závazek státu.</li>",
+   "      </ul>",
+   "      <aside class=\"box tip\">",
+   "        <h4><span class=\"bemo\" aria-hidden=\"true\">💡</span>Věta, která se u zkoušky vyplatí</h4>",
+   "        <p>AAK není náhradní řešení pro ty, kdo se nenaučili mluvit. Je to <strong>způsob, jak zpřístupnit jazyk</strong> — a protože jazykem se rozhoduje, vzdělává a vytvářejí vztahy, je AAK především nástroj <strong>sebeurčení</strong>, ne jen dorozumívání.</p>",
+   "      </aside>",
+   "    </section>"
+   ]
+  },
+
+  "20": {
+   "note": [
+   "    <aside class=\"box warn\">",
+   "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Tato otázka ve zdroji vypracovaná není</h4>",
+   "      <p>Zdrojový dokument má u této otázky jen nadpis. Výklad níže je <strong>dopsaný z literatury</strong>, ověřený k srpnu 2026. V zadání A21 jde o <strong>okruh 16</strong>. Téma navíc <strong>chybí i ve zdroji předmětu poradenství</strong>, takže se nedá dohledat ani tam. <strong>Ověřte si ji proti svému kurzu.</strong> <a href=\"pravni-aktualnost.html#dopsane-otazky\">Proč a jak jsou otázky dopsané →</a></p>",
+   "    </aside>"
+   ],
+   "terms": [
+    ["Marginalizace", "odsouvání skupiny na okraj společnosti, kde má omezený přístup ke zdrojům, institucím a rozhodování"],
+    ["Sociální exkluze", "proces vylučování ze společnosti v několika oblastech současně — práce, bydlení, vzdělání, zdraví, vztahy a účast na moci"],
+    ["Sociální inkluze", "opačný proces zapojování; nejde o zvláštní opatření pro vyloučené, ale o zpřístupnění běžných institucí"],
+    ["Sociální znevýhodnění", "znevýhodnění dané prostředím, nikoli postižením; od roku 2016 není samostatnou kategorií, řeší se podpůrnými opatřeními"],
+    ["Sociálně vylučovaná lokalita", "místo s koncentrací domácností v nepříznivé sociální situaci, kde se znevýhodnění vzájemně posiluje"],
+    ["Žák s OMJ", "žák s odlišným mateřským jazykem; jazyková bariéra není mentální postižení a nesmí se s ním zaměňovat"],
+    ["Pseudooligofrenie", "zdánlivé snížení rozumových schopností ze zanedbání či deprivace; typická chyba diagnostiky u sociálně znevýhodněných dětí"],
+    ["Odborné sociální poradenství", "služba podle § 37 zákona č. 108/2006 Sb.; zahrnuje občanské, dluhové a specializované poradny"],
+    ["Sociálně aktivizační služby pro rodiny s dětmi", "terénní služba podporující rodinu s dítětem, jehož vývoj je ohrožen nepříznivou sociální situací"],
+    ["Nízkoprahové zařízení pro děti a mládež", "služba dostupná bez podmínek, registrace a doporučení; snižuje prahy vstupu do pomoci"],
+    ["Case management", "koordinace všech služeb kolem klienta jedním pracovníkem, aby se pomoc nedublovala ani nevypadávala"],
+    ["Přístup orientovaný na silné stránky", "poradenský přístup vycházející ze zdrojů a schopností klienta, ne z výčtu jeho deficitů"],
+    ["Empowerment", "posilování schopnosti klienta rozhodovat a jednat sám za sebe; cílem je zplnomocnění, ne závislost na službě"],
+    ["Housing First", "přístup, kdy člověk bez domova dostane nejdřív stabilní bydlení a teprve pak řeší ostatní obtíže"],
+    ["Trauma-informovaný přístup", "praxe počítající s tím, že klient prošel traumatem, a proto se vyhýbá postupům, které by ho zopakovaly"]
+   ],
+   "body": [
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"pojmy\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Vymezení pojmů</h2>",
+   "      <p>Tři pojmy ze zadání nejsou synonyma a u zkoušky se hodí je rozlišit:</p>",
+   "      <ul>",
+   "        <li><strong>Marginalizace</strong> — odsouvání skupiny na okraj, kde má omezený přístup ke zdrojům a k rozhodování. Je to <em>pozice</em> ve společnosti.</li>",
+   "        <li><strong>Sociální znevýhodnění</strong> — konkrétní nevýhoda daná <em>prostředím</em> (chudoba, jazyk, nestabilní bydlení, nízké vzdělání rodičů), ne postižením.</li>",
+   "        <li><strong>Sociální exkluze</strong> — <em>proces</em>, v němž se vylučování ve více oblastech navzájem posiluje: bez adresy není práce, bez práce nejsou peníze, bez peněz není bydlení. Proto se mluví o <strong>spirále</strong>, ne o jednom problému.</li>",
+   "      </ul>",
+   "      <p>Exkluze se popisuje v několika dimenzích — <strong>ekonomické</strong> (příjem, práce), <strong>prostorové</strong> (kde člověk žije), <strong>kulturní</strong> (vzdělání, jazyk), <strong>sociální</strong> (vztahy, izolace), <strong>politické</strong> (možnost ovlivnit vlastní situaci) a <strong>symbolické</strong> (stigma). Poradenství, které řeší jen jednu z nich, obvykle nestačí.</p>",
+   "      <aside class=\"box warn\">",
+   "        <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Proč tohle téma patří do psychopedie</h4>",
+   "        <p>Protože zaměnit <strong>sociální znevýhodnění za mentální postižení</strong> je nejstarší a nejzávažnější chyba oboru. Dítě, které neumí jazyk školy nebo vyrůstá v deprivujícím prostředí, může v testu vypadat jako dítě s lehkým mentálním postižením — jde ale o <strong>pseudooligofrenii</strong>, která je reverzibilní.</p>",
+   "        <p>V ČR to není teorie: praxi zařazování romských dětí do zvláštních škol označil <strong>Evropský soud pro lidská práva</strong> v rozsudku <strong>D. H. a ostatní proti České republice</strong> (13. 11. 2007) za <strong>nepřímou diskriminaci</strong>. Diferenciální diagnostika je proto tady zároveň otázkou lidských práv. Souvisí s <a href=\"otazka-14-diagnostika-v-psychopedii.html\">otázkou 14</a>.</p>",
+   "      </aside>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"cilove-skupiny\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Cílové skupiny</h2>",
+   "      <ul>",
+   "        <li><strong>Lidé v hmotné nouzi a zadlužení</strong> — exekuce, předražené úvěry, práce „na černo“; dluhové poradenství a oddlužení.</li>",
+   "        <li><strong>Lidé bez domova</strong> — včetně skryté bezdomovosti (ubytovny, přespávání u známých) a mladých lidí opouštějících ústavní péči.</li>",
+   "        <li><strong>Obyvatelé sociálně vylučovaných lokalit</strong>, často romské domácnosti — kombinace bydlení, vzdělání, práce a diskriminace.</li>",
+   "        <li><strong>Žáci s odlišným mateřským jazykem, migranti a žadatelé o azyl</strong> — jazyková bariéra, neuznané vzdělání, právní nejistota.</li>",
+   "        <li><strong>Osoby po výkonu trestu</strong> — bez bydlení a práce, se záznamem v registru; postpenitenciární péče a probační služba.</li>",
+   "        <li><strong>Lidé se závislostí a s duševním onemocněním</strong> — harm reduction, terénní programy, komunitní psychiatrické týmy.</li>",
+   "        <li><strong>Samoživitelé a rodiny s malými dětmi</strong> — nedostupné bydlení, chybějící péče o dítě znemožňující práci.</li>",
+   "        <li><strong>Senioři v izolaci</strong> a <strong>osoby se zdravotním postižením</strong> — u nichž se znevýhodnění zdravotní a sociální často <strong>sčítají</strong>.</li>",
+   "      </ul>",
+   "      <p>Klíčový pojem k celé skupině je <strong>intersekcionalita</strong>: znevýhodnění se nesčítají prostě, ale znásobují. Žena s mentálním postižením z vyloučené lokality naráží na tři bariéry současně a žádná z nich se nedá řešit samostatně.</p>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"kdo-poradenstvi-poskytuje\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Kdo poradenství poskytuje</h2>",
+   "      <div class=\"table-wrap\">",
+   "        <table>",
+   "          <thead><tr><th>Úroveň</th><th>Kdo</th><th>Co dělá</th></tr></thead>",
+   "          <tbody>",
+   "            <tr><td data-label=\"Úroveň\">Škola</td><td data-label=\"Kdo\"><strong>školní poradenské pracoviště</strong> — výchovný poradce, školní metodik prevence, školní psycholog, školní speciální pedagog</td><td data-label=\"Co dělá\">první linie: záškoláctví, prospěch, vztahy, spolupráce s rodinou; <strong>plán pedagogické podpory</strong></td></tr>",
+   "            <tr><td data-label=\"Úroveň\">Školství</td><td data-label=\"Kdo\"><strong>ŠPZ</strong> — pedagogicko-psychologická poradna, speciálně pedagogické centrum</td><td data-label=\"Co dělá\">diagnostika a doporučení podpůrných opatření podle vyhl. č. 27/2016 Sb.</td></tr>",
+   "            <tr><td data-label=\"Úroveň\">Sociální služby</td><td data-label=\"Kdo\"><strong>odborné sociální poradenství</strong> (§ 37), <strong>SAS pro rodiny s dětmi</strong>, <strong>terénní programy</strong>, <strong>nízkoprahová zařízení</strong>, <strong>azylové domy</strong></td><td data-label=\"Co dělá\">práce v přirozeném prostředí, doprovázení, dluhy, bydlení, zaměstnání</td></tr>",
+   "            <tr><td data-label=\"Úroveň\">Sociálně-právní ochrana</td><td data-label=\"Kdo\"><strong>OSPOD</strong>, kurátor pro děti a mládež</td><td data-label=\"Co dělá\">ochrana dítěte, sanace rodiny, <strong>případové konference</strong></td></tr>",
+   "            <tr><td data-label=\"Úroveň\">Zaměstnanost</td><td data-label=\"Kdo\"><strong>Úřad práce</strong>, agentury podporovaného zaměstnávání</td><td data-label=\"Co dělá\">rekvalifikace, pracovní rehabilitace, chráněné pracovní místo</td></tr>",
+   "            <tr><td data-label=\"Úroveň\">Obec a stát</td><td data-label=\"Kdo\"><strong>Agentura pro sociální začleňování</strong>, sociální odbory obcí</td><td data-label=\"Co dělá\">koordinace v lokalitě, <strong>komunitní plánování</strong> sociálních služeb</td></tr>",
+   "          </tbody>",
+   "        </table>",
+   "      </div>",
+   "      <p>Charakteristická vlastnost dobrého poradenství pro tuto skupinu je <strong>nízkoprahovost</strong>: dostupnost bez doporučení, bez čekání, bez dokladů a v místě, kde lidé skutečně jsou. Kdo je vyloučený, do poradny s objednacím systémem obvykle nepřijde.</p>",
+   "    </section>",
+   "",
+   "    <section class=\"sec sec-read\">",
+   "      <h2 id=\"soudobe-trendy\"><span class=\"hemo\" aria-hidden=\"true\">📖</span>Soudobé trendy v poradenství</h2>",
+   "      <ul>",
+   "        <li><strong>Od pečování k zplnomocnění.</strong> Cílem není klienta zaopatřit, ale posílit jeho schopnost jednat sám — <strong>empowerment</strong>. Souvisí se zásadou <strong>„nic o nás bez nás“</strong>.</li>",
+   "        <li><strong>Orientace na silné stránky.</strong> Východiskem jsou zdroje a schopnosti klienta, ne výčet deficitů. Blízko je i <strong>přístup zaměřený na řešení</strong> — pracuje se s cílem, ne s příčinou.</li>",
+   "        <li><strong>Case management a síťování.</strong> Jeden pracovník koordinuje všechny služby kolem klienta, aby se pomoc nedublovala ani nevypadávala. Nástrojem jsou <strong>případové konference</strong> a multidisciplinární týmy.</li>",
+   "        <li><strong>Komunitní práce.</strong> Nepracuje se jen s jednotlivcem, ale s lokalitou — sousedské vztahy, škola, obec.</li>",
+   "        <li><strong>Deinstitucionalizace</strong> a <strong>Housing First</strong>. Přechod od ústavů a od podmiňované pomoci k bydlení jako <strong>výchozímu bodu</strong>, ne jako odměně za splnění podmínek.</li>",
+   "        <li><strong>Trauma-informovaný přístup.</strong> Předpokládá se, že klient prošel traumatem, a proto se volí postupy, které ho neopakují — předvídatelnost, volba, bezpečí, žádné nucení.</li>",
+   "        <li><strong>Přístupnost informací.</strong> <strong>Snadné čtení</strong>, srozumitelný jazyk, tlumočení, komunikace v AAK. Bez toho je poradenství formálně dostupné, ale reálně ne.</li>",
+   "        <li><strong>Distanční a online poradenství.</strong> Chat, e-mail, telefonní linky; nízký práh a anonymita, ale i nové otázky ochrany dat a <strong>digitální vyloučenosti</strong> těch, kdo techniku nemají.</li>",
+   "        <li><strong>Praxe založená na důkazech a měření dopadu.</strong> Nejen kolik intervencí se udělalo, ale co se u klientů skutečně změnilo.</li>",
+   "        <li><strong>Ochrana osobních údajů.</strong> Sdílení informací mezi školou, OSPOD a službami naráží na <strong>GDPR</strong>; klíčem je právní titul a informovaný souhlas, ne mlčení o klientovi ani jeho opak.</li>",
+   "      </ul>",
+   "      <aside class=\"box tip\">",
+   "        <h4><span class=\"bemo\" aria-hidden=\"true\">💡</span>Jak trendy shrnout jednou větou</h4>",
+   "        <p>Všechny jmenované posuny jdou stejným směrem: <strong>od klienta jako objektu péče ke klientovi jako nositeli rozhodnutí</strong> — a od izolovaných intervencí ke koordinované podpoře v jeho přirozeném prostředí. Je to tentýž pohyb, jaký v psychopedii vede od ústavu k podporovanému bydlení a od zbavení způsobilosti k podporovanému rozhodování.</p>",
+   "      </aside>",
+   "    </section>"
+   ]
+  },
+
+  "19": {
+   "expand": false,
+   "note": [
+   "    <aside class=\"box warn\">",
+   "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Tato otázka je rozcestník, ne výklad</h4>",
+   "      <p>Dvojí důvod. Zdrojový dokument ji <strong>nevypracoval</strong> — má u ní jen nadpis. A zároveň <strong>v bloku psychopedie zadání A21 vůbec není</strong>: patří do bloku <em>speciální pedagogika — poradenství, intervence a diagnostika</em>, kde je okruhem 1. Tam je také zpracovaná, a to z vlastního zdrojového dokumentu.</p>",
+   "      <p>Místo dopisování třetí verze téhož textu proto tato stránka <strong>odkazuje na hotový materiál</strong>.</p>",
+   "    </aside>"
+   ],
+   "terms": [],
+   "body": [
+   "    <section class=\"sec sec-link\">",
+   "      <h2 id=\"kde-je-tema-zpracovane\"><span class=\"hemo\" aria-hidden=\"true\">🔗</span>Kde je téma zpracované</h2>",
+   "      <div class=\"tiles tiles-sm\">",
+   "        <a class=\"tile t-src\" href=\"../poradenstvi/otazka-01-poradenske-sluzby-legislativa.html\">",
+   "          <span class=\"tile-label\">Poradenství · otázka 01</span>",
+   "          <h3>Poradenské služby a legislativa</h3>",
+   "          <p>Poradenský systém, školní poradenské pracoviště, školská poradenská zařízení, aktuální legislativa, inkluzivní vzdělávání, sociální zabezpečení a dávky.</p>",
+   "          <div class=\"tile-meta\"><span>okruh 1 zadání A21</span><span class=\"arrow\">→</span></div>",
+   "        </a>",
+   "      </div>",
+   "      <p>Dále se sem vážou tyto stránky psychopedie:</p>",
+   "      <ul>",
+   "        <li><a href=\"otazka-03-vzdelavaci-system-podpurna-opatreni.html\">Otázka 3 — Vzdělávací systém a podpůrná opatření</a>: pět stupňů podpůrných opatření, PLPP, IVP, role školského poradenského zařízení a <strong>inkluze žáků s lehkým mentálním postižením</strong>, tedy poslední část tohoto okruhu.</li>",
+   "        <li><a href=\"otazka-14-diagnostika-v-psychopedii.html\">Otázka 14 — Diagnostika v psychopedii</a>: diagnostické metody, se kterými poradenské zařízení pracuje.</li>",
+   "        <li><a href=\"otazka-20-poradenstvi-socialni-vylouceni.html\">Otázka 20 — Poradenství pro osoby ohrožené sociálním vyloučením</a>: poradenský systém z druhé strany, u sociálně znevýhodněných.</li>",
+   "        <li><a href=\"zakony.html\">Klíčové zákony</a>: školský zákon, vyhláška č. 27/2016 Sb. a vyhláška č. 72/2005 Sb. ve znění k srpnu 2026.</li>",
+   "      </ul>",
+   "      <aside class=\"box tip\">",
+   "        <h4><span class=\"bemo\" aria-hidden=\"true\">💡</span>Co si z toho odnést k číslování</h4>",
+   "        <p>Číslování otázek v tomto dokumentu <strong>neodpovídá zadání A21</strong> a není to jen posun — je to přeskládání. Otázka 19 je toho nejlepší příklad: v dokumentu existuje, v zadání psychopedie ne. Mapu obou číslování najdete na <a href=\"pravni-aktualnost.html#zadani-a21\">stránce Právní aktuálnost</a> a druhý seznam otázek řazený podle okruhů A21 je na <a href=\"index.html#podle-zadani\">přehledu otázek</a>.</p>",
+   "      </aside>",
+   "    </section>"
+   ]
+  }
+ }
+}

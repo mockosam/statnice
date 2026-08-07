@@ -54,7 +54,9 @@ otazka-10-inkluze-telesne-postizeni.html | nadpis otázky nese H1 a perex v ofic
 
 otazka-11-specificke-poruchy-uceni.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | SPECIFICKÉ PORUCHY UČENÍ a jejich souvislost s poruchami učení. Základní pojmy, definice, etiologie v úzu pohledu odborníků rozličných profesí.
 
-otazka-11-specificke-poruchy-uceni.html | osiřelý číslovaný nadpis otázky 11 stojí ve zdroji až za jejím obsahem; na stránce jej nese H1 | 11. SPECIFICKÉ VÝVOJOVÉ PORUCHY (PORUCHY UČENÍ A CHOVÁNÍ) V MKN – F80 AŽ F82, F90. SPECIFICKÉ PORUCHY UČNEÍ A JEJICH SOUVILOST S PORUCHAMI CHOVÁNÍ. ETIOLOGIE V ÚZU POHLEDU ODBORNÍKŮ ROZLIČNÝCH PROFESÍ. POPIS DÍLČÍCH PERCEPČNĚ-KOGNITIVNÍCH A MOTORICKÝCH FUNKCÍ A JEJICH ROZBOR – PRŮBĚH VYŠETŘENÍ, UŽITÉ DIAGNOSTICKÉ NÁSTROJE, DIAGNOSTICKÁ KRITÉRIA. SCREENING, DEPISTÁŽ, PREVENCE, INTERVENCE.
+# Osiřelý číslovaný nadpis otázky 11 poradenství (blok 2818) stojí ve zdroji až
+# za jejím obsahem. Řádek tady být nemusí — konvertor blok uvádí v `drop`
+# v tools/_meta_poradenstvi.json a check_fidelity.py --map ten seznam ctí.
 
 otazka-14-poruchy-chovani-emoci.html | nadpis otázky nese H1 a perex v oficiálním znění okruhu; verzálkový nadpis ze zdroje se neopakuje | 14. PORUCHY CHOVÁNÍ A EMOCÍ Z POHLEDU RŮZNÝCH KLASIFIKAČNÍCH SYSTÉMŮ. REŽIMOVÁ OPATŘENÍ PRO PODPORU ŽÁDOUCÍHO CHOVÁNÍ VE ŠKOLÁCH A VE ŠKOLSKÝCH ZAŘÍZENÍCH PRO VÝKON ÚSTAVNÍ A OCHRANNÉ VÝCHOVY. INDIVIDUÁLNÍ PORADENSTVÍ – VEDENÍ PŘÍPADU – ŠKOLA, SEGREGOVANÉ PROSTŘEDÍ.
 

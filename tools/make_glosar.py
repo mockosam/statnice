@@ -54,6 +54,12 @@ SUBJECTS = {
         "foot_text": "právní stav <a href=\"pravni-aktualnost.html\">ověřen k 08/2026</a>",
         "note": "Zdrojový dokument pedagogiky <strong>glosář neobsahuje</strong>.",
     },
+    "psychopedie": {
+        "label": "Psychopedie",
+        "foot_href": "pravni-aktualnost.html",
+        "foot_text": "právní stav <a href=\"pravni-aktualnost.html\">ověřen k 08/2026</a>",
+        "note": "Zdrojový dokument psychopedie <strong>glosář neobsahuje</strong>.",
+    },
 }
 
 # hesla, která nejsou pojmy — číslované podnadpisy, výčty, začátky vět

@@ -1,0 +1,477 @@
+{
+ "toc": {
+  "1": "Psychopedie - předmět, úkoly, cíle, postavení v systému věd. Historie oboru v ČR, osobnosti oboru. Klasifikace mentálního postižení. Etiologie mentální retardace, charakteristika jednotlivých stupňů mentální retardace.",
+  "2": "Výchova dítěte s mentálním postižením. Raná péče a možnosti intervence. Specifika edukace u dětí s mentálním postižením v předškolním věku.",
+  "3": "Vzdělávací systém ve vzdělávání dětí a žáků s mentálním postižením v návaznosti na aktualizovanou školskou legislativu. Návaznost na RVP ZV, plány pedagogické podpory a individuálně vzdělávací plány, další možnosti podpůrných opatření.",
+  "4": "Proces učení mentálně postižených s ohledem na specifika poznávacích procesů. Druhy učení. Charakteristika vzdělávacích programů pro jednotlivé typy školských zařízení. Specifičnost vyučovacích metod při vzdělávání žáků s mentální retardací. Aplikace didaktických zásad. Přehled jednotlivých metod nácviku čtení a psaní včetně jejich komparace. Tvorba individuálních plánů.",
+  "5": "Alternativní vzdělávací programy. Alternativní přístupy k edukaci a péči o osoby s mentálním postižením u nás a v zahraničí. Sociální čtení. Alternativní a augmentativní komunikace. Problematika u osob s kombinovaným postižením.",
+  "6": "Volný čas a zájmová činnost jedinců s mentálním postižením. Poradenství v profesní orientaci. Motivace jedince s MP ke spolupráci, individuální přístup.",
+  "7": "Metody a formy práce s dospělým člověkem s mentálním postižením. Strukturované učení. Sociální učení. Vzdělávání dospělých lidí s mentálním postižením, zásady komunikace.",
+  "8": "Zapojení jedinců s mentálním postižením do spolurozhodování, občanská advokacie, realizace sebeobhajování v České republice.",
+  "9": "Mezinárodní organizace zastupující osoby s mentálním postižením a jejich význam. Organizace a občanská sdružení v ČR zastupující osoby s mentálním postižením. Vládní dokumenty zajišťující rovný přistup ke vzdělávání.",
+  "10": "Partnerství a sexualita u lidí s mentálním postižením. Prevence sexuálního zneužívání. Manželství a rodičovství u osob s mentálním postižením.",
+  "11": "Problematika zaměstnávání lidí s mentálním postižením. Legislativní rámec – zákon o zaměstnanosti, zákoník práce. Podporované zaměstnávání ve vztahu k dalším možnostem pracovního uplatnění.",
+  "12": "Trénink dovedností potřebných k získání a udržení vhodného pracovního místa. Podpora poskytování zaměstnavateli a rodině. Tranzitní program v zahraničí a u nás. Možnosti uplatnění tranzitního programu v dalších oblastech života člověka s mentálním postižením",
+  "13": "Naplňování potřeb a specifické služby pro osoby s mentálním postižením v období stáří.",
+  "14": "Diagnostika v psychopedii. Interdisciplinární komplexní přístup a týmová spolupráce. Zásady diagnostické práce. Specifika diagnostikování u klientů s mentálním postižením. Diferenciální diagnostika, klinické metody, standardizované metody, testové metody, vývojové škály, vyšetření adaptivních dovedností. Využití hry jako diagnostické situace.",
+  "15": "Charakteristika pervazivních vývojových poruch. Vymezení jednotlivých poruch autistického spektra. Etiologie, diagnostika, specifické edukační problémy s ním spojené. Komunikační proces a možnosti komunikace u těchto osob. Úloha speciálního pedagoga při práci s těmito jedinci.",
+  "16": "Specifika vzdělávání dětí s poruchami autistického spektra. TEACCH program. Alternativní formy komunikace u jedinců s diagnózou autismus. Rozvoj sociálních dovedností učitele jedinců s PAS",
+  "17": "Využití alternativní komunikace u dospělých a seniorů. Piktogramy, Bliss, Makaton, Lormova abeceda, komunikační kniha aj. Alternativní komunikace prostřednictvím metody VOKS u osob s poruchou autistického spektra.",
+  "18": "Rozdílnost ve využití alternativní a augmentativní komunikace u dětí a dospělých. Alternativní komunikace jako významný prvek socializace. PC s hlasovým výstupem a bez hlasového výstupu u kombinovaných postižení, u sluchově postižených, zrakově postižených, tělesně postižených, nemluvících.",
+  "19": "Poradenství pro osoby se zdravotním postižením, speciálně pedagogické poradenství, aktuální legislativa související s oborem. Úloha školních poradenských pracovišť, školských poradenských zařízení, inkluze žáků s lehkým mentálním postižením.",
+  "20": "Poradenství pro osoby marginalizované, sociálně znevýhodněné, ohrožené sociálním vyloučením. Soudobé trendy v poradenství."
+ },
+ "bounds": {
+  "1": 1,
+  "2": 132,
+  "3": 203,
+  "4": 305,
+  "5": 499,
+  "6": 575,
+  "7": 784,
+  "8": 849,
+  "9": 930,
+  "10": 934,
+  "11": 1026,
+  "12": 1069,
+  "13": 1107,
+  "14": 1174,
+  "15": 1259,
+  "16": 1370,
+  "17": 1411,
+  "18": 1481,
+  "19": 1488,
+  "20": 1493
+ },
+ "drop": [
+  131,
+  202,
+  304,
+  498,
+  574,
+  782,
+  848,
+  929,
+  933,
+  1024,
+  1068,
+  1106,
+  1173,
+  1258,
+  1369,
+  1409,
+  1479,
+  1485,
+  1490,
+  1496
+ ],
+ "map": {
+  "otazka-01-psychopedie-obor-klasifikace.html": [
+   1,
+   132
+  ],
+  "otazka-02-vychova-rana-pece.html": [
+   132,
+   203
+  ],
+  "otazka-03-vzdelavaci-system-podpurna-opatreni.html": [
+   203,
+   305
+  ],
+  "otazka-04-proces-uceni-metody.html": [
+   305,
+   499
+  ],
+  "otazka-05-alternativni-programy-aak.html": [
+   499,
+   575
+  ],
+  "otazka-06-volny-cas-profesni-orientace.html": [
+   575,
+   784
+  ],
+  "otazka-07-dospeli-strukturovane-uceni.html": [
+   784,
+   849
+  ],
+  "otazka-08-sebeobhajovani-advokacie.html": [
+   849,
+   930
+  ],
+  "otazka-09-organizace-vladni-dokumenty.html": [
+   930,
+   934
+  ],
+  "otazka-10-partnerstvi-sexualita-rodicovstvi.html": [
+   934,
+   1026
+  ],
+  "otazka-11-zamestnavani-mentalni-postizeni.html": [
+   1026,
+   1069
+  ],
+  "otazka-12-tranzitni-program.html": [
+   1069,
+   1107
+  ],
+  "otazka-13-stari-sluzby-seniori.html": [
+   1107,
+   1174
+  ],
+  "otazka-14-diagnostika-v-psychopedii.html": [
+   1174,
+   1259
+  ],
+  "otazka-15-pas-charakteristika.html": [
+   1259,
+   1370
+  ],
+  "otazka-16-pas-vzdelavani-teacch.html": [
+   1370,
+   1411
+  ],
+  "otazka-17-piktogramy-makaton-bliss-voks.html": [
+   1411,
+   1481
+  ],
+  "otazka-18-aak-deti-dospeli-pomucky.html": [
+   1481,
+   1488
+  ],
+  "otazka-19-specialne-pedagogicke-poradenstvi.html": [
+   1488,
+   1493
+  ],
+  "otazka-20-poradenstvi-socialni-vylouceni.html": [
+   1493,
+   1498
+  ]
+ },
+ "missing": [
+  9,
+  18,
+  19,
+  20
+ ],
+ "a21": {
+  "1": {
+   "otazky": [
+    18
+   ],
+   "text": "AAK u dětí a dospělých, PC s hlasovým výstupem"
+  },
+  "2": {
+   "otazky": [
+    5
+   ],
+   "text": "Alternativní vzdělávací programy, sociální čtení, AAK"
+  },
+  "3": {
+   "otazky": [
+    1
+   ],
+   "text": "Pojetí psychopedie, historie, klasifikace MKN / DSM / MKF"
+  },
+  "4": {
+   "otazky": [
+    16
+   ],
+   "text": "Vzdělávání dětí s PAS, TEACCH, sociální dovednosti"
+  },
+  "5": {
+   "otazky": [
+    9
+   ],
+   "text": "Mezinárodní organizace, sdružení v ČR, vládní dokumenty"
+  },
+  "6": {
+   "otazky": [
+    17
+   ],
+   "text": "Piktogramy, Bliss, Makaton, Lormova abeceda, VOKS"
+  },
+  "7": {
+   "otazky": [
+    6,
+    7
+   ],
+   "text": "Volný čas, profesní orientace, práce s dospělými"
+  },
+  "8": {
+   "otazky": [
+    2
+   ],
+   "text": "Výchova dítěte s MP, raná péče, předškolní věk"
+  },
+  "9": {
+   "otazky": [
+    3
+   ],
+   "text": "Vzdělávací systém, RVP ZV, IVP, podpůrná opatření"
+  },
+  "10": {
+   "otazky": [
+    8
+   ],
+   "text": "Spolurozhodování, občanská advokacie, sebeobhajování"
+  },
+  "11": {
+   "otazky": [
+    11
+   ],
+   "text": "Zaměstnávání, zákon o zaměstnanosti, zákoník práce"
+  },
+  "12": {
+   "otazky": [
+    12
+   ],
+   "text": "Nácvik pracovních dovedností, tranzitní program"
+  },
+  "13": {
+   "otazky": [
+    15
+   ],
+   "text": "Pervazivní vývojové poruchy dle MKN, PAS"
+  },
+  "14": {
+   "otazky": [
+    14
+   ],
+   "text": "Diagnostika v psychopedii"
+  },
+  "15": {
+   "otazky": [
+    10,
+    13
+   ],
+   "text": "Partnerství a sexualita, stáří a specifické služby"
+  },
+  "16": {
+   "otazky": [
+    20
+   ],
+   "text": "Poradenství pro marginalizované a sociálně znevýhodněné"
+  },
+  "17": {
+   "otazky": [
+    4
+   ],
+   "text": "Proces učení, druhy učení, metody čtení a psaní, IVP"
+  }
+ },
+ "bridge": {
+  "19": [
+   "poradenstvi/otazka-01-poradenske-sluzby-legislativa.html",
+   "Poradenské služby a legislativa"
+  ]
+ },
+ "skipped_images": {
+  "rId9": "text jako obrázek — výčet starších výrazů pro mentální retardaci; přepsán do HTML v otázce 1",
+  "rId10": "snímek webové stránky s odkazy na Wikipedii („Dějiny psychopedie v českých zemích“); časová osa přepsána do HTML v otázce 1",
+  "rId31": "cizí sada 12 piktogramů z Google Images, bez doložené licence; reprezentativní řádek překreslen jako inline SVG v otázce 17",
+  "rId32": "makatonové znaky s anglickými popisky (I, Me, You, Where?); Makaton je licencovaný systém — popsán textem v otázce 17",
+  "rId33": "ruční skica Blissu na milimetrovém papíře; skládací logika překreslena jako inline SVG v otázce 17"
+ },
+ "questions": [
+  {
+   "n": 1,
+   "short": "Psychopedie jako obor, klasifikace a etiologie",
+   "full": "Psychopedie - předmět, úkoly, cíle, postavení v systému věd. Historie oboru v ČR, osobnosti oboru. Klasifikace mentálního postižení. Etiologie mentální retardace, charakteristika jednotlivých stupňů mentální retardace.",
+   "href": "otazka-01-psychopedie-obor-klasifikace.html",
+   "cards": 13,
+   "secs": 10,
+   "words": 1670,
+   "written": false
+  },
+  {
+   "n": 2,
+   "short": "Výchova dítěte s mentálním postižením a raná péče",
+   "full": "Výchova dítěte s mentálním postižením. Raná péče a možnosti intervence. Specifika edukace u dětí s mentálním postižením v předškolním věku.",
+   "href": "otazka-02-vychova-rana-pece.html",
+   "cards": 8,
+   "secs": 1,
+   "words": 817,
+   "written": false
+  },
+  {
+   "n": 3,
+   "short": "Vzdělávací systém a podpůrná opatření",
+   "full": "Vzdělávací systém ve vzdělávání dětí a žáků s mentálním postižením v návaznosti na aktualizovanou školskou legislativu. Návaznost na RVP ZV, plány pedagogické podpory a individuálně vzdělávací plány, další možnosti podpůrných opatření.",
+   "href": "otazka-03-vzdelavaci-system-podpurna-opatreni.html",
+   "cards": 12,
+   "secs": 9,
+   "words": 1710,
+   "written": false
+  },
+  {
+   "n": 4,
+   "short": "Proces učení a vyučovací metody",
+   "full": "Proces učení mentálně postižených s ohledem na specifika poznávacích procesů. Druhy učení. Charakteristika vzdělávacích programů pro jednotlivé typy školských zařízení. Specifičnost vyučovacích metod při vzdělávání žáků s mentální retardací. Aplikace didaktických zásad. Přehled jednotlivých metod nácviku čtení a psaní včetně jejich komparace. Tvorba individuálních plánů.",
+   "href": "otazka-04-proces-uceni-metody.html",
+   "cards": 12,
+   "secs": 5,
+   "words": 3413,
+   "written": false
+  },
+  {
+   "n": 5,
+   "short": "Alternativní vzdělávací programy a AAK",
+   "full": "Alternativní vzdělávací programy. Alternativní přístupy k edukaci a péči o osoby s mentálním postižením u nás a v zahraničí. Sociální čtení. Alternativní a augmentativní komunikace. Problematika u osob s kombinovaným postižením.",
+   "href": "otazka-05-alternativni-programy-aak.html",
+   "cards": 9,
+   "secs": 1,
+   "words": 1951,
+   "written": false
+  },
+  {
+   "n": 6,
+   "short": "Volný čas a profesní orientace",
+   "full": "Volný čas a zájmová činnost jedinců s mentálním postižením. Poradenství v profesní orientaci. Motivace jedince s MP ke spolupráci, individuální přístup.",
+   "href": "otazka-06-volny-cas-profesni-orientace.html",
+   "cards": 12,
+   "secs": 8,
+   "words": 2072,
+   "written": false
+  },
+  {
+   "n": 7,
+   "short": "Práce s dospělým člověkem s mentálním postižením",
+   "full": "Metody a formy práce s dospělým člověkem s mentálním postižením. Strukturované učení. Sociální učení. Vzdělávání dospělých lidí s mentálním postižením, zásady komunikace.",
+   "href": "otazka-07-dospeli-strukturovane-uceni.html",
+   "cards": 10,
+   "secs": 1,
+   "words": 1008,
+   "written": false
+  },
+  {
+   "n": 8,
+   "short": "Sebeobhajování a občanská advokacie",
+   "full": "Zapojení jedinců s mentálním postižením do spolurozhodování, občanská advokacie, realizace sebeobhajování v České republice.",
+   "href": "otazka-08-sebeobhajovani-advokacie.html",
+   "cards": 8,
+   "secs": 4,
+   "words": 1241,
+   "written": false
+  },
+  {
+   "n": 9,
+   "short": "Organizace a vládní dokumenty",
+   "full": "Mezinárodní organizace zastupující osoby s mentálním postižením a jejich význam. Organizace a občanská sdružení v ČR zastupující osoby s mentálním postižením. Vládní dokumenty zajišťující rovný přistup ke vzdělávání.",
+   "href": "otazka-09-organizace-vladni-dokumenty.html",
+   "cards": 13,
+   "secs": 4,
+   "words": 0,
+   "written": true
+  },
+  {
+   "n": 10,
+   "short": "Partnerství, sexualita a rodičovství",
+   "full": "Partnerství a sexualita u lidí s mentálním postižením. Prevence sexuálního zneužívání. Manželství a rodičovství u osob s mentálním postižením.",
+   "href": "otazka-10-partnerstvi-sexualita-rodicovstvi.html",
+   "cards": 9,
+   "secs": 7,
+   "words": 2857,
+   "written": false
+  },
+  {
+   "n": 11,
+   "short": "Zaměstnávání lidí s mentálním postižením",
+   "full": "Problematika zaměstnávání lidí s mentálním postižením. Legislativní rámec – zákon o zaměstnanosti, zákoník práce. Podporované zaměstnávání ve vztahu k dalším možnostem pracovního uplatnění.",
+   "href": "otazka-11-zamestnavani-mentalni-postizeni.html",
+   "cards": 10,
+   "secs": 1,
+   "words": 534,
+   "written": false
+  },
+  {
+   "n": 12,
+   "short": "Tranzitní program a nácvik pracovních dovedností",
+   "full": "Trénink dovedností potřebných k získání a udržení vhodného pracovního místa. Podpora poskytování zaměstnavateli a rodině. Tranzitní program v zahraničí a u nás. Možnosti uplatnění tranzitního programu v dalších oblastech života člověka s mentálním postižením",
+   "href": "otazka-12-tranzitni-program.html",
+   "cards": 7,
+   "secs": 7,
+   "words": 544,
+   "written": false
+  },
+  {
+   "n": 13,
+   "short": "Stárnutí a služby pro seniory s mentálním postižením",
+   "full": "Naplňování potřeb a specifické služby pro osoby s mentálním postižením v období stáří.",
+   "href": "otazka-13-stari-sluzby-seniori.html",
+   "cards": 9,
+   "secs": 3,
+   "words": 730,
+   "written": false
+  },
+  {
+   "n": 14,
+   "short": "Diagnostika v psychopedii",
+   "full": "Diagnostika v psychopedii. Interdisciplinární komplexní přístup a týmová spolupráce. Zásady diagnostické práce. Specifika diagnostikování u klientů s mentálním postižením. Diferenciální diagnostika, klinické metody, standardizované metody, testové metody, vývojové škály, vyšetření adaptivních dovedností. Využití hry jako diagnostické situace.",
+   "href": "otazka-14-diagnostika-v-psychopedii.html",
+   "cards": 11,
+   "secs": 2,
+   "words": 886,
+   "written": false
+  },
+  {
+   "n": 15,
+   "short": "Poruchy autistického spektra — charakteristika",
+   "full": "Charakteristika pervazivních vývojových poruch. Vymezení jednotlivých poruch autistického spektra. Etiologie, diagnostika, specifické edukační problémy s ním spojené. Komunikační proces a možnosti komunikace u těchto osob. Úloha speciálního pedagoga při práci s těmito jedinci.",
+   "href": "otazka-15-pas-charakteristika.html",
+   "cards": 12,
+   "secs": 6,
+   "words": 3239,
+   "written": false
+  },
+  {
+   "n": 16,
+   "short": "Vzdělávání dětí s PAS a TEACCH program",
+   "full": "Specifika vzdělávání dětí s poruchami autistického spektra. TEACCH program. Alternativní formy komunikace u jedinců s diagnózou autismus. Rozvoj sociálních dovedností učitele jedinců s PAS",
+   "href": "otazka-16-pas-vzdelavani-teacch.html",
+   "cards": 9,
+   "secs": 3,
+   "words": 3487,
+   "written": false
+  },
+  {
+   "n": 17,
+   "short": "Piktogramy, Makaton, Bliss a VOKS",
+   "full": "Využití alternativní komunikace u dospělých a seniorů. Piktogramy, Bliss, Makaton, Lormova abeceda, komunikační kniha aj. Alternativní komunikace prostřednictvím metody VOKS u osob s poruchou autistického spektra.",
+   "href": "otazka-17-piktogramy-makaton-bliss-voks.html",
+   "cards": 11,
+   "secs": 5,
+   "words": 1105,
+   "written": false
+  },
+  {
+   "n": 18,
+   "short": "AAK u dětí a dospělých, technické pomůcky",
+   "full": "Rozdílnost ve využití alternativní a augmentativní komunikace u dětí a dospělých. Alternativní komunikace jako významný prvek socializace. PC s hlasovým výstupem a bez hlasového výstupu u kombinovaných postižení, u sluchově postižených, zrakově postižených, tělesně postižených, nemluvících.",
+   "href": "otazka-18-aak-deti-dospeli-pomucky.html",
+   "cards": 14,
+   "secs": 6,
+   "words": 0,
+   "written": true
+  },
+  {
+   "n": 19,
+   "short": "Speciálně pedagogické poradenství",
+   "full": "Poradenství pro osoby se zdravotním postižením, speciálně pedagogické poradenství, aktuální legislativa související s oborem. Úloha školních poradenských pracovišť, školských poradenských zařízení, inkluze žáků s lehkým mentálním postižením.",
+   "href": "otazka-19-specialne-pedagogicke-poradenstvi.html",
+   "cards": 0,
+   "secs": 1,
+   "words": 0,
+   "written": true
+  },
+  {
+   "n": 20,
+   "short": "Poradenství pro osoby ohrožené sociálním vyloučením",
+   "full": "Poradenství pro osoby marginalizované, sociálně znevýhodněné, ohrožené sociálním vyloučením. Soudobé trendy v poradenství.",
+   "href": "otazka-20-poradenstvi-socialni-vylouceni.html",
+   "cards": 15,
+   "secs": 4,
+   "words": 0,
+   "written": true
+  }
+ ]
+}

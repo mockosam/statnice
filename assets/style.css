@@ -111,6 +111,7 @@ body[data-subject='etopedie'] { --subject: var(--c-sum); }
 body[data-subject='psychologie'] { --subject: var(--c-law); }
 body[data-subject='poradenstvi'] { --subject: var(--c-src); }
 body[data-subject='pedagogika'] { --subject: var(--c-key); }
+body[data-subject='psychopedie'] { --subject: var(--c-tip); }
 
 a { color: var(--subject); text-decoration-color: color-mix(in srgb, var(--subject) 45%, transparent); text-underline-offset: 2px; }
 a:hover { text-decoration-color: currentColor; }

@@ -130,6 +130,10 @@ def check_by_map(blocks, meta, outdir) -> int:
     # tools/_corrections.txt se tu neuvádí původní text — ten by se tím dostal
     # do repozitáře, což je přesně to, čemu se vynecháním předchází.
     redacted = {int(k): v for k, v in meta.get("redacted", {}).items()}
+    # Bloky, které konvertor vědomě zahodil jako typografii bez obsahu —
+    # osiřelý nadpis, řádek hvězdiček oddělující otázky. Na rozdíl od
+    # tools/_corrections.txt se u nich nic neopravuje, prostě do stránky nepatří.
+    dropped = {int(i) for i in meta.get("drop", [])}
     covered = set()
     everywhere = squash("".join(
         page_text(p) for p in sorted(glob.glob("*.html") + glob.glob(os.path.join(outdir, "*.html")))))
@@ -146,6 +150,8 @@ def check_by_map(blocks, meta, outdir) -> int:
         hay = squash(page_text(path))
         for i in range(start, end):
             covered.add(i)
+            if i in dropped:
+                continue
             for text in units([blocks[i]]):
                 total += 1
                 needle = squash(text)
@@ -159,7 +165,7 @@ def check_by_map(blocks, meta, outdir) -> int:
     # bloky mimo mapu (titulní strana, obsah, nezpracovaná otázka) — hledáme kdekoli
     outside = 0
     for i, b in enumerate(blocks):
-        if i in covered:
+        if i in covered or i in dropped:
             continue
         if i in redacted:
             fixed.append("blok %d — %s" % (i, redacted[i]))
