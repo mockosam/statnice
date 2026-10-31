@@ -9,15 +9,15 @@ Obsahuje pět předmětů:
 |---|---|---|---|---|---|
 | **Poradenství** (SP – poradenství, intervence a diagnostika) | 20 | 175 | 175 | 173 pojmů | klíčové zákony, právní audit se 14 zjištěními |
 | **Pedagogika** | 20 | 216 | 216 | 215 pojmů | klíčové zákony, právní audit se 16 zjištěními, mapování na 17 okruhů zadání |
-| **Etopedie** | 20 | 86 | 151 | 105 pojmů | klíčové zákony, právní audit, aktualizační dodatek |
-| **Psychopedie** | 20 | 194 | 194 | 194 pojmů | klíčové zákony, právní audit se 17 zjištěními, mapa na 17 okruhů zadání, **3 dopsané otázky** |
-| **Psychologie** | 19 | 67 | 67 | 50 pojmů | přehled 43 citovaných děl, kontrola aktuálnosti |
+| **Etopedie** | 20 | 86 | 151 | 105 pojmů | klíčové zákony, právní audit, aktualizační dodatek, mapa na 17 okruhů zadání |
+| **Psychopedie** | 20 | 208 | 208 | 208 pojmů | klíčové zákony, právní audit se 17 zjištěními, mapa na 17 okruhů zadání, **3 otázky ze studentských zápisků 2025** |
+| **Psychologie** | 19 | 74 | 74 | 57 pojmů | přehled 43 citovaných děl, kontrola aktuálnosti, otázka 17 ze studentských zápisků |
 
 „Balíček předmětu“ spojuje kartičky z otázek s glosářem, ale **stejný pojem bere
 jen jednou** — proto se nerovná součtu. U psychologie, poradenství, pedagogiky
 a psychopedie jsou obě čísla prakticky shodná, protože jejich glosář je z těch
 definic sestavený.
-Balíček přes všechny předměty má po odečtení duplicit **777 kartiček**.
+Balíček přes všechny předměty má po odečtení duplicit **796 kartiček**.
 
 Počty se na stránkách dopočítávají za běhu z `assets/data.js` (atribut
 `data-count-for`), takže zestarat nemohou; čísla v HTML jsou jen záloha pro případ
@@ -51,18 +51,18 @@ assets/
   app.js              hledání, kartičky, postup, obsah stránky, filtr glosáře
   data.js             GENEROVANÝ index pro hledání a kartičky
 etopedie/
-  index.html          přehled 20 otázek + ukazatel postupu
+  index.html          přehled 20 otázek + druhý seznam podle 17 okruhů zadání
   otazka-01-….html    jednotlivé otázky
   glosar.html         abecední rejstřík s filtrem
   zakony.html         klíčové zákony (opravené, stav 08/2026)
-  pravni-aktualnost.html   co bylo opraveno proti zdroji a proč
+  pravni-aktualnost.html   co bylo opraveno proti zdroji a proč + mapa na 17 okruhů zadání
   aktualizace-2026.html    aktualizační dodatek ze zdroje (MKN-11, novely)
   karticky.html       výběr balíčků kartiček
   jak-pracovat.html   úvod ze zdrojového dokumentu
 psychologie/
   index.html          přehled 19 otázek + ukazatel postupu
   otazka-01-….html    jednotlivé otázky
-  otazka-17-….html    ve zdroji není vypracovaná — dopsáno z literatury
+  otazka-17-….html    ve zdroji není vypracovaná — ze samostatných studentských zápisků (2021/2022)
   glosar.html         GENEROVANÝ rejstřík (make_glosar.py)
   karticky.html       výběr balíčků kartiček
   literatura.html     43 citovaných děl s dohledanými údaji
@@ -87,14 +87,14 @@ pedagogika/
 psychopedie/
   index.html          přehled 20 otázek + druhý seznam podle okruhů zadání A21
   otazka-01-….html    jednotlivé otázky
-  otazka-09, 18, 20   ve zdroji nejsou vypracované — dopsány z literatury
+  otazka-09, 18, 20   ve zdroji nejsou vypracované — ze studentských zápisků 2025 k okruhům 5, 1 a 16
   otazka-19-….html    v zadání psychopedie není — rozcestník na Poradenství
   glosar.html         GENEROVANÝ rejstřík (make_glosar.py)
   karticky.html       výběr balíčků kartiček
   zakony.html         klíčové zákony ve znění k 08/2026 + tabulka zrušených předpisů
   pravni-aktualnost.html   17 zjištění + mapa na 17 okruhů zadání + MKN-11 a MKF
   (bez img/ — z 5 obrázků se nepublikuje ani jeden, dva jsou přepsané do textu)
-source/               archivovaný originál .docx
+source/               zdrojové .docx jen lokálně (viz .gitignore), zápisky 2025 v source/zapisky-2025/
 tools/                pomocné skripty (viz níže)
 ```
 
@@ -198,7 +198,10 @@ v `tools/_doplnky_<předmět>.json`:
 * `written` (jen psychopedie) — celé stránky otázek, které zdroj nevypracoval
   (9, 18, 20) a rozcestník u otázky 19. Text je v JSON, ne v HTML, takže ho
   opětovné spuštění konvertoru nesmaže. Chybějící `written` u otázky ze seznamu
-  `MISSING` skript ohlásí a skončí chybou.
+  `MISSING` skript ohlásí a skončí chybou. Stránky 9, 18 a 20 dnes stojí na
+  studentských zápiscích z roku 2025; dokud chybí původní zdroj, nejde konvertor
+  spustit, takže JSON a HTML se musí držet v souladu ručně — HTML odpovídá tomu,
+  co z `written` vyrobí `render_written()` a `shell()` z konvertoru.
 
 HTML se v `boxes`, `notes` i `written` dá psát jako jeden řetězec i jako **pole
 řádků** — pole je čitelnější a dělá přehlednější diff.
@@ -290,7 +293,10 @@ výslovně žádá a které na webu dosud nebyly vůbec. Součástí je mapa 20 
 17 okruhů zadání — u psychopedie to není posun, ale **přeskládání** (okruh 1
 zadání je otázka 18 dokumentu), proto má předmět na přehledu i druhý seznam
 otázek řazený podle zadání. **Čtyři otázky zdroj nevypracoval vůbec**; tři z nich
-jsou skutečné okruhy zadání a jsou dopsané z literatury.
+jsou skutečné okruhy zadání a stojí na studentských zápiscích z roku 2025 k těmto
+okruhům. Co se opravovalo v zápiscích (rok ratifikace Úmluvy, „chráněné dílny“,
+„integrace“, „občanské sdružení“), je na stránce auditu uvedené zvlášť a do 17
+zjištění se nepočítá.
 
 **Pedagogika** — `pedagogika/pravni-aktualnost.html`. Nejstarší zdroj na webu
 (2016/2017) a jediný bez vlastního dodatku. Teorie výchovy, didaktika ani
@@ -312,12 +318,16 @@ a upozornění na téma, které ve zdroji chybí celé (sociální exkluze, žá
 **Etopedie** — `etopedie/pravni-aktualnost.html`. Zdroj měl vlastní dodatek
 k dubnu 2026, ale i tak se našly dvě chybná čísla předpisů (Úmluva o právech
 dítěte, poradenské služby) a chybějící deinstitucionalizační novely 363/2021
-a 242/2024 Sb. Celkem 11 zjištění.
+a 242/2024 Sb. Celkem 11 zjištění. Součástí je i mapa 20 otázek na 17 okruhů
+zadání; na přehledu předmětu je proto druhý seznam řazený podle zadání s plným
+zněním okruhů.
 
 **Psychologie** — `psychologie/aktualnost.html`. Dokument je z roku 2021/2022
 a žádná datovatelná tvrzení neobsahuje (necituje MKN, DSM, RVP ani žádný
 předpis), takže nebylo co opravovat. Doplněny jsou čtyři oblasti, kde se od té
-doby stav změnil: MKN-11, DSM-5-TR, revize RVP ZV a novely vyhlášek.
+doby stav změnil: MKN-11, DSM-5-TR, revize RVP ZV a novely vyhlášek. Otázku 17
+hlavní zdroj nevypracoval; její výklad stojí na samostatných studentských
+zápiscích z téhož období.
 
 Legislativa se mění rychle a několik změn má odloženou účinnost na 2027 a 2028.
 Před zkouškou se vyplatí rychlá kontrola na
@@ -355,3 +365,5 @@ kartičkám, čtečkám i tisku, takže tady nešlo o licenci, ale o ztracený o
 Zbývající tři jsou ukázky piktogramů, Makatonu a Blissu stažené z internetu bez
 doložené licence (u Makatonu navíc s anglickými popisky); piktogramy a skládací
 logika Blissu jsou **překreslené jako inline SVG**, Makaton je popsaný slovy.
+Studentské zápisky z roku 2025, ze kterých jsou otázky 9, 18 a 20, obrázky
+neobsahují — jediný vložený obrázek je prázdný pixel.
