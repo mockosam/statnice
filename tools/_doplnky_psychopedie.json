@@ -140,7 +140,7 @@
    "auto": true,
    "rename": {"Chráněné dílny": "Chráněná dílna (zrušený pojem)"},
    "add": [
-    ["Chráněné pracovní místo", "podle § 75 zákona č. 435/2004 Sb. místo zřízené na základě dohody s Úřadem práce, obsazené nejméně 3 roky, na které ÚP poskytuje příspěvek"],
+    ["Chráněné pracovní místo", "pojem § 75 zákona č. 435/2004 Sb. do 31. 12. 2017; od 1. 1. 2018 zákon mluví o pracovním místě zřízeném pro osobu se zdravotním postižením, které zaměstnavatel zřizuje na základě písemné dohody s Úřadem práce, musí být obsazené po dobu 3 let a ÚP na jeho zřízení poskytuje příspěvek"],
     ["Osoba se zdravotním postižením (OZP)", "podle zákona o zaměstnanosti osoba invalidní v prvním až třetím stupni nebo zdravotně znevýhodněná"],
     ["Povinný podíl", "zaměstnavatel s více než 25 zaměstnanci musí zaměstnávat 4 % OZP, odebírat výrobky nebo odvést do státního rozpočtu"],
     ["Pracovní rehabilitace", "podle § 69 souvislá činnost zaměřená na získání a udržení vhodného zaměstnání osoby se zdravotním postižením"],
@@ -292,7 +292,17 @@
   "11": [
    [
     "<li>Chráněná dílna je podle zákona o zaměstnanosti č. 435/2004 Sb. definována",
-    "<li><span class=\"fix\">Pozor — pojem „chráněná dílna“ ze zákona o zaměstnanosti vypustil zákon č. 367/2011 Sb. k 1. 1. 2012. Dnešní nástroj je <strong>chráněné pracovní místo</strong> podle § 75, popsané níže.</span> Chráněná dílna je podle zákona o zaměstnanosti č. 435/2004 Sb. definována"
+    "<li><span class=\"fix\">Pozor — pojem „chráněná dílna“ ze zákona o zaměstnanosti vypustil zákon č. 367/2011 Sb. k 1. 1. 2012. Dnešní nástroje jsou <strong>pracovní místo zřízené pro osobu se zdravotním postižením</strong> podle § 75 (do roku 2017 „chráněné pracovní místo“, popsané níže) a <strong>chráněný trh práce</strong> podle § 78.</span> Chráněná dílna je podle zákona o zaměstnanosti č. 435/2004 Sb. definována"
+   ],
+   [
+    "<li>§75: na základě písemné dohody zaměstnavatele s Úřadem práce</li>",
+    "<li>§75: na základě písemné dohody zaměstnavatele s Úřadem práce <span class=\"fix\">[od 1. 1. 2018 zákon pojem „chráněné pracovní místo“ nepoužívá: § 75 dnes upravuje pracovní místo zřízené pro osobu se zdravotním postižením, s příspěvkem na zřízení až do osminásobku (u těžšího postižení dvanáctinásobku) průměrné mzdy; příspěvek 75 % mzdových nákladů dostává jen zaměstnavatel uznaný na chráněném trhu práce (§ 78, § 78a)]</span></li>"
+   ]
+  ],
+  "12": [
+   [
+    "<li>Příspěvek na zřízení chráněného pracovního místa je určen na pořízení potřebného vybavení zřizovaného pracovního místa.</li>",
+    "<li>Příspěvek na zřízení chráněného pracovního místa je určen na pořízení potřebného vybavení zřizovaného pracovního místa. <span class=\"fix\">[od 1. 1. 2018 zákon pojem „chráněné pracovní místo“ nepoužívá: příspěvek podle § 75 je na zřízení pracovního místa pro osobu se zdravotním postižením a příspěvek na mzdy z předchozího bodu (§ 78a) nezávisí na chráněných pracovních místech, ale na uznání zaměstnavatele na chráněném trhu práce (více než 50 % OZP, § 78)]</span></li>"
    ]
   ],
   "15": [
@@ -447,13 +457,14 @@
 
   "11": [
   "    <aside class=\"box law\">",
-  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Chráněná dílna → chráněné pracovní místo</h4>",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚖️</span>Chráněná dílna → pracovní místo pro OZP</h4>",
   "      <p>Pojem <strong>„chráněná dílna“ zákon o zaměstnanosti nezná</strong> — vypustil ho zákon č. 367/2011 Sb. s účinností od <strong>1. 1. 2012</strong>. Definice, kterou zdroj uvádí jako zákonnou (pracoviště podle dohody s úřadem práce, nejméně 60 % zaměstnanců se ZP), je tedy více než deset let neplatná. V praxi se slovo dál používá, ale u zkoušky je potřeba znát platný nástroj.</p>",
   "      <div class=\"table-wrap\">",
   "        <table>",
   "          <thead><tr><th>Nástroj</th><th>Ustanovení</th><th>Podstata</th></tr></thead>",
   "          <tbody>",
-  "            <tr><td data-label=\"Nástroj\">Chráněné pracovní místo</td><td data-label=\"Ustanovení\">§ 75</td><td data-label=\"Podstata\">místo zřízené na základě <strong>písemné dohody s Úřadem práce</strong>, obsazené nejméně <strong>3 roky</strong>; ÚP poskytuje příspěvek na zřízení a na provoz</td></tr>",
+  "            <tr><td data-label=\"Nástroj\">Pracovní místo zřízené pro OZP (do 2017 „chráněné pracovní místo“)</td><td data-label=\"Ustanovení\">§ 75</td><td data-label=\"Podstata\">místo zřízené na základě <strong>písemné dohody s Úřadem práce</strong>, obsazené nejméně <strong>3 roky</strong>; ÚP poskytuje příspěvek na zřízení (§ 75) a na provozní náklady (§ 76)</td></tr>",
+  "            <tr><td data-label=\"Nástroj\">Chráněný trh práce</td><td data-label=\"Ustanovení\">§ 78, § 78a</td><td data-label=\"Podstata\">zaměstnavatel s <strong>více než 50 % OZP</strong>, kterého ÚP dohodou uznal; dostává příspěvek <strong>75 % mzdových nákladů</strong> na zaměstnance se ZP (do zákonného limitu)</td></tr>",
   "            <tr><td data-label=\"Nástroj\">Pracovní rehabilitace</td><td data-label=\"Ustanovení\">§ 69</td><td data-label=\"Podstata\">souvislá činnost k získání a udržení vhodného zaměstnání osoby se ZP</td></tr>",
   "            <tr><td data-label=\"Nástroj\">Povinný podíl</td><td data-label=\"Ustanovení\">§ 81</td><td data-label=\"Podstata\">zaměstnavatel s více než 25 zaměstnanci: <strong>4 % OZP</strong>, nebo odběr výrobků a služeb, nebo odvod do státního rozpočtu</td></tr>",
   "            <tr><td data-label=\"Nástroj\">Podporované zaměstnávání</td><td data-label=\"Ustanovení\">—</td><td data-label=\"Podstata\">není samostatným institutem zákona; jde o službu směřující na <strong>otevřený trh práce</strong> s podporou pracovního asistenta</td></tr>",
@@ -705,13 +716,13 @@
    "        <li><strong>Nejstarší organizace v oboru</strong> (1969). Seznam v zápiscích uvádí i „Sdružení pro pomoc mentálně postiženým ČR“ — to je <strong>původní název téže organizace</strong>, ne další spolek.</li>",
    "        <li>Celostátní nezisková organizace s více než 8 000 členy, působí na národní, regionální i místní úrovni; rodičovská a svépomocná základna.</li>",
    "        <li>Podporuje lidi s mentálním postižením, jejich rodiny a blízké, hájí jejich práva a prosazuje změny vedoucí k zachování důstojnosti; nabízí vzdělávání, volnočasové aktivity a společenské akce.</li>",
-   "        <li>Služby pro lidi s mentálním a kombinovaným postižením a pomoc rodině: vzdělávací zařízení s denním či týdenním režimem, chráněné bydlení, chráněné dílny <span class=\"fix\">[pojem zrušen novelou 367/2011 Sb. k 1. 1. 2012 — dnes chráněné pracovní místo, v sociálních službách sociálně terapeutická dílna]</span>, podporované zaměstnávání, sociální rehabilitace.</li>",
+   "        <li>Služby pro lidi s mentálním a kombinovaným postižením a pomoc rodině: vzdělávací zařízení s denním či týdenním režimem, chráněné bydlení, chráněné dílny <span class=\"fix\">[pojem zrušen novelou 367/2011 Sb. k 1. 1. 2012 — dnes pracovní místo zřízené pro OZP (§ 75) nebo chráněný trh práce (§ 78), v sociálních službách sociálně terapeutická dílna]</span>, podporované zaměstnávání, sociální rehabilitace.</li>",
    "        <li>Je členem NRZP ČR, Jednoty pro deinstitucionalizaci (JDI), Inclusion Europe i Inclusion International.</li>",
    "      </ul>",
    "      <details class=\"upd\">",
-   "        <summary>Aktualizace 2026 — „chráněná dílna“ není zákonný pojem</summary>",
+   "        <summary data-overeno=\"10/2026\">Aktualizace 2026 — „chráněná dílna“ není zákonný pojem</summary>",
    "        <div class=\"upd-body\">",
-   "          <p>Zápisky uvádějí, že SPMP provozuje <span class=\"was\">„chráněné bydlení, chráněné dílny, podporované zaměstnání“</span>. Pojem <strong>chráněná dílna</strong> ze zákona o zaměstnanosti vypustil zákon č. <strong>367/2011 Sb.</strong> s účinností od <strong>1. 1. 2012</strong>. Dnešním nástrojem je <strong>chráněné pracovní místo</strong> (§ 75), od roku 2018 spolu s <strong>chráněným trhem práce</strong> a uznaným zaměstnavatelem; dílny v sociálních službách jsou <strong>sociálně terapeutické dílny</strong> podle § 67 zákona č. 108/2006 Sb. Chráněné bydlení je naproti tomu platný pojem — sociální služba podle téhož zákona.</p>",
+   "          <p>Zápisky uvádějí, že SPMP provozuje <span class=\"was\">„chráněné bydlení, chráněné dílny, podporované zaměstnání“</span>. Pojem <strong>chráněná dílna</strong> ze zákona o zaměstnanosti vypustil zákon č. <strong>367/2011 Sb.</strong> s účinností od <strong>1. 1. 2012</strong>. Nahradilo ji <strong>chráněné pracovní místo</strong>, které od <strong>1. 1. 2018</strong> (zákon č. 327/2017 Sb.) zákon nazývá <strong>pracovním místem zřízeným pro osobu se zdravotním postižením</strong> (§ 75); od téhož dne existuje i <strong>chráněný trh práce</strong> s uznaným zaměstnavatelem (§ 78); dílny v sociálních službách jsou <strong>sociálně terapeutické dílny</strong> podle § 67 zákona č. 108/2006 Sb. Chráněné bydlení je naproti tomu platný pojem — sociální služba podle téhož zákona.</p>",
    "          <p><a href=\"pravni-aktualnost.html#chranena-dilna\">Podrobně v právní aktuálnosti →</a></p>",
    "        </div>",
    "      </details>",
@@ -1390,7 +1401,7 @@
    "            <tr><td data-label=\"Úroveň\">Školství</td><td data-label=\"Kdo\"><strong>ŠPZ</strong> — pedagogicko-psychologická poradna, speciálně pedagogické centrum</td><td data-label=\"Co dělá\">diagnostika a doporučení podpůrných opatření podle vyhl. č. 27/2016 Sb.</td></tr>",
    "            <tr><td data-label=\"Úroveň\">Sociální služby</td><td data-label=\"Kdo\"><strong>odborné sociální poradenství</strong> (§ 37), <strong>SAS pro rodiny s dětmi</strong>, <strong>terénní programy</strong>, <strong>nízkoprahová zařízení</strong>, <strong>azylové domy</strong></td><td data-label=\"Co dělá\">práce v přirozeném prostředí, doprovázení, dluhy, bydlení, zaměstnání</td></tr>",
    "            <tr><td data-label=\"Úroveň\">Sociálně-právní ochrana</td><td data-label=\"Kdo\"><strong>OSPOD</strong>, kurátor pro děti a mládež</td><td data-label=\"Co dělá\">ochrana dítěte, sanace rodiny, <strong>případové konference</strong></td></tr>",
-   "            <tr><td data-label=\"Úroveň\">Zaměstnanost</td><td data-label=\"Kdo\"><strong>Úřad práce</strong>, agentury podporovaného zaměstnávání</td><td data-label=\"Co dělá\">rekvalifikace, pracovní rehabilitace, chráněné pracovní místo</td></tr>",
+   "            <tr><td data-label=\"Úroveň\">Zaměstnanost</td><td data-label=\"Kdo\"><strong>Úřad práce</strong>, agentury podporovaného zaměstnávání</td><td data-label=\"Co dělá\">rekvalifikace, pracovní rehabilitace, pracovní místo zřízené pro OZP (§ 75)</td></tr>",
    "            <tr><td data-label=\"Úroveň\">Obec a stát</td><td data-label=\"Kdo\"><strong>obce s rozšířenou působností</strong>, sociální odbory obcí, <strong>Agentura pro sociální začleňování</strong></td><td data-label=\"Co dělá\">sociální práce v obci, koordinace v lokalitě, <strong>komunitní plánování</strong> sociálních služeb</td></tr>",
    "            <tr><td data-label=\"Úroveň\">Neziskové organizace</td><td data-label=\"Kdo\">Člověk v tísni, Armáda spásy, Rubikon Centrum, IQ Roma servis, Charita ČR, Diakonie, Poradna při finanční tísni, Bílý kruh bezpečí</td><td data-label=\"Co dělá\">terénní a sociální práce, dluhové a právní poradenství, práce s lidmi po výkonu trestu, pomoc obětem trestných činů</td></tr>",
    "          </tbody>",

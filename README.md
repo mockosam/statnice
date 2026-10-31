@@ -337,12 +337,16 @@ a doplnění jsou vyznačené přímo v textu (oranžově `<span class="fix">`,
 s rozbalovací poznámkou „Aktualizace 2026“) a zdokumentované na samostatných
 stránkách.
 
-V **říjnu 2026** byly dodatečně opraveny dva údaje, ve kterých si předměty
+V **říjnu 2026** byly dodatečně opraveny tři údaje, ve kterých si předměty
 odporovaly: **doba omezení svéprávnosti** (§ 59 občanského zákoníku od novely
-460/2016 Sb. až 5 let, ne jen 3 roky — psychopedie) a **termín povinné výuky
+460/2016 Sb. až 5 let, ne jen 3 roky — psychopedie), **termín povinné výuky
 podle revidovaného RVP ZV** (po odkladu o rok opatřením MŠMT z března 2026 od
-1. 9. 2028, ne od 1. 9. 2027 — psychologie, pedagogika, poradenství). Poznámky
-k těmto opravám nesou `data-overeno="10/2026"`.
+1. 9. 2028, ne od 1. 9. 2027 — psychologie, pedagogika, poradenství)
+a **chráněné pracovní místo** (zákon o zaměstnanosti ten pojem od 1. 1. 2018,
+novelou 327/2017 Sb., nepoužívá — § 75 dnes upravuje pracovní místo zřízené pro
+osobu se zdravotním postižením, vedle něj stojí chráněný trh práce podle § 78;
+psychopedie a poradenství). Poznámky k těmto opravám nesou
+`data-overeno="10/2026"`.
 
 **Psychopedie** — `psychopedie/pravni-aktualnost.html`. Zdroj je z **2. června
 2018** a od té doby se ho nikdo nedotkl; celkem **17 zjištění**. Nejvážnější je
@@ -404,12 +408,14 @@ porovnány s e-Sbírkou (stav k 31. 10. 2026): v etopedii **49 poznámek**
 109/2002, novela 401/2012 Sb. citovaná jako zákon o SPOD, chybějící
 deinstitucionalizace 363/2021 a 242/2024 Sb., zastaralé č. j. doporučení
 k záškoláctví — platí MSMT-780/2024-3 s aktualizací k 30. 1. 2026), v psychopedii
-**42 poznámek** (chráněné dílny, rok ratifikace Úmluvy 2009, § 673 OZ u sňatku,
+**44 poznámek** (chráněné dílny, rok ratifikace Úmluvy 2009, § 673 OZ u sňatku,
 sterilizace podle zákona 373/2011 Sb., IVP podle vyhlášky 27/2016 místo zrušené
 73/2005). Při kontrole se ukázalo, že ani pojem **„chráněné pracovní místo“**
 zákon o zaměstnanosti od 1. 1. 2018 nezná (novela 327/2017 Sb.: pracovní místo
-zřízené pro osobu se zdravotním postižením, chráněný trh práce) — stručné otázky
-psychopedie a poradenství ho zatím uvádějí jako platný.
+zřízené pro osobu se zdravotním postižením, chráněný trh práce) — od 10/2026 je
+to opravené i ve stručných otázkách psychopedie a poradenství (viz výš). Všechny
+poznámky na podrobných stránkách nesou `data-overeno="10/2026"`, takže u nich
+web ukazuje „ověřeno 10/2026“ místo výchozího „ověřeno 08/2026“.
 
 Legislativa se mění rychle a několik změn má odloženou účinnost na 2027 a 2028.
 Před zkouškou se vyplatí rychlá kontrola na
