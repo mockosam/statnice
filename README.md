@@ -9,15 +9,18 @@ Obsahuje pět předmětů:
 |---|---|---|---|---|---|
 | **Poradenství** (SP – poradenství, intervence a diagnostika) | 20 | 175 | 175 | 173 pojmů | klíčové zákony, právní audit se 14 zjištěními |
 | **Pedagogika** | 20 | 216 | 216 | 215 pojmů | klíčové zákony, právní audit se 16 zjištěními, mapování na 17 okruhů zadání |
-| **Etopedie** | 20 | 86 | 151 | 105 pojmů | klíčové zákony, právní audit, aktualizační dodatek, mapa na 17 okruhů zadání |
-| **Psychopedie** | 20 | 208 | 208 | 208 pojmů | klíčové zákony, právní audit se 17 zjištěními, mapa na 17 okruhů zadání, **3 otázky ze studentských zápisků 2025** |
+| **Etopedie** | 20 | 86 | 317 | 105 pojmů | klíčové zákony, právní audit, aktualizační dodatek, mapa na 17 okruhů zadání, **17 podrobných okruhů ze zápisků 2025**, literatura |
+| **Psychopedie** | 20 | 208 | 364 | 208 pojmů | klíčové zákony, právní audit se 17 zjištěními, mapa na 17 okruhů zadání, **3 otázky ze studentských zápisků 2025**, **17 podrobných okruhů ze zápisků 2025**, literatura |
 | **Psychologie** | 19 | 74 | 74 | 57 pojmů | přehled 43 citovaných děl, kontrola aktuálnosti, otázka 17 ze studentských zápisků |
 
-„Balíček předmětu“ spojuje kartičky z otázek s glosářem, ale **stejný pojem bere
-jen jednou** — proto se nerovná součtu. U psychologie, poradenství, pedagogiky
-a psychopedie jsou obě čísla prakticky shodná, protože jejich glosář je z těch
-definic sestavený.
-Balíček přes všechny předměty má po odečtení duplicit **796 kartiček**.
+„Balíček předmětu“ spojuje kartičky z otázek s glosářem a u etopedie a psychopedie
+i s klíčovými pojmy podrobných stránek, ale **stejný pojem bere jen jednou** —
+proto se nerovná součtu. U psychologie, poradenství a pedagogiky jsou obě čísla
+prakticky shodná, protože jejich glosář je z těch definic sestavený.
+Podrobné stránky mají navíc **vlastní balíček „Podrobné zápisky 2025“**
+(etopedie 166, psychopedie 164 kartiček); do glosáře jejich pojmy záměrně nejdou,
+glosář zůstává rejstříkem stručných otázek.
+Balíček přes všechny předměty má po odečtení duplicit **1099 kartiček**.
 
 Počty se na stránkách dopočítávají za běhu z `assets/data.js` (atribut
 `data-count-for`), takže zestarat nemohou; čísla v HTML jsou jen záloha pro případ
@@ -59,6 +62,8 @@ etopedie/
   aktualizace-2026.html    aktualizační dodatek ze zdroje (MKN-11, novely)
   karticky.html       výběr balíčků kartiček
   jak-pracovat.html   úvod ze zdrojového dokumentu
+  podrobne-okruh-NN-….html  GENEROVANÉ podrobné stránky ze zápisků 2025, okruhy 1–17 zadání
+  literatura.html     GENEROVANÝ seznam zdrojů k zápiskům (25 položek)
 psychologie/
   index.html          přehled 19 otázek + ukazatel postupu
   otazka-01-….html    jednotlivé otázky
@@ -93,8 +98,13 @@ psychopedie/
   karticky.html       výběr balíčků kartiček
   zakony.html         klíčové zákony ve znění k 08/2026 + tabulka zrušených předpisů
   pravni-aktualnost.html   17 zjištění + mapa na 17 okruhů zadání + MKN-11 a MKF
+                           + oddíl „Podrobné zápisky 2025“ (generovaná tabulka oprav)
+  podrobne-okruh-NN-….html  GENEROVANÉ podrobné stránky ze zápisků 2025, okruhy A21 1–17
+  literatura.html     GENEROVANÝ seznam zdrojů k zápiskům (22 položek)
   (bez img/ — z 5 obrázků se nepublikuje ani jeden, dva jsou přepsané do textu)
 source/               zdrojové .docx jen lokálně (viz .gitignore), zápisky 2025 v source/zapisky-2025/
+  zapisky-2025/etopedie/     zápisky 2025 ze složky „Eto“ (17 okruhů, zadání, zdroje)
+  zapisky-2025/psychopedie/  zápisky 2025 ze složky „Psychopedie “ (s mezerou na konci)
 tools/                pomocné skripty (viz níže)
 ```
 
@@ -112,7 +122,14 @@ python3 tools/reindex.py             # znovu — glosáře taky přispívají ka
 ```
 
 Oba skripty čtou **hotové HTML**, ne `.docx`, takže vaše ruční úpravy zůstanou
-zachovány. Výjimka: `psychologie/glosar.html` a `poradenstvi/glosar.html` jsou
+zachovány.
+
+Výjimkou jsou **podrobné stránky** `*/podrobne-okruh-*.html` a `*/literatura.html`
+u etopedie a psychopedie: ty generuje `tools/docx2html_zapisky.py` ze zápisků
+a z `tools/_doplnky_<předmět>_podrobne.json` a ruční úpravy patří do toho JSON.
+Stejný skript udržuje i bloky mezi značkami `<!-- podrobne:start -->` a
+`<!-- podrobne:end -->` v přehledu předmětu, ve stručných otázkách a v
+`pravni-aktualnost.html` — text mezi značkami při dalším běhu přepíše. Výjimka: `psychologie/glosar.html` a `poradenstvi/glosar.html` jsou
 generované — ruční úpravy v nich `make_glosar.py` přepíše. Chcete-li heslo vyřadit
 nebo přejmenovat, upravte definici v příslušné otázce, případně filtr `SKIP_RE`
 ve skriptu.
@@ -131,6 +148,8 @@ ve skriptu.
 | `<details class="upd">` | poznámka „Aktualizace 2026“; do kartiček ani nadpisů se nepočítá |
 | `<span class="fix">` | oranžové zvýraznění opraveného údaje |
 | `<td data-label="…">` | název sloupce, který se na mobilu zobrazí u hodnoty |
+| `<body data-kind="podrobne">` | podrobná stránka ze zápisků; v hledání „Okruh N · podrobně“, kartičky ve vlastním balíčku, do glosáře nejde |
+| `<!-- podrobne:start -->` … `<!-- podrobne:end -->` | blok generovaný `docx2html_zapisky.py` (odkazy na podrobné stránky, tabulka oprav) |
 
 ## Přidání dalšího předmětu
 
@@ -147,7 +166,7 @@ ve skriptu.
 
 ### Import z Wordu
 
-Konvertorů je pět, protože každý zdrojový dokument byl strukturovaný jinak.
+Konvertorů je šest, protože každý zdrojový dokument byl strukturovaný jinak.
 Vykreslování (inline formátování, seznamy, tabulky, šablona stránky) mají společné —
 pozdější skripty ho importují z `docx2html.py`, takže všechny předměty
 vypadají stejně.
@@ -159,6 +178,7 @@ vypadají stejně.
 | `tools/docx2html_spec.py` | nadpisové styly používá, ale `Nadpis1` slouží zároveň jako nadpis otázky i sekce; hranice otázek jsou proto v ověřované mapě `QSTART` (poradenství) |
 | `tools/docx2html_ped.py` | totéž jako `_spec`, ale obsah je pole (perex se bere z nadpisu), jedna tabulka má titulkový řádek přes celou šířku a **žádný obrázek se nepublikuje** (pedagogika) |
 | `tools/docx2html_psychopedie.py` | **nadpisové styly nepoužívá vůbec** (`Nadpis1` ani jednou) — otázky odděluje jen řádek hvězdiček, podnadpisy jsou verzálkové a tučné odstavce; čtyři otázky ve zdroji nejsou vypracované (psychopedie) |
+| `tools/docx2html_zapisky.py` | není jeden dokument, ale **sada 17 zápisků na okruh** zadání + seznam zdrojů; text je i v hypertextových odkazech, slova odděluje tabulátor, ve zdroji jsou zbytky z ChatGPT a snímky tabulek (podrobné stránky etopedie a psychopedie) |
 
 ```bash
 python3 tools/docx2html.py source/nazev.docx etopedie
@@ -166,9 +186,11 @@ python3 tools/docx2html_psy.py 'SZO PSYCHOLOGIE.docx' psychologie
 python3 tools/docx2html_spec.py 'SZO SPECIÁLNÍ PEDAGOGIKA.DOCX' poradenstvi
 python3 tools/docx2html_ped.py 'SZZ- Padagogika (komplet).DOCX' pedagogika
 python3 tools/docx2html_psychopedie.py        # zdroj si najde globem, viz níž
+python3 tools/docx2html_zapisky.py --all --force   # podrobné stránky z source/zapisky-2025/
+python3 tools/docx2html_zapisky.py etopedie --dump /tmp/vypis   # text zápisků s čísly bloků
 ```
 
-> Všech pět skriptů **odmítne přepsat** existující stránky. Pokud to opravdu
+> Všech šest skriptů **odmítne přepsat** existující stránky. Pokud to opravdu
 > chcete (a smíříte se se ztrátou ručních úprav), přidejte `--force`.
 
 Nový dokument bude nejspíš strukturovaný ještě jinak — než začnete, vyplatí se
@@ -210,6 +232,40 @@ Značka `<span class="fix">` a rozbalovací `<details class="upd">` se vždy vě
 **až za koncovou značku odstavce nebo seznamu** — uvnitř nich by rozdělily text
 a `check_fidelity.py` by ho hlásil jako ztracený.
 
+#### Podrobné stránky ze zápisků 2025
+
+`tools/docx2html_zapisky.py` čte zápisky ze `source/zapisky-2025/<předmět>/`
+(jeden `.docx` na okruh; soubory pozná podle čísla v názvu a bez všech 17 skončí
+chybou) a oficiální zadání, ze kterého bere plné znění okruhu do perexu. Proti
+ostatním konvertorům parsuje odstavce sám: `docx2html.parse_para()` totiž
+vynechává text uvnitř `<w:hyperlink>` a `<w:tab/>` — a právě v odkazech jsou
+v zápiscích názvy metodických pokynů i citační „pilulky“ ChatGPT.
+
+Úklid je pravidlový a každý zásah se zapíše do `tools/_meta_zapisky_<předmět>.json`:
+odkazy s `utm_source=chatgpt.com` (a s příponou „+N“) se zahazují, z adres se
+odstraňuje prefix prohlížeče PDF `chrome-extension://…/`, z nadpisů emoji
+a úvodní blok „N. otázka“ + znění okruhu (je v hlavičce stránky). Ruční zásahy
+jsou v `tools/_doplnky_<předmět>_podrobne.json`:
+
+* `levels`, `promote`, `demote`, `spojit` — úrovně nadpisů; čtyři zápisky
+  nadpisové styly nemají vůbec, tam jsou nadpisy vyjmenované po číslech bloků;
+* `drop` — vyřazené bloky s důvodem (vložená konverzace s ChatGPT v okruhu 10
+  psychopedie, „ZDROJ:“ s místní cestou k souboru na disku autorky);
+* `images` — **přepis každého obrázku** do HTML; obrázek bez přepisu je chyba;
+* `terms` — ručně vybrané klíčové pojmy stránky (vlastní balíček kartiček);
+* `fixes` — opravy jako slovník `{najdi, nahrad?, pozn, proc, odkaz?, bylo?, plati?, zdroj?}`:
+  `najdi` se nahradí (`<span class="fix">`), poznámka „Aktualizace 2026“ se
+  pověsí za konec odstavce, seznamu, tabulky nebo boxu, který text obsahuje,
+  a původní znění cituje. Opravy s `bylo`/`plati`/`zdroj` se zároveň vypíšou
+  do tabulky v oddílu „Podrobné zápisky 2025“ na `pravni-aktualnost.html`;
+* `notes`, `literatura_uvod`, `literatura` — boxy a opravy seznamu zdrojů
+  (dohledané useknuté adresy, štítky korporativních autorů).
+
+`check_fidelity.py --zapisky <předmět>` čte zápisky stejnou funkcí jako
+konvertor a jednotky dotčené opravou z `fixes` počítá jako vědomě opravené.
+Odkaz na podrobnou stránku do stručné otázky psychopedie vkládá při
+přegenerování i `docx2html_psychopedie.py` (funkce `crosslink_html()`).
+
 Mapa `QSTART` v konvertoru se při každém spuštění **ověřuje proti textu nadpisů**.
 Když se dokument změní, skript spadne s výpisem, co nesouhlasí, místo aby
 vygeneroval rozsypané stránky.
@@ -230,6 +286,8 @@ python3 tools/check_fidelity.py --map tools/_meta_pedagogika.json \
         'SZZ- Padagogika (komplet).DOCX' pedagogika
 python3 tools/check_fidelity.py --map tools/_meta_psychopedie.json \
         PSYCHOPEDIE*.docx psychopedie
+python3 tools/check_fidelity.py --zapisky etopedie       # podrobné stránky ze zápisků 2025
+python3 tools/check_fidelity.py --zapisky psychopedie
 ```
 
 > Jméno zdrojového dokumentu psychopedie je uložené v **NFD** (`OTA` + U+0301),
@@ -329,6 +387,22 @@ doby stav změnil: MKN-11, DSM-5-TR, revize RVP ZV a novely vyhlášek. Otázku 
 hlavní zdroj nevypracoval; její výklad stojí na samostatných studentských
 zápiscích z téhož období.
 
+**Podrobné zápisky 2025** (etopedie i psychopedie) — oddíl „Podrobné zápisky
+2025“ na obou `pravni-aktualnost.html`. Zápisky jsou o sedm let novější než zdroj
+psychopedie a svéprávnost i podpůrná opatření znají, ale jsou psané z různých
+zdrojů a místy s pomocí umělé inteligence. Všechny odkazy na předpisy byly
+porovnány s e-Sbírkou (stav k 31. 10. 2026): v etopedii **49 poznámek**
+(např. zrušený zákon o rodině § 46 a § 31, „zákon č. 109/2012 Sb.“ místo
+109/2002, novela 401/2012 Sb. citovaná jako zákon o SPOD, chybějící
+deinstitucionalizace 363/2021 a 242/2024 Sb., zastaralé č. j. doporučení
+k záškoláctví — platí MSMT-780/2024-3 s aktualizací k 30. 1. 2026), v psychopedii
+**42 poznámek** (chráněné dílny, rok ratifikace Úmluvy 2009, § 673 OZ u sňatku,
+sterilizace podle zákona 373/2011 Sb., IVP podle vyhlášky 27/2016 místo zrušené
+73/2005). Při kontrole se ukázalo, že ani pojem **„chráněné pracovní místo“**
+zákon o zaměstnanosti od 1. 1. 2018 nezná (novela 327/2017 Sb.: pracovní místo
+zřízené pro osobu se zdravotním postižením, chráněný trh práce) — stručné otázky
+psychopedie a poradenství ho zatím uvádějí jako platný.
+
 Legislativa se mění rychle a několik změn má odloženou účinnost na 2027 a 2028.
 Před zkouškou se vyplatí rychlá kontrola na
 [e-sbirka.gov.cz](https://e-sbirka.gov.cz), [msmt.gov.cz](https://msmt.gov.cz),
@@ -367,3 +441,11 @@ doložené licence (u Makatonu navíc s anglickými popisky); piktogramy a sklá
 logika Blissu jsou **překreslené jako inline SVG**, Makaton je popsaný slovy.
 Studentské zápisky z roku 2025, ze kterých jsou otázky 9, 18 a 20, obrázky
 neobsahují — jediný vložený obrázek je prázdný pixel.
+
+Celá sada zápisků 2025, ze které jsou podrobné stránky, obsahuje **35 vložených
+obrázků** (etopedie 17, psychopedie 18, z toho tři prázdné zástupné 1×1 px). Až na
+výjimky jsou to snímky tabulek z učebnic a z dokumentů MŠMT a MPSV — **všechny
+jsou přepsané do HTML** (tabulky, seznamy) a žádný se nepublikuje. Sedm snímků
+jedné tabulky z manuálu MPSV k AAK u osob s demencí je spojených do tří celých
+tabulek, aby řádky rozdělené mezi snímky dávaly smysl. Přepisy i důvody jsou
+v `images` v `tools/_doplnky_<předmět>_podrobne.json`.

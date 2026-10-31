@@ -11,6 +11,7 @@ kontrola nereaguje.
     python3 tools/check_fidelity.py                       # etopedie (kapitoly podle Heading1)
     python3 tools/check_fidelity.py --map tools/_meta_psychologie.json \
             'SZO PSYCHOLOGIE.docx' psychologie            # předmět bez nadpisových stylů
+    python3 tools/check_fidelity.py --zapisky etopedie    # podrobné stránky ze zápisků 2025
 
 Režim --map se použije tam, kde se kapitoly nedají poznat ze stylů; konvertor
 v takovém případě uloží mapu „výstupní soubor → rozsah bloků“.
@@ -196,8 +197,101 @@ def check_by_map(blocks, meta, outdir) -> int:
     return 0
 
 
+def check_zapisky(subject: str) -> int:
+    """
+    Podrobné stránky ze studentských zápisků 2025 (tools/docx2html_zapisky.py).
+
+    Zdrojem není jeden dokument, ale 17 zápisků — jeden na okruh zadání —
+    a seznam literatury. Zápisek se čte stejnou funkcí jako v konvertoru
+    (`prepare()`), tedy i se stejným úklidem: bez citačních odkazů ChatGPT,
+    bez emoji v nadpisech a bez bloků vyřazených v doplňcích. Co úklid
+    odstranil, je zapsané v tools/_meta_zapisky_<předmět>.json a tady se
+    jen sečte. Jednotka, které se týká oprava z doplňků (`fixes`), se počítá
+    jako vědomě opravená — oprava sama je v doplňcích i s vysvětlením.
+    """
+    from collections import Counter
+    import docx2html_zapisky as Z
+
+    src_dir = os.path.join(Z.SRC_ROOT, subject)
+    dop = Z.load_doplnky(subject)
+    sources = Z.find_sources(subject, src_dir)
+    zadani = Z.read_zadani(subject, src_dir)
+    corrections = load_corrections(subject)
+    fixed: list[str] = []
+    problems: list[tuple[str, str]] = []
+    total = missing = 0
+    cleanup: Counter = Counter()
+    dropped = 0
+
+    def plain(h: str) -> str:
+        return squash(html_mod.unescape(re.sub(r"<[^>]+>", " ", h)))
+
+    for n, path in sorted(sources.items()):
+        prep = Z.prepare(subject, n, path, dop, zadani[n])
+        fname = Z.href_of(subject, n)
+        page = os.path.join(subject, fname)
+        if not os.path.exists(page):
+            problems.append((fname, "(stránka neexistuje)"))
+            continue
+        hay = squash(page_text(page))
+        fixes = [(plain(f["najdi"]), f.get("proc", "oprava z doplňků")) if isinstance(f, dict)
+                 else (plain(f[0]), f[2] if len(f) > 2 else "oprava z doplňků")
+                 for f in dop.get("fixes", {}).get(str(n), [])]
+        for idx, text in Z.units_of(prep["body"]):
+            total += 1
+            needle = squash(text)
+            if not needle or needle in hay:
+                continue
+            if needle in corrections:
+                fixed.append(corrections[needle])
+                continue
+            why = next((w for f, w in fixes if f and (f in needle or needle in f)), None)
+            if why:
+                fixed.append("%s — okruh %d, blok %d: %s" % (fname, n, idx, why))
+                continue
+            missing += 1
+            problems.append((fname, "blok %d: %s" % (idx, text)))
+        dropped += len(prep["dropped"])
+        for e in prep["log"]:
+            cleanup[e["co"]] += 1
+
+    # seznam literatury
+    lit = os.path.join(subject, "literatura.html")
+    over = dop.get("literatura", {})
+    if os.path.exists(lit):
+        hay = squash(page_text(lit))
+        for e in Z.read_zdroje(subject, src_dir):
+            total += 1
+            if "text" in over.get(str(e["idx"]), {}):
+                fixed.append("literatura.html — položka %d přepsána v doplňcích (dohledaná adresa)" % e["idx"])
+                continue
+            if squash(Z.clean_text(e["text"])) not in hay:
+                missing += 1
+                problems.append(("literatura.html", e["text"]))
+    else:
+        problems.append(("literatura.html", "(stránka neexistuje)"))
+
+    print("kontrolováno %d textových jednotek v 17 zápiscích a seznamu literatury" % total)
+    print("vyřazeno %d bloků (titulky zápisků, vložená konverzace s ChatGPT — viz doplňky)" % dropped)
+    if cleanup:
+        print("úklid: %s" % ", ".join("%s %d×" % kv for kv in sorted(cleanup.items())))
+    report_corrections(fixed, {k: v for k, v in corrections.items() if v.startswith(subject + "/")})
+    if problems:
+        print("CHYBÍ %d:" % missing)
+        for where, text in problems[:40]:
+            print("  [%s] %s" % (where, text[:118]))
+        if len(problems) > 40:
+            print("  … a další %d" % (len(problems) - 40))
+        return 1
+    print("OK — veškerý text ze zápisků je na podrobných stránkách")
+    return 0
+
+
 def main() -> int:
     argv = sys.argv[1:]
+    if "--zapisky" in argv:
+        subject = argv[argv.index("--zapisky") + 1]
+        return check_zapisky(subject)
     mapfile = None
     if "--map" in argv:
         k = argv.index("--map")

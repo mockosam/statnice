@@ -1,0 +1,1000 @@
+{
+ "zdroj": "source/zapisky-2025/psychopedie",
+ "okruhy": {
+  "1": {
+   "soubor": "Otazka c. 1. Psychopedie_NMgr..docx",
+   "href": "podrobne-okruh-01-aak-deti-dospeli.html",
+   "titulek": "AAK u dětí a dospělých, pomůcky s hlasovým výstupem",
+   "zadani": "Rozdílnost ve využití alternativní a augmentativní komunikace u dětí a dospělých. Alternativní komunikace jako významný prvek socializace. PC s hlasovým výstupem a bez hlasového výstupu u osob s kombinovaným postižením, sluchovým postižením, zrakovým postižením, tělesným postižením, nemluvících.",
+   "strucne": [
+    18
+   ],
+   "slov": 3442,
+   "bloku": 353,
+   "nadpisu": 24,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {
+    "rId8": "prázdný zástupný obrázek 1×1 px"
+   },
+   "uklid": [
+    {
+     "kde": "blok 42",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Alternativní vs. augmentativní – jaký je skutečně rozdíl?"
+    },
+    {
+     "kde": "blok 47",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Proč se tím tedy vůbec zabývat?"
+    },
+    {
+     "kde": "blok 52",
+     "co": "emoji v nadpisu",
+     "text": "🔹 A co nácvik orální řeči – má smysl ji podporovat vždy?"
+    },
+    {
+     "kde": "blok 57",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Rozdíl v nácviku?"
+    }
+   ]
+  },
+  "2": {
+   "soubor": "Otazka c. 2. Psychopedie_NMgr..docx",
+   "href": "podrobne-okruh-02-alternativni-programy.html",
+   "titulek": "Alternativní vzdělávací programy a sociální čtení",
+   "zadani": "Alternativní vzdělávací programy. Alternativní přístupy k edukaci a péči o osoby s mentálním postižením u nás a v zahraničí. Sociální čtení. Alternativní a augmentativní komunikace. Problematika u osob s kombinovaným postižením.",
+   "strucne": [
+    5
+   ],
+   "slov": 8154,
+   "bloku": 836,
+   "nadpisu": 74,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {
+    "rId8": "prázdný zástupný obrázek 1×1 px"
+   },
+   "uklid": [
+    {
+     "kde": "blok 191",
+     "co": "emoji v nadpisu",
+     "text": "🔶 1. Pomůcky pro praktický život (Practical Life)"
+    },
+    {
+     "kde": "blok 200",
+     "co": "emoji v nadpisu",
+     "text": "🔷 2. Smyslové materiály (Sensorial Materials)"
+    },
+    {
+     "kde": "blok 211",
+     "co": "emoji v nadpisu",
+     "text": "🔺 3. Matematické pomůcky (Mathematics Materials)"
+    },
+    {
+     "kde": "blok 220",
+     "co": "emoji v nadpisu",
+     "text": "🔤 4. Jazykové pomůcky (Language Materials)"
+    },
+    {
+     "kde": "blok 229",
+     "co": "emoji v nadpisu",
+     "text": "🌍 5. Kulturní oblast (geografie, biologie, historie, věda)"
+    },
+    {
+     "kde": "blok 432",
+     "co": "emoji v nadpisu",
+     "text": "✔️ Pozitiva pro žáky s MP:"
+    },
+    {
+     "kde": "blok 451",
+     "co": "emoji v nadpisu",
+     "text": "🔸 Školní pospolitost (Schulgemeinde)"
+    },
+    {
+     "kde": "blok 454",
+     "co": "emoji v nadpisu",
+     "text": "🔸 Heterogenní skupiny"
+    },
+    {
+     "kde": "blok 457",
+     "co": "emoji v nadpisu",
+     "text": "🔸 Organizační formy"
+    },
+    {
+     "kde": "blok 463",
+     "co": "emoji v nadpisu",
+     "text": "🔸 Týdenní plán"
+    },
+    {
+     "kde": "blok 468",
+     "co": "emoji v nadpisu",
+     "text": "🔸 Role učitele a monitorů"
+    },
+    {
+     "kde": "blok 471",
+     "co": "emoji v nadpisu",
+     "text": "🔸 Praktická výuka"
+    },
+    {
+     "kde": "blok 507",
+     "co": "emoji v nadpisu",
+     "text": "1. 🎲 Hra jako nosný princip výuky"
+    },
+    {
+     "kde": "blok 513",
+     "co": "emoji v nadpisu",
+     "text": "2. 🧩 Učení v druhém plánu"
+    },
+    {
+     "kde": "blok 518",
+     "co": "emoji v nadpisu",
+     "text": "3. 🧠 Zapojení vnitřní motivace"
+    },
+    {
+     "kde": "blok 523",
+     "co": "emoji v nadpisu",
+     "text": "4. 🧪 Učivo jako součást reálného života"
+    },
+    {
+     "kde": "blok 527",
+     "co": "emoji v nadpisu",
+     "text": "5. 🎭 Silný prvek příběhu a role"
+    },
+    {
+     "kde": "blok 559",
+     "co": "emoji v nadpisu",
+     "text": "🟢 Montessori pedagogika"
+    },
+    {
+     "kde": "blok 563",
+     "co": "emoji v nadpisu",
+     "text": "🟠 Daltonský plán"
+    },
+    {
+     "kde": "blok 567",
+     "co": "emoji v nadpisu",
+     "text": "🔵 Waldorfská pedagogika"
+    },
+    {
+     "kde": "blok 571",
+     "co": "emoji v nadpisu",
+     "text": "🟣 Začít spolu"
+    },
+    {
+     "kde": "blok 575",
+     "co": "emoji v nadpisu",
+     "text": "🟡 Camphillské léčebné komunity"
+    },
+    {
+     "kde": "blok 648",
+     "co": "emoji v nadpisu",
+     "text": "📌 Společná domácnost"
+    },
+    {
+     "kde": "blok 650",
+     "co": "emoji v nadpisu",
+     "text": "📌 Společná příprava a stolování"
+    },
+    {
+     "kde": "blok 659",
+     "co": "emoji v nadpisu",
+     "text": "📌 Bez osnov a známek"
+    },
+    {
+     "kde": "blok 664",
+     "co": "emoji v nadpisu",
+     "text": "📌 Terapie jako přirozená součást života"
+    },
+    {
+     "kde": "blok 672",
+     "co": "emoji v nadpisu",
+     "text": "✅ Pedagogický optimismus"
+    },
+    {
+     "kde": "blok 677",
+     "co": "emoji v nadpisu",
+     "text": "✅ Komunitní přístup"
+    },
+    {
+     "kde": "blok 679",
+     "co": "emoji v nadpisu",
+     "text": "✅ Spiritualita a lidskost"
+    }
+   ]
+  },
+  "3": {
+   "soubor": "Otazka c. 3.docx",
+   "href": "podrobne-okruh-03-obor-historie-klasifikace.html",
+   "titulek": "Psychopedie jako obor, historie a klasifikace",
+   "zadani": "Pojetí psychopedie jako oboru speciální pedagogiky, základní východiska a vývoj v rámci speciální pedagogiky. Historie oboru v ČR, významné osobnosti oboru psychopedie. Klasifikace mentálního postižení – MKN, DSM, MKF (ICF).",
+   "strucne": [
+    1
+   ],
+   "slov": 3944,
+   "bloku": 356,
+   "nadpisu": 39,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ],
+    [
+     3,
+     "druhá polovina rozlomeného nadpisu — spojeno s blokem 2"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": []
+  },
+  "4": {
+   "soubor": "Otazka c. 4.docx",
+   "href": "podrobne-okruh-04-pas-vzdelavani-teacch.html",
+   "titulek": "Vzdělávání dětí s PAS a program TEACCH",
+   "zadani": "Specifika vzdělávání dětí s poruchami autistického spektra. TEACCH program. Alternativní formy komunikace u jedinců s diagnózou autismus. Rozvoj sociálních dovedností u jedinců s PAS.",
+   "strucne": [
+    16
+   ],
+   "slov": 7827,
+   "bloku": 750,
+   "nadpisu": 41,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {
+    "rId5": "Stromové schéma dělení systémů AAK na systémy s pomůckami (netechnické a technické) a bez pomůcek.",
+    "rId727591148": "Ukázky materiálů pro sociální čtení: výstražná dopravní značka s cyklistou, zelená cedulka WC a obrázkový postup přípravy salátu v osmi černobílých kresbách."
+   },
+   "uklid": [
+    {
+     "kde": "blok 572",
+     "co": "emoji v nadpisu",
+     "text": "✅ Postup demonstrace:"
+    },
+    {
+     "kde": "blok 589",
+     "co": "emoji v nadpisu",
+     "text": "🧠 Proč to funguje:"
+    },
+    {
+     "kde": "blok 602",
+     "co": "emoji v nadpisu",
+     "text": "✅ Postup modelování:"
+    },
+    {
+     "kde": "blok 610",
+     "co": "emoji v nadpisu",
+     "text": "🧩 Situace 2: Říct si o pomoc"
+    },
+    {
+     "kde": "blok 611",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Cíl:"
+    },
+    {
+     "kde": "blok 613",
+     "co": "emoji v nadpisu",
+     "text": "✅ Postup modelování:"
+    },
+    {
+     "kde": "blok 620",
+     "co": "emoji v nadpisu",
+     "text": "🧩 Situace 3: Pozdravit při příchodu"
+    },
+    {
+     "kde": "blok 632",
+     "co": "emoji v nadpisu",
+     "text": "🔧 Tři typy řetězení:"
+    },
+    {
+     "kde": "blok 636",
+     "co": "emoji v nadpisu",
+     "text": "✅ Jak vypadá nácvik řetězení?"
+    },
+    {
+     "kde": "blok 646",
+     "co": "emoji v nadpisu",
+     "text": "🔹 U dopředného řetězení:"
+    },
+    {
+     "kde": "blok 651",
+     "co": "emoji v nadpisu",
+     "text": "🔹 U zpětného řetězení:"
+    },
+    {
+     "kde": "blok 656",
+     "co": "emoji v nadpisu",
+     "text": "🎯 Výhody řetězení u dětí s PAS:"
+    },
+    {
+     "kde": "blok 713",
+     "co": "emoji v nadpisu",
+     "text": "🔍 Proč je to obtížnější?"
+    },
+    {
+     "kde": "blok 719",
+     "co": "emoji v nadpisu",
+     "text": "✅ Ale co naopak mají – a co lze využít:"
+    },
+    {
+     "kde": "blok 724",
+     "co": "emoji v nadpisu",
+     "text": "🧩 Jak rozvíjet sociální dovednosti u nemluvících dětí s PAS?"
+    },
+    {
+     "kde": "blok 747",
+     "co": "emoji v nadpisu",
+     "text": "🎯 Co je reálným cílem?"
+    }
+   ]
+  },
+  "5": {
+   "soubor": "Otazka c. 5.docx",
+   "href": "podrobne-okruh-05-organizace-dokumenty.html",
+   "titulek": "Organizace a vládní dokumenty",
+   "zadani": "Mezinárodní organizace zastupující osoby s mentálním postižením a jejich význam. Organizace a občanská sdružení v ČR zastupující osoby s mentálním postižením. Vládní dokumenty zajišťující rovný přístup ke vzdělávání.",
+   "strucne": [
+    9
+   ],
+   "slov": 4424,
+   "bloku": 276,
+   "nadpisu": 27,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": [
+    {
+     "kde": "blok 38",
+     "co": "citační odkaz ChatGPT",
+     "text": "Wikipedia+3Inclusion International+3iddcconsortium.net+3"
+    },
+    {
+     "kde": "blok 42",
+     "co": "citační odkaz ChatGPT",
+     "text": "Inclusion International"
+    },
+    {
+     "kde": "blok 44",
+     "co": "citační odkaz ChatGPT",
+     "text": "Inclusion International+2Inclusion International+2Inclusive Participation Toolbox+2"
+    }
+   ]
+  },
+  "6": {
+   "soubor": "Otazka c. 6.docx",
+   "href": "podrobne-okruh-06-aak-systemy-voks.html",
+   "titulek": "Piktogramy, Bliss, Makaton, Lormova abeceda a VOKS",
+   "zadani": "Využití alternativní komunikace u dospělých a seniorů. Piktogramy, Bliss, Makaton, Lormova abeceda, komunikační kniha aj. Alternativní komunikace prostřednictvím metody VOKS u osob s poruchou autistického spektra a jiné metody.",
+   "strucne": [
+    17
+   ],
+   "slov": 2780,
+   "bloku": 298,
+   "nadpisu": 13,
+   "pojmu": 9,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ],
+    [
+     292,
+     "„ZDROJ:“ s místní cestou k souboru na disku autorky zápisků (s uživatelským jménem); zdroj přepsaných tabulek — manuál MPSV k AAK u osob s demencí — je uvedený v jejich popiscích a v literatuře"
+    ]
+   ],
+   "obrazky": {
+    "rId5": "Stromové schéma dělení systémů AAK na systémy s pomůckami (netechnické a technické) a bez pomůcek.",
+    "rId1322083104": "Přehled 48 základních symbolů systému Bliss s anglickými popisky (Basic symbols).",
+    "rId979878763": "Ukázky složených symbolů a slov v systému Bliss s anglickými popisky (Compound symbols, Words).",
+    "rId6": "Tabulka z manuálu MPSV k AAK u osob s demencí — ve zdroji rozdělená do sedmi snímků (rId6–rId12), tady spojená do tří tabulek.",
+    "rId7": "pokračování téže tabulky — přepsáno spolu s rId6",
+    "rId8": "pokračování téže tabulky — přepsáno spolu s rId6",
+    "rId9": "pokračování téže tabulky — přepsáno spolu s rId6",
+    "rId10": "pokračování téže tabulky — přepsáno spolu s rId6",
+    "rId11": "pokračování téže tabulky — přepsáno spolu s rId6",
+    "rId12": "pokračování téže tabulky — přepsáno spolu s rId6"
+   },
+   "uklid": []
+  },
+  "7": {
+   "soubor": "Otazka c. 7. Psychopedie_NMgr..docx",
+   "href": "podrobne-okruh-07-volny-cas-dospeli.html",
+   "titulek": "Volný čas, profesní orientace a práce s dospělými",
+   "zadani": "Volný čas a zájmová činnost jedinců s mentálním postižením. Poradenství v profesní orientaci. Metody a formy práce s dospělým člověkem s mentálním postižením. Strukturované učení. Sociální učení. Vzdělávání dospělých lidí s mentálním postižením, zásady komunikace.",
+   "strucne": [
+    6,
+    7
+   ],
+   "slov": 4184,
+   "bloku": 428,
+   "nadpisu": 32,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {
+    "rId8": "prázdný zástupný obrázek 1×1 px"
+   },
+   "uklid": []
+  },
+  "8": {
+   "soubor": "Otazka c. 8.docx",
+   "href": "podrobne-okruh-08-vychova-rana-pece.html",
+   "titulek": "Výchova dítěte s mentálním postižením a raná péče",
+   "zadani": "Výchova dítěte s mentálním postižením. Raná péče a možnosti intervence. Specifika edukace u dětí s mentálním postižením v předškolním věku.",
+   "strucne": [
+    2
+   ],
+   "slov": 6153,
+   "bloku": 524,
+   "nadpisu": 31,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {
+    "rId5": "Tabulka 5.1 popisující úrovně adaptivního chování dětí s lehkou, střední, těžkou a hlubokou mentální retardací ve věku od narození do šesti let."
+   },
+   "uklid": [
+    {
+     "kde": "blok 276",
+     "co": "emoji v nadpisu",
+     "text": "🔹 A. Metody zaměřené na vývoj dítěte"
+    },
+    {
+     "kde": "blok 280",
+     "co": "emoji v nadpisu",
+     "text": "🔹 B. Metody zaměřené na spolupráci s rodinou"
+    },
+    {
+     "kde": "blok 434",
+     "co": "emoji v nadpisu",
+     "text": "🧠 1. Didaktické metody přizpůsobené dětem s MP"
+    },
+    {
+     "kde": "blok 435",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Multisenzoriální učení"
+    },
+    {
+     "kde": "blok 439",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Metoda nácviku a opakování (drilová metoda)"
+    },
+    {
+     "kde": "blok 442",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Názornost a konkretizace"
+    },
+    {
+     "kde": "blok 445",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Hra jako hlavní prostředek učení"
+    },
+    {
+     "kde": "blok 448",
+     "co": "emoji v nadpisu",
+     "text": "❤️ 2. Speciální pedagogické přístupy"
+    },
+    {
+     "kde": "blok 449",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Strukturované učení"
+    },
+    {
+     "kde": "blok 452",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Individuální přístup"
+    },
+    {
+     "kde": "blok 455",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Celostní učení (učení v souvislostech)"
+    },
+    {
+     "kde": "blok 457",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Prožitkové učení"
+    },
+    {
+     "kde": "blok 460",
+     "co": "emoji v nadpisu",
+     "text": "🎵 3. Speciální techniky a podpůrné metody"
+    },
+    {
+     "kde": "blok 461",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Alternativní a augmentativní komunikace (AAK)"
+    },
+    {
+     "kde": "blok 463",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Bazální stimulace"
+    },
+    {
+     "kde": "blok 466",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Snoezelen"
+    },
+    {
+     "kde": "blok 469",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Metoda Dobrého startu"
+    },
+    {
+     "kde": "blok 471",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Psychomotorika"
+    },
+    {
+     "kde": "blok 474",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Muzikoterapie / arteterapie / dramatoterapie"
+    },
+    {
+     "kde": "blok 477",
+     "co": "emoji v nadpisu",
+     "text": "🧑‍🏫 4. Organizační a personální podpora"
+    },
+    {
+     "kde": "blok 482",
+     "co": "emoji v nadpisu",
+     "text": "🎨 1. Multisenzoriální aktivity"
+    },
+    {
+     "kde": "blok 489",
+     "co": "emoji v nadpisu",
+     "text": "🗣️ 2. Aktivity rozvíjející komunikaci a AAK"
+    },
+    {
+     "kde": "blok 496",
+     "co": "emoji v nadpisu",
+     "text": "🧩 3. Kognitivní a pracovní činnosti"
+    },
+    {
+     "kde": "blok 503",
+     "co": "emoji v nadpisu",
+     "text": "🧘 4. Aktivity pro tělo a smyslové vnímání"
+    },
+    {
+     "kde": "blok 510",
+     "co": "emoji v nadpisu",
+     "text": "🎵 5. Hudební a rytmické činnosti"
+    },
+    {
+     "kde": "blok 517",
+     "co": "emoji v nadpisu",
+     "text": "👯 6. Sociální a kooperativní činnosti"
+    }
+   ]
+  },
+  "9": {
+   "soubor": "Otazka c. 9. Psychopedie_NMgr..docx",
+   "href": "podrobne-okruh-09-vzdelavaci-system.html",
+   "titulek": "Vzdělávací systém, RVP a podpůrná opatření",
+   "zadani": "Vzdělávací systém ve vzdělávání dětí a žáků s mentálním postižením v návaznosti na aktualizovanou školskou legislativu. Návaznost na RVP ZV, IVP, další možnosti podpůrných opatření.",
+   "strucne": [
+    3
+   ],
+   "slov": 3225,
+   "bloku": 316,
+   "nadpisu": 11,
+   "pojmu": 8,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": []
+  },
+  "10": {
+   "soubor": "Otazka c. 10.docx",
+   "href": "podrobne-okruh-10-sebeobhajovani-advokacie.html",
+   "titulek": "Spolurozhodování, advokacie a sebeobhajování",
+   "zadani": "Zapojení jedinců s mentálním postižením do spolurozhodování, občanská advokacie, realizace sebeobhajování v České republice.",
+   "strucne": [
+    8
+   ],
+   "slov": 2783,
+   "bloku": 266,
+   "nadpisu": 18,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ],
+    [
+     221,
+     "rámec vložené konverzace s ChatGPT: nabídka „Chceš, abych…“, označení modelu „4o“, „Řekl/a jsi:“, dotaz uživatelky, „ChatGPT řekl:“ a úvodní věta odpovědi"
+    ],
+    [
+     222,
+     "rámec vložené konverzace s ChatGPT: nabídka „Chceš, abych…“, označení modelu „4o“, „Řekl/a jsi:“, dotaz uživatelky, „ChatGPT řekl:“ a úvodní věta odpovědi"
+    ],
+    [
+     223,
+     "rámec vložené konverzace s ChatGPT: nabídka „Chceš, abych…“, označení modelu „4o“, „Řekl/a jsi:“, dotaz uživatelky, „ChatGPT řekl:“ a úvodní věta odpovědi"
+    ],
+    [
+     224,
+     "rámec vložené konverzace s ChatGPT: nabídka „Chceš, abych…“, označení modelu „4o“, „Řekl/a jsi:“, dotaz uživatelky, „ChatGPT řekl:“ a úvodní věta odpovědi"
+    ],
+    [
+     225,
+     "rámec vložené konverzace s ChatGPT: nabídka „Chceš, abych…“, označení modelu „4o“, „Řekl/a jsi:“, dotaz uživatelky, „ChatGPT řekl:“ a úvodní věta odpovědi"
+    ],
+    [
+     226,
+     "rámec vložené konverzace s ChatGPT: nabídka „Chceš, abych…“, označení modelu „4o“, „Řekl/a jsi:“, dotaz uživatelky, „ChatGPT řekl:“ a úvodní věta odpovědi"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": [
+    {
+     "kde": "blok 187",
+     "co": "emoji v nadpisu",
+     "text": "🔄 Probíhají pravidelná setkání? Jak často?"
+    },
+    {
+     "kde": "blok 199",
+     "co": "emoji v nadpisu",
+     "text": "💬 Co přesně znamená „sebeobhajování“ v praxi?"
+    },
+    {
+     "kde": "blok 207",
+     "co": "emoji v nadpisu",
+     "text": "🧠 Jaké dovednosti se sebeobhájci učí?"
+    },
+    {
+     "kde": "blok 215",
+     "co": "emoji v nadpisu",
+     "text": "🔎 Shrnutí"
+    },
+    {
+     "kde": "blok 228",
+     "co": "emoji v nadpisu",
+     "text": "🟩 Sebeobhajování (self-advocacy)"
+    },
+    {
+     "kde": "blok 229",
+     "co": "emoji v nadpisu",
+     "text": "➤ Co to je?"
+    },
+    {
+     "kde": "blok 233",
+     "co": "emoji v nadpisu",
+     "text": "➤ Příklad:"
+    },
+    {
+     "kde": "blok 237",
+     "co": "emoji v nadpisu",
+     "text": "🟦 Občanská advokacie (citizen advocacy)"
+    },
+    {
+     "kde": "blok 238",
+     "co": "emoji v nadpisu",
+     "text": "➤ Co to je?"
+    },
+    {
+     "kde": "blok 242",
+     "co": "emoji v nadpisu",
+     "text": "➤ Příklad:"
+    },
+    {
+     "kde": "blok 246",
+     "co": "emoji v nadpisu",
+     "text": "🔁 Vztah mezi nimi"
+    },
+    {
+     "kde": "blok 249",
+     "co": "emoji v nadpisu",
+     "text": "🧠 Závěr:"
+    },
+    {
+     "kde": "blok 254",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Právní rámec a mezinárodní souvislosti"
+    },
+    {
+     "kde": "blok 256",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Příklady realizace sebeobhajování a občanské advokacie v ČR"
+    },
+    {
+     "kde": "blok 263",
+     "co": "emoji v nadpisu",
+     "text": "🔹 Kritické zhodnocení a výzvy do budoucna"
+    }
+   ]
+  },
+  "11": {
+   "soubor": "Otazka c. 11.docx",
+   "href": "podrobne-okruh-11-zamestnavani.html",
+   "titulek": "Zaměstnávání lidí s mentálním postižením",
+   "zadani": "Problematika zaměstnávání lidí s mentálním postižením. Legislativní rámec – zákon o zaměstnanosti, zákoník práce. Podporované zaměstnávání ve vztahu k dalším možnostem pracovního uplatnění.",
+   "strucne": [
+    11
+   ],
+   "slov": 3643,
+   "bloku": 293,
+   "nadpisu": 13,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": [
+    {
+     "kde": "blok 215",
+     "co": "citační odkaz ChatGPT",
+     "text": "Chráněné dílny OZP"
+    },
+    {
+     "kde": "blok 224",
+     "co": "citační odkaz ChatGPT",
+     "text": "Chráněné dílny OZP"
+    },
+    {
+     "kde": "blok 229",
+     "co": "citační odkaz ChatGPT",
+     "text": "zahradnictvilouny.cz+2Průvodce podnikáním | ČSOB |+2Chráněné dílny OZP+2"
+    },
+    {
+     "kde": "blok 210",
+     "co": "emoji v nadpisu",
+     "text": "🛠️ Výrobní a řemeslné pozice"
+    },
+    {
+     "kde": "blok 217",
+     "co": "emoji v nadpisu",
+     "text": "🧹 Úklidové a údržbové pozice"
+    },
+    {
+     "kde": "blok 222",
+     "co": "emoji v nadpisu",
+     "text": "🖨️ Administrativní a technické pozice"
+    },
+    {
+     "kde": "blok 227",
+     "co": "emoji v nadpisu",
+     "text": "☕ Gastro a prodejní pozice"
+    },
+    {
+     "kde": "blok 231",
+     "co": "emoji v nadpisu",
+     "text": "🎨 Umělecké a kreativní pozice"
+    }
+   ]
+  },
+  "12": {
+   "soubor": "Otazka c. 12. Psychopedie_NMgr..docx",
+   "href": "podrobne-okruh-12-tranzitni-program.html",
+   "titulek": "Trénink pracovních dovedností a tranzitní program",
+   "zadani": "Trénink dovedností potřebných k získání a udržení vhodného pracovního místa. Podpora poskytovatelů zaměstnavatelů a rodin. Tranzitní program v zahraničí a u nás. Možnosti uplatnění tranzitního programu v dalších oblastech života člověka s mentálním postižením.",
+   "strucne": [
+    12
+   ],
+   "slov": 3636,
+   "bloku": 336,
+   "nadpisu": 12,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "znění okruhu v mírně jiné formulaci, než má zadání — zadání je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": [
+    {
+     "kde": "blok 249",
+     "co": "citační odkaz ChatGPT",
+     "text": "Rytmus"
+    },
+    {
+     "kde": "blok 253",
+     "co": "citační odkaz ChatGPT",
+     "text": "Rytmus"
+    },
+    {
+     "kde": "blok 254",
+     "co": "citační odkaz ChatGPT",
+     "text": "Rytmus"
+    }
+   ]
+  },
+  "13": {
+   "soubor": "Otazka c. 13.docx",
+   "href": "podrobne-okruh-13-pervazivni-poruchy-pas.html",
+   "titulek": "Pervazivní vývojové poruchy a PAS",
+   "zadani": "Charakteristika pervazivních vývojových poruch dle MKN. Vymezení jednotlivých poruch autistického spektra. Etiologie, diagnostika, specifické edukační problémy s ním spojené. Komunikační proces a možnosti komunikace u těchto osob. Úloha speciálního pedagoga při práci s těmito jedinci.",
+   "strucne": [
+    15
+   ],
+   "slov": 6245,
+   "bloku": 515,
+   "nadpisu": 59,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": []
+  },
+  "14": {
+   "soubor": "Otazka c. 14. Psychopedie_NMgr..docx",
+   "href": "podrobne-okruh-14-diagnostika.html",
+   "titulek": "Diagnostika v psychopedii",
+   "zadani": "Diagnostika v psychopedii. Interdisciplinární komplexní přístup a týmová spolupráce. Zásady diagnostické práce. Specifika diagnostikování u klientů s mentálním postižením. Diferenciální diagnostika, klinické metody, standardizované metody, testové metody, vývojové škály, vyšetření adaptivních dovedností. Využití her jako diagnostické situace.",
+   "strucne": [
+    14
+   ],
+   "slov": 3701,
+   "bloku": 544,
+   "nadpisu": 29,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": []
+  },
+  "15": {
+   "soubor": "Otazka c. 15.docx",
+   "href": "podrobne-okruh-15-partnerstvi-stari.html",
+   "titulek": "Partnerství, sexualita, rodičovství a stáří",
+   "zadani": "Partnerství a sexualita u lidí s mentálním postižením. Prevence sexuálního zneužívání. Manželství a rodičovství u osob s mentálním postižením. Naplňování potřeb a specifické služby pro osoby s mentálním postižením v období stáří. Současné trendy v poradenství.",
+   "strucne": [
+    10,
+    13
+   ],
+   "slov": 5925,
+   "bloku": 438,
+   "nadpisu": 22,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": [
+    {
+     "kde": "blok 337",
+     "co": "adresa z prohlížeče / utm",
+     "text": "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/"
+    },
+    {
+     "kde": "blok 434",
+     "co": "citační odkaz ChatGPT",
+     "text": "Ministerstvo práce a sociálních věcí"
+    },
+    {
+     "kde": "blok 398",
+     "co": "emoji v nadpisu",
+     "text": "➤ Zdravotní potřeby:"
+    },
+    {
+     "kde": "blok 401",
+     "co": "emoji v nadpisu",
+     "text": "➤ Psychické potřeby:"
+    },
+    {
+     "kde": "blok 404",
+     "co": "emoji v nadpisu",
+     "text": "➤ Sociální potřeby:"
+    },
+    {
+     "kde": "blok 407",
+     "co": "emoji v nadpisu",
+     "text": "➤ Potřeba smysluplnosti a autonomie:"
+    },
+    {
+     "kde": "blok 410",
+     "co": "emoji v nadpisu",
+     "text": "➤ Praktické potřeby:"
+    },
+    {
+     "kde": "blok 422",
+     "co": "emoji v nadpisu",
+     "text": "🏠 Pobytové služby"
+    },
+    {
+     "kde": "blok 427",
+     "co": "emoji v nadpisu",
+     "text": "🏡 Terénní a ambulantní služby"
+    },
+    {
+     "kde": "blok 433",
+     "co": "emoji v nadpisu",
+     "text": "🎯 Specifické služby a doporučení"
+    }
+   ]
+  },
+  "16": {
+   "soubor": "Otazka c. 16. Psychopedie_NMgr..docx",
+   "href": "podrobne-okruh-16-poradenstvi-marginalizovani.html",
+   "titulek": "Poradenství pro marginalizované osoby",
+   "zadani": "Poradenství pro osoby marginalizované, sociálně znevýhodněné, ohrožené sociálním vyloučením.",
+   "strucne": [
+    20
+   ],
+   "slov": 1800,
+   "bloku": 209,
+   "nadpisu": 19,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {},
+   "uklid": []
+  },
+  "17": {
+   "soubor": "Otazka c. 17. Psychopedie_NMgr..docx",
+   "href": "podrobne-okruh-17-proces-uceni-cteni-psani.html",
+   "titulek": "Proces učení, metody čtení a psaní, IVP",
+   "zadani": "Proces učení mentálně postižených s ohledem na specifika poznávacích procesů. Druhy učení. Charakteristika vzdělávacích programů pro jednotlivé typy školských zařízení. Specifičnost vyučovacích metod při vzdělávání žáků s mentální retardací. Aplikace didaktických zásad. Přehled speciálních metod nácviku čtení a psaní včetně jejich komparace. Tvorba individuálních plánů.",
+   "strucne": [
+    4
+   ],
+   "slov": 5620,
+   "bloku": 438,
+   "nadpisu": 46,
+   "pojmu": 10,
+   "vyrazeno": [
+    [
+     0,
+     "titulek zápisku a znění okruhu — totéž je v hlavičce stránky"
+    ]
+   ],
+   "obrazky": {
+    "rId286158265": "Schéma systému kurikulárních dokumentů se státní úrovní (Národní program vzdělávání a rámcové vzdělávací programy podle stupňů vzdělávání) a školní úrovní (školní vzdělávací programy).",
+    "rId1517859016": "Seznam výukových metod s procentem zapamatování poznatků (pyramida učení)."
+   },
+   "uklid": []
+  }
+ }
+}

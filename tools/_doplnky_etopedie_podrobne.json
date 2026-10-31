@@ -1,0 +1,965 @@
+{
+ "_comment": [
+  "Ruční doplňky k podrobným stránkám etopedie (tools/docx2html_zapisky.py).",
+  "Klíče jsou čísla okruhů zadání; čísla bloků jsou z výpisu `docx2html_zapisky.py etopedie --dump DIR`.",
+  "levels  — přemapování úrovní nadpisů Wordu na HTML (2, 3, 4; 0 = tučný odstavec).",
+  "promote — bloky, které se stanou nadpisy dané úrovně (zápisky bez nadpisových stylů).",
+  "demote  — nadpisové bloky, které jsou ve skutečnosti věty.",
+  "spojit  — dvojice bloků [a, b]: nadpis rozlomený do dvou odstavců se spojí do bloku a.",
+  "drop    — vyřazené rozsahy bloků [od, do] i s důvodem; check_fidelity.py je nehlásí.",
+  "images  — přepis každého obrázku do HTML (obrázky ze zápisků se nepublikují).",
+  "terms   — klíčové pojmy stránky (kartičky); do glosáře nejdou.",
+  "fixes   — opravy: {najdi, nahrad?, pozn, proc, odkaz?, bylo?, plati?, zdroj?}; s bylo/plati/zdroj jdou i do tabulky v pravni-aktualnost.html.",
+  "notes   — HTML vložené na začátek stránky.",
+  "literatura_uvod, literatura — úvodní box a opravy položek na stránce literatura.html (klíč = číslo bloku v seznamu zdrojů)."
+ ],
+ "levels": {},
+ "promote": {
+  "2": {"2": [4, 166, 311, 495, 598], "3": [7, 173, 241, 317, 437], "4": [63, 68, 73]},
+  "11": {"2": [4, 77, 124, 136, 147, 223, 286], "3": [12, 32, 44, 47, 64, 79, 104, 155, 165, 172, 177, 193, 200, 225, 238, 245, 266, 324, 339, 370, 378]}
+ },
+ "demote": {
+  "2": [531, 532, 533, 534]
+ },
+ "drop": {},
+ "images": {
+  "1": {
+   "rId5": {"co": "Tabulka porovnává metody přímého reedukačního působení (direktivní) s metodami nepřímého reedukačního působení (indirektivní).", "html": [
+    "<figure class=\"fig\">",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Metody přímého reedukačního působení<br>(direktivní metody)</th><th>Metody nepřímého reedukačního působení<br>(indirektivní metody)</th></tr></thead>",
+    "    <tbody>",
+    "      <tr>",
+    "        <td data-label=\"Metody přímého reedukačního působení (direktivní metody)\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>mravní vysvětlování</li>",
+    "            <li>mravní poučování</li>",
+    "            <li>kladení požadavků</li>",
+    "            <li>přesvědčování</li>",
+    "            <li>vedení s prvky přinucování a donucování (příkazy, zákazy, pověřování úkolem nebo funkcí)</li>",
+    "            <li>trénink chování</li>",
+    "            <li>hodnocení s jasnou sankcí (odměna a trest)</li>",
+    "            <li>podpora sebehodnocení s jasnou sankcí (odměna a trest)</li>",
+    "          </ul>",
+    "        </td>",
+    "        <td data-label=\"Metody nepřímého reedukačního působení (indirektivní metody)\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>vzor</li>",
+    "            <li>režim a řád</li>",
+    "            <li>vedení založené na důvěře (vyjádřené očekávání, slib, závazek, výstraha)</li>",
+    "            <li>pozitivní sociální prostředí s otevřenou komunikací (klima, pozitivní postoje, očekávání)</li>",
+    "            <li>vyvolávání a tlumení emocí (empatie, agitace, degradace, eliminace a sublimace, řešení konfliktů)</li>",
+    "            <li>diskuse (řešení dilemat)</li>",
+    "            <li>mechanizmy kontroly (vnitřní, vnější)</li>",
+    "            <li>samospráva, sebevýchova</li>",
+    "          </ul>",
+    "        </td>",
+    "      </tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Metody přímého a nepřímého reedukačního působení. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId6": {"co": "Nástěnkový model „Kontrolní signály chování“: semafor se třemi barevnými šipkami a pokyny, jak postupovat při řešení problému.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>KONTROLNÍ SIGNÁLY CHOVÁNÍ</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Signál semaforu</th><th>Pokyn</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Signál semaforu\">červená šipka</td><td data-label=\"Pokyn\">Zastav se a uklidni se!</td></tr>",
+    "      <tr><td data-label=\"Signál semaforu\">žlutá šipka</td><td data-label=\"Pokyn\">Rozmysli si, jak vyřešíš problém!</td></tr>",
+    "      <tr><td data-label=\"Signál semaforu\">zelená šipka</td><td data-label=\"Pokyn\">Vyzkoušej vybrané řešení. Osvědčilo se?</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Kontrolní signály chování (semafor). Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "2": {
+   "rId5": {"co": "Tabulka Kohlbergových úrovní morálního vývoje (prekonvenční, konvenční, postkonvenční morálka) a jejich stádií a) a b).", "html": [
+    "<figure class=\"fig\">",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Úroveň</th><th>Stádia</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Úroveň\">I. Prekonvenční morálka</td><td data-label=\"Stádia\">a) Orientace na trest<br>b) Orientace na odměnu neboli instrumentálně-relativistická orientace</td></tr>",
+    "      <tr><td data-label=\"Úroveň\">II. Konvenční morálka</td><td data-label=\"Stádia\">a) Orientace na \"být hodným dítětem\"<br>b) Orientace na autoritu, zákon a řád</td></tr>",
+    "      <tr><td data-label=\"Úroveň\">III. Postkonvenční morálka</td><td data-label=\"Stádia\">a) Orientace na společenskou smlouvu neboli sociálně-smluvní právně-formalistická orientace<br>b) Orientace na univerzální etické principy</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Úrovně a stádia morálního vývoje (Kohlberg). Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId1747464614": {"co": "Tabulka popisuje utváření sociálních norem v jednotlivých vývojových obdobích (zdroje normotvorby, způsob osvojování norem, charakter normového chování).", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Utváření Sociálních Norem Dle Vývojového Období</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Vývojové období</th><th>Zdroje normotvorby</th><th>Způsob osvojování norem</th><th>Charakter normového chování</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Vývojové období\">Kojenecké</td><td data-label=\"Zdroje normotvorby\">Matka, nejbližší pečující osoba</td><td data-label=\"Způsob osvojování norem\">Reakce okolí na projevy dítěte</td><td data-label=\"Charakter normového chování\">Základní regulace přes emoční vazbu</td></tr>",
+    "      <tr><td data-label=\"Vývojové období\">Batolecí</td><td data-label=\"Zdroje normotvorby\">Rodiče, širší rodina</td><td data-label=\"Způsob osvojování norem\">Nápodoba, verbální vedení</td><td data-label=\"Charakter normového chování\">Začínající empatie a vědomí pravidel</td></tr>",
+    "      <tr><td data-label=\"Vývojové období\">Předškolní</td><td data-label=\"Zdroje normotvorby\">Rodiče, autority, vrstevníci</td><td data-label=\"Způsob osvojování norem\">Nápodoba, příkazy, identifikace s autoritou</td><td data-label=\"Charakter normového chování\">Egocentrické dodržování pravidel</td></tr>",
+    "      <tr><td data-label=\"Vývojové období\">Mladší školní věk</td><td data-label=\"Zdroje normotvorby\">Učitelé, vrstevníci, společenské instituce</td><td data-label=\"Způsob osvojování norem\">Odměny a tresty, racionální pochopení</td><td data-label=\"Charakter normového chování\">Racionální pochopení pravidel, svědomí</td></tr>",
+    "      <tr><td data-label=\"Vývojové období\">Střední školní věk</td><td data-label=\"Zdroje normotvorby\">Vrstevníci, významní dospělí</td><td data-label=\"Způsob osvojování norem\">Vnitřní motivace, uznání a identifikace</td><td data-label=\"Charakter normového chování\">Sociální adaptace, touha po uznání</td></tr>",
+    "      <tr><td data-label=\"Vývojové období\">Adolescence</td><td data-label=\"Zdroje normotvorby\">Vlastní reflexe, vrstevníci, zpochybnění autorit</td><td data-label=\"Způsob osvojování norem\">Kritické přehodnocení, zvnitřnění</td><td data-label=\"Charakter normového chování\">Vlastní volba hodnot a norem, vnitřní konflikt</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Utváření sociálních norem dle vývojového období. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "6": {
+   "rId7": {"co": "Schéma cíle jako změny osobnosti v kognitivní, afektivní a psychomotorické rovině s odpovídajícími taxonomiemi cílů (Bloom, Krathwohl, Simpsonová) a jejich úrovněmi.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>CÍL = změna osobnosti v rovině:</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Rovina</th><th>Cíl</th><th>Taxonomie</th><th>Úrovně taxonomie</th></tr></thead>",
+    "    <tbody>",
+    "      <tr>",
+    "        <td data-label=\"Rovina\">KOGNITIVNÍ</td>",
+    "        <td data-label=\"Cíl\">CÍL VZDĚLÁVACÍ</td>",
+    "        <td data-label=\"Taxonomie\">TAXONOMIE B. S. BLOOMA</td>",
+    "        <td data-label=\"Úrovně taxonomie\">",
+    "          <ol class=\"fig-list\">",
+    "            <li>Znalost</li>",
+    "            <li>Porozumění</li>",
+    "            <li>Aplikace</li>",
+    "            <li>Analýza</li>",
+    "            <li>Syntéza</li>",
+    "            <li>Hodnoticí posouzení</li>",
+    "          </ol>",
+    "        </td>",
+    "      </tr>",
+    "      <tr>",
+    "        <td data-label=\"Rovina\">AFEKTIVNÍ</td>",
+    "        <td data-label=\"Cíl\">CÍL VÝCHOVNÝ</td>",
+    "        <td data-label=\"Taxonomie\">TAXONOMIE D. B. KRATHWOHLA</td>",
+    "        <td data-label=\"Úrovně taxonomie\">",
+    "          <ol class=\"fig-list\">",
+    "            <li>Vnímání hodnot</li>",
+    "            <li>Reagování na ně</li>",
+    "            <li>Jejich hodnocení</li>",
+    "            <li>Integrování hodnot</li>",
+    "            <li>Zvnitřňování hodnot</li>",
+    "          </ol>",
+    "        </td>",
+    "      </tr>",
+    "      <tr>",
+    "        <td data-label=\"Rovina\">PSYCHOMOTORICKÉ</td>",
+    "        <td data-label=\"Cíl\">CÍL DOVEDNOSTNÍ</td>",
+    "        <td data-label=\"Taxonomie\">TAXONOMIE E. SIMPSONOVÉ</td>",
+    "        <td data-label=\"Úrovně taxonomie\">",
+    "          <ol class=\"fig-list\">",
+    "            <li>Vnímání</li>",
+    "            <li>Zaměřenost</li>",
+    "            <li>Řízená reakce</li>",
+    "            <li>Automatizace motorických dovedností</li>",
+    "            <li>Motorická adaptace</li>",
+    "            <li>Motorická tvořivost</li>",
+    "          </ol>",
+    "        </td>",
+    "      </tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Cíl jako změna osobnosti v kognitivní, afektivní a psychomotorické rovině. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId8": {"co": "Tabulka srovnává charakteristiky psychoterapie a poradenství.", "html": [
+    "<figure class=\"fig\">",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Psychoterapie</th><th>Poradenství</th></tr></thead>",
+    "    <tbody>",
+    "      <tr>",
+    "        <td data-label=\"Psychoterapie\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>Je zaměřena na člověka.</li>",
+    "            <li>Pomáhá lidem objevit důvody, proč myslí, cítí a jednají tak, že jsou s tím nespokojeni.</li>",
+    "            <li>V současnosti je převážně otevřená různým teoriím a přístupům v různých kombinacích.</li>",
+    "            <li>Psychoterapeut je v podstatě „detektiv“.</li>",
+    "          </ul>",
+    "        </td>",
+    "        <td data-label=\"Poradenství\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>Je zaměřeno na problém.</li>",
+    "            <li>Poskytuje lidem informace, rady i návody.</li>",
+    "            <li>Je speciálně zaměřeno na různé oblasti (např. školství).</li>",
+    "            <li>Poradce je vnímán jako odborník na danou oblast.</li>",
+    "          </ul>",
+    "        </td>",
+    "      </tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Rozdíl mezi psychoterapií a poradenstvím. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "7": {
+   "rId535951410": {"co": "Tabulka dokumentace vedené v zařízení (např. kniha úrazů, evidence léků, kniha vzkazů) s jejím účelem a významem.", "html": [
+    "<figure class=\"fig\">",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Dokument</th><th>Účel / význam</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Dokument\"><strong>Kniha úrazů</strong></td><td data-label=\"Účel / význam\">Evidence všech úrazů, opatření a případných lékařských zásahů (zpravidla pro interní bezpečnostní agendu).</td></tr>",
+    "      <tr><td data-label=\"Dokument\"><strong>Kniha porad</strong></td><td data-label=\"Účel / význam\">Záznamy z interních pracovních schůzek vychovatelů, metodických setkání apod.</td></tr>",
+    "      <tr><td data-label=\"Dokument\"><strong>Rozvrh hodin</strong></td><td data-label=\"Účel / význam\">Informace o školní docházce jednotlivých dětí, usnadňuje koordinaci s režimem.</td></tr>",
+    "      <tr><td data-label=\"Dokument\"><strong>Evidence léků</strong></td><td data-label=\"Účel / význam\">Záznamy o podávání léků dětem – dávky, časy, indikace, potvrzení o převzetí.</td></tr>",
+    "      <tr><td data-label=\"Dokument\"><strong>Deník kapesného</strong></td><td data-label=\"Účel / význam\">Přehled vyplaceného kapesného, šetření, kontrola s dětmi.</td></tr>",
+    "      <tr><td data-label=\"Dokument\"><strong>Evidence vycházek</strong></td><td data-label=\"Účel / význam\">Kdo, kdy, kam a s kým šel na vycházku, návrat – bezpečnost a kontrola pohybu.</td></tr>",
+    "      <tr><td data-label=\"Dokument\"><strong>Kniha vzkazů</strong></td><td data-label=\"Účel / význam\">Interní komunikace mezi službami (denní a noční vychovatelé), informace o dítěti.</td></tr>",
+    "      <tr><td data-label=\"Dokument\"><strong>Evidence vybavení skupin</strong></td><td data-label=\"Účel / význam\">Přehled o majetku, výbavě místností nebo skupin dětí – správa a údržba.</td></tr>",
+    "      <tr><td data-label=\"Dokument\"><strong>Menstruační kalendář</strong></td><td data-label=\"Účel / význam\">Citlivý nástroj v péči o dospívající dívky – zdraví, pohoda, podpora.</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Dokumentace vedená v zařízení a její účel. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "12": {
+   "rId11": {"co": "Tabulka protektivních a rizikových faktorů šikany na úrovni společnosti a komunity a na úrovni školy (Příloha 3, MŠMT 2016).", "zdroj": "MŠMT, 2016 (Příloha 3 – uvedeno v nadpisu obrázku)", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>PŘÍLOHA 3: Protektivní a rizikové faktory (MŠMT, 2016)</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>úroveň</th><th>protektivní faktory</th><th>rizikové faktory</th></tr></thead>",
+    "    <tbody>",
+    "      <tr>",
+    "        <td data-label=\"úroveň\"><strong>společnost, komunita</strong></td>",
+    "        <td data-label=\"protektivní faktory\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>nastavení hodnot ke vzdělání, podpora autority školy a pedagoga,</li>",
+    "            <li>příležitosti pro pozitivní angažmá dětí např. nabídka mimoškolních aktivit pro trávení volného času dětí a mladých lidí; příležitosti pro účast na rozhodování pro děti, na utváření kultury a prostředí;</li>",
+    "            <li>nabídka služeb pro ohrožené rodiny a děti; nabídka služeb pro žáky a pedagogy ohrožené násilím ve škole, nabídka vzdělávacích programů pro pedagogy i zákonné zástupce apod.</li>",
+    "            <li>spolupráce školy s organizacemi, které mohou pro prevenci a intervenci v problematice šikany vytvářet síť pomoci</li>",
+    "            <li>podpora kooperace, tolerance, respektu, a důstojné mezilidské vztahy a úcta k životu druhého člověka</li>",
+    "          </ul>",
+    "        </td>",
+    "        <td data-label=\"rizikové faktory\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>koncentrace rodin ohrožených chudobou, bezdomovectvím, sociálním vyloučením, národnostních menšin a etnik</li>",
+    "            <li>nízká podpora školy ze strany zřizovatele a deficitní deklarace a podpora hodnot vzdělání, dobrého klimatu, bezpečí a spoluodpovědnosti</li>",
+    "            <li>nevhodné nastavení financování škol, nedostatečná kvalita přípravy budoucích učitelů, nastavení legislativy, kurikula</li>",
+    "            <li>neexistující nebo nekvalitní služby pro děti, rodiny i pedagogy</li>",
+    "            <li>nedostupné vzdělání pro pedagogy (finančně, vzdálenost, dostupnost…)</li>",
+    "            <li>malá spolupráce mezi školou a organizacemi v regionu</li>",
+    "          </ul>",
+    "        </td>",
+    "      </tr>",
+    "      <tr>",
+    "        <td data-label=\"úroveň\"><strong>škola</strong></td>",
+    "        <td data-label=\"protektivní faktory\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>způsob vedení školy ze strany ředitele a zástupců podporuje vytváření kooperativního, respektujícího a pozitivního sociálního klimatu ve škole;</li>",
+    "            <li>přiznání možnosti výskytu násilí vůči pedagogovi, zajištění informovanosti o problematice; monitoring varovných signálů šikany ve škole</li>",
+    "            <li>deklarované a sdílené odmítnutí násilí na škole směrem k žákovské i rodičovské populaci (pro rozvoj šikany jsou důležité postoje a reakce ostatních); včasné a adekvátní řešení při výskytu násilí;</li>",
+    "            <li>jasné rozdělení kompetencí a odpovědností v udržování dobrého sociálního klimatu na škole;</li>",
+    "            <li>nastavení jasných pravidel v chování na celoškolní i třídní úrovni a jejich důsledné dodržování;</li>",
+    "            <li>nastavení adekvátních opatření a sankcí při nedodržování pravidel v chování, jejich důsledné dodržování (avšak bez podpory dobrého sociálního klimatu jednostranný akcent na tresty naopak zvyšuje pravděpodobnost výskytu šikany);</li>",
+    "            <li>funkční bezpečnostní a krizové plány;</li>",
+    "            <li>dostatečný monitoring fyzických prostor ve škole, která jsou vnímána jako méně bezpečná a přijetí bezpečnostních opatření;</li>",
+    "            <li>schopnost sebereflexe učitele (např. vědomí vlastních postojů, […]</li>",
+    "          </ul>",
+    "        </td>",
+    "        <td data-label=\"rizikové faktory\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>nejasné nastavení nebo nedůsledné dodržování pravidel chování a sankcí za nevhodné chování ve škole (žákům nakonec nehrozí nic, co by je od činu odrazovalo), zejména na středních školách;</li>",
+    "            <li>chybějící nebo nejasné směrnice školy pro udržování bezpečí a řešení krizových situací; nevymezený postoj k násilí ze strany vedení školy - projevy násilí ve vztahu k pedagogovi/žákovi bývají přehlíženy, bagatelizovány nebo zakrývány;</li>",
+    "            <li>ze strany vedení a dále pedagogů nedostatečně deklarovaná (k pedagogům, rodičům, žákům) a sdílená hodnota bezpečí a dobrého klimatu na škole;</li>",
+    "            <li>posměch, dehonestující komentáře, nevhodné, neuctivé chování mezi žáky, pedagogy, a pedagogy a žáky navzájem</li>",
+    "            <li>nevhodně uplatňovaná kritika, sarkasmus, předsudky a stereotypy (mohou podněcovat zhoršování vztahů směřující k šikanování žáků jejich spolužáky) projevy nerespektu k autoritám ze strany žáků jsou obecně ve škole pojímány jako norma;</li>",
+    "            <li>negativní nebo ponižující komentáře vedení nebo ostatních pedagogů na účet jiného učitele před studenty;</li>",
+    "            <li>nedůvěra mezi pedagogy navzájem a nespolupracující prostředí;</li>",
+    "            <li>žáci jsou svědky agresivního chování mezi dospělými (bossing, mobbing, dehonestace pedagoga rodiči před dítětem apod.).</li>",
+    "          </ul>",
+    "        </td>",
+    "      </tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Protektivní a rizikové faktory (MŠMT, 2016). Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "13": {
+   "rId1968742194": {"co": "Tabulka srovnává diagnostická kritéria hyperkinetické poruchy (HKP) podle MKN-10 a ADHD podle DSM-IV pro poruchu pozornosti, hyperaktivitu a impulzivitu.", "html": [
+    "<figure class=\"fig\">",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Diagnostická kritéria HKP dle MKN-10</th><th>Diagnostická kritéria ADHD dle DSM-IV</th></tr></thead>",
+    "    <tbody>",
+    "      <tr>",
+    "        <td data-label=\"Diagnostická kritéria HKP dle MKN-10\">",
+    "          <strong>symptomy poruchy pozornosti:</strong><br><strong>• alespoň 6 příznaků po dobu 6 měsíců</strong>",
+    "          <ul class=\"fig-list\">",
+    "            <li>obtížná koncentrace pozornosti</li>",
+    "            <li>neposlouchá</li>",
+    "            <li>nedokončuje úkoly</li>",
+    "            <li>vyhýbá se úkolům vyžadujících mentální úsilí</li>",
+    "            <li>nepořádný, desorganizovaný</li>",
+    "            <li>ztrácí věci</li>",
+    "            <li>roztržitý</li>",
+    "            <li>zapomnětlivý</li>",
+    "          </ul>",
+    "        </td>",
+    "        <td data-label=\"Diagnostická kritéria ADHD dle DSM-IV\">",
+    "          <strong>• kritéria A1: 6 nebo více příznaků trvajících minimálně 6 měsíců</strong><br><strong>porucha pozornosti:</strong>",
+    "          <ul class=\"fig-list\">",
+    "            <li>nepozornost při školních úkolech, opomíjení detailů, chyby z nepozornosti</li>",
+    "            <li>neudrží pozornost při hře</li>",
+    "            <li>neposlouchá během rozhovoru</li>",
+    "            <li>neposlouchá instrukce, není schopno dokončit úkol</li>",
+    "            <li>organizační problémy</li>",
+    "            <li>nesnáší úkoly vyžadující mentální úsilí, vyhýbá se jim</li>",
+    "            <li>ztrácí věci</li>",
+    "            <li>dá se snadno rozptýlit vnějšími podněty</li>",
+    "            <li>často zapomnětlivost</li>",
+    "          </ul>",
+    "        </td>",
+    "      </tr>",
+    "      <tr>",
+    "        <td data-label=\"Diagnostická kritéria HKP dle MKN-10\">",
+    "          <strong>symptomy hyperaktivity:</strong><br><strong>• alespoň 3 příznaky po dobu 6 měsíců</strong>",
+    "          <ul class=\"fig-list\">",
+    "            <li>neposedí, vrtí se</li>",
+    "            <li>pobíhá kolem</li>",
+    "            <li>vyrušuje, je hlučný, obtížně zachovává klid</li>",
+    "            <li>v neustálém pohybu</li>",
+    "            <li>excesivně mnohomluvný</li>",
+    "          </ul>",
+    "        </td>",
+    "        <td data-label=\"Diagnostická kritéria ADHD dle DSM-IV\">",
+    "          <strong>• kritéria A2: 6 nebo více příznaků hyperaktivity-impulzivity trvajících minimálně 6 měsíců, nepřiměřených vývojovému stupni</strong><br><strong>Hyperaktivita:</strong>",
+    "          <ul class=\"fig-list\">",
+    "            <li>neklid rukou, nohou, vrtí se na židli</li>",
+    "            <li>vstává ve třídě, když má sedět</li>",
+    "            <li>často pobíhá v nevhodných situacích</li>",
+    "            <li>neumí si hrát tiše</li>",
+    "            <li>trvale příliš vysoká motorická aktivita</li>",
+    "            <li>nadměrně mnohomluvný</li>",
+    "          </ul>",
+    "        </td>",
+    "      </tr>",
+    "      <tr>",
+    "        <td data-label=\"Diagnostická kritéria HKP dle MKN-10\">",
+    "          <strong>symptomy impulzivity:</strong><br><strong>• alespoň 1 příznak po dobu 6 měsíců</strong>",
+    "          <ul class=\"fig-list\">",
+    "            <li>nezdrženlivě mnohomluvný</li>",
+    "            <li>vyhrkne odpověď bez přemýšlení</li>",
+    "            <li>nedokáže čekat</li>",
+    "            <li>přerušuje ostatní</li>",
+    "          </ul>",
+    "        </td>",
+    "        <td data-label=\"Diagnostická kritéria ADHD dle DSM-IV\">",
+    "          <strong>Impulzivita:</strong>",
+    "          <ul class=\"fig-list\">",
+    "            <li>často vyhrkne odpověď na otázky, které ještě nebyly dokončeny</li>",
+    "            <li>často není schopno čekat ve frontě nebo až přijde na řadu ve hře či komunikaci</li>",
+    "            <li>často přerušuje ostatní nebo se jim vnucuje</li>",
+    "            <li>často příliš mluví bez ohledu na sociální zábrany</li>",
+    "          </ul>",
+    "        </td>",
+    "      </tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Diagnostická kritéria HKP podle MKN-10 a ADHD podle DSM-IV. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "15": {
+   "rId367632026": {"co": "Tabulka možných podpůrných opatření ve škole rozdělených podle 1. až 3. stupně podpory.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>6. Možná podpůrná opatření ve škole</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Stupeň podpory</th><th>Možná opatření</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Stupeň podpory\"><strong>1. stupeň</strong></td><td data-label=\"Možná opatření\">flexibilita při zkoušení, možnost klidového koutku, empatický přístup učitele</td></tr>",
+    "      <tr><td data-label=\"Stupeň podpory\"><strong>2. stupeň</strong></td><td data-label=\"Možná opatření\">IVP, úprava obsahu a forem výuky, častější kontakt se školním psychologem</td></tr>",
+    "      <tr><td data-label=\"Stupeň podpory\"><strong>3. stupeň</strong></td><td data-label=\"Možná opatření\">asistence pedagoga, úprava rozvrhu, přizpůsobení fyzického prostředí (např. bezbariérový přístup při ochrnutí), spolupráce s krizovým týmem</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Možná podpůrná opatření ve škole podle stupně podpory. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "17": {
+   "rId6": {"co": "Schéma tří možností, jak spouštěč a bažení ovlivňují sebeovládání.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Bažení a sebeovládání</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Popis</th><th>Schéma</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Popis\"><strong>1. možnost:</strong> Spouštěč (např. rizikové prostředí) vyvolá bažení a to zhorší sebeovládání.</td><td data-label=\"Schéma\">spouštěč<br>⇨bažení není zvládnuto nebo ani zaregistrováno<br>⇨ zhoršené sebeovládání</td></tr>",
+    "      <tr><td data-label=\"Popis\"><strong>2. možnost:</strong> Spouštěč (např. rizikové prostředí) vyvolá bažení, to je zvládnuto, a člověk poučen zkušeností se začne vyhýbat i spouštěčům. Sebeovládání se tak zlepšuje.</td><td data-label=\"Schéma\">spouštěč<br>⇨bažení<br>⇨zvládnutí bažení<br>⇨vyhýbání se spouštěčům<br>⇨zlepšené sebeovládání</td></tr>",
+    "      <tr><td data-label=\"Popis\"><strong>3. možnost:</strong> Spouštěč (např. rizikové prostředí) vyvolá bažení, to je zvládnuto, ale člověk podcení vliv spouštěčů. Jejich vliv může v budoucnu vyvolat další silná bažení, a tak ohrozit sebeovládání.</td><td data-label=\"Schéma\">spouštěč<br>⇨bažení<br>dočasné zvládnutí bažení<br>⇨podceňuje spouštěče<br>⇨ sebeovládání je ohroženo</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Bažení a sebeovládání – tři možné průběhy. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId7": {"co": "Seznam statistických údajů o výskytu kouření, pití alkoholu, užívání drog, hazardního hraní, rizikového hraní digitálních her a užívání sociálních sítí u dětí a dospívajících.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Výskyt závislostního chování mezi dětmi a dospívajícími</strong></p>",
+    "  <ul class=\"fig-list\">",
+    "    <li><strong>1–4 %</strong> 13–15letých a <strong>9–10 %</strong> 15–19letých studentů uvádí pravidelné nebo denní kouření tabáku</li>",
+    "    <li><strong>10–22 %</strong> 13–15letých užívá e-cigarety, <strong>5–11 %</strong> zahřívané tabákové výrobky a <strong>5–8 %</strong> nikotinové sáčky</li>",
+    "    <li><strong>24 %</strong> 11letých, <strong>44 %</strong> 13letých, <strong>73 %</strong> 15letých a <strong>93–95 %</strong> 15–19letých někdy v životě pilo alkohol, více než polovina z nich uvedla pití alkoholu v posledních 30 dnech</li>",
+    "    <li><strong>39–47 %</strong> 15–19letých studentů pilo v posledních 30 dnech nadměrné dávky alkoholu (tj. 5 a více sklenic alkoholu při jedné příležitosti), <strong>12–20 %</strong> jednou týdně nebo častěji</li>",
+    "    <li><strong>24–26 %</strong> 16letých studentů užilo v posledních 12 měsících nelegální drogu, <strong>23–26 %</strong> užilo konopné látky, shodně <strong>2 %</strong> extázi a halucinogenní houby, <strong>1–2 %</strong> LSD či jiné halucinogeny a těkavé látky a přibližně <strong>1 %</strong> kokain či pervitin</li>",
+    "    <li><strong>4 %</strong> dospívajících užila v posledních 12 měsících kratom</li>",
+    "    <li><strong>10–18 %</strong> dospívajících hrálo v posledních 12 měsících hazardní hry o peníze</li>",
+    "    <li><strong>15–25 %</strong> dětí ve věku 11–15 let a <strong>9–15 %</strong> dospívajících ve věku 15–19 let hraje rizikově digitální hry, do kategorie rizika spadá <strong>5–13 %</strong> dospívajících</li>",
+    "    <li><strong>25–30 %</strong> dětí a <strong>45–50 %</strong> dospívajících užívá rizikově sociální sítě, do kategorie rizika spadá odhadem <strong>7–13 %</strong> dětí a až <strong>34 %</strong> dospívajících</li>",
+    "  </ul>",
+    "  <figcaption>Výskyt závislostního chování u dětí a dospívajících – přehled údajů. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId8": {"co": "Tabulka porovnává definiční znaky patologického hráčství a závislosti na návykových látkách.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Porovnání definic patologického hráčství a závislosti</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Patologické hráčství</th><th>Závislost na návykových látkách</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Patologické hráčství\">Jedinec je zaujat myšlenkami a představami hraní a okolnostmi, které tuto činnost doprovázejí.</td><td data-label=\"Závislost na návykových látkách\">Postupné zanedbávání jiných potěšení nebo zájmů ve prospěch užívané psychoaktivní látky a zvýšené množství času k získání nebo užívání látky, nebo zotavení se z jejího účinku.</td></tr>",
+    "      <tr><td data-label=\"Patologické hráčství\">Jedinec popisuje silné puzení ke hře, které lze těžko ovládnout, a hovoří o tom, že není schopen silou vůle hře odolat.</td><td data-label=\"Závislost na návykových látkách\">Silná touha nebo pocit puzení užívat látku. Potíže v kontrole užívání látky, a to pokud jde o začátek a ukončení nebo množství látky.</td></tr>",
+    "      <tr><td data-label=\"Patologické hráčství\">Tyto epizody nejsou pro jedince výnosné, ale opakují se přesto, že vyvolávají tíseň a narušují každodenní život.</td><td data-label=\"Závislost na návykových látkách\">Pokračování v užívání přes jasný důkaz zjevně škodlivých následků.</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Srovnání definic patologického hráčství a závislosti na návykových látkách. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId9": {"co": "Tabulka rozdělení prevence podle amerických pramenů: druhy intervence a jejich cílová populace.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Rozdělení prevence podle amerických pramenů</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Druh intervence</th><th>Cílová populace</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Druh intervence\">Všeobecná prevence</td><td data-label=\"Cílová populace\">Obecná populace, např. celá třída</td></tr>",
+    "      <tr><td data-label=\"Druh intervence\">Selektivní prevence</td><td data-label=\"Cílová populace\">Osoby se zvýšenými rizikem, které návykové látky neužívají (např. děti s poruchami chování)</td></tr>",
+    "      <tr><td data-label=\"Druh intervence\">Indikovaná prevence</td><td data-label=\"Cílová populace\">Ti, u kterých není možné diagnostikovat škodlivé užívání nebo závislost na návykových látkách, ale kteří vykazují známky užívání těchto látek</td></tr>",
+    "      <tr><td data-label=\"Druh intervence\">Léčba</td><td data-label=\"Cílová populace\">Ti, kdo návykové látky škodlivě užívají nebo jsou na nich závislí</td></tr>",
+    "      <tr><td data-label=\"Druh intervence\">Udržování stavu a prevence recidiv</td><td data-label=\"Cílová populace\">Závislí nebo zneužívající návykové látky ve stabilizovaném stavu</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Druhy preventivních intervencí a jejich cílová populace. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId10": {"co": "Tabulka uvádí, jak upravit postup intervence podle stadia motivace ke změně návykového chování.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Intervence ve vztahu ke stadiu motivace</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Stadium motivace</th><th>Modifikace postupu podle stadia motivace</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Stadium motivace\">Nestojí o změnu</td><td data-label=\"Modifikace postupu podle stadia motivace\">Vyvolávat pochybnosti o návykovém chování, pomoci pacientovi, aby lépe vnímal rizika a problémy.</td></tr>",
+    "      <tr><td data-label=\"Stadium motivace\">Rozhodování</td><td data-label=\"Modifikace postupu podle stadia motivace\">Pomoci rozhodnout se pro změnu, připomínat důvody ke změně i rizika toho, kdyby nenastala. Posilovat sebedůvěru při překonávání problému.</td></tr>",
+    "      <tr><td data-label=\"Stadium motivace\">Rozhodnutí</td><td data-label=\"Modifikace postupu podle stadia motivace\">Pomoci rozhodnout se pro nejvhodnější jednání, jímž se dá docílit pozitivní změny.</td></tr>",
+    "      <tr><td data-label=\"Stadium motivace\">Jednání</td><td data-label=\"Modifikace postupu podle stadia motivace\">Pomoci pozitivní změnu uskutečnit.</td></tr>",
+    "      <tr><td data-label=\"Stadium motivace\">Udržování</td><td data-label=\"Modifikace postupu podle stadia motivace\">Pomoci chápat a užívat strategie k prevenci recidivy.</td></tr>",
+    "      <tr><td data-label=\"Stadium motivace\">Recidiva</td><td data-label=\"Modifikace postupu podle stadia motivace\">Pomoci recidivu rychle zastavit.</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Úprava intervence podle stadia motivace. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId12": {"co": "Tabulka dovedností potřebných pro život (life skills) rozdělených na autoregulaci a sebeovlivnění a na sociální dovednosti.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Dovednosti potřebné pro život</strong></p>",
+    "  <p><strong>Dovednosti potřebné pro život (life skills)</strong><br>⇘⇙</p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Autoregulace a sebeovlivnění</th><th>Sociální dovednosti</th></tr></thead>",
+    "    <tbody>",
+    "      <tr>",
+    "        <td data-label=\"Autoregulace a sebeovlivnění\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>Schopnost motivovat se ke zdravému způsobu života a vhodně se motivovat i v jiných oblastech.</li>",
+    "            <li>Schopnost oddálit uspokojení nebo potěšení.</li>",
+    "            <li>Schopnost chránit a posilovat zdravé sebevědomí.</li>",
+    "            <li>Schopnost plánovat čas, vést přiměřený a vyvážený životní styl.</li>",
+    "            <li>Dovednosti při zvládání rizikových duševních stavů (sem patří zejména bažení, ale i úzkost, hněv, deprese, radost nebo nuda).</li>",
+    "            <li>Schopnost uvolnit se, používat vhodnou relaxační techniku, odpočívat.</li>",
+    "            <li>Další schopnosti pečovat o vlastní zdraví (výživa, cvičení, využívání zdravotní péče, hygiena atd.).</li>",
+    "          </ul>",
+    "        </td>",
+    "        <td data-label=\"Sociální dovednosti\">",
+    "          <ul class=\"fig-list\">",
+    "            <li>Schopnost čelit sociálnímu tlaku (např. odmítnout vrstevníky, starší nebo nadřízené, když nabízejí alkohol nebo jiné návykové látky).</li>",
+    "            <li>Další asertivní dovednosti (zdravé sebeprosazení).</li>",
+    "            <li>Schopnost empatie a porozumění životním situacím.</li>",
+    "            <li>Schopnost komunikace, vyjednávání, nacházení kompromisu apod.</li>",
+    "            <li>Dovednosti rozhodování se a schopnost předvídat následky určitého jednání.</li>",
+    "            <li>Schopnost vytvářet vztahy a budovat si přiměřenou síť sociálních vztahů.</li>",
+    "            <li>Mediální gramotnost. Schopnost čelit reklamě a dalším negativním vlivům okolí.</li>",
+    "            <li>Schopnost racionálně hospodařit s penězi.</li>",
+    "            <li>Dovednosti týkající se volby a hledání vhodného zaměstnání a dobrého fungování v něm.</li>",
+    "            <li>Zvládnutí přechodu do nového prostředí nebo nové situace.</li>",
+    "            <li>Rodičovské dovednosti.</li>",
+    "          </ul>",
+    "        </td>",
+    "      </tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Dovednosti potřebné pro život (life skills). Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId13": {"co": "Tabulka hierarchie motivů: skupiny potřeb, jednotlivé potřeby a jejich možné využití při sebemotivaci ke zdravému způsobu života.", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Hierarchie motivů</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Skupina potřeb</th><th>Potřeby</th><th>Možné využití při sebemotivaci ke zdravému způsobu života</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Skupina potřeb\" rowspan=\"3\"><strong>Základní potřeby</strong></td><td data-label=\"Potřeby\">Fyziologické potřeby (hlad, žízeň)</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Existenční a finanční problémy související s návykovým chováním, vyšší životní úroveň při abstinenci atd.</td></tr>",
+    "      <tr><td data-label=\"Potřeby\">Vnímat svět jako předvídatelný a cítit se bezpečně</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Větší předvídatelnost života, větší osobní bezpečnost</td></tr>",
+    "      <tr><td data-label=\"Potřeby\">Vyhnout se utrpení a bolesti</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Lze např. poukazovat na minulé negativní zkušenosti</td></tr>",
+    "      <tr><td data-label=\"Skupina potřeb\" rowspan=\"6\"><strong>Psychologické potřeby</strong></td><td data-label=\"Potřeby\">Sebeúcta</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Větší spokojenost s vlastním jednáním</td></tr>",
+    "      <tr><td data-label=\"Potřeby\">Úcta ze strany druhých</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Větší respekt ze strany druhých, možnost dokázat jim, že člověka podceňovali neprávem atd.</td></tr>",
+    "      <tr><td data-label=\"Potřeby\">Kompetence a nezávislost</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Větší soběstačnost a nezávislost</td></tr>",
+    "      <tr><td data-label=\"Potřeby\">Milovat a být milován</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Lepší perspektivy partnerského a rodinného života</td></tr>",
+    "      <tr><td data-label=\"Potřeby\">Dostatek nových podnětů</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Zdůrazňování zajímavosti života bez závislosti</td></tr>",
+    "      <tr><td data-label=\"Potřeby\">Někam patřit</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Posílení rodinných, pracovních a jiných sociálních vazeb</td></tr>",
+    "      <tr><td data-label=\"Skupina potřeb\"><strong>Potřeby sebeaktualizace a seberealizace</strong></td><td data-label=\"Potřeby\">Využívání vlastního jedinečného potenciálu</td><td data-label=\"Možné využití při sebemotivaci ke zdravému způsobu života\">Lepší možnosti vzdělávání, pracovního uplatnění, lepší možnost naplňovat své duchovní potřeby</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Hierarchie motivů a jejich využití při sebemotivaci. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  }
+ },
+ "terms": {
+  "1": [
+   ["Filadelfský systém", "Tradiční systém péče o provinilce založený na úplné izolaci chovanců v samostatných celách se zákazem vzájemného kontaktu („systém malých cel“); izolace je měla vést k sebekritickému hodnocení vlastních přečinů. První takové vězení vzniklo roku 1829 ve Filadelfii."],
+   ["Auburnský systém", "Tradiční systém, v němž byli chovanci v malých celách jen v noci, přes den společně pracovali, ale platil přísný zákaz vzájemné komunikace. Za výhodu se považovalo hromadné, jednotné výchovné působení na chovance."],
+   ["Lensburgský systém", "Systém odvozený z důvěry v člověka a jeho schopnost sebekázně, sebeuvědomění a sebekontroly; výchova byla rozčleněna do hierarchie postupných cílů, jejichž splnění podmiňovalo propuštění. Poprvé přihlížel k pedagogickým a psychologickým aspektům."],
+   ["Rodinné výchovné systémy", "Systémy vznikající od poloviny 19. století (duchovní otec J. H. Pestalozzi), které nahrazovaly represivní ústavní prostředí výchovou připomínající rodinu: skupinu vedl vychovatel v roli „otce“ nebo manželský pár, často žijící přímo s dětmi."],
+   ["Systémy s vnitřní sociální strukturou", "Výchovné systémy založené na samosprávě chovanců, kteří se podíleli na organizaci života zařízení, volili zástupce a rozhodovali o pravidlech; vychovatelem je kolektiv. Patří sem např. Makarenkova kolonie, Republika mladých provinilců či Boys Town."],
+   ["Republika mladých provinilců", "Zařízení, které v USA založil William George pro mladé provinilce v koedukovaném složení; řídila je samospráva chovanců („Kabinet republiky“) s funkcemi prezidenta, státního tajemníka či soudu a nebylo dotováno státem."],
+   ["Etopedická intervence", "Cílený zásah do vývoje dítěte, jehož cílem je přerušit, zastavit a změnit nežádoucí trend v chování; odchylka v chování před zavedením intervence a po ní musí být zřetelná. Není jen represivní, rozvíjí i schopnost dítěte zvládat zátěž."],
+   ["Systémový přístup", "Přístup, který vnímá dítě ne jako izolovaného jednotlivce, ale jako součást složité sítě vztahů, systémů a vlivů; složky podpory (rodina, škola, odborníci, sociální služby, komunita) se propojují, aby působily konzistentně a napravoval se celý systém."],
+   ["Třístupňový model pozitivní podpory", "Systém podpory žáků s rizikem poruchy chování ve škole (Felcmanová et al., 2021): úroveň prevence pro všechny, zvýšená podpora se systematickým nácvikem chybějících dovedností a intenzivní podpora s mezioborovou spoluprací a funkční analýzou chování."],
+   ["Denormalizace", "Zásada efektivní prevence rizikového chování (Miovský, Zapletalová, Skácelová): normy a hodnoty společenství se mění tak, aby lidem rizikové chování nepřipadalo jako žádoucí, ale ani jako neutrální sociální norma."]
+  ],
+  "2": [
+   ["Interiorizace", "Zvnitřnění socializačních požadavků: jedinec se s normami ztotožní a přemění je na své vnitřní, osobní zásady, kritéria a normy, jimiž se dále řídí z vnitřní nutnosti. Druhou stránkou procesu je exteriorizace, převedení zvnitřněného navenek."],
+   ["Morální realismus", "Charakteristika heteronomní morálky (Heidbrink): dítě považuje pravidla a hodnoty za dané autoritou a jednání hodnotí podle toho, zda jsou dodržována; normy nemá zvnitřněné a vnímá je jako absolutní, platné bez ohledu na kontext a okolnosti."],
+   ["Imanentní spravedlnost", "Přesvědčení dětí v heteronomní morálce, že svět běží podle pravidel daných autoritou (rodičem, bohem) a porušení pravidel je nevyhnutelně potrestáno. Při přechodu k autonomní morálce dítě chápe, že spravedlnost závisí na lidech."],
+   ["Kohlbergova teorie morálního vývoje", "Teorie lineárního vývoje morálního usuzování o třech úrovních (prekonvenční, konvenční, postkonvenční) a šesti stadiích, která jdou postupně bez přeskakování; postkonvenční úrovně dosáhne jen část populace. Vychází z rozhovorů o morálních dilematech (Heinzovo dilema)."],
+   ["Fáze osvojování sociální normy", "Při výchovném působení jedinec prochází fází situační (jedná podle normy jen z vnějších důvodů), fixační (vzniká návyk), osobnostně-integrační (norma se zvnitřní jako součást hodnot) a generalizační (norma se uplatní i v nových situacích)."],
+   ["Toleranční limit normy", "Pomyslná hranice, do jaké míry je porušení konkrétní normy ještě společností akceptováno a tolerováno. U dětí se porušování norem toleruje mnohem více než u dospělých, od nichž se očekává znalost norem a dostatečná seberegulace (Fischer, Škoda)."],
+   ["Statistická normalita", "Pojetí normality, podle něhož je normální to, co je průměrné, četné a časté, tj. leží v pásmu nejvýše dvou směrodatných odchylek od průměru; nenormální je to, co je extrémní, ať podprůměrné, nebo nadprůměrné."],
+   ["Hodnotová orientace", "Soubor hodnot uspořádaný podle osobních preferencí člověka do hierarchie (hodnotové stupnice); patří k nejpodstatnějším součástem vnitřní struktury osobnosti, odráží zkušenosti jedince a umožňuje mu hodnotit a rozlišovat."],
+   ["Právní odpovědnost", "Uplatnění nepříznivých právních následků stanovených právní normou vůči tomu, kdo porušil právní povinnost (komisivně či omisivně); smyslem je odstranit důsledky protiprávního jednání. Plní funkci reparační, satisfakční, represivní a preventivní."],
+   ["Čin jinak trestný", "Čin dítěte mladšího 15 let, který by jinak byl trestným činem; dítě není trestně odpovědné, nelze je trestně stíhat ani potrestat a vede se proti němu zvláštní soudní řízení, v němž soud může uložit opatření k jeho nápravě."]
+  ],
+  "3": [
+   ["Prognóza", "Součást diagnózy: zpráva o předpokládaném vývoji diagnostikovaného jedince, o možnostech nápravy, zmírnění či zlepšení, případně o náležitostech potřebných k udržení stávajícího stavu."],
+   ["Predikce vývoje poruch chování", "Odhad dalšího vývoje sociálního chování opřený o prognózu; vychází z analýzy minulých událostí a komplexního posouzení biologických, sociálních a psychologických faktorů. Rozlišuje se predikce jednoznačně příznivá, jednoznačně nepříznivá a nejednoznačná."],
+   ["Systém ASEBA", "Achenbach System of Empirically Based Assessment: Achenbachův systém hodnocení projevů poruch chování založený na empirických datech; k jednomu případu paralelně využívá záznamové archy pro diagnostikovaného, pedagogy i rodiče a lze jej použít ve všech věkových skupinách."],
+   ["Externalizované poruchy chování", "V klasifikaci ASEBA projevy obrácené navenek: rvačky, vyhrožování, ničení majetku, nedostatek pocitů viny, lež, podvod, krádež. Protikladem jsou internalizované projevy, např. pocit zbytečnosti, plačtivost, deprese či tendence k sebevraždě."],
+   ["Kazuistická metoda", "Sumarizační metoda speciální pedagogiky: shromažďuje všechny dostupné informace o konkrétním člověku (anamnézy, lékařské, sociální a rodinné zprávy), dává je do vzájemných vztahů a formuluje závěry, prognózu a doporučení. Jde o retrospektivní diagnostiku."],
+   ["Koláč radostí a starostí", "Explorativní doplňující diagnostická technika: dítě rozdělí kruh na výseče, jejichž velikost odpovídá tomu, jak velkou radost či starost mu daná činnost nebo jev působí; následuje rozhovor, v němž se jednotlivé výseče rozebírají."],
+   ["Predisponující, prevokující a provokující faktory", "Struktura multifaktoriálního vymezení příčin chování: predisponující faktory jsou vrozené či získané dispozice jedince, prevokující vlivy sociálního okolí (rodina, škola, vrstevníci) a provokující konkrétní zátěžová situace, která působí jako spouštěč."],
+   ["Rizikové faktory poruch chování", "Faktory zvyšující pravděpodobnost vzniku PCH, spojené s osobností dítěte (nemoc, nízký intelekt, impulzivita, sociální deficit), s rodinou (struktura, narušené vztahy, nevhodné vzory, výchovný styl), se školou a se širší společností; působí hlavně ve vzájemné kombinaci."],
+   ["Socializovaná porucha chování (F91.2)", "Podtyp poruchy chování podle MKN-10: trvalé disociální či agresivní chování při zachovaných vztazích s vrstevníky; jedinec bývá dobře začleněn do skupiny a typické jsou krádeže s partou, záškoláctví či skupinová delikvence."],
+   ["Univerzální prevence", "Primární prevence, která působí na všechny zúčastněné stejným způsobem a stejnou měrou; zahrnuje zavedení školního řádu a jasných pravidel chování a programy nácviku chování při řešení problémových situací."]
+  ],
+  "4": [
+   ["Edukace", "Souhrnný termín zahrnující výchovu (cílevědomé a záměrné vytváření a ovlivňování podmínek pro optimální rozvoj jedince) i vzdělávání (proces získávání vědomostí, dovedností, postojů, hodnot, norem a metod poznávání)."],
+   ["Cíl etopedické edukace", "Nasměrovat pedagogické dění k rozvoji socializované, vnitřně integrované a autentické osobnosti dítěte; maximem potenciálu edukace je generalizace a vnitřní integrace pozitivních změn v osobnosti žáka."],
+   ["Zásada strukturovanosti", "Didaktická zásada výuky žáků s PCH: předvídatelné prostředí, stabilní režim a jasné instrukce pomáhají žákům zorientovat se, zklidnit a soustředit (např. rituály, plán dne, důsledné začátky a konce hodin)."],
+   ["Dimenze emoční inteligence", "Poznávání a ovládání vlastních emocí, sebemotivace (odložení okamžitého uspokojení, vytrvalost), empatie jako schopnost vnímat emoce druhých a sociální obratnost, tj. schopnost ovlivňovat emoce jiných lidí a vytvářet kvalitní vztahy."],
+   ["Kognitivní empatie", "Schopnost „vidět svět očima druhého“, která se rozvíjí později než emoční empatie (ta se vyvíjí do 6 let věku). U žáků s PCH bývá empatie výrazně oslabená, a proto je třeba ji učit přímo."],
+   ["Modelování chování", "Metoda rozvoje sociálních dovedností: dítě napodobuje chování autorit (rodiče, učitele), aniž by reflektovalo jeho správnost, proto je nutná vědomá pedagogická práce s pochvalou a oceněním; pedagog má být vzorem emoční regulace a sociální kompetence."],
+   ["Žák s poruchou chování", "Žák, který normy a pravidla společnosti vědomě ignoruje nebo odmítá, necítí vinu a chybí mu empatie či reflexe následků; nežádoucí chování je dlouhodobé a stabilní a mění je nanejvýš kvůli vnějším sankcím, ne z vnitřní potřeby."],
+   ["Sekundární prevence", "Prevence zaměřená na rizikové jedince a skupiny, u nichž lze předpokládat výskyt nežádoucího jednání; cílem je včasné vyhledání a řešení problémů. Nástroji jsou např. střediska výchovné péče, peer programy, programy v přírodě či dobrovolnická pomoc."],
+   ["Výchovné funkce zařízení ústavní a ochranné výchovy", "Zařízení plní tři základní funkce: výchovu a korektivní změnu postojů a chování (nejdůležitější cíl), podporu a péči jako náhradu za nefunkční či chybějící rodinu a ochranné opatření s cílem prevence, izolace a následné resocializace."]
+  ],
+  "5": [
+   ["Extrémní poruchy chování (EPCHO)", "Výrazné poruchy chování s antisociálním, sexuálně deviantním a jinak nebezpečným chováním, diagnostikované lékařem nebo diagnostickým ústavem. Děti s EPCHO mají být umísťovány do specializovaných oddělení či zařízení uzpůsobených soustavné a intenzivní péči."],
+   ["Preventivně výchovná péče", "Péče poskytovaná středisky výchovné péče, jejímž účelem je předcházet vzniku a rozvoji negativních projevů chování dítěte, zmírňovat či odstraňovat příčiny a důsledky již vzniklých poruch chování a pomáhat rodičům tak, aby se zachovaly rodinné vazby dítěte."],
+   ["Plné přímé zaopatření", "Zaopatření dětí v zařízeních pro výkon ústavní a ochranné výchovy: stravování, ubytování, ošacení, učební potřeby a pomůcky, úhrada nezbytných nákladů na vzdělávání, zdravotních služeb nehrazených z pojištění a dopravy do školy."],
+   ["Diagnostická třída", "Součást diagnostického ústavu zřizovaná pro děti, které ukončily povinnou školní docházku; zajišťuje se v ní příprava na budoucí povolání a naplňuje se nejvýše do 8 dětí."],
+   ["Rodinná skupina", "Skupina, do níž jsou rozděleny děti v dětském domově; tvoří ji nejméně šest a nejvíce osm dětí."],
+   ["Zařízení pro děti vyžadující okamžitou pomoc (ZDVOP)", "Zařízení v resortu MPSV, do něhož lze umístit dítě, o které se rodiče nemohou ze závažného důvodu postarat. Péče v něm, stejně jako náhradní rodinná péče, má přednost před ústavní výchovou."],
+   ["Mladistvý", "Ten, kdo v době spáchání provinění dovršil 15. a nepřekročil 18. rok svého věku; za mladistvého se považuje i ten, u koho nelze bez důvodné pochybnosti určit, že v době činu překročil 18 let."],
+   ["Výchovná opatření pro mladistvé", "Opatření, která soud může mladistvému uložit: dohled probačního úředníka, probační program, výchovné povinnosti, výchovná omezení a napomenutí s výstrahou. Ukládají se přednostně; k ochranné výchově se přistupuje, až když nestačí."],
+   ["Stacionární oddělení SVP", "Specifická forma denní péče střediska výchovné péče: skupinový program, který klientům v mimoškolní době poskytuje denní odbornou a terapeutickou péči; poté se vracejí domů a jsou zařazeni do následné ambulantní péče."]
+  ],
+  "6": [
+   ["Princip D-D-D", "Princip práce s morálním vývojem ve školských zařízeních NVP (Dětství–Dospívání–Dospělost): jedinci s PCH často neprošli všemi fázemi morálního vývoje (Kohlberg), proto se jim v řízených situacích umožní chybějící fáze znovu odžít."],
+   ["SMART kritéria", "Požadavky na formulaci cílů: Specific (konkrétní), Measurable (měřitelné), Achievable (dosažitelné), Realistic (realistické) a Time-bound (ohraničené v čase)."],
+   ["Zvnitřňování afektivních cílů", "Afektivní cíle vedou k hlubokým hodnotovým změnám a naplňují se ve fázích: přijímání podnětů, reagování, oceňování (preference hodnot), integrace hodnot do vlastního systému a internalizace jako trvalá součást osobnosti."],
+   ["Vstupní diagnostika", "Diagnostika prováděná bezprostředně po přijetí dítěte do zařízení; jejím účelem je co nejširší a nejhlubší poznání osobnosti klienta, jeho vývojové historie, sociálního zázemí, potřeb a problémových oblastí a vytvoření rámce individuálního plánu."],
+   ["Průběžná diagnostika", "Kontinuální diagnostika během celého pobytu dítěte v zařízení; sleduje vývoj jedince, změny v chování a osobnosti, reakce na výchovné podněty a efektivitu intervencí a slouží k průběžné úpravě výchovně-vzdělávacího plánu."],
+   ["Výstupní diagnostika", "Diagnostika na konci pobytu (při přeřazení do jiného zařízení nebo návratu do rodiny), která hodnotí efekt pobytu, mapuje dosažené změny, ověřuje připravenost dítěte zvládnout realitu mimo instituci a doporučuje další kroky."],
+   ["Psychoterapie", "Interdisciplinární léčebný obor, který využívá psychologické prostředky k úpravě narušené psychické či somatické činnosti. Na rozdíl od poradenství, zaměřeného na aktuální problémy, jde o hlubší práci s osobností a dlouhodobou změnu postojů, chování a prožívání."],
+   ["Symptomatická psychoterapie", "Psychoterapeutický přístup, jehož cílem je odstranit či zmírnit patologické příznaky (např. úzkost, agresivitu); protikladem je hloubková a rozvojová psychoterapie zaměřená na reedukaci a restrukturalizaci osobnosti a dlouhodobou změnu."],
+   ["Interdisciplinární nápravný plán", "Plán, jehož složkami jsou pedagogicko-psychologické poradenství (PPP, SPC, SVP, školní poradenské pracoviště), psychoterapie a socioterapie, volnočasové aktivity, edukativní pomoc a medikace ve spolupráci s psychiatrem."]
+  ],
+  "7": [
+   ["Kurikulární dokumenty v zařízeních NVP", "Dokumenty, podle nichž zařízení NVP vedou výchovně-vzdělávací činnost: povinné, stanovené § 34 zákona č. 109/2002 Sb. (vnitřní řád, roční plán, týdenní programy, osobní dokumentace dětí aj.), a nepovinné interní (deníková či projektová dokumentace, osobní šanony dítěte)."],
+   ["Vnitřní řád zařízení", "Povinný dokument zařízení NVP podle zákona č. 109/2002 Sb.; stanoví pravidla hodnocení a odměňování dětí, práva a povinnosti dětí, osob odpovědných za výchovu i pracovníků, denní a týdenní program, pravidla návštěv, přijímání a propouštění dětí, spolusprávy a oznamování útěku."],
+   ["Základní a rozvojové standardy", "Dva typy standardů kvality péče v zařízeních NVP: základní standardy (typ A) vyplývají ze zákonných norem, rozvojové standardy (typ B) jdou nad rámec právní úpravy a směřují ke zvyšování kvality péče. Naplnění se hodnotí čtyřbodovou škálou 0–3 body."],
+   ["Systémový přístup v nápravě PCH", "Práce s dítětem s poruchou chování probíhá v kontextu širších vztahových, institucionálních a společenských struktur a vyžaduje koordinaci více složek – multidisciplinární tým, spolupráci s rodinou a síťování služeb (škola, zdravotnictví)."],
+   ["Dynamický přístup v nápravě PCH", "Pojetí změny chování jako procesu: nečeká se okamžité „napravení“, ale pracuje se s vývojem dítěte, jeho krizemi a relapsy a s postupným posilováním nových vzorců chování."],
+   ["Destruktivní a konstruktivní fáze výchovy", "Dvě strany výchovy dítěte s PCH: destruktivní fáze odstraňuje nevhodné návyky, postoje a schémata (např. agresivní řešení konfliktů, manipulaci, neúctu k autoritám), konstruktivní fáze buduje pozitivní alternativy – sociální dovednosti, empatii, zvládání emocí a seberegulaci."],
+   ["Funkční náprava závažné socializační odchylky", "Výchovná práce, jejímž cílem je resocializace – návrat jedince k přijatelným normám a hodnotám; zahrnuje rozvoj odpovědnosti a seberegulace, schopnost udržet funkční vztahy, připravenost na samostatný život mimo instituci a integraci do společnosti."],
+   ["Model D–D–D", "Model etap práce s výchovnou skupinou v zařízeních NVP: dekompenzace (dítě přichází s narušeným chováním a obrannými mechanismy), diagnostika (pozorování, rozpoznání potřeb, stanovení cílů a strategie) a dynamika změny (aktivní práce na změně, stabilizace žádoucích vzorců)."],
+   ["Generalizace naučeného chování", "Fáze nápravy, v níž jedinec přenáší naučené chování a dovednosti do běžného života mimo instituci, aby změna nezůstala omezena jen na prostředí zařízení."],
+   ["Osobní integrace", "Závěrečná fáze nápravy: jedinec vnitřně přijme změny a začlení je do své identity – nové hodnoty bere jako vlastní, ne jen jako navenek očekávané chování."]
+  ],
+  "8": [
+   ["Pedagogický pracovník", "Podle § 2 zákona č. 563/2004 Sb. ten, kdo vykonává přímou vyučovací, výchovnou, speciálně pedagogickou nebo pedagogicko-psychologickou činnost ve škole či školském zařízení – např. učitel, vychovatel, speciální pedagog, psycholog, asistent pedagoga."],
+   ["Psychická způsobilost pedagoga v ŠZNVP", "Podmínka, kterou pro pedagogy v zařízeních ústavní a ochranné výchovy stanoví vedle zákona o pedagogických pracovnících zákon č. 109/2002 Sb.; dokládá se psychologickým vyšetřením před nástupem i kdykoli při pochybnostech, posudek se ukládá do osobního spisu."],
+   ["Kognitivně-behaviorální terapie (KBT)", "Jeden z nejčastěji užívaných přístupů u dětí s PCH, zaměřený na identifikaci a změnu nežádoucích vzorců chování a myšlení; vychází z behaviorální, kognitivní a funkční analýzy jasně formulovaného problému a z určení konkrétního cíle terapie."],
+   ["Racionálně-emotivní terapie (RET)", "Terapie (A. Ellis) vycházející z propojenosti kognice, emocí a chování: podle modelu ABC nevyvolává reakci (C) samotná událost (A), ale přesvědčení o ní (B); model ABCDE přidává zpochybnění iracionálních přesvědčení (D) a nový, racionálnější efekt (E)."],
+   ["Humanistická (rogersovská) terapie", "Přístup kladoucí důraz na bezpodmínečné přijetí, empatii a autenticitu terapeuta; cílem je bezpečný vztah, v němž se dítě může otevřít a osobnostně růst. Techniky: aktivní naslouchání, empatická reakce, parafráze a reflexe."],
+   ["Gestalt terapie", "Terapie zaměřená na uvědomění si přítomného okamžiku („tady a teď“) a propojení těla, emocí a rozumu; pomáhá dětem rozpoznat a vyjádřit pocity a potřeby. Techniky: prázdná židle, fokus na tělo, dramatizace, změna perspektivy."],
+   ["Dyadická vývojová psychoterapie (DDP)", "Terapie dětí s poruchami attachmentu, zejména po traumatu, a jejich pečovatelů; staví na přístupu P.A.C.E. (hravost, přijetí, zvědavost, empatie), společné hře, zrcadlení emocí a bezpečném sdílení traumatických zkušeností."],
+   ["Expresivní terapie", "Forma psychoterapie využívající tvůrčí prostředky – výtvarný projev, hudbu, pohyb, drama či slovo – k vyjádření emocí a prožitků, které dítě nedokáže popsat slovy; důraz klade na proces tvorby, ne na výsledek."],
+   ["Arteterapie", "Expresivní terapie využívající výtvarné činnosti (kresba, malba, koláž, modelování) k vyjádření vnitřních prožitků, ventilaci napětí a projektivnímu sebepoznání; u dětí s PCH může přispět k redukci agresivity."],
+   ["Dramaterapie", "Expresivní terapie využívající divadelní prostředky – roli, fikci, improvizaci, dramatické hry a sociální scénky; rozvíjí empatii a přijetí jiného pohledu a umožňuje bezpečně přepracovat konfliktní či traumatické situace a zkoušet nové chování."]
+  ],
+  "9": [
+   ["Problémová rodina", "Rodina, která dlouhodobě nebo opakovaně nezvládá plnit některou ze svých funkcí; funkce je narušena jen částečně a vývoj dítěte narušen není (např. rodina, kde jsou oba rodiče nezaměstnaní)."],
+   ["Pěstounská péče na přechodnou dobu", "Krizová forma pěstounské péče, zpravidla nejdéle na 1 rok, než se najde trvalé řešení; využívá se např. při rozhodování o návratu dítěte do rodiny, než se najde pěstoun či osvojitel, nebo u týraných a zanedbávaných dětí a novorozenců."],
+   ["Předpěstounská péče", "Svěření dítěte zájemci o pěstounství na dobu, kterou určí soud, ještě před rozhodnutím o pěstounské péči; její průběh a úspěšnost se sledují a vyhodnocují."],
+   ["Péče před osvojením", "Období, kdy je dítě před rozhodnutím soudu o osvojení v péči budoucího osvojitele – nejméně 6 měsíců; soud přitom zkoumá vhodnost osvojitele a vztah mezi ním a dítětem (tzv. předadopční péče)."],
+   ["Poručenství", "Forma náhradní péče: soud jmenuje poručníka dítěti, které nemá rodiče, jenž má a vykonává rodičovskou odpovědnost v plném rozsahu. Poručník má práva a povinnosti rodiče kromě vyživovací povinnosti a podléhá stálému dozoru soudu."],
+   ["Veřejný poručník", "Orgán sociálně-právní ochrany dětí (OSPOD), kterého soud ustanoví poručníkem, nenajde-li se vhodná fyzická osoba; poručenství pak vykonává zpravidla dočasně."],
+   ["Opatrovnictví", "Časově omezené a účelové zastoupení dítěte opatrovníkem, kterého jmenuje soud, hrozí-li střet zájmů dítěte a zákonného zástupce nebo zákonný zástupce nehájí zájmy dítěte dostatečně (např. v soudním řízení); opatrovník nenahrazuje rodiče ani pěstouna."],
+   ["Doprovázející organizace", "Subjekt, který s pěstounem uzavírá dohodu o výkonu pěstounské péče a zajišťuje mu psychologickou, pedagogickou a sociální podporu, vzdělávání a podporu kontaktů dítěte s biologickou rodinou."],
+   ["Reparabilita deprivace", "Možnost nápravy či zmírnění důsledků deprivace a subdeprivace; závisí na věku dítěte, době trvání a intenzitě deprivace, kvalitě nových vztahů a prostředí a na osobnostní výbavě (resilienci) dítěte. Klíčem je stabilní náhradní citový vztah."],
+   ["Nukleární rodina", "Malá rodina tvořená pouze dvěma generacemi (rodiče a děti); v současnosti převažující typ rodiny."]
+  ],
+  "10": [
+   ["Případová konference", "Nástroj interdisciplinární spolupráce: pracovník OSPOD jako koordinátor, rodiče, dítě (je-li to vhodné) a odborníci (zařízení, škola, psycholog, zdravotníci, NNO) společně vyhodnotí situaci ohroženého dítěte, dohodnou opatření a rozdělí odpovědnosti."],
+   ["Klíčový pracovník", "Pracovník zařízení NVP (princip garantství), který dítě provází výchovně terapeutickým procesem jako „důvěrník“; odpovídá za plánování a průběh sociálně rehabilitačního procesu a je patronem naplňování potřeb, zájmů a cílů dítěte."],
+   ["Postpéče", "Následná péče o mladého člověka po odchodu ze ŠZNVP do rodiny nebo samostatného života – preventivně-terapeutické provázení; zhruba první tři měsíce je potřeba intenzivní podpora, která postupně přechází v doznívající poradenskou podporu."],
+   ["Rituál loučení s institucí", "Závěr přípravy na odchod ze zařízení, který začíná rozhodnutím o datu odchodu; probíhá v rovině terapeutické (uzavření konzultací, předání zpětné vazby a kontaktů) a rituální (rozloučení se skupinou a komunitou)."],
+   ["Smlouva o dobrovolném pobytu", "Smlouva, kterou po zániku ústavní výchovy dosažením zletilosti může nezaopatřená osoba na základě své žádosti uzavřít s ředitelem zařízení, připravuje-li se soustavně na budoucí povolání."],
+   ["Funkční programy", "Prakticky osvědčené programy a projekty pro mladé lidi odcházející z ústavní péče, zaměřené na přípravu na samostatný život, sociální začlenění a snížení rizika recidivy, bezdomovectví, závislostí či zadlužení (např. Pomoz mi do života, Začni správně)."],
+   ["Startovací byt", "Tzv. cvičný byt se zvýhodněným nájmem, v němž si mladý člověk po odchodu z instituce může vyzkoušet samostatné bydlení „nanečisto“."],
+   ["Sociální byt", "Standardní zkolaudovaný byt, zpravidla mimo sociálně vyloučené lokality, přidělovaný na základě posouzení bytové nouze; má nižší nájemné a bývá doprovázen sociální prací podle potřeb klienta."],
+   ["Nízkoprahové zařízení pro děti a mládež (NZDM)", "Zařízení pro děti a mladé lidi od 6 do 26 let, kteří se ocitli (nebo mohou ocitnout) v náročné situaci vlastním přičiněním nebo vlivem okolností, např. nefunkční rodiny či návratu z ústavní výchovy."],
+   ["Rodinná terapie", "Forma psychoterapie zaměřená na zlepšení fungování celé rodiny jako systému; v rámci sanace zlepšuje komunikaci, pomáhá řešit konflikty, buduje důvěru mezi dítětem a rodičem a připravuje rodinu na návrat dítěte z NVP."]
+  ],
+  "11": [
+   ["Orgány sociálně-právní ochrany dětí", "Podle § 4 zákona č. 359/1999 Sb. krajské úřady, obecní úřady obcí s rozšířenou působností, obecní a újezdní úřady, MPSV, Úřad pro mezinárodněprávní ochranu dětí a Úřad práce ČR. Obce, kraje, komise pro SPOD a pověřené osoby SPOD zajišťují, orgány však nejsou."],
+   ["Úřad pro mezinárodněprávní ochranu dětí (ÚMPOD)", "Správní úřad s celostátní působností se sídlem v Brně, podřízený MPSV; řeší ochranu dětí ve vztahu k cizině, např. vymáhání výživného, únosy dětí, mezinárodní osvojení a styk s dítětem."],
+   ["Komise pro sociálně-právní ochranu dětí", "Komise, která koordinuje výkon SPOD v obvodu obce s rozšířenou působností, navrhuje a posuzuje sociálně preventivní programy, posuzuje jednotlivé případy a vydává k nim stanoviska."],
+   ["Pověřená osoba", "Nestátní právnická nebo fyzická osoba, která na základě pověření krajského úřadu vykonává zákonem vymezené činnosti sociálně-právní ochrany dětí (§ 48 zákona o SPOD); orgánem SPOD však není."],
+   ["Individuální plán ochrany dítěte (IPOD)", "Plán, který OÚ ORP zpracovává na základě vyhodnocení situace dítěte a rodiny ve spolupráci s rodiči, dítětem a odborníky; určuje příčiny ohrožení, opatření k ochraně dítěte a pomoci rodině a časový plán. Vzniká nejpozději do 1 měsíce od zařazení do evidence."],
+   ["Výchovná opatření", "Opatření, která může OÚ ORP (nebo soud) uložit, vyžaduje-li to zájem na řádné výchově dítěte: napomenutí, stanovení dohledu, omezení bránící škodlivým vlivům (zákaz určitých činností či míst) a povinnost využít odbornou poradenskou pomoc, mediaci nebo terapii."],
+   ["Svěření dítěte do péče jiné osoby", "Soud svěří dítě do péče jiné fyzické osoby než rodiče, vyžaduje-li to zájem dítěte a nemůže-li o ně pečovat žádný z rodičů ani poručník; nejčastěji jde o prarodiče či jiné příbuzné. Má přednost před ústavní výchovou."],
+   ["Nejlepší zájem dítěte", "Nosný princip Úmluvy o právech dítěte; rozumí se jím především možnost dítěte vyrůstat v rodinném prostředí v atmosféře lásky a porozumění, přednostně ve vlastní rodině, s cizí péčí jen v nezbytně nutné míře."],
+   ["Princip subsidiarity mezinárodního osvojení", "Osvojení dítěte do ciziny je náhradním řešením jen tehdy, nemůže-li být dítě předáno do rodiny osvojitele ani o ně nelze jinak vhodně pečovat v zemi jeho původu."],
+   ["Ochránce práv dětí", "Dětský ombudsman – instituce působící od 1. 7. 2025 vedle veřejného ochránce práv; má naslouchat dětem, monitorovat naplňování jejich práv, prošetřovat stížnosti dětí na úřady, dohlížet na práva dětí v zařízeních a šířit osvětu."]
+  ],
+  "12": [
+   ["Agresivita", "Dispozice či vnitřní pohotovost jednat agresivně v různých situacích (rys osobnosti), tj. tendence k agresi; v užším smyslu schopnost organismu mobilizovat síly k zápasu o dosažení cíle a vzdorovat těžkostem."],
+   ["Afektivní agrese", "Reaktivní, impulzivní („horká“) agrese spojená s hněvem a zlostí; není předem plánována a agresor ji prožívá jako nutnou reakci na averzivní podnět, kterým se cítí vyprovokován."],
+   ["Instrumentální agrese", "Plánovaná („chladná“) agrese, při níž je ublížení jen vedlejším produktem dosahování jiného cíle; je naučená a stává se sociální technikou."],
+   ["Kyberšikana", "Elektronická forma šikany – např. falešné profily s dehonestujícím obsahem, zveřejňování ponižujících videí a zraňujících komentářů, výhružné SMS a e-maily; v současnosti jedna z nejčastějších forem šikany."],
+   ["Pyramida šikany", "Rozdělení třídy ve 3. stadiu šikany (vytvoření jádra agresorů) na agresory, jejich pomocníky, přihlížející svědky a oběti."],
+   ["Školní lynč", "Výbuch skupinového násilí – výjimečný typ pokročilé šikany, kdy oběti hrozí těžké poškození zdraví, a škola proto nemůže čekat na externího odborníka (později by navíc nešlo situaci vyšetřit)."],
+   ["Metoda vnějšího nátlaku", "Nápravná metoda při šikaně, která využívá autoritu a právní rámec školy: strach z důsledků má agresora přimět chování zastavit. Zahrnuje individuální či komisionální pohovor s agresorem a rodiči, oznámení sankce před třídou a ochranu oběti."],
+   ["Metoda usmíření", "Nápravná metoda preferovaná v méně pokročilých stadiích šikany, zaměřená na změnu vztahů a korektivní zkušenost: diagnostika, rozhovor s obětí a s agresorem, společné setkání s podpůrnými žáky, dohoda o závazcích a kontrolní setkání."],
+   ["Komunitní kruh", "Pravidelné setkání třídy (např. v třídnické hodině) s jasnými pravidly komunikace – mluví jeden, respekt, naslouchání – zaměřené např. na pocit bezpečí ve třídě; pomáhá obnovit vztahy a budovat důvěru a empatii."],
+   ["Školní program proti šikanování", "Součást Preventivního programu školy, kterou si každá škola zpracovává samostatně; obsahuje metody řešení a opatření k nápravě šikanování a má mít 13 hlavních součástí, např. zmapování situace, společný postup při řešení, ochranný režim a spolupráci s rodiči."]
+  ],
+  "13": [
+   ["Porucha aktivity a pozornosti", "V MKN-10 podskupina hyperkinetických poruch (F90.0): dítě má poruchu pozornosti i hyperaktivitu, ale není u něj přítomna porucha chování. Odpovídá kombinovanému typu ADHD podle DSM."],
+   ["Hyperkinetická porucha chování", "V MKN-10 samostatná kategorie (F90.1) pro děti, které mají vedle hyperkinetických obtíží (porucha pozornosti, hyperaktivita, impulzivita) i příznaky poruchy chování – závažnější forma. DSM-5 ji nezná, poruchu chování diagnostikuje jen jako komorbidní."],
+   ["Hyperaktivita", "Změna aktivační úrovně CNS: převládá zvýšená aktivita a tlumivé procesy jsou pomalé. Projevuje se psychomotorickým neklidem (vrtění, vyskakování z místa, pobíhání), hlasitou až překotnou řečí a tím, že unavené dítě reaguje ještě větším neklidem."],
+   ["Impulzivita", "Jeden z primárních projevů ADHD: dítě udělá bez rozmyšlení to, co ho první napadne, a nedomýšlí důsledky („myslí až potom“). Působí zbrkle, skáče do řeči, reaguje jen na část pokynu a neuvědomuje si nebezpečí úrazu."],
+   ["Diferenciální diagnostika", "Proces, při kterém lékař nebo odborný tým zvažuje více možných diagnóz na základě anamnézy, pozorování a testů, aby určil tu nejpravděpodobnější. U ADHD je třeba odlišit např. epilepsii, poruchy sluchu a zraku, úzkostné poruchy nebo PAS."],
+   ["Škála ADHD IV", "Adaptace americké ADHD Rating Scale IV (DuPaul a kol.) ke screeningu projevů ADHD u dětí 6–12 let. Má 18 položek ve dvou subškálách (nepozornost, hyperaktivita-impulzivita); vyplňují ji rodiče a učitelé, hodí se i k posouzení účinnosti léčby."],
+   ["Škála Connersové", "Nejpoužívanější posuzovací škála při diagnostice ADHD. Verze pro rodiče posuzuje psychické a somatické projevy dítěte v osmi kategoriích, verze pro učitele chování ve třídě, zařazení mezi spolužáky a postoj k autoritě; hodnocení se musí shodovat."],
+   ["Methylfenidát", "Nejčastěji předepisované stimulancium u středně těžkého až těžkého ADHD (např. Ritalin). Brzdí zpětné vychytávání dopaminu a ovlivňuje i noradrenalin; zlepšuje fungování, ale poruchu nevyléčí, proto se kombinuje s dalšími formami terapie."],
+   ["Time-out", "Technika ke zklidnění a posílení seberegulace, ne trest: krátká přestávka v neutrálním a klidném prostředí s předem vysvětlenými pravidly a přiměřenou délkou (asi 1 minuta na rok věku). Po skončení stačí krátké věcné shrnutí situace."],
+   ["Komorbidita", "Současný výskyt další poruchy vedle základní diagnózy. Většina jedinců s ADHD má aspoň jednu další psychickou či neurovývojovou poruchu (nejčastěji ODD a jiné poruchy chování, SPU, poruchy řeči, úzkosti a deprese, tiky), což ovlivňuje průběh, diagnostiku i léčbu."]
+  ],
+  "14": [
+   ["Pravé záškoláctví", "Forma záškoláctví, kdy žák do školy nechodí, ale rodiče si myslí, že školu navštěvuje. Dalšími kategoriemi jsou záškoláctví s vědomím rodičů, záškoláctví s klamáním rodičů, útěky ze školy a odmítání školy."],
+   ["Skryté záškoláctví", "Záškoláctví s vědomím rodičů, kteří absenci dítěte kryjí – buď mají ke škole odmítavý postoj, nebo jsou ve vztahu k dítěti příliš slabí, případně jsou závislí na jeho pomoci a podpoře v domácnosti."],
+   ["Interní záškoláctví", "Útěky ze školy: žák do školy přijde, nechá si zapsat přítomnost a během vyučování na několik hodin odejde – zůstává přitom v budově školy, nebo ji na krátkou dobu opustí."],
+   ["Únikový typ chování", "Chování, které je v podstatě obranným mechanismem: dítě se jím chrání a vyhýbá se zdroji úzkosti, konfliktů či trestů. Záškoláctví je typickou poruchou chování únikového typu; vždy má svou příčinu, které je třeba věnovat pozornost."],
+   ["Školní fobie", "Psychická porucha projevující se silnou úzkostí a psychosomatickými obtížemi (bolesti hlavy a břicha, nevolnost, zvracení), kvůli nimž dítě odmítá chodit do školy. Příznaky se typicky zlepšují o víkendech a o prázdninách."],
+   ["Individuální výchovný program (IVýP)", "Písemná dohoda školy, žáka, zákonného zástupce a dalších osob (metodik prevence, vedení školy, případně psycholog, OSPOD či PPP), která stanoví konkrétní opatření, odpovědné osoby a termíny. Sestavuje se, když jednání s rodiči nevede ke zlepšení; plnění se pravidelně hodnotí."],
+   ["Sebeklam", "Druh lži, při kterém si lhář neuvědomuje, že podvádí sám sebe, a nezná své motivy (Ekman). Podle Konečného se projevuje tendencí přisuzovat si nadprůměrné schopnosti a pozitivní vlastnosti."],
+   ["Polopravda", "Výpověď na pomezí pravdy a lži: mluvčí sice říká pravdu, ale neřekne vše, co ví nebo na co se ho tazatel ptá. Neúplnost může ovlivnit i přítomnost dalších svědků, kteří mohou úplnost informací kontrolovat."],
+   ["Krádež", "Vědomé a úmyslné přivlastnění si cizí věci bez souhlasu vlastníka. U poruch chování jde o opakované a záměrné jednání narušující normy a vztahy; může být impulzivní (touha věc vlastnit) nebo předem plánovaná, která je závažnější."],
+   ["Restorativní přístup", "Vedení k nápravě: dítě se podílí na napravení škody (vrácení věci, omluva, nabídnutí pomoci). Učí, že chyba je opravitelná – cílem není trest, ale obnovení důvěry."]
+  ],
+  "15": [
+   ["Úzkostná porucha", "Emoční porucha, kdy úzkost přetrvává nepřiměřeně dlouho, je nepřiměřeně silná vzhledem ke skutečnému podnětu, narušuje fungování dítěte ve škole, v rodině i v kolektivu a není vůlí ovlivnitelná. Úzkost sama je přitom přirozená reakce na hrozbu nebo stres."],
+   ["Generalizovaná úzkostná porucha", "Přetrvávající úzkost, která není vázána na žádné konkrétní okolnosti („volně těkající“). Projevuje se nervozitou, třesem, svalovým napětím, pocením a obavami o sebe i blízké; u dětí neklidem, bolestmi hlavy či břicha, perfekcionismem a nadměrnou starostlivostí."],
+   ["Sociální fobie", "Obava z posuzování druhými, která vede k vyhýbání se styku s lidmi. Bývá spojena s nízkou sebeúctou a strachem z kritiky; projevuje se např. červenáním, třesem rukou či nauzeou a může přerůst až v panickou ataku."],
+   ["Disociativní záchvaty", "Záchvaty, které vypadají jako epileptické, ale nejsou: chybí např. kousnutí do jazyka či ztráta moči a EEG je negativní. Ztráta vědomí chybí nebo je nahrazena stuporem či transem; patří mezi disociativní (konverzní) poruchy."],
+   ["Deprese", "Závažná afektivní (náladová) porucha s dlouhodobě sníženou náladou, ztrátou zájmu a potěšení, únavou a dalšími psychickými i tělesnými příznaky. Nejde o běžný smutek, ale o stav narušující každodenní fungování; u dětí bývá překryta somatickými či školními obtížemi."],
+   ["Anaklitická deprese", "Deprese v kojeneckém věku jako reakce na separaci od matky: dítě nejprve pláče, poté se stává apatickým, bez naděje a reaguje emočně utlumeně."],
+   ["Negativní kognitivní triáda", "Typický rys kognitivní deprese: negativní pohled na sebe, na okolní svět a na budoucnost. Doprovázejí ji negativní automatické myšlenky, katastrofické scénáře a černobílé hodnocení."],
+   ["Suicidální chování", "Širší pojem než suicidium (vědomé a záměrné ukončení vlastního života): zahrnuje suicidální úvahy a plány, verbální proklamace, demonstrativní jednání i sebevražedné pokusy. U dětí a dospívajících bývá reakcí na vnitřní napětí, zátěž, duševní onemocnění či krizi."],
+   ["Bilanční sebevražda", "Vědomé, promyšlené a racionální rozhodnutí ukončit život jako „jediné východisko“ z bezvýchodné situace – nejde o afektivní výbuch, ale o chladné zvážení důvodů. Typicky u těžké deprese, nevyléčitelné nemoci či dlouhodobého vnitřního utrpení."],
+   ["Sebepoškozování", "Poškozování vlastního těla bez úmyslu zemřít, s cílem ulevit vnitřnímu napětí, potrestat se nebo získat kontrolu nad emocemi. Může být výrazem autoagrese s vnitřní regulační funkcí; předchozí sebepoškozování zvyšuje u dětí a dospívajících riziko suicidia."]
+  ],
+  "16": [
+   ["Formativní hodnocení", "Hodnocení zaměřené na individuální pokrok žáka a zpětnou vazbu, nikoli na porovnávání s ostatními. Podporuje vnitřní motivaci, spolupráci a sebedůvěru žáka, a je proto vhodným preventivním nástrojem."],
+   ["Normativní hodnocení", "Hodnocení, které porovnává žáky mezi sebou. Může vést k rivalitě, stresu a úzkostem, proto se v prevenci doporučuje dávat přednost formativnímu hodnocení."],
+   ["Náročná výchovná situace", "Situace, která od učitele vyžaduje zvýšené úsilí – např. konflikty mezi žáky, kázeňské problémy nebo práce se žáky se speciálními vzdělávacími potřebami. Bývá stresující a vyžaduje specifické strategie zvládání (copingové strategie)."],
+   ["Taktické intervence", "Postupy, jimiž učitel zvládá problémové chování přímo ve výuce: taktické přehlížení drobných provokací, které nemají publikum, proximita (přiblížení se k žákovi), neverbální signály (oční kontakt, gesto, tichý pokyn) a přesměrování na jinou činnost."],
+   ["Odměna", "Jakákoli pozitivní reakce na žádoucí chování, jejímž cílem je toto chování posílit a motivovat k jeho opakování. Může být sociální (pochvala, uznání), věcná (body, přístup k aktivitě) nebo vnitřní (pocit úspěchu)."],
+   ["Trest", "Negativní reakce na nežádoucí chování s cílem potlačit jeho opakování. Pozitivní trest přidává nepříjemný podnět (napomenutí), negativní odebírá příjemný (zákaz aktivity); má mít výchovný účel, ne sloužit jako pomsta či ventilace emocí."],
+   ["Autoritářský styl vedení", "Učitel rozhoduje o všem bez ohledu na názory žáků, klade důraz na disciplínu, pravidla a výkon, sám kontroluje i hodnotí a málokdy dává pozitivní zpětnou vazbu. Hodí se v krizových situacích, ale potlačuje tvořivost a může vyvolat napětí a odpor."],
+   ["Demokratický styl vedení", "Učitel se žáky spolupracuje a respektuje jejich názory, o věcech se rozhoduje společně a žáci se podílejí na plánování. Podporuje motivaci, odpovědnost a spolupráci, je však časově náročný a nelze ho uplatnit vždy a u všech skupin."],
+   ["Liberální styl vedení", "Neřízený styl, kdy učitel ponechává žákům téměř úplnou svobodu, zasahuje minimálně a často chybí struktura i kontrola výstupů. Vyspělým žákům podporuje samostatnost, u méně zralých hrozí chaos a přehlížení problémů."],
+   ["Primární skupina", "Skupina, v níž jedinec zažívá intenzivní mezilidské vztahy, emocionální blízkost a identifikaci se skupinou. Za primární skupiny se považují i vrstevnické skupiny, typické neformální strukturou, přímými interakcemi a vysokou soudržností."]
+  ],
+  "17": [
+   ["Syndrom závislosti", "Skupina fyziologických, behaviorálních a kognitivních jevů, kdy užívání látky má pro jedince mnohem větší přednost než jiné jednání, kterého si dříve cenil víc. Ústředním rysem je silná, někdy přemáhající touha látku užívat."],
+   ["Bažení (craving)", "Silná touha nebo pocit puzení užívat látku – jeden ze znaků syndromu závislosti. Jde spíše o subjektivní příznak, kdežto zhoršené sebeovládání při užívání se týká chování."],
+   ["Odvykací stav", "Soubor příznaků po náhlém vysazení nebo snížení dávky látky, na které je jedinec závislý (např. třes, pocení, úzkost, podrážděnost, neklid). Může být provázen až nesnesitelnými jevy a v krajním případě skončit smrtí."],
+   ["Škodlivé užívání", "Opakované nebo déletrvající užívání látky, které už způsobuje tělesné nebo psychické poškození. Na rozdíl od závislosti obvykle chybí ztráta kontroly, bažení i odvykací stav, často však plně rozvinuté závislosti předchází."],
+   ["Nelátková závislost", "Závislost na určité činnosti (procesu), též behaviorální závislost: z příjemného prožitku se vyvine neodolatelná touha chování opakovat, člověk ztrácí kontrolu a pokračuje i přes narůstající nepříjemné následky (např. hazard, internet, nakupování)."],
+   ["Netolismus", "Závislostní chování ve vztahu k virtuálnímu světu – k tzv. virtuálním drogám, jako jsou internet, online hry, sociální sítě, mobilní telefony či televize. Nejčastěji jde o kybervztahy, online komunikaci a hraní online her."],
+   ["Primární prevence", "Předcházení vzniku závislostního chování, nebo aspoň oddálení jeho začátku do věku, kdy jsou dospívající odolnější. Míří na všechny děti – v rodině (vztahy, pravidla, vzor) i ve škole (preventivní programy, sociální dovednosti, peer programy)."],
+   ["Sekundární prevence", "Včasné zachycení rizikového chování u jedinců, kteří už s návykovými látkami experimentovali nebo vykazují první známky problémů, a zabránění jeho rozvoji v závislost. Patří sem včasná a krizová intervence, poradenství a nízkoprahové služby."],
+   ["Terciární prevence", "Zaměřuje se na jedince s již rozvinutým (diagnostikovaným) závislostním chováním: má zabránit jeho prohlubování a podpořit návrat do společnosti. Patří sem léčba (ambulantní, rezidenční, substituční), rehabilitace, resocializace a harm reduction."],
+   ["Harm reduction", "Program snižování škod: cílem je předcházet přenosu infekcí spojených s injekční aplikací drog či nechráněným pohlavním stykem, nebo ho omezit. Patří sem terénní práce (streetwork), výměna injekčních jehel, poradenství, edukace a základní sociální servis."]
+  ]
+ },
+ "fixes": {
+  "1": [
+   {"najdi": "porucha chování v rámci neurovývojových poruch", "proc": "klasifikace poruch chování", "odkaz": "zapisky-2025", "bylo": "porucha chování „v rámci neurovývojových poruch“", "plati": "neurovývojová je ADHD (6A05); PCH jsou samostatná skupina 6C90–6C91 (MKN-11)", "zdroj": ["https://icd.who.int/browse/2025-01/mms/cs"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„porucha chování v rámci neurovývojových poruch“</span>.</p>",
+     "<p>Poruchy chování <strong>nejsou neurovývojové poruchy</strong>. Mezi neurovývojové poruchy patří ADHD (MKN-11 6A05); poruchy chování tvoří v MKN-11 samostatnou skupinu <em>disruptivní chování a disociální poruchy</em> (6C90 porucha opozičního vzdoru, 6C91 disociální porucha chování), v MKN-10 jsou to F91–F92. MKN-11 platí od 1. 1. 2022; českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a do roku 2027 běží přechodné období, kdy se k vykazování ještě používá MKN-10.</p>"
+    ]}
+  ],
+  "3": [
+   {"najdi": "Diagnostická kritéria dle MKN-10", "proc": "MKN-11 u poruch chování", "odkaz": "zapisky-2025", "bylo": "kritéria jen podle MKN-10", "plati": "MKN-11: 6C90, 6C91 (přechodné období do 2027)", "zdroj": ["https://icd.who.int/browse/2025-01/mms/cs"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Diagnostická kritéria dle MKN-10“</span>.</p>",
+     "<p>Kritéria v této části jsou podle <strong>MKN-10</strong>. MKN-11 platí od 1. 1. 2022; českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a do roku 2027 běží přechodné období, kdy se k vykazování ještě používá MKN-10. MKN-11 řadí poruchy chování do skupiny <em>disruptivní chování a disociální poruchy</em>: <strong>6C90</strong> porucha opozičního vzdoru a <strong>6C91</strong> disociální porucha chování (se začátkem v dětství nebo v adolescenci, se specifikací „s omezenými prosociálními emocemi“). Podtypy F91.0–F91.2 (vázaná na rodinu, nesocializovaná, socializovaná) MKN-11 nemá.</p>"
+    ]},
+   {"najdi": "IVP s prediktivní složkou", "proc": "neexistující pojem z AI", "odkaz": "zapisky-2025", "bylo": "„IVP s prediktivní složkou“", "plati": "PLPP (§ 10) nebo IVP (§ 3) podle vyhl. č. 27/2016 Sb.", "zdroj": ["https://e-sbirka.gov.cz/sb/2016/27"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„IVP s prediktivní složkou“</span>.</p>",
+     "<p>„IVP s prediktivní složkou“ není pojem předpisů ani metodik — je to obrat z vložené odpovědi umělé inteligence. Podle vyhlášky č. 27/2016 Sb. škola zpracovává <strong>plán pedagogické podpory</strong> (PLPP, podpůrná opatření 1. stupně, § 10) a <strong>individuální vzdělávací plán</strong> (IVP, § 3) na základě doporučení školského poradenského zařízení; ani jeden není nástrojem predikce.</p>"
+    ]},
+   {"najdi": "psychopatie jako vrozená a trvalá osobnostní dispozice", "proc": "psychopatie není diagnóza", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„psychopatie jako vrozená a trvalá osobnostní dispozice“</span>.</p>",
+     "<p>„Psychopatie“ není diagnóza MKN-10, MKN-11 ani DSM-5. Odpovídá jí <strong>disociální porucha osobnosti</strong> (MKN-10 F60.2; v MKN-11 porucha osobnosti s rysem disociálnosti), kterou ale <strong>u dětí nelze diagnostikovat</strong> — poruchy osobnosti se stanovují až v dospělosti. U dětí a dospívajících jde o poruchu chování (F91, 6C91).</p>"
+    ]}
+  ],
+  "4": [
+   {"najdi": "Školská zařízení náhradní výchovné péče (např. DÚ, DDŠ, SVP)", "proc": "SVP není zařízení NVP", "odkaz": "zapisky-2025", "bylo": "SVP mezi zařízeními NVP", "plati": "SVP = preventivně výchovná péče; ÚV/OV jen DÚ, DD, DDŠ, VÚ (§ 1–2 zák. 109/2002 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2002/109"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Školská zařízení náhradní výchovné péče (např. DÚ, DDŠ, SVP)“</span>.</p>",
+     "<p>Středisko výchovné péče <strong>není</strong> zařízením náhradní výchovné péče. Zákon č. 109/2002 Sb. rozlišuje <strong>zařízení pro výkon ústavní a ochranné výchovy</strong> (§ 2: diagnostický ústav, dětský domov, dětský domov se školou, výchovný ústav) a <strong>školská zařízení pro preventivně výchovnou péči</strong>, jimiž jsou střediska výchovné péče (§ 1 odst. 1).</p>"
+    ]},
+   {"najdi": "činnost školního poradenského pracoviště", "proc": "ŠPP ve vyhlášce 72/2005", "odkaz": "zapisky-2025", "bylo": "školní poradenské pracoviště ve vyhl. 27/2016 Sb.", "plati": "vyhl. č. 72/2005 Sb., § 7 a příloha 3", "zdroj": ["https://e-sbirka.gov.cz/sb/2005/72"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„činnost školního poradenského pracoviště“</span>.</p>",
+     "<p>Poradenské služby ve škole — výchovného poradce, školního metodika prevence, školního psychologa a speciálního pedagoga — neupravuje vyhláška č. 27/2016 Sb., ale <strong>vyhláška č. 72/2005 Sb.</strong>, o poskytování poradenských služeb ve školách a školských poradenských zařízeních (§ 7 a příloha č. 3). Vyhláška 27/2016 Sb. upravuje podpůrná opatření, PLPP a IVP.</p>"
+    ]},
+   {"najdi": "umístěni do zařízení (DDŠ, SVP, VÚ)", "proc": "SVP není místo umístění", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„umístěni do zařízení (DDŠ, SVP, VÚ)“</span>.</p>",
+     "<p>Do střediska výchovné péče se dítě k výkonu ústavní nebo ochranné výchovy <strong>neumisťuje</strong>; SVP poskytuje preventivně výchovnou péči (ambulantně, celodenně, internátně, terénně). Zařízeními pro výkon ústavní a ochranné výchovy jsou podle § 2 zákona č. 109/2002 Sb. diagnostický ústav, dětský domov, dětský domov se školou a výchovný ústav.</p>"
+    ]},
+   {"najdi": "programy prevence sociálně patologických jevů", "proc": "rizikové chování místo sociálně patologických jevů", "odkaz": "zapisky-2025", "bylo": "„prevence sociálně patologických jevů“", "plati": "prevence rizikového chování, preventivní program školy (vyhl. 72/2005 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2005/72"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„programy prevence sociálně patologických jevů“</span>.</p>",
+     "<p>Pojem „sociálně patologické jevy“ předpisy ani metodiky MŠMT už nepoužívají; platný pojem je <strong>rizikové chování</strong> a škola má <strong>preventivní program školy</strong> (vyhláška č. 72/2005 Sb., příloha č. 3).</p>"
+    ]},
+   {"najdi": "(výchovné ústavy, věznice)", "nahrad": "(výchovné ústavy, <span class=\"fix\">dětské domovy se školou</span>)", "proc": "věznice nejsou zařízení pro OV", "odkaz": "zapisky-2025", "bylo": "ochranná výchova ve „výchovných ústavech, věznicích“", "plati": "OV jen ve školských zařízeních (DDŠ, VÚ) podle zák. 109/2002 Sb.", "zdroj": ["https://e-sbirka.gov.cz/sb/2002/109", "https://e-sbirka.gov.cz/sb/2003/218"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„(výchovné ústavy, věznice)“</span>.</p>",
+     "<p>Věznice <strong>nejsou</strong> zařízením pro výkon ochranné výchovy. Ochranná výchova se vykonává ve školských zařízeních podle zákona č. 109/2002 Sb. (dětský domov se školou, výchovný ústav; umisťuje diagnostický ústav). Ve věznici pro mladistvé se vykonává <em>trestní opatření</em> odnětí svobody nepodmíněné (§ 24 zákona č. 218/2003 Sb.), ne ochranná výchova.</p>"
+    ]},
+   {"najdi": "společensky nebezpečného činu", "nahrad": "<span class=\"fix\">provinění (mladiství) nebo činu jinak trestného (děti mladší 15 let)</span>", "proc": "pojem zrušeného trestního zákona", "odkaz": "zapisky-2025", "bylo": "„společensky nebezpečný čin“", "plati": "provinění (§ 22 ZSM), čin jinak trestný (§ 93 ZSM)", "zdroj": ["https://e-sbirka.gov.cz/sb/2003/218", "https://e-sbirka.gov.cz/sb/2009/40"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„společensky nebezpečného činu“</span>.</p>",
+     "<p>„Společensky nebezpečný čin“ je pojem trestního zákona č. 140/1961 Sb., který nahradil od 1. 1. 2010 trestní zákoník č. 40/2009 Sb. Ochrannou výchovu dnes ukládá soud pro mládež <strong>mladistvému za provinění</strong> (§ 22 zákona č. 218/2003 Sb.) nebo <strong>dítěti mladšímu 15 let za čin jinak trestný</strong> (§ 93).</p>"
+    ]}
+  ],
+  "5": [
+   {"najdi": "(Zákon o rodině § 46)", "nahrad": "(<span class=\"fix\">§ 971 zákona č. 89/2012 Sb., občanský zákoník</span>)", "proc": "zákon o rodině → § 971 OZ", "odkaz": "zapisky-2025", "bylo": "„Zákon o rodině § 46“", "plati": "§ 971–972 zák. č. 89/2012 Sb. (zákon o rodině zrušen 1. 1. 2014)", "zdroj": ["https://e-sbirka.gov.cz/sb/2012/89", "https://e-sbirka.gov.cz/sb/1963/94"], "pozn": [
+     "<p>Zápisky citují <span class=\"was\">„Zákon o rodině § 46“</span>. Zákon o rodině č. 94/1963 Sb. byl <strong>zrušen k 1. 1. 2014</strong> občanským zákoníkem č. 89/2012 Sb.</p>",
+     "<p>Dnes: soud může nařídit ústavní výchovu jako <strong>nezbytné opatření</strong> a vždy zvažuje, zda nedat přednost svěření dítěte do péče fyzické osoby; do ZDVOP svěřuje nejdéle na 6 měsíců (<strong>§ 971 OZ</strong>). Ústavní výchovu lze nařídit nejdéle na 3 roky a opakovaně prodloužit, vždy nejvýš o 3 roky (<strong>§ 972 OZ</strong>). Zařízením nesmí být zdravotnické zařízení (§ 971 odst. 4).</p>"
+    ]},
+   {"najdi": "Výchovný ústav (Zákon č. 109/2012 Sb.)", "nahrad": "Výchovný ústav (Zákon č. <span class=\"fix\">109/2002</span> Sb.)", "proc": "109/2012 → 109/2002", "odkaz": "zapisky-2025", "bylo": "„Zákon č. 109/2012 Sb.“", "plati": "zákon č. 109/2002 Sb. (109/2012 Sb. je sdělení MV o volbách)", "zdroj": ["https://e-sbirka.gov.cz/sb/2002/109", "https://e-sbirka.gov.cz/sb/2012/109"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Zákon č. 109/2012 Sb.“</span>. Pod tímto číslem je ale <strong>sdělení Ministerstva vnitra o vyhlášení nových voleb do zastupitelstva obce</strong>. Výchovné ústavy upravuje <strong>zákon č. 109/2002 Sb.</strong> (§ 14) — v ostatních blocích zápisků je číslo správně.</p>"
+    ]},
+   {"najdi": "Upravuje zákon č. 203/2019 Sb.", "proc": "novela uvedená jako zákon", "odkaz": "zapisky-2025", "bylo": "OV „upravuje zákon č. 203/2019 Sb.“", "plati": "zák. č. 218/2003 Sb. ve znění pozdějších předpisů (203/2019 je novela)", "zdroj": ["https://e-sbirka.gov.cz/sb/2003/218"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Upravuje zákon č. 203/2019 Sb“</span>.</p>",
+     "<p>Zákon č. 203/2019 Sb. je jen <strong>novela</strong>. Ochrannou výchovu upravuje <strong>zákon č. 218/2003 Sb.</strong>, o odpovědnosti mládeže za protiprávní činy a o soudnictví ve věcech mládeže (zákon o soudnictví ve věcech mládeže), ve znění pozdějších předpisů — u mladistvých § 22, u dětí mladších 15 let § 93; aktuální znění je od 1. 1. 2026.</p>"
+    ]},
+   {"najdi": "(Zákon č. 333/2012 Sb,", "proc": "stará novela 109/2002", "odkaz": "zapisky-2025", "bylo": "109/2002 Sb. „ve znění 333/2012 Sb.“", "plati": "ve znění pozdějších předpisů; aktuální od 1. 10. 2025, další změny 2027 a 2028", "zdroj": ["https://e-sbirka.gov.cz/sb/2002/109?zalozka=historie"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Zákon č. 333/2012 Sb, kterým se mění zákon č. 109/2002 Sb“</span>.</p>",
+     "<p>Novela č. 333/2012 Sb. je dávno překonaná. Zákon č. 109/2002 Sb. se cituje <strong>ve znění pozdějších předpisů</strong>; od té doby ho změnily mimo jiné zákony č. 165/2024 Sb., 363/2021 Sb. (část od 1. 1. 2025), 37/2025 Sb. a 152/2025 Sb. (aktuální znění od 1. 10. 2025), další změny přinesou 270/2025 Sb. (od 1. 1. 2027) a 242/2024 Sb. (od 1. 1. 2028).</p>"
+    ]},
+   {"najdi": "Zařízení pro děti vyžadující okamžitou péči (ZDVOP)", "nahrad": "Zařízení pro děti vyžadující okamžitou <span class=\"fix\">pomoc</span> (ZDVOP)", "proc": "název ZDVOP", "odkaz": "zapisky-2025", "bylo": "ZDVOP = „okamžitou péči“", "plati": "„okamžitou pomoc“ (§ 42 zák. 359/1999 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/1999/359"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Zařízení pro děti vyžadující okamžitou péči (ZDVOP)“</span>.</p>",
+     "<p>Zákonný název je <strong>zařízení pro děti vyžadující okamžitou pomoc</strong> (§ 42 zákona č. 359/1999 Sb., § 971 odst. 2 OZ); výraz „okamžitou péči“ zákon nezná.</p>"
+    ]},
+   {"najdi": "Dětská centra (dříve kojenecký ústav)", "proc": "deinstitucionalizace", "odkaz": "zapisky-2025", "bylo": "dětská centra / kojenecké ústavy jako platný systém", "plati": "363/2021 a 242/2024 Sb.: děti do 4 let se do ústavů neumisťují, DD pro děti do 3 let zrušeny", "zdroj": ["https://e-sbirka.gov.cz/sb/2021/363", "https://e-sbirka.gov.cz/sb/2024/242"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Dětská centra (dříve kojenecký ústav)“</span>.</p>",
+     "<p>Zápisky popisují péči o nejmenší děti v ústavech, jako by stále platila. Novely zákona o SPOD to zásadně změnily:</p>",
+     "<ul>",
+     "  <li><strong>zákon č. 363/2021 Sb.</strong> (účinnost 1. 1. 2022) — děti do 3 let se ze sociálních důvodů do ústavní péče neumisťují;</li>",
+     "  <li><strong>zákon č. 242/2024 Sb.</strong> (účinnost 1. 1. 2025, části 2025–2028) — hranice se zvedla na <strong>4 roky</strong> (odejmout a svěřit dítě do zařízení lze „po dovršení 4 let“), úprava <strong>dětských domovů pro děti do 3 let věku</strong> se ruší a ZDVOP smí malé děti držet jen krátce.</li>",
+     "</ul>",
+     "<p>Soud navíc při nařízení ústavní výchovy nesmí určit zdravotnické zařízení (§ 971 odst. 4 OZ). <a href=\"pravni-aktualnost.html#deinstitucionalizace\">Časová osa reformy →</a></p>"
+    ]},
+   {"najdi": "zpravidla od 3 do nejvýše 18/19 let", "nahrad": "zpravidla od <span class=\"fix\">4</span> do nejvýše 18/19 let", "proc": "věk v DD", "odkaz": "zapisky-2025", "bylo": "DD „od 3 let“", "plati": "DD od 4 do 18 let (§ 12 odst. 3 zák. 109/2002 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2002/109"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„zpravidla od 3 do nejvýše 18/19 let“</span>.</p>",
+     "<p>Podle § 12 odst. 3 zákona č. 109/2002 Sb. se do dětského domova umísťují děti <strong>od 4 do nejvýše 18 let</strong> — stejně jako v § 1 odst. 2, který zápisky citují výš („ve věku od 4 do 18 let“). Dolní hranice se zvedla s deinstitucionalizačními novelami (363/2021 a 242/2024 Sb.).</p>"
+    ]},
+   {"najdi": "dítěte (na základě dohody s rodiči)", "proc": "dobrovolné umístění jen SVP a ZDVOP", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Dobrovolné umístění dítěte (na základě dohody s rodiči)“</span>.</p>",
+     "<p>Do diagnostického ústavu, dětského domova, dětského domova se školou ani výchovného ústavu nelze dítě umístit dohodou s rodiči — jen na základě <strong>rozhodnutí soudu</strong> (ústavní výchova, ochranná výchova, předběžné opatření; § 2 zákona č. 109/2002 Sb.). Dobrovolně, na žádost nebo smlouvou, je možný pobyt ve <strong>středisku výchovné péče</strong> (internátní pobyt) a v <strong>ZDVOP</strong>.</p>"
+    ]},
+   {"najdi": "případně podat návrh na ústavní nebo ochrannou výchovu k soudu", "proc": "kdo ukládá ochrannou výchovu", "odkaz": "zapisky-2025", "bylo": "OV na návrh OSPOD, jen pro trestně neodpovědné", "plati": "OV ukládá soud pro mládež (§ 22 a § 93 ZSM)", "zdroj": ["https://e-sbirka.gov.cz/sb/2003/218"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„případně podat návrh na ústavní nebo ochrannou výchovu k soudu“</span>.</p>",
+     "<p>Na návrh OSPOD rozhoduje soud o <strong>ústavní výchově</strong>. <strong>Ochrannou výchovu</strong> ukládá <strong>soud pro mládež</strong> — mladistvému za provinění v trestním řízení (§ 22 zákona č. 218/2003 Sb.), dítěti mladšímu 15 let za čin jinak trestný v řízení podle ZSM (§ 93). Ochranná výchova tedy není jen pro děti, které nejsou trestně odpovědné; nepříčetnost vede k ochrannému léčení, ne k ochranné výchově.</p>"
+    ]},
+   {"najdi": "Medicínská diagnostika závažnost poruch chování nerozlišuje", "proc": "DSM-5 stupně závažnosti", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Medicínská diagnostika závažnost poruch chování nerozlišuje“</span>.</p>",
+     "<p>Platí jen pro MKN-10, která poruchy chování člení podle oblasti projevu. <strong>DSM-5</strong> (i DSM-5-TR) u poruchy chování stupeň závažnosti stanovuje: mírná, střední, závažná — jak uvádí okruh 3.</p>"
+    ]}
+  ],
+  "6": [
+   {"najdi": "U dětí bez vážnějších poruch chování se cíle zaměřují na:", "proc": "cílová skupina DDŠ", "odkaz": "zapisky-2025", "bylo": "DDŠ pro děti „bez vážnějších poruch chování“", "plati": "DD bez závažných PCH (§ 12), DDŠ se závažnými PCH nebo OV (§ 13)", "zdroj": ["https://e-sbirka.gov.cz/sb/2002/109"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„U dětí bez vážnějších poruch chování se cíle zaměřují na“</span>.</p>",
+     "<p>Dětem bez závažných poruch chování je určen <strong>dětský domov</strong> (§ 12 zákona č. 109/2002 Sb.). <strong>Dětský domov se školou</strong> pečuje o děti se závažnými poruchami chování, s potřebou výchovně léčebné péče nebo s uloženou ochrannou výchovou (§ 13) — do skupiny „bez vážnějších poruch chování“ nepatří.</p>"
+    ]}
+  ],
+  "9": [
+   {"najdi": "Zákon č. 401/2012 Sb. o sociálně-právní ochraně dětí", "nahrad": "Zákon č. <span class=\"fix\">359/1999 Sb.</span> o sociálně-právní ochraně dětí", "proc": "novela 401/2012 jako zákon o SPOD", "odkaz": "zapisky-2025", "bylo": "„Zákon č. 401/2012 Sb. o sociálně-právní ochraně dětí“", "plati": "zák. č. 359/1999 Sb. ve znění pozdějších předpisů (401/2012 je novela)", "zdroj": ["https://e-sbirka.gov.cz/sb/1999/359", "https://e-sbirka.gov.cz/sb/2012/401"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Zákon č. 401/2012 Sb. o sociálně-právní ochraně dětí“</span>.</p>",
+     "<p>Zákon č. 401/2012 Sb. je <strong>novela</strong> — „zákon, kterým se mění zákon č. 359/1999 Sb., o sociálně-právní ochraně dětí“ (účinnost 1. 1. 2013). Sociálně-právní ochranu upravuje <strong>zákon č. 359/1999 Sb.</strong> ve znění pozdějších předpisů (aktuální znění od 1. 1. 2026), jak zápisky správně uvádějí jinde.</p>"
+    ]},
+   {"najdi": "(§ 31 zákona o rodině, § 20 školského zákona)", "nahrad": "(<span class=\"fix\">§ 858 občanského zákoníku, § 22 odst. 3 školského zákona</span>)", "proc": "zákon o rodině → § 858 OZ", "odkaz": "zapisky-2025", "bylo": "„§ 31 zákona o rodině“", "plati": "§ 858 zák. č. 89/2012 Sb. (rodičovská odpovědnost)", "zdroj": ["https://e-sbirka.gov.cz/sb/2012/89", "https://e-sbirka.gov.cz/sb/1963/94"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„(§ 31 zákona o rodině, § 20 školského zákona)“</span>.</p>",
+     "<p>Zákon o rodině č. 94/1963 Sb. byl zrušen k 1. 1. 2014. Povinnosti a práva rodičů dnes vymezuje <strong>§ 858 občanského zákoníku</strong> (rodičovská odpovědnost — péče o dítě „bez tělesného trestání, duševního strádání a jiných ponižujících opatření“, zajišťování výchovy a vzdělání). Povinnost zákonných zástupců zajistit řádnou docházku dítěte do školy je v <strong>§ 22 odst. 3 školského zákona</strong>; § 20 upravuje přístup cizinců ke vzdělávání.</p>"
+    ]},
+   {"najdi": "Finanční podpora pěstounů (dle zákona č. 117/1995 Sb.)", "nahrad": "Finanční podpora pěstounů (dle zákona č. <span class=\"fix\">359/1999 Sb.</span>)", "proc": "dávky pěstounské péče v 359/1999", "odkaz": "zapisky-2025", "bylo": "dávky pěstounské péče podle zák. 117/1995 Sb.", "plati": "§ 47e a násl. zák. č. 359/1999 Sb. (od 2013)", "zdroj": ["https://e-sbirka.gov.cz/sb/1999/359"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Finanční podpora pěstounů (dle zákona č. 117/1995 Sb.)“</span>.</p>",
+     "<p>Dávky pěstounské péče se od 1. 1. 2013 neřídí zákonem o státní sociální podpoře č. 117/1995 Sb., ale <strong>zákonem č. 359/1999 Sb.</strong>, o sociálně-právní ochraně dětí (§ 47e a násl.): příspěvek na úhradu potřeb dítěte, odměna pěstouna, příspěvek při převzetí dítěte, příspěvek na zakoupení osobního motorového vozidla a příspěvek při ukončení pěstounské péče.</p>"
+    ]},
+   {"najdi": "pro děti s poruchami chování, které ale nemají nařízenou ochrannou výchovu,", "proc": "DDŠ i pro děti s OV", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„pro děti s poruchami chování, které ale nemají nařízenou ochrannou výchovu“</span>.</p>",
+     "<p>Ochranná výchova se <strong>ukládá</strong> (rozhoduje o ní soud pro mládež), <strong>nařizuje</strong> se ústavní výchova. Dětský domov se školou je podle § 13 zákona č. 109/2002 Sb. určen dětem s nařízenou ústavní výchovou, které mají závažné poruchy chování nebo potřebují výchovně léčebnou péči, <strong>a také dětem s uloženou ochrannou výchovou</strong>.</p>"
+    ]},
+   {"najdi": "Tento typ péče je poskytován jako alternativa k ústavní péči", "proc": "deinstitucionalizace v NRP", "pozn": [
+     "<p>K náhradní rodinné péči patří i reforma, kterou zápisky nezmiňují: novely zákona o SPOD č. 363/2021 Sb. a 242/2024 Sb. postupně zakazují umisťovat malé děti do ústavní péče (od 2022 děti do 3 let, od 2025 do 4 let) a zrušily dětské domovy pro děti do 3 let — pro nejmenší děti tak zbývá jen rodinná péče, včetně pěstounské péče na přechodnou dobu. <a href=\"pravni-aktualnost.html#deinstitucionalizace\">Časová osa reformy →</a></p>"
+    ]}
+  ],
+  "10": [
+   {"najdi": "s výjimkou dětí do 3 let", "proc": "deinstitucionalizace", "odkaz": "zapisky-2025", "bylo": "výjimka „dětí do 3 let“", "plati": "děti do 4 let se do ústavní péče neumisťují (242/2024 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2024/242"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„s výjimkou dětí do 3 let“</span>.</p>",
+     "<p>Od 1. 1. 2025 (zákon č. 242/2024 Sb.) se do ústavní péče neumisťují děti <strong>mladší 4 let</strong> (výjimky jen pro sourozenecké skupiny a ZDVOP); úprava dětských domovů pro děti do 3 let se ruší. <a href=\"pravni-aktualnost.html#deinstitucionalizace\">Časová osa reformy →</a></p>"
+    ]}
+  ],
+  "11": [
+   {"najdi": "Úřad na mezinárodní ochranu dětí v Brně", "nahrad": "<span class=\"fix\">Úřad pro mezinárodněprávní ochranu dětí</span> v Brně", "proc": "název ÚMPOD", "odkaz": "zapisky-2025", "bylo": "„Úřad na mezinárodní ochranu dětí“", "plati": "Úřad pro mezinárodněprávní ochranu dětí (§ 4 zák. 359/1999 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/1999/359"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Úřad na mezinárodní ochranu dětí v Brně“</span>.</p>",
+     "<p>Správný název je <strong>Úřad pro mezinárodněprávní ochranu dětí</strong> (ÚMPOD) se sídlem v Brně; je jedním z orgánů sociálně-právní ochrany dětí (§ 4 zákona č. 359/1999 Sb.).</p>"
+    ]},
+   {"najdi": "nejméně 3 měsíce na své náklady", "nahrad": "nejméně <span class=\"fix\">6 měsíců</span> na své náklady", "proc": "předadopční péče 6 měsíců", "odkaz": "zapisky-2025", "bylo": "předadopční péče „nejméně 3 měsíce“", "plati": "nejméně 6 měsíců (§ 829 odst. 2 OZ)", "zdroj": ["https://e-sbirka.gov.cz/sb/2012/89"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„musí budoucí osvojitelé vychovávat dítě nejméně 3 měsíce na své náklady“</span>.</p>",
+     "<p>Tříměsíční lhůta byla úpravou zrušeného zákona o rodině. Podle <strong>§ 829 odst. 2 občanského zákoníku</strong> péče osvojitele před osvojením trvá do přesvědčivého zjištění, že vznikl vztah odpovídající osvojení, a <strong>neskončí dříve než uplynutím šesti měsíců</strong> — jak uvádí okruh 9.</p>"
+    ]},
+   {"najdi": "(NRP) je poskytována dětem bez rodiny", "proc": "deinstitucionalizace", "pozn": [
+     "<p>Náhradní rodinnou péči posiluje deinstitucionalizační reforma: od 2022 (zákon č. 363/2021 Sb.) a od 2025 (zákon č. 242/2024 Sb.) se malé děti do ústavní péče neumisťují a pro nejmenší je tak jedinou možností péče rodinná. <a href=\"pravni-aktualnost.html#deinstitucionalizace\">Časová osa reformy →</a></p>"
+    ]}
+  ],
+  "12": [
+   {"najdi": "mezi aktuálně klíčová doporučení uvádí:", "proc": "č. j. pokynu k šikaně", "pozn": [
+     "<p>Číslo jednací pokynu k šikaně je <strong>MŠMT-21149/2016</strong>; zrušil předchozí pokyn č. j. MSMT-22294/2013-1. <a href=\"pravni-aktualnost.html#sikana\">Podrobně v právní aktuálnosti →</a></p>"
+    ]}
+  ],
+  "13": [
+   {"najdi": "Oficiální diagnóza v rámci klasifikace WHO (MKN-10)", "proc": "MKN-11: ADHD 6A05", "odkaz": "zapisky-2025", "bylo": "hyperkinetická porucha F90 jako platná diagnóza", "plati": "MKN-11 ADHD 6A05 (přechodné období do 2027)", "zdroj": ["https://icd.who.int/browse/2025-01/mms/cs"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Oficiální diagnóza v rámci klasifikace WHO (MKN-10)“</span>.</p>",
+     "<p>MKN-11 platí od 1. 1. 2022; českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a do roku 2027 běží přechodné období, kdy se k vykazování ještě používá MKN-10. MKN-11 hyperkinetickou poruchu nezná: zavádí <strong>ADHD (6A05)</strong> mezi neurovývojovými poruchami se třemi podtypy (převážně nepozornost, převážně hyperaktivita-impulzivita, kombinovaný). Kódy F90.0 a F90.1 jsou kódy MKN-10.</p>"
+    ]},
+   {"najdi": "tyto příznaky by se měly objevit před 7. rokem jeho věku", "proc": "DSM-5: před 12. rokem", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„tyto příznaky by se měly objevit před 7. rokem jeho věku“</span>.</p>",
+     "<p>Hranici 7 let mají MKN-10 a starší DSM-IV. <strong>DSM-5</strong> (i DSM-5-TR) vyžaduje, aby se několik příznaků objevilo <strong>před 12. rokem</strong> — jak zápisky správně uvádějí jinde.</p>"
+    ]},
+   {"najdi": "Plán se zpracovává do jednoho měsíce od nástupu žáka.", "nahrad": "<span class=\"fix\">Plán se zpracovává bez zbytečného odkladu, nejpozději do 1 měsíce ode dne, kdy škola obdržela doporučení školského poradenského zařízení a žádost zákonného zástupce.</span>", "proc": "lhůta IVP podle 27/2016", "odkaz": "zapisky-2025", "bylo": "IVP „do jednoho měsíce od nástupu žáka“", "plati": "do 1 měsíce od obdržení doporučení a žádosti (§ 3 odst. 5 vyhl. 27/2016 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2016/27"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Plán se zpracovává do jednoho měsíce od nástupu žáka“</span>.</p>",
+     "<p>Lhůta „od nástupu žáka“ pochází ze zrušené vyhlášky č. 73/2005 Sb. Podle § 3 odst. 5 <strong>vyhlášky č. 27/2016 Sb.</strong> se IVP zpracovává „bez zbytečného odkladu, nejpozději však do 1 měsíce ode dne, kdy škola obdržela doporučení a žádost“ zákonného zástupce (zletilého žáka).</p>"
+    ]},
+   {"najdi": "Speciální poradenské centrum pro žáky s autismem", "nahrad": "<span class=\"fix\">speciálně pedagogické centrum</span> pro žáky s autismem", "proc": "SPC = speciálně pedagogické centrum", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Speciální poradenské centrum pro žáky s autismem“</span>.</p>",
+     "<p>SPC je <strong>speciálně pedagogické centrum</strong> — školské poradenské zařízení podle vyhlášky č. 72/2005 Sb.; některá SPC se zaměřují na žáky s poruchami autistického spektra.</p>"
+    ]}
+  ],
+  "14": [
+   {"najdi": "(dle metodického doporučení MŠMT č. j. MSMT-780/2024-1)", "nahrad": "(dle metodického doporučení MŠMT č. j. <span class=\"fix\">MSMT-780/2024-3, aktualizace k 30. 1. 2026</span>)", "proc": "aktualizace doporučení k záškoláctví 2026", "odkaz": "zaskolactvi", "bylo": "č. j. MSMT-780/2024-1 (2024)", "plati": "č. j. MSMT-780/2024-3, aktualizace k 30. 1. 2026", "zdroj": ["https://edu.gov.cz/metodicke_materialy/prevence-a-postih-zaskolactvi-a-omlouvani-zaku-z-vyucovani/"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„(dle metodického doporučení MŠMT č. j. MSMT-780/2024-1)“</span>.</p>",
+     "<p>Zápisky citují první vydání doporučení z 5. 2. 2024. Platné je <strong>Metodické doporučení MŠMT k prevenci a postihu záškoláctví a omlouvání žáků z vyučování, č. j. MSMT-780/2024-3, aktualizace k 30. 1. 2026</strong>. Aktualizace zpřesňuje postup školy, když problém s povinnou školní docházkou nevyřeší sama, a upravuje kázeňská opatření podle novely vyhlášky č. 48/2005 Sb.</p>",
+     "<p>Hranice zůstávají: do 10 neomluvených hodin (1. stupeň) a do 12 hodin (2. stupeň a SŠ) za čtvrtletí řeší škola se zákonným zástupcem, nad ně svolává ředitel výchovnou komisi; při více než 25, resp. 30 hodinách za čtvrtletí škola podává oznámení obecnímu úřadu obce s rozšířenou působností (OSPOD).</p>"
+    ]},
+   {"najdi": "může být vhodné vytvořit individuální vzdělávací plán přizpůsobený jejich potřebám", "nahrad": "může být vhodné vytvořit individuální <span class=\"fix\">výchovný program (IVýP)</span> přizpůsobený jejich potřebám", "proc": "IVP vs IVýP", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„může být vhodné vytvořit individuální vzdělávací plán přizpůsobený jejich potřebám“</span>.</p>",
+     "<p>Na opakovanou absenci se sestavuje <strong>individuální výchovný program</strong> (IVýP), jak uvádí metodické doporučení i tento okruh níže. <strong>Individuální vzdělávací plán</strong> (IVP) je podpůrné opatření podle vyhlášky č. 27/2016 Sb. pro žáka se speciálními vzdělávacími potřebami na základě doporučení školského poradenského zařízení.</p>"
+    ]},
+   {"najdi": "Diagnózou těchto dětí je disociální porucha osobnosti", "proc": "porucha osobnosti u dětí", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Diagnózou těchto dětí je disociální porucha osobnosti“</span>.</p>",
+     "<p>Poruchu osobnosti u dětí <strong>nelze diagnostikovat</strong> — MKN-10 ji před 16.–17. rokem považuje za nepravděpodobnou, DSM-5 připouští antisociální poruchu osobnosti až od 18 let. Text, který následuje, je popis F60.2 z MKN-10. U dětí jde o <strong>poruchu chování</strong> (MKN-10 F91, MKN-11 6C91 disociální porucha chování).</p>"
+    ]},
+   {"najdi": "Základními druhy sociálních služeb jsou podle zákona č. 108/2006 Sb.", "proc": "druhy sociálních služeb", "pozn": [
+     "<p>Podle § 32 zákona č. 108/2006 Sb. zahrnují sociální služby <strong>sociální poradenství, služby sociální péče a služby sociální prevence</strong>; sociálně aktivizační služby pro rodiny s dětmi patří mezi služby sociální prevence. „Komunitní služby“ zákonným druhem sociální služby nejsou.</p>"
+    ]}
+  ],
+  "15": [
+   {"najdi": "Klasifikace emočních poruch u dětí dle MKN-10 (F93)", "proc": "MKN-11 u emočních poruch", "odkaz": "zapisky-2025", "bylo": "emoční poruchy jen podle MKN-10 (F93)", "plati": "MKN-11 6B00–6B06 (úzkostné poruchy)", "zdroj": ["https://icd.who.int/browse/2025-01/mms/cs"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Klasifikace emočních poruch u dětí dle MKN-10 (F93)“</span>.</p>",
+     "<p>Kódy v tomto okruhu jsou kódy <strong>MKN-10</strong>. MKN-11 platí od 1. 1. 2022; českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a do roku 2027 běží přechodné období, kdy se k vykazování ještě používá MKN-10. MKN-11 nemá zvláštní skupinu emočních poruch dětství: separační úzkostná porucha je 6B05, sociální úzkostná porucha 6B04, generalizovaná úzkostná porucha 6B00, selektivní mutismus 6B06 — v jedné skupině úzkostných poruch bez ohledu na věk.</p>"
+    ]},
+   {"najdi": "– používaná v Evropě.", "nahrad": "– <span class=\"fix\">klasifikace WHO používaná celosvětově</span>.", "proc": "MKN celosvětově", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Mezinárodní klasifikace nemocí (MKN) – používaná v Evropě“</span>.</p>",
+     "<p>MKN je klasifikace <strong>Světové zdravotnické organizace</strong> a používá se celosvětově; DSM je klasifikace Americké psychiatrické asociace (aktuálně DSM-5-TR, 2022).</p>"
+    ]}
+  ],
+  "16": [
+   {"najdi": "(zákon č. 109/2002 Sb., školský zákon)", "nahrad": "(<span class=\"fix\">§ 858 občanského zákoníku</span>)", "proc": "109/2002 není školský zákon", "odkaz": "zapisky-2025", "bylo": "„zákon č. 109/2002 Sb., školský zákon“", "plati": "školský zákon 561/2004 Sb.; zákaz tělesných trestů § 858 OZ", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/561", "https://e-sbirka.gov.cz/sb/2012/89"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„(zákon č. 109/2002 Sb., školský zákon)“</span>.</p>",
+     "<p>Zákon č. 109/2002 Sb. není školský zákon — upravuje výkon ústavní a ochranné výchovy a preventivně výchovnou péči. Školský zákon je <strong>zákon č. 561/2004 Sb.</strong> Zákaz tělesných a ponižujících trestů výslovně stanoví <strong>§ 858 občanského zákoníku</strong>: péče o dítě „bez tělesného trestání, duševního strádání a jiných ponižujících opatření“.</p>"
+    ]},
+   {"najdi": "Minimální preventivní program školy (MPP):", "proc": "preventivní program školy", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Minimální preventivní program školy (MPP)“</span>.</p>",
+     "<p>Platný název podle vyhlášky č. 72/2005 Sb. je <strong>preventivní program školy</strong>; „minimální preventivní program“ je starší označení.</p>"
+    ]}
+  ],
+  "17": [
+   {"najdi": "Definitivní diagnóza závislosti by se obvykle měla stanovit pouze tehdy", "proc": "MKN-11 u závislosti", "bylo": "kritéria závislosti jen podle MKN-10", "plati": "MKN-11: 2 ze 3 ústředních znaků, kódy 6C40–6C4H", "zdroj": ["https://icd.who.int/browse/2025-01/mms/cs"], "pozn": [
+     "<p>Jde o kritéria <strong>MKN-10</strong> (3 ze 6 znaků během roku). MKN-11 platí od 1. 1. 2022; českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a do roku 2027 běží přechodné období, kdy se k vykazování ještě používá MKN-10. MKN-11 vyžaduje alespoň <strong>2 ze 3 ústředních znaků</strong> — zhoršenou kontrolu nad užíváním, rostoucí přednost užívání před jinými činnostmi a fyziologické znaky (tolerance, odvykací stav) — zpravidla po dobu 12 měsíců.</p>"
+    ]},
+   {"najdi": "řadu diagnóz (F1x.0 až F1x.9)", "proc": "F1x jen MKN-10", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„(např. MKN-10 nebo MKN-11) má pro poruchy způsobené užíváním návykových látek celou řadu diagnóz (F1x.0 až F1x.9)“</span>.</p>",
+     "<p>Kódy F1x.0–F1x.9 má jen <strong>MKN-10</strong>. MKN-11 používá kódy <strong>6C40–6C4H</strong> (např. 6C40 alkohol: 6C40.2 závislost na alkoholu).</p>"
+    ]},
+   {"najdi": "tedy ne mezi závislosti", "proc": "hazardní hraní jako závislost", "odkaz": "zapisky-2025", "bylo": "hráčství „ne mezi závislosti“ (F63)", "plati": "MKN-11 6C50/6C51 poruchy způsobené návykovým chováním", "zdroj": ["https://icd.who.int/browse/2025-01/mms/cs"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„tedy ne mezi závislosti“</span>.</p>",
+     "<p>Platí jen pro MKN-10 (F63.0, skupina návykových a impulzivních poruch). <strong>MKN-11</strong> řadí <strong>poruchu hazardního hraní (6C50)</strong> i poruchu hraní digitálních her (6C51) mezi poruchy způsobené návykovým chováním, tedy mezi závislosti; <strong>DSM-5</strong> ji přesunul mezi poruchy související s látkami a návykové poruchy.</p>"
+    ]},
+   {"najdi": "Patologické hazardní hráčství podle Americké psychiatrické asociace (DSM-IV)", "proc": "DSM-5 hazardní hraní", "odkaz": "zapisky-2025", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Patologické hazardní hráčství podle Americké psychiatrické asociace (DSM-IV)“</span>.</p>",
+     "<p>Kritéria DSM-IV jsou zastaralá. <strong>DSM-5</strong> (2013) i DSM-5-TR (2022) používají diagnózu <em>porucha hazardního hraní</em>: k diagnóze stačí <strong>4 z 9 kritérií</strong> během 12 měsíců, kritérium nelegálních činů bylo vypuštěno a určuje se stupeň závažnosti.</p>"
+    ]},
+   {"najdi": "je povoleno cigarety kupovat i prodávat pouze člověku staršímu osmnácti let", "proc": "zákon 65/2017", "odkaz": "zapisky-2025", "bylo": "prodej a nákup „staršímu osmnácti let“, bez zákona", "plati": "zákaz prodeje osobám mladším 18 let (zák. č. 65/2017 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2017/65"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„je povoleno cigarety kupovat i prodávat pouze člověku staršímu osmnácti let“</span>.</p>",
+     "<p>Podle <strong>zákona č. 65/2017 Sb.</strong>, o ochraně zdraví před škodlivými účinky návykových látek, je zakázáno prodávat a podávat tabákové výrobky, elektronické cigarety, nikotinové sáčky a další výrobky s nikotinem <strong>osobám mladším 18 let</strong>. Zakázán je prodej, ne nákup.</p>"
+    ]},
+   {"najdi": "Školská zařízení pro preventivně výchovnou péči (např. diagnostické ústavy, výchovné ústavy)", "nahrad": "Školská zařízení pro preventivně výchovnou péči (<span class=\"fix\">střediska výchovné péče</span>)", "proc": "SVP vs ústavy", "odkaz": "zapisky-2025", "bylo": "DÚ a VÚ jako zařízení preventivně výchovné péče", "plati": "preventivně výchovná péče = SVP (§ 1 zák. 109/2002 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2002/109"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Školská zařízení pro preventivně výchovnou péči (např. diagnostické ústavy, výchovné ústavy)“</span>.</p>",
+     "<p>Školskými zařízeními pro preventivně výchovnou péči jsou podle zákona č. 109/2002 Sb. <strong>jen střediska výchovné péče</strong>. Diagnostické ústavy, dětské domovy, dětské domovy se školou a výchovné ústavy jsou zařízení pro výkon ústavní a ochranné výchovy.</p>"
+    ]}
+  ]
+ },
+ "notes": {},
+ "literatura_uvod": [
+  "    <aside class=\"box warn\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Odkud seznam je</h4>",
+  "      <p>Seznam je převzatý ze zápisků (soubor „Zdroje – etopedie“). Tři adresy v něm byly <strong>useknuté na začátek</strong> s poznámkou „plná adresa viz výše“, přestože výš žádná plná adresa nebyla. Dvě se podařilo dohledat a ověřit — jsou <span class=\"fix\">vyznačené oranžově</span>; u třetí to výslovně uvádíme. Jedna kniha je ve zdroji vedená jako online, ale bez adresy.</p>",
+  "      <p>Odkazy na okruhy se dohledávají <strong>automaticky podle jména autora</strong> v textu zápisků. Ukazují, kde se autor zmiňuje — ne nutně citaci právě tohoto díla.</p>",
+  "    </aside>"
+ ],
+ "literatura": {
+  "5": {"pozn": "Ve zdroji je kniha vedená jako [online], ale bez adresy; volně dostupnou verzi se dohledat nepodařilo (10/2026)."},
+  "12": {"stitek": "MKN-10 (ÚZIS)", "pozn": "MKN-10 se v Česku používá dál, ale od 1. 1. 2022 platí <strong>MKN-11</strong>; českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a přechodné období běží do roku 2027 (viz <a href=\"aktualizace-2026.html\">aktualizační dodatek</a>)."},
+  "15": {"text": "SMOLÍK, Arnošt. <em>Vybrané aspekty sociálního formování jedince ve vztahu ke společenským normám a morálnímu jednání</em> [online]. Ústí nad Labem: PF UJEP, 2016. ISBN 978-80-7561-040-9. Dostupné z: <span class=\"fix\">https://www.pf.ujep.cz/wp-content/uploads/2020/03/SMOLÍK-Arnošt.-Vybrané-aspekty-sociálního-formování-jedince-ve-vztahu-ke-společenským-normám-a-morálnímu-jednání.-1.pdf</span>", "pozn": "Ve zdroji jen „https://www.pf.ujep.cz/... (plná adresa viz výše)“. Adresa je dohledaná; titulní list PDF odpovídá (autor, Ústí nad Labem 2016, ISBN 978-80-7561-040-9)."},
+  "16": {"text": "SMOLÍKOVÁ, Věra. <em>Morální vývoj u dítěte s poruchou chování</em> [online]. Praha: Univerzita Karlova, 2013. Rigorózní práce. Dostupné z: <span class=\"fix\">https://dspace.cuni.cz/handle/20.500.11956/59727</span>", "pozn": "Ve zdroji jen „https://dspace.cuni.cz/... (plná adresa viz výše)“. Dohledaný záznam v repozitáři UK: rigorózní práce obhájená 12. 9. 2013, autorka je tam vedená jako Věra Gargošová Smolíková."},
+  "24": {"text": "VONDROUŠOVÁ, Jindra a LAŠEK, Jan. <em>Psychologie sociální a osobnosti</em> [online]. Hradec Králové, 2014. Dostupné z: https://inpdf.uhk.cz/ <span class=\"fix\">(plná adresa ve zdroji chybí a dohledat ji nešlo)</span>", "pozn": "Ve zdroji jen „https://inpdf.uhk.cz/... (plná adresa viz výše)“. Publikaci ani plnou adresu se v katalozích a na webu Univerzity Hradec Králové dohledat nepodařilo (10/2026)."}
+ }
+}

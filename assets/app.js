@@ -158,7 +158,7 @@
         var a = el('a', 'shit' + (i === sel ? ' sel' : ''));
         a.href = UP + h.doc.u + (h.anchor ? '#' + h.anchor : '');
         var top = el('div', 'shit-top');
-        top.appendChild(el('span', null, h.doc.n ? 'Otázka ' + h.doc.n : (DATA.labels && DATA.labels[h.doc.k]) || 'Materiál'));
+        top.appendChild(el('span', null, h.doc.n ? 'Otázka ' + h.doc.n : h.doc.o ? 'Okruh ' + h.doc.o + ' · podrobně' : (DATA.labels && DATA.labels[h.doc.k]) || 'Materiál'));
         top.appendChild(el('span', 'shit-kind', h.where));
         a.appendChild(top);
         a.appendChild(el('span', 'shit-title', h.doc.t));
@@ -419,7 +419,7 @@
         var key = fold(pair[0]).replace(/\(.*?\)/g, '').replace(/[^a-z0-9× ]/g, '').trim();
         if (seen[key]) return;
         seen[key] = 1;
-        out.push([pair[0], pair[1], d.n ? 'Otázka ' + d.n : d.t, UP + d.u]);
+        out.push([pair[0], pair[1], d.n ? 'Otázka ' + d.n : d.o ? 'Okruh ' + d.o + ' podrobně' : d.t, UP + d.u]);
       });
     });
     return out;
@@ -549,7 +549,7 @@
     cardOv.start(deck);
   }
 
-  /** Rozsah balíčku: "all" | "questions" | "glosar" | "qN" | nic = z této stránky. */
+  /** Rozsah balíčku: "all" | "questions" | "glosar" | "podrobne" | "qN" | nic = z této stránky. */
   function deckForScope(scope) {
     if (!scope) return deckFromPage();
     if (scope === 'all') return deckFromData(null);
@@ -596,9 +596,13 @@
       host.appendChild(b);
     }
 
-    add('all', 'Všechny pojmy', 'klíčové pojmy z otázek i celý glosář, bez duplicit');
+    var podrobne = deckForScope('podrobne').length > 0;
+    add('all', 'Všechny pojmy', podrobne
+      ? 'klíčové pojmy z otázek, z podrobných zápisků i celý glosář, bez duplicit'
+      : 'klíčové pojmy z otázek i celý glosář, bez duplicit');
     add('questions', 'Klíčové pojmy z otázek', 'jen sekce 🔑 u jednotlivých otázek');
     add('glosar', 'Glosář', 'závěrečný abecední rejstřík');
+    add('podrobne', 'Podrobné zápisky 2025', 'klíčové pojmy z podrobných stránek k 17 okruhům zadání');
 
     var qhost = $('#deck-list-q');
     if (!qhost) return;

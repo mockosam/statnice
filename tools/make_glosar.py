@@ -97,6 +97,10 @@ def build(subject: str) -> int:
             continue
         if doc.get("k") == "glosar":        # sám sebe nečteme
             continue
+        # Podrobné stránky ze zápisků 2025 mají vlastní balíček kartiček, ale do
+        # glosáře nejdou — glosář zůstává rejstříkem stručných otázek.
+        if doc.get("k") == "podrobne":
+            continue
         for term, definition in doc["c"]:
             term = titlecase(term.strip(" :"))
             if SKIP_RE.match(term) or len(term) < 4:

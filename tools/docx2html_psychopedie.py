@@ -60,6 +60,7 @@ from docx2html import (  # noqa: E402
 )
 import docx2html as D  # noqa: E402
 import docx2html_spec as S  # noqa: E402
+import docx2html_zapisky as Z  # noqa: E402
 
 SUBJECT = "psychopedie"
 LABEL = "Psychopedie"
@@ -527,6 +528,10 @@ def render_question(n, short, full, body, numfmt, prev, nxt):
         "  </aside>",
         '  <main id="obsah" class="content">',
     ]
+    # odkaz na podrobnou stránku ze zápisků 2025 (tools/docx2html_zapisky.py)
+    link = Z.crosslink_html(SUBJECT, n)
+    if link:
+        out += [link]
 
     note = NOTES.get(str(n))
     if note:
@@ -582,6 +587,7 @@ def render_written(n, short, full, prev, nxt):
         '    <nav class="toc" aria-label="Obsah otázky"></nav>',
         "  </aside>",
         '  <main id="obsah" class="content">',
+        Z.crosslink_html(SUBJECT, n) or None,
         "",
         _html(cfg.get("note", "")),
     ]

@@ -159,6 +159,7 @@ class Page(HTMLParser):
         text = re.sub(r"(\s·\s)+", " · ", text).strip(" ·")
         lead = re.sub(r"\s+", " ", "".join(self.lead_parts)).strip()
         m = re.search(r"otazka-(\d+)", os.path.basename(url))
+        o = re.search(r"podrobne-okruh-(\d+)", os.path.basename(url))
         doc = {
             "s": self.body.get("data-subject", ""),
             "k": self.body.get("data-kind", ""),
@@ -171,6 +172,8 @@ class Page(HTMLParser):
         }
         if m:
             doc["n"] = int(m.group(1))
+        if o:
+            doc["o"] = int(o.group(1))     # podrobná stránka k okruhu zadání
         if lead:
             doc["d"] = lead
         return doc
@@ -178,6 +181,7 @@ class Page(HTMLParser):
 
 LABELS = {
     "otazka": "Otázka",
+    "podrobne": "Podrobně",
     "glosar": "Glosář",
     "zakony": "Zákony",
     "jak-pracovat": "Průvodce",

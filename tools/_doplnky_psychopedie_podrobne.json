@@ -1,0 +1,771 @@
+{
+ "_comment": [
+  "Ruční doplňky k podrobným stránkám psychopedie (tools/docx2html_zapisky.py).",
+  "Klíče jsou čísla okruhů zadání A21; čísla bloků jsou z výpisu `docx2html_zapisky.py psychopedie --dump DIR`.",
+  "levels  — přemapování úrovní nadpisů Wordu na HTML (2, 3, 4; 0 = tučný odstavec).",
+  "promote — bloky, které se stanou nadpisy dané úrovně (zápisky bez nadpisových stylů).",
+  "demote  — nadpisové bloky, které jsou ve skutečnosti věty.",
+  "drop    — vyřazené rozsahy bloků [od, do] i s důvodem; check_fidelity.py je nehlásí.",
+  "images  — přepis každého obrázku do HTML (obrázky ze zápisků se nepublikují).",
+  "terms   — klíčové pojmy stránky (kartičky); do glosáře nejdou.",
+  "fixes   — dvojice hledaný text → náhrada na hotové stránce, přesně jednou, tolerantně k mezerám.",
+  "notes   — HTML vložené na začátek stránky."
+ ],
+ "levels": {
+  "5": {"3": 4}
+ },
+ "promote": {
+  "3": {"2": [2, 31, 42, 59, 144, 255, 281, 322, 338], "3": [5, 15, 23, 74, 83, 90, 102, 108, 121, 134, 145, 150, 154, 158, 168, 179, 183, 194, 202, 206, 210, 213, 237, 245, 257, 292, 297, 302, 306]},
+  "5": {"2": [3, 71, 166], "3": [5, 39, 64, 73, 82, 91, 105, 110, 132, 142, 148, 153, 158, 168, 174, 180, 195, 206, 211, 225, 231, 264, 266], "4": [31, 244, 254, 259, 261]},
+  "6": {"2": [3, 36, 100, 157, 295], "3": [5, 106, 138, 159, 198, 238, 266]},
+  "13": {"2": [2, 39, 167, 206, 266, 288, 305, 410, 453, 510], "3": [4, 8, 14, 18, 22, 26, 30, 34, 36, 41, 50, 59, 79, 91, 99, 109, 116, 128, 145, 154, 170, 177, 186, 197, 208, 216, 225, 238, 247, 252, 307, 315, 322, 331, 335, 341, 347, 352, 358, 362, 366, 369, 375, 380, 389, 405, 417, 484]},
+  "14": {"2": [4, 10, 23, 24, 34, 45, 192, 209, 346, 387, 396], "3": [63, 105, 142, 157, 167, 184, 195, 200, 202, 221, 290, 309, 327, 348, 353, 362, 379], "4": [123, 129, 284]},
+  "16": {"2": [21, 54, 90, 118], "3": [8, 13, 28, 40, 45, 98, 109, 112, 119, 124, 168, 173, 179, 194]},
+  "17": {"2": [2, 15, 57, 78, 119, 207, 332, 378, 417], "3": [3, 10, 17, 24, 29, 38, 49, 65, 70, 79, 85, 89, 95, 98, 105, 110, 114, 123, 128, 134, 140, 168, 202, 231, 246, 295, 316, 324, 347, 351, 385, 409, 414, 423, 428, 432]}
+ },
+ "demote": {},
+ "spojit": {
+  "3": [[2, 3]]
+ },
+ "drop": {
+  "6": [
+   {"bloky": [292, 292], "proc": "„ZDROJ:“ s místní cestou k souboru na disku autorky zápisků (s uživatelským jménem); zdroj přepsaných tabulek — manuál MPSV k AAK u osob s demencí — je uvedený v jejich popiscích a v literatuře"}
+  ],
+  "10": [
+   {"bloky": [221, 226], "proc": "rámec vložené konverzace s ChatGPT: nabídka „Chceš, abych…“, označení modelu „4o“, „Řekl/a jsi:“, dotaz uživatelky, „ChatGPT řekl:“ a úvodní věta odpovědi"}
+  ],
+  "12": [
+   {"bloky": [0, 0], "proc": "znění okruhu v mírně jiné formulaci, než má zadání — zadání je v hlavičce stránky"}
+  ]
+ },
+ "images": {
+  "1": {
+   "rId8": {"co": "prázdný zástupný obrázek 1×1 px", "html": ""}
+  },
+  "2": {
+   "rId8": {"co": "prázdný zástupný obrázek 1×1 px", "html": ""}
+  },
+  "4": {
+   "rId5": {"co": "Stromové schéma dělení systémů AAK na systémy s pomůckami (netechnické a technické) a bez pomůcek.", "html": [
+    "<figure class=\"fig\">",
+    "  <ul class=\"fig-list\">",
+    "    <li>systémy AAK",
+    "      <ul>",
+    "        <li>s pomůckami",
+    "          <ul>",
+    "            <li>netechnické</li>",
+    "            <li>technické</li>",
+    "          </ul>",
+    "        </li>",
+    "        <li>bez pomůcek</li>",
+    "      </ul>",
+    "    </li>",
+    "  </ul>",
+    "  <figcaption>Dělení systémů AAK. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId727591148": {"co": "Ukázky materiálů pro sociální čtení: výstražná dopravní značka s cyklistou, zelená cedulka WC a obrázkový postup přípravy salátu v osmi černobílých kresbách.", "html": [
+    "<figure class=\"fig\">",
+    "  <ul class=\"fig-list\">",
+    "    <li>[dopravní značka: výstražný trojúhelník s červeným okrajem, uvnitř černá silueta cyklisty na kole]</li>",
+    "    <li>[zelená cedulka s bílým piktogramem ženy] WC</li>",
+    "    <li>[obrázkový postup přípravy jídla v osmi černobílých kresbách, čteno po řádcích zleva doprava:]",
+    "      <ul>",
+    "        <li>[nůž, struhadlo, prkénko a mísa se zeleninou]</li>",
+    "        <li>[ruce strouhají zeleninu na struhadle nad mísou]</li>",
+    "        <li>[ruce krájí zeleninu nožem na prkénku na plátky; v rohu kolečko se svislými proužky]</li>",
+    "        <li>[ruce krájí plátky napříč na kostičky; v rohu kolečko s mřížkou]</li>",
+    "        <li>[ruce krájí zeleninu na prkénku nadrobno]</li>",
+    "        <li>[ruce shrnují nakrájenou zeleninu z prkénka do mísy]</li>",
+    "        <li>[ruka utírá hadříkem stůl]</li>",
+    "        <li>[ruce drží mísu s hotovým salátem]</li>",
+    "      </ul>",
+    "    </li>",
+    "  </ul>",
+    "  <figcaption>Ukázky pro sociální čtení: dopravní značka, označení WC a obrázkový postup přípravy jídla. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "6": {
+   "rId5": {"co": "Stromové schéma dělení systémů AAK na systémy s pomůckami (netechnické a technické) a bez pomůcek.", "html": [
+    "<figure class=\"fig\">",
+    "  <ul class=\"fig-list\">",
+    "    <li>systémy AAK",
+    "      <ul>",
+    "        <li>s pomůckami",
+    "          <ul>",
+    "            <li>netechnické</li>",
+    "            <li>technické</li>",
+    "          </ul>",
+    "        </li>",
+    "        <li>bez pomůcek</li>",
+    "      </ul>",
+    "    </li>",
+    "  </ul>",
+    "  <figcaption>Dělení systémů AAK. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId1322083104": {"co": "Přehled 48 základních symbolů systému Bliss s anglickými popisky (Basic symbols).", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Basic symbols</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Symbol</th><th>Popisek</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Symbol\">[svislá čára stojící na krátké vodorovné čáře]</td><td data-label=\"Popisek\">person</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[srdce]</td><td data-label=\"Popisek\">feeling</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[oblouk otevřený dolů]</td><td data-label=\"Popisek\">mind</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[obdélník se zaobleným horním okrajem]</td><td data-label=\"Popisek\">knowledge</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kruh s ručičkami jako ciferník hodin]</td><td data-label=\"Popisek\">time</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[vykřičník]</td><td data-label=\"Popisek\">intensity</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[oblouk otevřený nahoru]</td><td data-label=\"Popisek\">container</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[dvě stříšky nad sebou]</td><td data-label=\"Popisek\">work</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[obrys domku se střechou]</td><td data-label=\"Popisek\">house, building</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[tři strany čtverce, otevřené vlevo]</td><td data-label=\"Popisek\">room</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[lomená čára ve tvaru písmene h]</td><td data-label=\"Popisek\">chair</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[vodorovná deska na dvou nohách]</td><td data-label=\"Popisek\">table</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[schodovitá lomená čára]</td><td data-label=\"Popisek\">stairs</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kroužek s tečkou uprostřed]</td><td data-label=\"Popisek\">eye</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[háček ve tvaru otazníku bez tečky]</td><td data-label=\"Popisek\">ear</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[tvar fajfky se svislým pravým ramenem]</td><td data-label=\"Popisek\">hand</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[mřížka #]</td><td data-label=\"Popisek\">number</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[znaménko plus]</td><td data-label=\"Popisek\">and, plus, also</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[znaménko minus]</td><td data-label=\"Popisek\">minus, without</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[znaménko krát ×]</td><td data-label=\"Popisek\">multiplication</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[znaménko dělení ÷]</td><td data-label=\"Popisek\">division</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[rovnítko]</td><td data-label=\"Popisek\">equal, same</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[menší znaménko dělení ÷]</td><td data-label=\"Popisek\">part, piece</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[vodorovná čára s lomenými nohami pod ní]</td><td data-label=\"Popisek\">animal</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kroužek spojený s háčkem]</td><td data-label=\"Popisek\">language</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[šikmá čára]</td><td data-label=\"Popisek\">pen, pencil</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[úzký svislý obdélník]</td><td data-label=\"Popisek\">paper, page</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[čtverec rozdělený svislou čarou na dvě poloviny]</td><td data-label=\"Popisek\">book</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[stříška – obrácené V]</td><td data-label=\"Popisek\">protection</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[hranatý tvar podobný číslici 4]</td><td data-label=\"Popisek\">health</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[svislý úzký esovitě prohnutý tvar]</td><td data-label=\"Popisek\">medicine</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[dvě vodorovné čáry nad sebou]</td><td data-label=\"Popisek\">world</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[trojúhelník]</td><td data-label=\"Popisek\">nature</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[vodorovná čára dole]</td><td data-label=\"Popisek\">earth</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[vodorovná čára nahoře]</td><td data-label=\"Popisek\">sky</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[dva soustředné kruhy s tečkou uprostřed]</td><td data-label=\"Popisek\">light</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[vodorovná vlnovka]</td><td data-label=\"Popisek\">water</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[svislá vlnovka]</td><td data-label=\"Popisek\">fire</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[tvar písmene Z]</td><td data-label=\"Popisek\">air</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[vlnovka na horní vodorovné čáře]</td><td data-label=\"Popisek\">cloud</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[svislá čára se dvěma obloukovitými větvemi nahoře]</td><td data-label=\"Popisek\">tree</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kroužek na stonku]</td><td data-label=\"Popisek\">flower</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[malý pravoúhlý trojúhelník]</td><td data-label=\"Popisek\">rock</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kroužek s křížkem]</td><td data-label=\"Popisek\">wheel</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[klikatá čára – blesk]</td><td data-label=\"Popisek\">electricity</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kruh]</td><td data-label=\"Popisek\">sun</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[srpek měsíce]</td><td data-label=\"Popisek\">moon</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kruh přeškrtnutý šikmou čarou]</td><td data-label=\"Popisek\">earth</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Základní symboly systému Bliss (popisky v originále anglicky). Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId979878763": {"co": "Ukázky složených symbolů a slov v systému Bliss s anglickými popisky (Compound symbols, Words).", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>Compound symbols</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Symbol</th><th>Popisek</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Symbol\">[srdce proťaté vodorovnou šipkou doprava]</td><td data-label=\"Popisek\">love</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[malý čtverec proťatý svislou čarou, k jejímuž dolnímu konci vede zleva šikmá čára]</td><td data-label=\"Popisek\">tool</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[dva oblouky otevřené dolů nad sebou]</td><td data-label=\"Popisek\">conscience</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[dvě kolečka s křížkem pod vodorovnou čarou]</td><td data-label=\"Popisek\">car, vehicle</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[tři kolečka s křížkem pod vodorovnou čarou, vpravo nahoře malá šikmá stříška]</td><td data-label=\"Popisek\">bus</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kolečko s křížkem, nad ním dvě obloukovitá křídla]</td><td data-label=\"Popisek\">aeroplane</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[čtverec, v něm dva soustředné kruhy s tečkou]</td><td data-label=\"Popisek\">camera</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kroužek na stonku stojící na vodorovné čáře]</td><td data-label=\"Popisek\">garden</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <p><strong>Words</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Symbol</th><th>Popisek</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Symbol\">[symbol osoby, srdce, plus a vykřičník]</td><td data-label=\"Popisek\">friend</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[symbol zvířete a srdce]</td><td data-label=\"Popisek\">pet</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[srdce a šipka vzhůru]</td><td data-label=\"Popisek\">happiness</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[srdce, plus a vykřičník]</td><td data-label=\"Popisek\">like</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[srdce, minus a vykřičník]</td><td data-label=\"Popisek\">dislike</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[šipka vzhůru v oblouku otevřeném nahoru (tvar kotvy) a obdélník se zaobleným horním okrajem]</td><td data-label=\"Popisek\">education</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[symbol osoby, šipka vzhůru v oblouku a obdélník se zaobleným horním okrajem]</td><td data-label=\"Popisek\">teacher</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[symbol domu, šipka vzhůru v oblouku a obdélník se zaobleným horním okrajem]</td><td data-label=\"Popisek\">school</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[symbol domu a malý kroužek s tečkou]</td><td data-label=\"Popisek\">theatre</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[symbol domu a čtverec rozdělený svislou čarou]</td><td data-label=\"Popisek\">library</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[symbol domu a svislý esovitě prohnutý tvar]</td><td data-label=\"Popisek\">hospital</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[symbol domu a obálka – čtverec s vepsaným V]</td><td data-label=\"Popisek\">post office</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[dva křížky a symbol domu]</td><td data-label=\"Popisek\">city</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[křížek a symbol domu]</td><td data-label=\"Popisek\">village</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[kroužek s háčkem a klikatá čára – blesk]</td><td data-label=\"Popisek\">telephone</td></tr>",
+    "      <tr><td data-label=\"Symbol\">[tři strany čtverce otevřené vlevo, dvě stříšky nad sebou a šikmá čára]</td><td data-label=\"Popisek\">office</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Složené symboly a slova v systému Bliss (popisky v originále anglicky). Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId6": {"co": "Tabulka z manuálu MPSV k AAK u osob s demencí — ve zdroji rozdělená do sedmi snímků (rId6–rId12), tady spojená do tří tabulek.", "zdroj": "MPSV, Praktický manuál pro využití AAK u osob s demencí (2024)", "html": [
+    "<figure class=\"fig\">",
+    "  <p><strong>3.1 Nástroje a metody AAK bez pomůcek</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Nástroj / metoda AAK</th><th>Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>1) Prostředky neverbální komunikace</strong><br><strong>Definice:</strong> Nejrozšířenější forma AAK využívaná u osob s demencí. Mezi nejčastější druhy neverbální komunikace byla zmiňována gesta, mimika a haptika. Důležitá je také paralingvistika. V rámci práce s klienty s demencí je vhodné procvičovat mimiku, gesta a pohyby před zrcadlem.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> U všech klientů v jakékoli fázi demence (mírná, střední, těžká) při každodenním kontaktu. Gesta a gestikulaci je nutno využívat při naznačování, jaká činnost se chystá (např. ukázání směrem ke koupelně signalizuje hygienu) případně ukazovat na předměty (např. ukázání na hrnek symbolizuje pití; naznačení rukou, že lžíce bude směřovat do úst). Nelze opomíjet paralingvistiku, kdy je třeba dbát na stálý, klidný tón hlasu a používání jednoduchých vět. Je třeba se vyvarovat tónu hlasu, který může být považován klientem jako agresivní. Z hlediska mimiky je důležitý úsměv, příjemný výraz tváře vyjadřující klid.<br><strong>Důležité upozornění:</strong> Člověk s demencí je na neverbální komunikaci velmi citlivý a je tedy třeba, aby byl pracovník v přímé péči v souladu s potřebami klienta. Správné využívání neverbální komunikace navozuje pocit klidu, bezpečí, důvěry, orientuje klienta v situaci. Pomáhá klientovi porozumět sdělenému obsahu, čímž se posiluje jeho sebevědomí. Nesprávné využívání neverbální komunikace a nesoulad s potřebami klienta s demencí, vzhledem k jeho vysoké citlivosti, vede k agresivnímu chování a depresi.</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>2) Orální řeč – vokalizace s komunikačním záměrem</strong><br><strong>Definice:</strong> Orální řeč je důležitým prostředkem komunikace. Může se jednat jen o jednoslabičná a dvojslabičná slova, která se spojují do krátkých vět. V případě, že orální řeč selhává, využívá se tzv. vokalizace - vyslovování hlásek s komunikačním záměrem. Tato metoda slouží ke zjednodušení komunikace mezi pracovníky v přímé péči a klienty pro možnost každodenní domluvy.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> V případě selhávání orální řeči, kdy člověk s demencí již není schopen vyslovovat slova. Tento způsob komunikace je poměrně frekventovaný pro jeho jednoduchost.<br><strong>Důležité upozornění:</strong> Při komunikaci s klienty s demencí je nutné se přizpůsobit možnostem a schopnostem klienta. Mluvit pomalu v nerozvitých větách, výrazně artikulovat a udržovat oční kontakt. Pokud klient není schopen verbální komunikace, neznamená to, že nás nevnímá.</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>3) Makaton</strong><br><strong>Definice:</strong> Makaton je komunikační systém, který užívá znaky (gesta) doplněné mluvenou řečí a symboly.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> Je využíván u osob v mírné fázi demence jen výjimečně, pokud ano, tak při manuálním znakování jednotných významů situací doplněných verbální jednoduchou řečí a gestikulací.<br><strong>Důležité upozornění:</strong> Osoba s demencí se tento systém není schopna naučit pro poruchu kognitivních funkcí.</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Nástroje a metody AAK bez pomůcek u osob s demencí. Zdroj: MPSV, <em>Praktický manuál pro využití alternativní a augmentativní komunikace u osob s demencí</em> (2024), viz <a href=\"literatura.html#d-mpsv-2024\">literatura</a>. Přepsáno z obrázků v zápiscích.</figcaption>",
+    "</figure>",
+    "<figure class=\"fig\">",
+    "  <p><strong>3.2 Nástroje a metody AAK s netechnickými pomůckami</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Nástroj / metoda AAK</th><th>Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>1) Fotografie</strong><br><strong>Defince:</strong> Trvalý obrazový záznam zachycující určitý okamžik, předmět, osobu, přírodu apod. Fotografie významně pomáhá při komunikaci s klientem s onemocněním demence. Umožňuje lépe vyjádřit i pochopit obsah sdělení. Řadí se mezi nejfrekventovanější nástroje AAK.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> Fotografie se využívají z několika důvodů/situací:<br>1) vytvoření příjemného osobního prostoru – z domácího prostředí – nejčastěji se využívaly fotografie míst, kde klienti žijí nebo žili, osobní fotografie ze života klientů a jejich rodiny, domácích mazlíčků, dále fotografie oblíbených lokalit,<br>2) pro každodenní komunikaci – fotografie předmětů denní potřeby, fotografie jídel např. při tvorbě fotojídelníčku,<br>3) pro orientaci v zařízení (fotografie na dveřích pokojů), v čase (fotografie schématu dne), v osobách a rodinných vztazích (fotografie zaměstnanců a rodinných příslušníků,<br>4) z hlediska konceptů při reminiscenci, biografii, bazální stimulaci (např. fotografie z klientova mládí, biografické listy),<br>5) z důvodu aktivizace při procvičování paměti (fotografie známých osobností, fotopexesa) nebo komunikaci nad fotografiemi, během které klienti zmiňují zážitky a prožitky o svých blízkých,<br>6) pro uklidnění (blízké osoby, zvířecí mazlíčci),<br>7) další situace (např. je vhodné použití fotografií pro jednání se zájemcem o službu, výběru denních aktivit, při hrách atd.).<br>Formy využití: samostatně (fotografie v rámečku, elektronické fotorámečky), v rámci jiných pomůcek (fotokalendáře, fotonástěnky, fotokoláže, fotopexesa). Fotografie lze využívat při tvorbě komunikačních tabulek a komunikačních knih, případně info listů, dále dle vlastní inspirace.<br><strong>Důležité upozornění:</strong> Při využívání fotografií u klientů s onemocněním demence je dobré znát jeho citlivá témata, která mohou klienta rozrušit. (např. fotografie dětí v případě, že v jeho životě došlo k úmrtí dítěte).</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>2) Předměty</strong><br><strong>Definice:</strong> Předměty jsou velmi často používaným nástrojem AAK a lze je rozdělit na vlastní předměty, přírodní, vzpomínkové, terapeutické a předměty denní potřeby.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> Pro osoby s těžší formou demence, které již nerozumí fotografiím či piktogramům a neumí je spojit s konkrétní věcí či činností se doporučují používat předměty. Pro běžné denní činnosti a aktivizaci se používají běžné předměty (hrnečky, talířky, lžičky, brýle, kartáček na zuby, ručník apod.), dále ozdoby, polštářky, dekorace, kresby od vnoučat, fotografie, abeceda, obrázkový slovník, televize, rádio, denní tisk, šperky, talismany, suvenýry, přírodniny, koření, hodinky, kompenzační pomůcky, obaly od potravin a vlastní potraviny. Je možno využívat také speciální nádobí určené pro osoby s demencí. Při terapiích osob s demencí, lze použít terapeutické pomůcky, např. panenky a terapeutické kočky.<br>Pro vytvoření osobního prostředí je možno přinést si předměty z domácího prostředí klienta do organizace. Při využití konceptu reminiscence (zařízení mohou používat tzv. vzpomínkový kufr).<br>Předměty mohou sloužit také ke cvičení paměti a kognitivních funkcí, ergoterapii, dodržování rituálů klienta, komunikaci (především za účelem zjišťování potřeb), stimulaci a navození kladných emocí.<br>Předmět, který se využívá ke komunikaci, se stává také symbolem, to předpokládá u klienta schopnost symbolického myšlení pro funkční komunikaci. Pokud nejsou schopné osoby s demencí z důvodu poruchy jejich kognitivních schopností spojit předmět s danou činností např. hrnek – pití, a to ani po dlouhodobém nácviku, je třeba využít jiných komunikačních možností. Zvyšuje se nárok na empatii osoby, která vede komunikaci.<br><strong>Důležité upozornění:</strong> Pokud je klient s onemocněním demence schopen předmět pojmenovat, tak ho s velkou pravděpodobností umí také použít. Je také důležité pracovat s předměty, které jsou klientovi známé, ke kterým ho pojí nějaká vzpomínka. Při využívání předmětů dochází ke spojení paměti s předmětem, k podpoře samostatnosti a soběstačnosti, uvědomění si vlastních zdrojů.</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>3) Zmenšeniny, makety reálných předmětů</strong><br><strong>Definice:</strong> Přesná zmenšená kopie reálných předmětů.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> Zmenšeniny a makety reálných předmětů se využívají u klientů s demencí k aktivizaci, stimulaci, reminiscenci, relaxaci a k uvolnění či pro hru.<br>K těmto účelům se používají zmenšeniny domácích mazlíčků a zvířat obecně, křížky, hračky, plyšové figurky, kartáček na zuby, hrnek, záchod, krabička, talíř, lžička, konvička na zalévání květin, šrouby a matice, hodiny a bota na zavazování.<br>Účelem těchto nástrojů je navodit stav péče např. o kočku a tím aktivizovat klienta a jeho vzpomínky.<br>Aktivizaci osob s demencí lze pravidelně provádět dle denního režimu např. proškolená osoba připraví na lištu zástupné předměty dle daného rozpisu. Uživatel předtím, než jde činnost vykonávat, vezme zástupný předmět z lišty a jde s ním tam, kde činnost potřebuje vykonat, tam ho umístí do čtverce na zdi. Po vykonání činnosti ho vezme zpět a dá do košíčku, kde je zástupný předmět až do druhého dne.<br>Předměty lze využít pro podporu schopnosti motoriky a podporu logického myšlení např. plastové kopie šroubků a matic.<br><strong>Důležité upozornění:</strong> Při správném využívání předmětů dochází ke spojení paměti s předmětem, k podpoře samostatnosti a soběstačnosti, uvědomění si vlastních zdrojů.</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>4) Piktogramy</strong><br><strong>Definice:</strong> Piktogram je grafický znak (ideogram) znázorňující pojem nebo sdělení obrazově. Většinou jde o malý, srozumitelný nákres věci. Patří mezi nejpoužívanější nástroje AAK.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> Situace pro využití piktogramů:<br>1) orientace na dveřích (pokojů, jídelen, kluboven, WC),<br>2) označení skříní a úložného prostoru, označení lůžek, osob s demencí,<br>3) orientace v čase – tvorba kalendářů nebo časového schématu denních činností (např. na nástěnkách u aktivit daného dne),<br>4) pro podporu porozumění různým organizačním dokumentům (např. smlouva o poskytování služby, denní řád, informace pro nouzové situace, formulář pro podání stížnosti),<br>5) pro aktivizaci a komunikaci s klienty např. při tvorbě komunikačních knih a komunikačních karet,<br>6) při provádění denních činností klientů (oblékání a strava, hygiena, péče o vlastní osobu),<br>7) při kognitivní rehabilitaci a komunikaci (např. vyjadřování potřeb, představení klienta a navázání hovoru).<br>Piktogramy lze využít při popisu různých místností, v kuchyni – co je umístěné v dané skříňce a na toaletách – moderní splachovadla a zásobníky na toaletní papír, klientovi piktogram usnadní pochopení úkonu, který se od něj očekává. Piktogramy lze využívat samostatně nebo při tvorbě komunikačních tabulek a komunikačních knih, případně info listů, dále dle vlastní inspirace.<br><strong>Důležité upozornění:</strong> Správné využívání srozumitelných piktogramů vede u klienta s onemocněním demence k větší soběstačnosti a samostatnosti, k orientaci místem, časem, osobou a situací.</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>5) Pracovní listy</strong><br><strong>Definice:</strong> Pracovní listy jsou nástroje rozmanitého zaměření např. pro trénování paměti, plánování aktivit, orientaci v čase, v denních aktivitách, procvičování kognitivních funkcí, systematické zaznamenávání činností u klienta.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong><br>1) pracovní listy pro trénování paměti a podporu kognitivních funkcí – např. spojovačky, piškvorky a další listy k procvičování počítání,<br>2) pracovní listy pro rozvoj motoriky – např. omalovánky, dokreslovačky, písanky, a další listy k procvičování jemné motoriky a představivosti,<br>3) logopedické pracovní listy a listy k procvičování komunikačních funkcí,<br>4) pracovní listy pro trénování hospodaření s penězi,<br>5) vzkazové sešity – předávání informací rodině prostřednictvím vzkazového sešitu,<br>6) pracovní listy se záznamem pracovních postupů – podpora ergoterapie,<br>7) další pracovní listy rozmanitého zaměření, např., vzpomínkové listy, rozpisy péče, flipcharty, listy života klienta, denní pracovní plány atd.<br><strong>Důležité upozornění:</strong> U klientů s demencí je nutné se přizpůsobit možnostem a schopnostem klienta. V opačném případě klient ztratí zájem, může u něho dojít k agresivitě a depresi.</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>6) Komunikační karta, komunikační tabulka,</strong> <strong>komunikační kniha, info listy</strong><br><strong>Definice:</strong> Komunikační karty slouží jako vizuální pomůcka pro rozvíjení a usnadnění komunikace, k aktivizaci klienta, případně k určení místa bolesti. Jako komunikační karty se používají obrázky s barvami, jídlem, oblečením, přírodou, ovocem, tabulky s písmeny, s předtištěnými předměty, dále soubory tištěných barevných obrázků běžných denních potřeb a činností nebo komunikační karty s vyznačením bolestivých míst.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> Komunikační karty jsou využívány v situacích, jako je nácvik odmítnutí, přijetí, určení volby, sdělování zážitků apod.<br>Vytvoření komunikační tabulky, případně komunikační knihy, usnadňuje komunikaci v rámci denních činností, individuálního plánování. Komunikační tabulky (případně info listy s piktogramy nebo fotografiemi) jsou potřebné pro pracovníky v přímé péči, klienty a jejich rodiny a stejně tak důležité jsou pro management v daném zařízení, a to při jednáních se zájemci o službu a při uzavírání smluv.<br><strong>Důležité upozornění:</strong> Klienti s onemocněním demence potřebují k odpovědi daleko více času, který se odvíjí od fáze demence. U klientů v třetí fázi demence to mohou být i 3 minuty, než odpoví. K soustředění a polarizaci pozornosti potřebují ticho a klid.</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>7) Zážitkové deníky</strong><br><strong>Definice:</strong> Deníky, které slovně i obrazovou formou prezentují zážitky klienta.</td><td data-label=\"Definice a vymezení situací, kdy mohou nebo mají být v komunikaci s osobami s demencí využity\"><strong>Využití:</strong> Zážitkové deníky lze využít pro aktivizaci, reminiscenci, jako podporu dlouhodobé i krátkodobé paměti a pro podporu orientace a poznávání. Mohou mít různou formu, např. deníky, kroniky společných akcí a aktivit, zážitkové obrazy, fotografie z pořádaných akcí zařízení, sociální knihy zaznamenávající denní aktivity, časopis v zařízení, cestovatelské deníky a vzpomínkové listy.<br><strong>Důležité upozornění:</strong> Popis obrázku či fotografie pomáhá klientovi s onemocněním demence v určení předmětu, osoby či situace a zároveň posiluje čtení. Obraz potvrzuje uvedené označení. V paměti klienta se propojuje popis s obrazem. Realita je pak rozpoznána, vše je v paměti propojeno a reakcí je probuzení emocí.</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Nástroje a metody AAK s netechnickými pomůckami u osob s demencí. Zdroj: MPSV, <em>Praktický manuál pro využití alternativní a augmentativní komunikace u osob s demencí</em> (2024), viz <a href=\"literatura.html#d-mpsv-2024\">literatura</a>. Přepsáno z obrázků v zápiscích; řádky, které byly rozdělené mezi dva snímky, jsou spojené.</figcaption>",
+    "</figure>",
+    "<figure class=\"fig\">",
+    "  <p><strong>3.3 Nástroje a metody AAK s technickými pomůckami</strong></p>",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Nástroj / metoda AAK</th><th>Situace, kdy mohou nebo mají být v komunikaci s osobami s demencí využity technické pomůcky AAK</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>1) Primárně neúčelová elektronická zařízení pro AAK</strong><br><strong>Definice:</strong> Mezi tyto nástroje řadíme elektronická zařízení, která nejsou primárně určená pro AAK. Patří zde např. notebook, iPad, Mobilní telefon,</td><td data-label=\"Situace, kdy mohou nebo mají být v komunikaci s osobami s demencí využity technické pomůcky AAK\"><strong>Využití:</strong> Primárně je vhodné používat notebook pro prezentace a promítání (např. fotografií, filmů, operet, písní, dokumentů), vyhledávání informací, aktivizační činnosti, sluchovou a zrakovou stimulaci, kognitivní trénink a reminiscenci. Na notebook lze nainstalovat program NVDA, což je open-source program na odečítání obrazovky, který pomáhá klientovi s orientací při práci na notebooku. Osoby s demencí pracují na notebooku především s asistencí. Je zde možnost využití jednoduchých her, které rozvíjejí pozornost, paměť, jemnou motoriku, klienta zaujmou.<br>iPad či tablet lze použít pro čtení, hledání fotek, článků, tematických přísloví, cizích slov, pouštění písniček, ukazování fotografií, aktivizační</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>2) Primárně účelová elektronická zařízení pro AAK</strong><br><strong>Definice:</strong> Mezi tyto nástroje řadíme elektronická zařízení, která jsou primárně určená pro AAK. Patří zde např. jednotlačítkové a dvoutlačítkové zařízení s hlasovým výstupem tzv. komunikátory, vícetlačítkový komunikátor GoTalk, sluchátka Audioport A200, interaktivní dotykový stůl SenTable.</td><td data-label=\"Situace, kdy mohou nebo mají být v komunikaci s osobami s demencí využity technické pomůcky AAK\"><strong>Využití:</strong> Pro některé poskytovatele je vhodné u osob s demencí, pokud je spojena s poruchou řeči, využít jednotlačítkové/jednovzkazové zařízení s hlasovým výstupem (tzv. komunikátor). Může zde být nahrán vzkaz např. „Dobrý den, jsem Honza Malý.“<br>Pokud klient zvládne rozumět více slovům je možnost použít 2 jednotlačítkové, případně vícetlačítkové zařízení (tzv. komunikátor), které umožňuje výběr aktivit, např. „chci jít ven, chci vidět televizi“. Zařízení nebude „samo od sebe“ za klienta komunikovat, klient musí mít schopnost porozumět tomu, co dané vyobrazení (tlačítko) na komunikátoru znamená (pít, jíst, zima apod.). Tyto pomůcky nejsou zatím rozšířeny ani obvykle využívány pro osoby s demencí.<br><strong>Důležité upozornění:</strong> Tato zařízení je možno využít pouze u klientů s mírnou maximálně středně těžkou demencí, kteří jsou schopní pochopit způsob použití těchto pomůcek. Složitá technická zařízení nejsou vhodná pro klienty s onemocněním demence. Používání těchto zařízení musí být v souladu se schopnostmi a dovednostmi klientů.</td></tr>",
+    "      <tr><td data-label=\"Nástroj / metoda AAK\"><strong>3) Zařízení pro přivolání osoby nebo ovládání jiného zařízení</strong></td><td data-label=\"Situace, kdy mohou nebo mají být v komunikaci s osobami s demencí využity technické pomůcky AAK\"><strong>Využití:</strong> U osob s demencí lze využíti spínače (switche), např. v podobě zvonků na přivolání pomoci, které se dají upevnit na zápěstí jako hodinky; dále spínače pro ovládání polohovací postele, které lze kombinovat</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Nástroje a metody AAK s technickými pomůckami u osob s demencí. Zdroj: MPSV, <em>Praktický manuál pro využití alternativní a augmentativní komunikace u osob s demencí</em> (2024), viz <a href=\"literatura.html#d-mpsv-2024\">literatura</a>. Přepsáno z obrázků v zápiscích; dvě buňky jsou ve snímcích useknuté už v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId7": {"co": "pokračování téže tabulky — přepsáno spolu s rId6", "html": ""},
+   "rId8": {"co": "pokračování téže tabulky — přepsáno spolu s rId6", "html": ""},
+   "rId9": {"co": "pokračování téže tabulky — přepsáno spolu s rId6", "html": ""},
+   "rId10": {"co": "pokračování téže tabulky — přepsáno spolu s rId6", "html": ""},
+   "rId11": {"co": "pokračování téže tabulky — přepsáno spolu s rId6", "html": ""},
+   "rId12": {"co": "pokračování téže tabulky — přepsáno spolu s rId6", "html": ""}
+  },
+  "7": {
+   "rId8": {"co": "prázdný zástupný obrázek 1×1 px", "html": ""}
+  },
+  "8": {
+   "rId5": {"co": "Tabulka 5.1 popisující úrovně adaptivního chování dětí s lehkou, střední, těžkou a hlubokou mentální retardací ve věku od narození do šesti let.", "zdroj": "podle Sattler 2002, s. 339 (uvedeno v titulku tabulky 5.1)", "html": [
+    "<figure class=\"fig\">",
+    "  <div class=\"table-wrap\"><table>",
+    "    <thead><tr><th>Úroveň</th><th>Věk od narození do šesti let</th></tr></thead>",
+    "    <tbody>",
+    "      <tr><td data-label=\"Úroveň\">Lehká mentální retardace</td><td data-label=\"Věk od narození do šesti let\">Běžný vývoj sociálních a komunikačních dovedností, minimální postižení v senzomotorické oblasti, dítě bývá v tomto věku zřídka odlišeno od ostatních.</td></tr>",
+    "      <tr><td data-label=\"Úroveň\">Střední mentální retardace</td><td data-label=\"Věk od narození do šesti let\">Dítě používá řeč nebo se učí komunikovat, setkáváme se však se slabým sociálním uvědoměním, s opožděním v motorickém vývoji a s potřebou výcviku v oblasti sebeobsluhy.</td></tr>",
+    "      <tr><td data-label=\"Úroveň\">Těžká mentální retardace</td><td data-label=\"Věk od narození do šesti let\">Chabý motorický vývoj, minimální použití řeči, výrazné problémy v oblasti sebeobsluhy, dítě používá pár slov nebo nemá žádné komunikační dovednosti.</td></tr>",
+    "      <tr><td data-label=\"Úroveň\">Hluboká mentální retardace</td><td data-label=\"Věk od narození do šesti let\">Rozsáhlé postižení, minimální kapacita pro fungování v senzomotorických oblastech, potřebuje celoživotní péči.</td></tr>",
+    "    </tbody>",
+    "  </table></div>",
+    "  <figcaption>Tabulka 5.1 Úrovně adaptivního chování u osob s mentálním postižením (podle Sattler 2002, s. 339). Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  },
+  "17": {
+   "rId286158265": {"co": "Schéma systému kurikulárních dokumentů se státní úrovní (Národní program vzdělávání a rámcové vzdělávací programy podle stupňů vzdělávání) a školní úrovní (školní vzdělávací programy).", "html": [
+    "<figure class=\"fig\">",
+    "  <ul class=\"fig-list\">",
+    "    <li><strong>STÁTNÍ ÚROVEŇ</strong>",
+    "      <ul>",
+    "        <li><strong>NÁRODNÍ PROGRAM VZDĚLÁVÁNÍ</strong></li>",
+    "        <li><strong>RÁMCOVÉ VZDĚLÁVACÍ PROGRAMY</strong>",
+    "          <ul>",
+    "            <li>předškolní vzdělávání",
+    "              <ul>",
+    "                <li>RVP PV</li>",
+    "              </ul>",
+    "            </li>",
+    "            <li>základní vzdělávání",
+    "              <ul>",
+    "                <li><strong>RVP ZV</strong></li>",
+    "                <li>RVP ZŠS</li>",
+    "              </ul>",
+    "            </li>",
+    "            <li>střední vzdělávání",
+    "              <ul>",
+    "                <li>RVP G<br>RVP GSP<br>RVP DG</li>",
+    "                <li>RVP SOV</li>",
+    "              </ul>",
+    "            </li>",
+    "            <li>ostatní vzdělávání",
+    "              <ul>",
+    "                <li>RVP ZUV</li>",
+    "                <li>RVP JŠ</li>",
+    "              </ul>",
+    "            </li>",
+    "          </ul>",
+    "        </li>",
+    "      </ul>",
+    "    </li>",
+    "    <li><strong>ŠKOLNÍ ÚROVEŇ</strong>",
+    "      <ul>",
+    "        <li><strong>ŠKOLNÍ VZDĚLÁVACÍ PROGRAMY ZPRACOVANÉ PODLE RVP</strong></li>",
+    "        <li><strong>ŠKOLNÍ VZDĚLÁVACÍ PROGRAMY, PRO NĚŽ NEBYL VYDÁN RVP</strong></li>",
+    "      </ul>",
+    "    </li>",
+    "  </ul>",
+    "  <p>[Vodorovné šipky vedou od RVP PV k RVP ZV, od RVP ZV k rámečku RVP G, RVP GSP, RVP DG a od něj k RVP ZUV. Svislé šipky vedou od RVP PV, RVP ZŠS, RVP SOV a RVP JŠ dolů ke školní úrovni.]</p>",
+    "  <figcaption>Systém kurikulárních dokumentů. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]},
+   "rId1517859016": {"co": "Seznam výukových metod s procentem zapamatování poznatků (pyramida učení).", "html": [
+    "<figure class=\"fig\">",
+    "  <ul class=\"fig-list\">",
+    "    <li>přednáška - 5 %</li>",
+    "    <li>čtení - 10 %</li>",
+    "    <li>audiovizuální metody - 20 %</li>",
+    "    <li>demonstrace - 30 %</li>",
+    "    <li>diskuse ve skupinách - 50 %</li>",
+    "    <li>praktická cvičení - 70 %</li>",
+    "    <li>vyučování ostatních - 90 %</li>",
+    "  </ul>",
+    "  <figcaption>Pyramida učení – zapamatování poznatků podle výukové metody. Přepsáno z obrázku v zápiscích.</figcaption>",
+    "</figure>"
+   ]}
+  }
+ },
+ "terms": {
+  "1": [
+   ["AAK jako prvek socializace", "AAK umožňuje lidem s tělesným, mentálním, smyslovým či kombinovaným postižením navazovat a udržovat sociální kontakty, vyjadřovat potřeby, přání a emoce a zapojit se do běžného života; chrání je před sociální izolací a podporuje jejich autonomii a participaci."],
+   ["Využití AAK u dětí", "U dětí slouží AAK nejen ke komunikaci, ale i k rozvoji řeči, poznání a sociálního učení; lze ji zavádět už od raného věku, nácvik probíhá hravě a přirozeně ve spolupráci rodiny, školy, SPC a logopeda a AAK bývá často jen dočasná."],
+   ["Využití AAK u dospělých", "U dospělých AAK často nahrazuje ztracenou řeč (po úrazu, CMP, u progredujících onemocnění) a bývá trvalou strategií; nácvik je cílený a funkční, navazuje na dřívější zkušenosti a respektuje dospělou identitu, zpočátku ji však dospělí mohou odmítat."],
+   ["Posouzení vhodnosti systému AAK", "Při výběru AAK se posuzuje logopedické hledisko (porozumění, úroveň komunikace, vyjádření ano/ne, vnímání symbolů, čtení), tělesné schopnosti (motorika, úchop, únava), zrakové a sluchové vnímání a psychosociální oblast (motivace, kognice, podpora okolí)."],
+   ["Znak do řeči", "Kompenzační metoda pro osoby s mentálním a řečovým postižením, při níž se znakují jen klíčová slova a zbytek řeči zůstává gramaticky správný; porozumění podporuje přirozenou řečí, gesty a mimikou."],
+   ["Přístupové technologie", "Technologie, které lidem s těžkým tělesným postižením nebo omezenou motorikou umožňují ovládat zařízení bez jemné motoriky: eye-tracking (pohled), head-tracking (pohyb hlavy), joysticky, trackbally, spínače a jednotlačítkové skenování."],
+   ["PC s hlasovým výstupem", "Počítač, notebook či tablet, který vybraný text nebo symbol přečte syntetickým hlasem; slouží lidem, kteří nemohou mluvit nebo mají omezené verbální schopnosti, a umožňuje „mluvit za uživatele“ (např. u tělesného postižení či u nemluvících osob)."],
+   ["PC bez hlasového výstupu", "Počítač nebo tablet, u něhož komunikace probíhá vizuálně nebo gestem (výběr obrázku, psaní na obrazovce); slouží k tréninku, psaní, komunikaci přes text a ovládání prostředí, např. u neslyšících nebo v rodině, kde se symbolům rozumí bez zvuku."],
+   ["Odečítač obrazovky (screen reader)", "Program (např. JAWS, NVDA, VoiceOver), který přečte vše, co se objeví na obrazovce, a umožňuje navigaci v menu a aplikacích; spolu s hlasovou syntézou je nezbytný zejména pro nevidomé."],
+   ["Technické pomůcky u osob se sluchovým postižením", "Hlasový výstup není pro samotného uživatele funkční, může však sloužit slyšícímu okolí; využívá se vizuální a textová komunikace (chat, symboly, videa ve znakovém jazyce), vizuální signalizace a u hluchoslepých taktilní komunikace."]
+  ],
+  "2": [
+   ["Alternativní škola", "Škola, která se výrazně odlišuje od hlavního vzdělávacího proudu organizací výuky, obsahem, metodami, hodnocením (např. slovním) i vztahy s rodiči a komunitou; za alternativní se nepovažují školy církevní a soukromé, které jsou alternativou jen z pohledu zřizovatele."],
+   ["Daltonský plán", "Pedagogický koncept americké učitelky Helen Parkhurstové postavený na principech svobody, zodpovědnosti a spolupráce; žák plní individuální učební plán (contract) s termíny ve vlastním tempu, bez pevného rozvrhu, a učitel je mentorem a konzultantem."],
+   ["Jenský plán", "Koncepce Petera Petersena (Jena, 20. léta 20. století), která chápe školu jako životní společenství; žáci jsou ve věkově smíšených skupinách, místo tradičního vyučování je kruh, hra, slavnost a práce, žák plní týdenní plán a starší žáci (monitoři) pomáhají mladším."],
+   ["Freinetovská škola", "Škola podle francouzského učitele Celestina Freineta, založená na pracovní aktivitě žáků, kooperaci a školním společenství; typická je školní tiskárna (kniha života), konference a ankety, kroužky a místo učebnic školní kartotéka, knihovna či časopisy."],
+   ["Program Začít spolu", "Mezinárodní program pro předškolní a primární vzdělávání, v ČR od roku 1994; třída je rozdělena na centra aktivit, učivo se v daném týdnu váže k jednomu tématu a dítě si volí pořadí center, ale během týdne musí projít všemi. Důraz je na individualizaci a spolupráci s rodiči."],
+   ["Škola hrou (T. Houška)", "Pedagogický přístup Tomáše Houšky, v němž je hra nosným principem výuky; učivo je převedeno do her, simulací a příběhových rolí (učení ve druhém plánu), takže se dítě učí prožitkem a z vnitřní motivace."],
+   ["Camphillská léčebná komunita", "Mezinárodní síť léčebných a vzdělávacích komunit pro děti i dospělé s mentálním a kombinovaným postižením, založená r. 1939 ve Skotsku Karlem Königem na antroposofickém základě; lidé s postižením a coworkeři sdílejí domácnost, práci, rituály a pevný řád dne."],
+   ["Iniciální dotek", "V bazální stimulaci cílený a jasně čitelný dotek (např. na rameno) doprovázený slovním pozdravem, kterým se klientovi naznačuje začátek i konec kontaktu; jeho lokalizaci podle tabulky musí respektovat všichni pracovníci."],
+   ["Statické a dynamické systémy AAK", "Statické systémy AAK nevyžadují pohyb (předměty, fotografie, obrázky, piktogramy, VOKS, Bliss, Braillovo písmo); dynamické jsou založené na pohybu a gestech (znakový jazyk, znakovaná čeština, prstová abeceda, Makaton, znak do řeči)."],
+   ["Totální komunikace", "Přístup využívající všechny dostupné komunikační kanály (řeč, znaky, posunky, mimiku, gesta, psaní, čtení, obrázky, odezírání); forma se individuálně přizpůsobuje schopnostem dítěte a systém se buduje postupně na základě analýzy jeho komunikačních možností."]
+  ],
+  "3": [
+   ["Užší a širší pojetí psychopedie", "V užším pojetí (Valenta) je psychopedie speciálněpedagogická disciplína zabývající se edukací osob s mentálním a jiným duševním postižením; v širším pojetí je to interdisciplinární obor, který zahrnuje i prevenci, diagnostiku, poradenství, terapii, rehabilitaci, inkluzi a socializaci."],
+   ["Oslabení kognitivního výkonu", "Hraniční pásmo (tzv. pásmo nikoho), kdy snížená výkonnost působí obtíže při vzdělávání, ale nejde ještě o mentální retardaci; podle Valenty (2018) se dnes místo zastřešujícího pojmu mentální postižení rozlišují jedinci s oslabením kognitivního výkonu a s mentální retardací."],
+   ["Stadia vývoje péče o osoby s postižením", "Sovák (1980) rozlišuje stadium represivní, zotročovací, charitativní, renesančního humanismu, rehabilitační, socializační a prevenční; Slowík (2007) je doplňuje o přístup integrační a inkluzivní."],
+   ["Séguinova triáda", "Systém výchovy slabomyslných, který vypracoval É. Séguin: výchova činností (rozvoj motoriky, analyzátorů a senzomotoriky), výchova myšlení (základní znalosti, představy o světě a společnosti) a výchova vůle (ovládání instinktů, posilování vůle)."],
+   ["Ernestinum", "První ústav pro slabomyslné v českých zemích, otevřený roku 1871 v Praze Spolkem paní sv. Anny (původně ústav Hephata, od 1898 Ernestinum); prvním ředitelem byl K. S. Amerling, v letech 1902–1940 jej vedl K. Herfort."],
+   ["Skryté vylučování", "Poválečný stav, kdy byli lidé s mentálním postižením internováni ve velkých, přeplněných státních ústavech mimo města; měli zajištěny materiální potřeby, ale byli vyloučeni ze společnosti a kolektivní péče potlačovala jejich osobnost."],
+   ["Resortismus", "Chybějící spolupráce institucí resortů sociálních věcí, zdravotnictví a školství, která vytvořila systém „vnitřní uzavřenosti“ a na počátku 90. let brzdila transformaci speciálněpedagogické teorie i praxe."],
+   ["Eretický a torpidní typ", "Starší psychopedické rozlišení chování osob s mentální retardací: typ eretický je hyperaktivní, verzatilní a neklidný, typ torpidní hypoaktivní, apatický a netečný."],
+   ["Postižení chování v kódu MKN-10", "U mentální retardace (F70–F79) vyjadřuje MKN-10 míru postižení chování číslicí za tečkou: .0 žádné či minimální, .1 výrazné vyžadující intervenci, .8 jiné, .9 bez zmínky; např. F71.0 je středně těžká mentální retardace bez poruch chování."],
+   ["Kritéria mentálního postižení podle DSM-5", "DSM-5 vyžaduje tři kritéria: deficity v intelektových funkcích (uvažování, řešení problémů, plánování, abstraktní myšlení, úsudek, učení) potvrzené klinicky i standardizovaným testem IQ, deficity v adaptivních funkcích a výskyt těchto deficitů v dětství."]
+  ],
+  "4": [
+   ["Aplikovaná behaviorální analýza (ABA)", "Vědecky podložená metoda systematického pozorování, analýzy a ovlivňování chování, která podporuje žádoucí a redukuje nevhodné chování; staví na pozitivním posílení, funkční analýze chování, generalizaci, postupném učení (shaping) a pečlivém měření pokroku."],
+   ["Funkční analýza chování", "Zjišťování, proč dítě určité chování vykazuje (únik, pozornost, smyslové uspokojení aj.); podle zjištěné příčiny se nastaví intervence, např. místo agresivního chování se dítě učí jiný způsob, jak dosáhnout stejného cíle."],
+   ["Žetonový systém (token economy)", "Systém odměňování založený na operantním podmiňování (T. Ayllon, N. H. Azrin): dítě za vykonanou činnost získává žetony a za předem určený počet je vymění za oblíbenou věc či aktivitu; odměna se tak oddálí a dítě se učí déle spolupracovat."],
+   ["Verbální chování", "Forma ABA zaměřená na komunikaci, vycházející z behaviorální teorie jazyka B. F. Skinnera; cílem je funkční používání jazyka, učí se v přirozených situacích, když má dítě zájem, a správné pokusy o komunikaci jsou okamžitě posíleny."],
+   ["Early Start Denver Model (ESDM)", "Terapeuticko-intervenční program pro děti ve věku 12–60 měsíců, který propojuje Denver Model, Pivotal Response Training a ABA; probíhá ve hře, dospělý následuje zájmy dítěte a rozvíjí komunikaci, imitaci, sdílenou pozornost, hru, kognici i sebeobsluhu."],
+   ["Videotrénink interakcí (VTI)", "Metoda, při níž se natáčejí krátká videa běžné interakce (např. rodiče s dítětem s PAS) a vyškolený videotrenér pak s rodičem či pedagogem rozebírá jen pozitivní momenty, aby posílil funkční interakce a citlivost dospělého k potřebám dítěte."],
+   ["Zrcadlení a imitace", "Spontánní opakování chování dítěte dospělým (nejčastěji při hře), které upoutá jeho zájem a pozornost k sociální interakci; po čase dospělý vloží nový prvek, který dítě může napodobit, a rozvíjí tak sdílenou pozornost a sociální výměnu."],
+   ["Řetězení", "Metoda postupného spojování jednotlivých kroků do komplexního chování (oblékání, mytí rukou, příprava svačiny); rozlišuje se řetězení dopředné, zpětné a celkové, přičemž zpětné bývá efektivní, protože dítě vždy samo dokončí úkol a zažije úspěch."],
+   ["Procesuální schéma", "Znázornění situace rozdělené do několika kroků pomocí obrázků, piktogramů či fotografií s konkrétním textem a vymezeným začátkem a koncem, které dítěti s PAS zpřehlední postup správného chování; obrázkový scénář je konkrétnější a podrobnější."],
+   ["Trojrozměrné symboly", "Hmatatelné, snadno poznatelné předměty používané ke komunikaci: reálné předměty, reálné předměty jako symboly, části předmětů, referenční předměty (mýdlo pro koupel) a zmenšeniny; vhodné pro malé děti a osoby se zrakovým či těžkým mentálním postižením."]
+  ],
+  "5": [
+   ["Evropské fórum osob se zdravotním postižením (EDF)", "Evropská střešní organizace se sídlem v Bruselu (vznik 1996), která sdružuje národní rady a evropské organizace osob se všemi typy zdravotního postižení a prosazuje jejich práva při tvorbě evropské politiky a legislativy; NRZP ČR je řádným členem od roku 2004."],
+   ["Rehabilitation International (RI)", "Globální federace národních a mezinárodních organizací (vznik 1922) zabývajících se prevencí zdravotního postižení, rehabilitací a vyrovnáváním příležitostí osob se zdravotním postižením; udržuje oficiální styky s OSN, WHO, UNESCO či UNICEF a členem je i NRZP ČR."],
+   ["Evropská platforma sebeobhájců (EPSA)", "Platforma sebeobhájců, tedy lidí s mentálním postižením, kteří se zasazují o svá práva, založená Inclusion Europe a jeho součástí od roku 2000; pořádá konferenci Hear our Voices a školení leadershipu, aby byl hlas lidí s MP slyšet při rozhodování o jejich životech."],
+   ["Všeobecná deklarace lidských práv", "Klíčový lidskoprávní dokument přijatý OSN v roce 1948; jako deklarace není právně závazná, stala se však základem mezinárodních lidskoprávních úmluv. Zahrnuje mj. právo na lidskou důstojnost, osobní svobodu a vzdělání."],
+   ["Listina základních práv Evropské unie", "Listina vyhlášená v roce 2000 v Nice, právně závazná od prosince 2009; článek 21 zakazuje diskriminaci na základě zdravotního postižení a článek 26 uznává právo osob se zdravotním postižením na opatření k zajištění jejich nezávislosti, sociálního a profesního začlenění."],
+   ["Antidiskriminační zákon", "Zákon č. 198/2009 Sb., o rovném zacházení a o právních prostředcích ochrany před diskriminací; vyjmenovává a vysvětluje druhy diskriminace, určuje přípustné formy rozdílného zacházení a stanovuje právní prostředky ochrany před diskriminací."],
+   ["Veřejný ochránce práv", "Ombudsman, který chrání osoby před jednáním úřadů a institucí vykonávajících státní správu, je-li v rozporu s právem či principy demokratického státu, i před jejich nečinností; od roku 2018 navíc monitoruje naplňování Úmluvy o právech osob se zdravotním postižením."],
+   ["Strategie vzdělávací politiky ČR do roku 2030+", "Strategický dokument, jehož cílem je mj. snížit nerovnosti v přístupu ke kvalitnímu vzdělávání a umožnit maximální rozvoj potenciálu dětí, žáků a studentů; člení se do pěti strategických linií, např. Rovný přístup ke kvalitnímu vzdělávání či Podpora pedagogických pracovníků."],
+   ["Žák se speciálními vzdělávacími potřebami", "Podle § 16 odst. 1 školského zákona osoba, která k naplnění svých vzdělávacích možností nebo k uplatnění svých práv na rovnoprávném základě s ostatními potřebuje podpůrná opatření; na jejich bezplatné poskytnutí školou či školským zařízením má právo."],
+   ["Sociálně terapeutická dílna", "Sociální služba, jejímž posláním je posilovat osobní kompetence, schopnosti a dovednosti uživatelů (např. lidí s mentálním či kombinovaným postižením nebo chronickým duševním onemocněním), aby mohli využívat běžné sociální zdroje, zejména s ohledem na pracovní uplatnění."]
+  ],
+  "6": [
+   ["Zavádění AAK u seniorů", "Ze všech věkových skupin nejproblematičtější, protože senioři mají již značně omezenou schopnost učit se nové znaky, symboly a pravidla; preferují se proto jasně srozumitelné způsoby komunikace vycházející z přirozeného chování, spontaneity a zájmů seniora."],
+   ["Vliv stárnutí na volbu AAK", "Senzorické změny (zhoršení zraku a sluchu) vyžadují např. zvětšené písmo a hlasové výstupy, kognitivní změny (paměť, pozornost) jednoduchost a opakovatelnost systému a motorická omezení (třes, slabost) alternativní ovládání dotykem či pohybem očí."],
+   ["Zásady komunikace s osobou s demencí", "Demence přináší dezorientaci, zhoršování paměti, úsudku a vyjadřování i změny nálad; v komunikaci je proto nutné přizpůsobit tempo řeči, mluvit přiměřeně hlasitě, dobře artikulovat, brát ohled na fyzický stav, používat taktilní komunikaci a trpělivě naslouchat."],
+   ["Neverbální komunikace u osob s demencí", "Podle poskytovatelů péče nejčastěji užívaná forma komunikace s lidmi s demencí: gesta (naznačení činnosti, ukázání na předmět), mimika (zejména úsměv), haptika, která přináší pocit klidu a bezpečí, a paralingvistika (klidný tón, jednoduché věty)."],
+   ["Vokalizace s komunikačním záměrem", "Využívá se, když orální řeč selhává a klient nevysloví ani jednoduchá jedno- či dvouslabičná slova; vyslovuje jen hlásky nesoucí určitý komunikační záměr, např. „Á“ pro potřebu jídla nebo „Í“ pro potřebu toalety."],
+   ["Využití fotografií u seniorů", "Fotografie míst, blízkých osob, domácích mazlíčků, předmětů denní potřeby či z klientova mládí slouží k reminiscenci, aktivizaci a zklidnění, k orientaci v zařízení, čase a osobách i k procvičování paměti a výběru aktivit."],
+   ["Slovník Makatonu", "Obsahuje přibližně 350 znaků uspořádaných do 8 stupňů (etap); 9. stupeň tvoří přídavný slovník obvykle 35–40 slov podle potřeb jednotlivce. Znakují se jen klíčová slova a znaky se doplňují mluvenou řečí a symboly."],
+   ["Primárně neúčelová zařízení pro AAK", "Běžná elektronická zařízení (stolní PC, notebook, tablet) využitá pro AAK, např. se speciálně upravenou klávesnicí, myší či bezdotykovým ovládáním; stolní PC omezuje mobilitu, proto se uplatňují hlavně notebooky a tablety, které lze upevnit k vozíku či lůžku."],
+   ["Primárně účelová zařízení pro AAK", "Zařízení sestrojená výhradně k podpoře komunikace, od ozvučených tlačítek po přístroje s dotykovým displejem a předinstalovaným programem; aktivací tlačítka se přehraje nahraná nebo syntetická zpráva. Označení komunikátor je nepřesné, jde o zařízení s hlasovým výstupem."]
+  ],
+  "7": [
+   ["Funkce volného času", "Volný čas plní funkci rekreační (odpočinek, relaxace), kompenzační (rozptýlení a zábava), enkulturační a edukační (kulturní aktivity), kontemplační (hledání smyslu života), komunikační (sociální kontakty), participační (občanské a spolkové aktivity) a konzumní."],
+   ["Činnostní terapie", "Terapie využívající manipulaci s materiálem, surovinami a předměty k pozitivnímu ovlivnění chování, myšlení a emocí klienta. Od pracovní terapie se liší tím, že nemusí vést ke konkrétnímu výrobku a může mít obecnější rozvojový cíl."],
+   ["Ergoterapie", "Léčebná metoda („léčba prací“), která patří do zdravotnictví a má fyzioterapeutický základ; není proto totožná s činnostní ani s pracovní terapií."],
+   ["Terapie za asistence zvířat (AAT)", "Odborně vedený terapeutický proces, v němž se zvíře aktivně podílí na nápravě fyzických, psychických nebo sociálních funkcí klienta podle individuálního plánu; vede ji vyškolený odborník (např. hipoterapie, canisterapie)."],
+   ["Aktivity za asistence zvířat (AAA)", "Neformální aktivity s kontaktem klienta se zvířetem za účelem aktivizace, stimulace a zvýšení kvality života; neprobíhá při nich cílená náprava, hlavní přínos je psychický a motivační."],
+   ["Muzikoterapie", "Využívání hudby a zvuků k terapeutickým účelům; může být aktivní (zpěv, hra na nástroje, rytmické aktivity) nebo receptivní (poslech hudby, relaxace). U dospělých s MP pomáhá navázat kontakt v neverbální rovině."],
+   ["Arteterapie", "Terapie prostřednictvím výtvarného vyjadřování (kresba, malba, modelování). Cílem není estetická hodnota díla, ale samotný proces tvorby, který má psychoterapeutický a seberozvojový účinek."],
+   ["Dramaterapie", "Terapeutické využívání divadelních a dramatických technik – práce s rolí, improvizace, pantomima, scénky, loutky. Lidem s MP umožňuje bezpečně ztvárnit životní situace; důležitý je prožitek, ne herecký výkon."],
+   ["Biblioterapie", "Terapie prostřednictvím práce s literaturou – čtením, vyprávěním a poslechem příběhů. Pomáhá zpracovat životní situace a emoce; u dospělých s MP se pracuje s jednoduchými texty (bajky, pohádky, krátké příběhy)."],
+   ["Večerní škola pro dospělé s mentálním postižením", "Forma vzdělávání dospělých s MP zřizovaná speciálními školami nebo zařízeními sociálních služeb; výuka probíhá zpravidla 2× týdně odpoledne a zaměřuje se na komunikaci, práci s počítačem, opakování učiva a orientaci v čase a prostoru."]
+  ],
+  "8": [
+   ["Program Portage", "Stimulační program vycházející z behaviorální terapie a principů učení, který systematicky podporuje psychomotorický vývoj dítěte; jádrem jsou pravidelné návštěvy konzultanta v rodině, který rodiče metodicky vede při práci s dítětem."],
+   ["Videotrénink interakcí (VTI)", "Krátkodobá cílená intervenční metoda, která využívá videozáznamy běžných interakcí dítěte a dospělého (nejčastěji rodiče); analýzou videí a prací se silnými stránkami interakce podporuje vztah, porozumění a komunikaci."],
+   ["Míčková facilitace", "Technika míčkování (koulení a vytírání míčku po těle), která reflexně působí na vnitřní orgány a celkový zdravotní stav, nejde tedy jen o povrchovou masáž; pomáhá relaxaci, senzomotorice a uvědomění vlastního těla."],
+   ["Senzorická integrace", "Terapie podporující zpracování smyslových podnětů (zrakových, sluchových, vestibulárních, proprioceptivních aj.) formou řízených her a aktivit; cílem je smyslová rovnováha, a tím lepší pozornost, klidnější reakce a spolupráce."],
+   ["Metoda vývojové stimulace dle Strassmeiera", "Metoda W. Strassmeiera pro cílenou stimulaci vývojových oblastí dítěte raného věku (zrakové a sluchové vnímání, jemná a hrubá motorika, řeč, grafomotorika); vychází z pozorování dítěte a cvičení lze provádět doma s rodiči i v SPC."],
+   ["Metoda dobrého startu", "Metoda vycházející z francouzské metody Bon Départ (Thea Bugnet); pohybovými, pohybově-akustickými a pohybově-akusticko-zrakovými cvičeními zlepšuje souhru zrakového, sluchového a kinesteticko-pohybového analyzátoru, lateralizaci a orientaci v prostoru."],
+   ["Svépomocná podpora", "Zastřešující pojem pro aktivity samotných rodičů a jejich sdružení či klubů: vzájemná podpora rodičů ve stejné životní situaci, hledání co nejúčinnější pomoci pro dítě s MP, šíření osvěty a prosazování legislativních změn."],
+   ["Operativní podpora", "Zastřešující pojem pro materiální podporu osob s mentálním postižením v průběhu vzdělávání a pozdějšího pracovního uplatnění, např. osobní asistence nebo kompenzační pomůcky."],
+   ["Multisenzoriální přístup", "Edukační přístup, který působí na co nejvíce smyslů najednou (zrak, sluch, hmat, čich, pohyb); děti si lépe zapamatují, co zároveň slyší, vidí a mohou si osahat – např. ovoce drží, ochutnají, cítí jeho vůni a pojmenují ho."],
+   ["RVP pro předškolní vzdělávání (RVP PV)", "Rámcový vzdělávací program závazný pro předškolní vzdělávání v mateřských školách (včetně MŠ podle § 16 odst. 9 a lesních MŠ), v přípravných třídách ZŠ a ve třídách přípravného stupně ZŠ speciální."]
+  ],
+  "9": [
+   ["Přípravná třída základní školy", "Třída zřizovaná při běžné základní škole, kterou dítě navštěvuje rok před zahájením povinné školní docházky; do povinné školní docházky se nezapočítává, slouží k vyrovnání vývoje a vzdělává se v ní podle RVP PV."],
+   ["RVP pro základní školu speciální (RVP ZŠS)", "Rámcový vzdělávací program pro obor vzdělání základní škola speciální; díl I je určen žákům se středně těžkým mentálním postižením, díl II žákům s těžkým mentálním postižením a souběžným postižením více vadami."],
+   ["Základy vzdělání", "Stupeň vzdělání, který žáci získávají v základní škole speciální; na rozdíl od běžné základní školy nejde o úplné základní vzdělání."],
+   ["Průřezová témata", "Témata, která RVP ZV zařazuje do základního vzdělávání: osobnostní a sociální výchova, výchova demokratického občana, výchova k myšlení v evropských a globálních souvislostech, multikulturní, environmentální a mediální výchova."],
+   ["Odklad povinné školní docházky", "Odložení začátku povinné školní docházky o jeden rok; nejpozději musí dítě začít povinnou školní docházku plnit v 8 letech."],
+   ["Vzdělávání žáků s hlubokým mentálním postižením", "Nedovoluje-li zdravotní stav docházku do školy, určí způsob vzdělávání krajský úřad se souhlasem rodičů na základě doporučení ŠPZ a odborného lékaře; metodickou a pedagogickou pomoc poskytuje pověřená speciální škola nebo SPC návštěvami v bydlišti."],
+   ["Úprava očekávaných výstupů vzdělávání", "Žákům s MP vzdělávaným v ZŠ podle RVP ZV lze upravit očekávané výstupy na minimální úroveň; úprava se stanoví v IVP na základě doporučení ŠPZ a žádosti rodičů, od 3. stupně podpůrných opatření (příloha RVP ZV pro žáky s LMP byla zrušena v září 2016)."],
+   ["Lesní mateřská škola", "Mateřská škola podle § 34 odst. 9 školského zákona, v níž vzdělávání probíhá většinu času ve venkovních prostorách; pro děti s MP není běžnou volbou, ale není vyloučena, dovoluje-li to zdravotní stav dítěte a má-li škola podmínky."]
+  ],
+  "10": [
+   ["Občanský advokát", "Dobrovolník, který vstupuje do nezávislého, dobrovolného vztahu s člověkem s MP (partnerem) a pomáhá mu hájit a naplňovat jeho práva a zapojit se do života komunity; nehovoří za partnera, ale pomáhá mu vyjádřit se."],
+   ["Partner v občanské advokacii", "Klient občanské advokacie – kterýkoli dospělý člověk s mentálním postižením, který cítí, že potřebuje s něčím pomoci; s občanským advokátem tvoří dvojici, kterou zpočátku pomáhá vytvořit koordinátor agentury občanské advokacie."],
+   ["Sebeobhájce", "Člověk s mentálním postižením, který prosazuje své vlastní zájmy (mluví sám za sebe), sdílí s ostatními sebeobhájci radosti, úspěchy i problémy, vyjadřuje se k věcem, které se ho týkají, a zná svá práva a povinnosti."],
+   ["Individuální sebeobhajování", "Aktivity jednotlivce, během nichž sebeobhájce získává sebedůvěru a dovednosti potřebné k vyjádření svých postojů, názorů a přání."],
+   ["Kolektivní sebeobhajování", "Situace, kdy skupiny lidí s mentálním postižením vyjadřují své názory a zájmy společně; vztahuje se i k širšímu sociálnímu hnutí."],
+   ["Autonomní skupina sebeobhájců", "Skupina nezávislá na poskytovatelích služeb i rodičovských organizacích, jejíž členové si sami určují cíle a aktivity (zpravidla s poradcem či asistentem); nehrozí střet zájmů, ale soudržnost vyžaduje velkou podporu z vlastních řad."],
+   ["Divizní skupina sebeobhájců", "Skupina utvořená jako sekce větší dobrovolné (např. rodičovské) organizace, která jí poskytuje zázemí, finance či prostory – u nás skupiny při SPMP; nevýhodou je vliv rodičů a možné konflikty zájmů."],
+   ["Koaliční skupina sebeobhájců", "Skupina spolupracující s dalšími organizacemi a zastupující samosprávné skupiny postižených; umožňuje zviditelnění lidí s MP, ti však mohou být zastíněni výřečnějšími členy."],
+   ["Podporovaná skupina sebeobhájců", "Skupina vedená profesionály nebo facilitátory, často při zařízení poskytujícím služby; snadno se zakládá a má zázemí, ale hrozí střet zájmů, omezování činnosti organizací a zapojení jen „nejschopnějších“ klientů."],
+   ["Evropská platforma sebeobhájců (EPSA)", "Evropská síť skupin sebeobhájců z různých evropských zemí, která funguje v rámci Inclusion Europe; zapojeni jsou do ní i čeští sebeobhájci."]
+  ],
+  "11": [
+   ["Chráněný trh práce", "Tvoří jej zaměstnavatelé, kteří zaměstnávají více než 50 % osob se zdravotním postižením z celkového počtu zaměstnanců a s nimiž Úřad práce uzavřel písemnou dohodu o uznání za zaměstnavatele na chráněném trhu práce (§ 78 zákona o zaměstnanosti)."],
+   ["Pracovní místo zřízené pro osobu se zdravotním postižením", "Pracovní místo, které zaměstnavatel zřídil pro osobu se zdravotním postižením na základě písemné dohody s Úřadem práce; ÚP na jeho zřízení poskytuje příspěvek a místo musí být touto osobou obsazeno po dobu 3 let (§ 75 zákona o zaměstnanosti)."],
+   ["Náhradní plnění", "Alternativní způsob plnění povinnosti zaměstnávat 4 % osob se zdravotním postižením: odebírání výrobků nebo služeb od zaměstnavatelů, kteří zaměstnávají více než 50 % osob se zdravotním postižením."],
+   ["Osoba zdravotně znevýhodněná", "Osoba se zdravotním postižením, kterou orgán sociálního zabezpečení uznal zdravotně znevýhodněnou z důvodu jejího dlouhodobě nepříznivého zdravotního stavu (§ 67 zákona o zaměstnanosti)."],
+   ["Osoba s těžším zdravotním postižením", "Podle § 67 zákona o zaměstnanosti osoba se zdravotním postižením, kterou orgán sociálního zabezpečení uznal invalidní ve třetím stupni."],
+   ["Dlouhodobě nepříznivý zdravotní stav", "Pro účely zákona o zaměstnanosti zdravotní stav, který podle poznatků lékařské vědy má trvat déle než jeden rok a podstatně omezuje tělesné, smyslové nebo duševní schopnosti, a tím i schopnost pracovního uplatnění."],
+   ["Příprava k práci", "Cílená činnost směřující k zapracování osoby se zdravotním postižením na vhodné pracovní místo a k získání znalostí, dovedností a návyků nutných pro výkon zaměstnání; trvá nejdéle 24 měsíců (§ 72 zákona o zaměstnanosti)."],
+   ["Sociální podnik", "Podnik založený na konceptu trojího prospěchu (sociálního, ekonomického a environmentálního), jehož činnost má prospívat společnosti; zaměstnává osoby se sociálním či zdravotním znevýhodněním a zisky využívá hlavně pro svůj rozvoj či veřejně prospěšné cíle."],
+   ["Sociálně terapeutická dílna", "Ambulantní sociální služba pro osoby se sníženou soběstačností z důvodu zdravotního postižení, které nejsou umístitelné na otevřeném ani chráněném trhu práce; dlouhodobě podporuje pracovní návyky a dovednosti sociálně pracovní terapií, bez nároku na mzdu."],
+   ["Pracovní konzultant", "Pracovník agentury podporovaného zaměstnávání, který klientovi pomáhá s výběrem vhodného pracovního místa a vede pracovního asistenta, jenž klienta zaučuje přímo na pracovišti."]
+  ],
+  "12": [
+   ["Jugendcoaching", "Rakouská služba (dříve clearing), která na základě silných stránek a schopností mladého člověka plánuje kroky k úspěšnému přechodu do pracovního života; je určena žákům od 9. ročníku až do 19 let a má tři stupně podle míry potřebné podpory."],
+   ["Job coaching", "Rakouská služba podporovaného zaměstnávání: job coach zapracovává člověka s postižením přímo na pracovišti a pomáhá mu se začleněním do kolektivu i se samostatností; podpora se postupně snižuje až na pomoc jen při změnách či krizi."],
+   ["Asistence při profesním vzdělávání", "Rakouská podpora mladých lidí se SVP během profesního vzdělávání; umožňuje prodloužit učební obor o rok (výjimečně o dva) nebo získat dílčí kvalifikaci, pokud nelze dosáhnout výučního listu."],
+   ["Zařízení profesní přípravy (BVE)", "Německá společná vzdělávací nabídka speciálních a odborných škol pro absolventy speciálních škol pro žáky s MP; několik dní v týdnu probíhá praxe v podnicích na běžném trhu za doprovodu IFD a příprava trvá až dva roky."],
+   ["Kooperativní profesní příprava (KoBV)", "Německé vzdělávací opatření agentur práce navazující na BVE: tři dny v týdnu praxe v podnicích na volném trhu, zbytek týdne výuka na běžném učilišti podle modulového plánu, s podporou IFD a job coachů."],
+   ["Odborné služby pro integraci (IFD)", "Německé Integrationsfachdienste, jejichž pracovníci doprovázejí žáky při praxích, pomáhají hledat vhodná pracovní místa, zprostředkovávají kontakt se zaměstnavateli a pomáhají s vyjednáním pracovních podmínek."],
+   ["Informační a poradenské středisko (IPS)", "Středisko v systému aktivní politiky zaměstnanosti, které nabízí individuální kariérové poradenství (volba povolání, rekvalifikace, zaměstnání), informace o trhu práce a pomoc při zprostředkování zaměstnání; spolupracuje i s praktickými a speciálními školami."],
+   ["Individuální plán pracovní rehabilitace", "Plán, který v rámci pracovní rehabilitace sestavuje krajská pobočka Úřadu práce v součinnosti s osobou se zdravotním postižením."],
+   ["Příspěvek na zřízení pracovního místa pro OZP", "Příspěvek Úřadu práce (§ 75 zákona o zaměstnanosti) zaměstnavateli na volném i chráněném trhu práce na pracovní místo pro osobu se zdravotním postižením, které musí být obsazeno nejméně 3 roky; činí až 8násobek průměrné mzdy, u těžšího postižení až 12násobek."],
+   ["Příspěvek na zaměstnávání OZP na chráněném trhu práce", "Příspěvek podle § 78a zákona o zaměstnanosti pro zaměstnavatele s více než 50 % OZP, který má s ÚP uzavřenou dohodu o uznání za zaměstnavatele na chráněném trhu práce; hradí část mzdových a dalších nákladů a poskytuje se čtvrtletně zpětně."]
+  ],
+  "13": [
+   ["Dyáda symptomů (DSM-5)", "Pojetí PAS v DSM-5, které slučuje deficity v sociální komunikaci a sociální interakci do jedné oblasti. Dyádu tvoří deficity v sociální komunikaci a omezené, repetitivní vzorce chování, zájmů a aktivit; MKN-10 naproti tomu pracuje s triádou."],
+   ["Typy sociální interakce u dětí s PAS", "Rozlišují se čtyři typy: osamělý, pasivní, aktivní-zvláštní a formální-afektovaný; Thorová podle zkušeností z praxe přidává pátý, smíšený-zvláštní. Zjednodušeně lze mluvit o dvou pólech: osamělém (dítě se kontaktu vyhýbá) a extrémním (nepřiměřená sociální aktivita)."],
+   ["Teorie empatie a systemizace (E-S teorie)", "Podle této teorie (Baron-Cohen) mají lidé s PAS nízkou úroveň empatie, ale výrazně silnější systemizaci, tj. tendenci analyzovat a konstruovat systémy podle pravidel. Vysvětluje preferenci jasně strukturovaných systémů, horší porozumění sociálním situacím i slabší generalizaci."],
+   ["Teorie oslabené centrální koherence", "Centrální koherence je schopnost skládat informace do smysluplných celků. Lidé s PAS upřednostňují analytické zpracování, soustředí se na často nevýznamné detaily a mají potíže je integrovat v celek, proto obtížně chápou situaci komplexně a správně ji posuzují."],
+   ["Teorie deficitu exekutivních funkcí", "Vysvětluje obtíže lidí s PAS narušením exekutivních funkcí (plánování, organizování, inhibiční kontrola, pracovní paměť, kognitivní flexibilita) bez ohledu na intelekt. Projevuje se touhou po stálosti, ulpíváním, rigiditou myšlení a obtížemi předjímat důsledky jednání."],
+   ["Etiologie PAS", "Konkrétní příčina PAS není známa. Převažuje vliv biologických faktorů: různé varianty mozkových dysfunkcí a genetické predispozice doložené studiemi rodin, dvojčat i molekulárně genetickými studiemi; vyšší riziko je u extrémně nezralých novorozenců a při vyšším věku otce."],
+   ["ADI-R (Autism Diagnostic Interview-Revised)", "Strukturovaný rozhovor s rodiči dítěte (nejlépe v předškolním věku) trvající 90–120 minut. Hodnotí sociální interakci, komunikaci a stereotypní chování; skóre se převádí na diagnostická kritéria MKN-10."],
+   ["ADOS (Autism Diagnostic Observation Schedule)", "Semistrukturované pozorování dítěte při standardizovaných úkolech se speciálními pomůckami. Hodnotí sociální interakci a komunikaci, např. žádost o pomoc, vedení konverzace, popis obrázku, nápodobu, symbolickou hru a popis sociálních situací a emocí; formu volí podle věku a úrovně řeči."],
+   ["CARS-2 (Škála dětského autistického chování)", "Nejčastěji používaná posuzovací škála, použitelná od 2 let. Hodnotí 15 oblastí (např. vztah k lidem, imitace, emoční reakce, adaptace na změnu, komunikace) podle pozorování a rozhovoru s rodiči; do 30 bodů nejde o autismus, 30–36 o lehkou až středně těžkou, nad 36 o těžkou poruchu."],
+   ["Úloha speciálního pedagoga u osob s PAS", "Plní roli výchovnou, pedagogickou, konzultační a diagnostickou: připravuje dítě na vstup do školy, informuje rodiče o postižení a možnostech vzdělávání, zajišťuje podmínky pro inkluzi, spolupracuje na IVP a navrhuje kompenzační pomůcky a speciální učebnice."]
+  ],
+  "14": [
+   ["Zásady diagnostiky v psychopedii", "Interdisciplinární komplexní přístup a týmová spolupráce bez nadřazenosti oborů, etiologické hledisko (hledat příčiny, ne jen popsat příznaky), longitudinální princip (dlouhodobé sledování), dynamické pojetí (diagnóza není definitivní) a individuální přístup bez šablonovitosti."],
+   ["Haló efekt", "Zkreslení při pozorování, kdy první dojem ovlivňuje další vnímání posuzovaného. Patří k rizikům snižujícím objektivitu pozorování spolu s předsudky, stereotypizací, regresí ke středu nebo lenienční chybou (shovívavějším posuzováním)."],
+   ["Analýza produktů činnosti", "Klinická diagnostická metoda hodnotící výtvory a projevy klienta: hru, kresbu a písmo. Kresba odráží grafomotoriku, vizuomotorickou koordinaci, vnímání prostoru i rodinné vztahy; vady písma ve vztahu k jejich příčinám zkoumá patografie."],
+   ["Kazuistika (případová studie)", "Studie případu konkrétního jedince s postižením. Shrnuje údaje od zjištění postižení po současnost a výsledky lékařských, psychologických, sociálních a speciálně pedagogických vyšetření a propojuje je při hledání příčin a souvislostí, nejen jako výčet informací."],
+   ["Gesellova vývojová škála", "Nejčastěji používaná vývojová škála pro děti od 1 měsíce do 3 let. Položky pokrývají pět oblastí: adaptabilitu, hrubou a jemnou motoriku, řeč a sociální chování; škála pracuje s tzv. klíčovými věky, kdy je určitý vzorec chování nejvýraznější."],
+   ["Vinelandská škála sociální zralosti", "Škála hodnotící úroveň sociální adaptace a soběstačnosti v běžném životě (jídlo, oblékání, samostatnost, komunikace, motorika, začlenění do společnosti). Údaje se získávají rozhovorem s rodiči či pečujícími; výsledkem je sociální věk a sociální kvocient (SQ)."],
+   ["Günzburgova škála", "Nástroj k hodnocení praktických, sociálních a kognitivních dovedností hlavně u osob s MP (zhruba 6–25 let). Posuzuje samostatnost, porozumění (řeč, čísla, pokyny) a zaměstnání a sociální adaptaci; pomáhá určit potřebnou podporu a sledovat efekt intervence."],
+   ["Stanford-Binetova zkouška", "Individuální podrobný test inteligence vycházející z vývojového principu; subtesty se vzrůstající náročností měří verbální, abstraktně-vizuální a kvantitativní myšlení a krátkodobou paměť. Využívá se k diagnostice MP i k jeho diferenciální diagnostice."],
+   ["Wechslerovy testy inteligence", "Testy inteligence s verbální a performační (neverbální) škálou. Mají i diferenciálně diagnostickou hodnotu: významný rozdíl 15–20 bodů mezi škálami pomáhá odlišit MP od vývojových poruch učení, poruch řeči či neurologického postižení."],
+   ["Test SON-R", "Neverbální test rozumových schopností pro děti od 2,5 do 7 let se šesti subtesty (mozaiky, kategorie, skládanky, analogie, situace, vzory) v performační a úsudkové škále. Je vhodný pro děti s problémy v komunikaci, imigranty a děti s OMJ."]
+  ],
+  "15": [
+   ["Sexuální práva", "Všeobecná lidská práva založená na základní svobodě, rovnosti a důstojnosti všech lidí. Patří k nim např. přístup ke službám sexuálního a reprodukčního zdraví, k informacím a vzdělávání o sexualitě, tělesná nedotknutelnost, svobodná volba partnera a rozhodnutí, zda a kdy mít děti."],
+   ["Deklarace práv mentálně postižených osob", "Dokument přijatý Valným shromážděním OSN v prosinci 1971. Přiznává člověku s MP stejná práva jako ostatním občanům, mj. právo na léčebnou péči, výchovu a vzdělání, práci, život ve vlastní rodině a ochranu před vykořisťováním a zneužíváním."],
+   ["Intimita", "Z lat. intimus (vnitřní, nejniternější). Zahrnuje sebeodhalování, lásku či citový stav, blízkost a vzájemnou závislost partnerů; považuje se za základní lidskou potřebu a týká se vztahů partnerských i přátelských a rodinných."],
+   ["Funkce sexuality", "Individuální (rekreační) funkce přináší radost, uvolnění a rozkoš i jednotlivci; párová (komunikační) chápe sexuální styk jako důvěrný rozhovor dvojice; druhová (prokreační) znamená, že díky sexuálním stykům mají lidé děti."],
+   ["Pohlavní identita", "Psychologické pohlaví, tj. míra, do jaké se člověk cítí být mužem nebo ženou. Jejím rozvojem začíná sexuální vývoj; je výsledkem souhry biologických a psychosociálních faktorů a důležitým zdrojem je objevení vlastních pohlavních orgánů."],
+   ["Lovemap (mapa lásky)", "Mentální obraz, neuvědomovaný souhrn představ, zkušeností, očekávání a fantazií vztahujících se k sexualitě a výběru partnera. U lidí s MP bývá „neobvyklá“ lovemap častěji důsledkem potlačovaného sexuálního chování v dětství či dospívání než samotného postižení."],
+   ["Formy sexuálního zneužívání", "Bezdotykové (nekontaktní), např. obnažování či masturbace před obětí, vystavení pornografii nebo verbální sexuální návrhy; kontaktní (dotykové); komerční, tj. zneužití k pornografii, prostituci nebo obchodování s lidmi."],
+   ["Varovné signály sexuálního zneužívání", "Projevy, které mohou upozornit na zneužívání: časté poruchy spánku a nálad, změny chování, nechuť nebo zvýšená chuť k jídlu, strach ze tmy, vyhýbání se určité osobě, svědění na intimních místech, pohlavní choroby, pomočování či strach jít na určité místo."],
+   ["Sexuální důvěrník", "Zaměstnanec sociálního či zdravotního zařízení (též intimní pracovník nebo konzultant v oblasti sexuality a vztahů), který poskytuje poradenství a vzdělávání o sexualitě a vztazích. Na rozdíl od sexuálního asistenta se klienta nedotýká."],
+   ["Protokol sexuality, intimity a vztahů", "Dokument zaváděný v některých pobytových zařízeních, který umožňuje kultivovanou a bezpečnou práci s intimitou a sexualitou klientů a zahrnuje i jejich ochranu před využíváním a zneužíváním (Valenta, 2018)."]
+  ],
+  "16": [
+   ["Sociálně znevýhodněný žák", "Žák, který ve vzdělávání potenciálně nebo skutečně selhává, aniž je zdravotně postižený, dlouhodobě nemocný nebo má diagnostikovanou poruchu učení či chování. Příčiny jsou nezdravotní a pramení z rodiny, sociálního zázemí a životních okolností, které dítě nemůže ovlivnit."],
+   ["Typologie sociálně znevýhodněného žáka", "Kulturní odlišnost a jazyková bariéra, dysfunkční rodina, rodina nepodporující vzdělávání, vyloučení kvůli odlišnosti a umístění mimo rodinu. Typické projevy: kulturní šok, úzkost a apatie, nízká motivace, stigmatizace a nízké sebevědomí, trauma a odpor k autoritám."],
+   ["Osoby ohrožené sociálním vyloučením", "Např. lidé bez domova či v nevyhovujícím bydlení, propuštění z výkonu trestu, osoby ohrožené závislostmi, pachatelé a oběti trestné činnosti, mladí dospělí opouštějící ústavní výchovu, obyvatelé sociálně vyloučených lokalit, zadlužení a dlouhodobě nezaměstnaní."],
+   ["Sociální služba", "Činnost nebo soubor činností zajišťujících pomoc a podporu osobám za účelem sociálního začlenění nebo prevence sociálního vyloučení. Zákon č. 108/2006 Sb. rozlišuje sociální poradenství, služby sociální péče a služby sociální prevence."],
+   ["Cíle poradenství pro osoby ohrožené vyloučením", "Zvýšit sociální začlenění, podpořit samostatnost a kompetence klienta, zajistit mu přístup ke službám a právům a předejít vzniku nebo prohloubení sociálního vyloučení."],
+   ["Formy poradenství pro osoby ohrožené vyloučením", "Individuální (přímý kontakt klienta se sociálním pracovníkem), skupinové (např. komunitní centra, aktivizační programy), terénní (v přirozeném prostředí klienta) a online poradenství, dostupné i lidem s bariérami mobility nebo pečujícím o druhé."],
+   ["Nízkoprahovost", "Princip, podle něhož jsou služby a poradenství dostupné bez zbytečné byrokracie. Spolu s komplexností a spoluprací státních institucí, neziskového sektoru a komunitních služeb je předpokladem úspěšného poradenství pro osoby ohrožené sociálním vyloučením."],
+   ["Dluhové poradenství", "Poradenství zaměřené na řešení exekucí a insolvencí, vyjednávání s věřiteli a prevenci opakovaného zadlužení. Poskytují je např. Člověk v tísni nebo Poradna při finanční tísni."],
+   ["Krizové poradenství", "Pomoc lidem v akutní tísni, např. při domácím násilí nebo ztrátě bydlení: okamžitá psychická i praktická podpora a následná péče."],
+   ["Dům na půl cesty", "Služba sociální prevence podle zákona o sociálních službách, která podporuje mladé dospělé po odchodu z ústavní výchovy nebo po výkonu trestu."]
+  ],
+  "17": [
+   ["Elementární učení", "Nejzákladnější, geneticky naprogramované formy učení, které probíhají automaticky bez vědomého úsilí: habituace (přivykání), senzitizace (zcitlivění), priming a imprintace (vtiskování), možná jen v senzitivních obdobích vývoje."],
+   ["Observační učení", "Učení nápodobou v rámci sociálně kognitivního učení: dítě napodobuje činnost např. rodiče (krmí plyšového medvěda), v dospívání přejímá chování, vzhled či řeč vrstevníků. Hraje zásadní roli při osvojování komunikace, sociálních postojů, morálních zásad a empatie."],
+   ["Učení řešení problémů", "Nejsložitější forma učení, při níž žák samostatně objevuje vztahy, principy a zákonitosti mezi jevy nebo pojmy, typicky v úlohách se známým cílem, ale neznámou cestou. Výsledkem je nový poznatek i obecný postup využitelný jinde."],
+   ["Rámcový vzdělávací program pro ZŠ speciální (RVP ZŠS)", "Státní kurikulární dokument pro obor vzdělání základní škola speciální. Díl I upravuje vzdělávání žáků se středně těžkým MP, Díl II žáků s těžkým MP a souběžným postižením více vadami; strukturou (části A–D) odpovídá RVP ZV."],
+   ["Školní vzdělávací program (ŠVP)", "Kurikulární dokument školní úrovně, který si každá škola vytváří na základě RVP; konkretizuje a přizpůsobuje výuku potřebám školy a jejích žáků. Je veřejně přístupný a umožňuje vysokou míru individualizace, zejména u žáků se SVP."],
+   ["Speciální metody zprostředkování učiva", "Postupy, které podle Vaška usnadňují učení žáků s MP: vícenásobné opakování, nadměrné zvýraznění informace, instruktážní média, zapojení více smyslů, optimální kódování, intenzivní zpětná vazba, algoritmizace obsahu, pozitivní posilování a individuální přístup."],
+   ["Protrahovaná motivace", "Motivace, při níž učitel v závěru hodiny využije zajímavých prvků učiva k navození zájmu o látku, která se bude probírat až v následující hodině."],
+   ["Dramatické metody", "Metody vycházející z dětské hry. Podle vstupu do role se rozlišují tři úrovně: simulace (žák hraje sám sebe v simulované situaci), alterace (role, s níž nemá zkušenost) a charakterizace (psychologicky odlišná postava); žáci ZŠS zvládají hlavně simulaci."],
+   ["Genetická metoda", "Metoda nácviku čtení a psaní vycházející z přirozeného učení: žáci nejprve spojují písmena s hláskami a postupně z nich skládají slova, důraz je na sluchové vnímání. Zpočátku se používá jen tiskací (hůlkové) písmo, psací písmo až později, obvykle ve 2. pololetí."],
+   ["Sfumato (splývavé čtení)", "Metoda čtení založená na periferním načítání slov: žák má slovo načtené zrakem dřív, než ho vysloví. Předchází tzv. dvojitému čtení, využívá zpívané čtení, pohyb a výtvarné činnosti a má inkluzivní charakter (vhodná i pro děti cizince)."]
+  ]
+ },
+ "fixes": {
+  "2": [
+   {"najdi": "škola může vypovědět dohodu o IV", "proc": "individuální vzdělávání = povolení", "odkaz": "skoly", "bylo": "individuální vzdělávání jako „dohoda“, kterou lze „vypovědět“", "plati": "povolení ředitele na písemnou žádost ZZ, při nesplnění podmínek zrušení (§ 41 šk. zák.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/561"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„škola může vypovědět dohodu o IV“</span>.</p>",
+     "<p>Individuální vzdělávání není dohoda, ale <strong>povolení</strong>: rozhoduje o něm ředitel školy, do které byl žák přijat, na základě písemné žádosti zákonného zástupce (§ 41 zákona č. 561/2004 Sb.). Při nesplnění zákonných podmínek ředitel povolení zruší — „vypovězení dohody“ zákon nezná.</p>"
+    ]}
+  ],
+  "3": [
+   {"najdi": "Klasifikace dle MKN 10", "proc": "MKN-11: 6A00", "odkaz": "mkn11", "bylo": "klasifikace MP jen podle MKN-10", "plati": "MKN-11 6A00 porucha intelektového vývoje", "zdroj": ["https://icd.who.int/browse/2025-01/mms/cs"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Klasifikace dle MKN 10“</span>.</p>",
+     "<p>Oddíl klasifikuje jen podle <strong>MKN-10</strong> (F70–F79, „mentální retardace“). MKN-11 platí od 1. 1. 2022; českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a do roku 2027 běží přechodné období, kdy se k vykazování ještě používá MKN-10. MKN-11 nahrazuje mentální retardaci kategorií <strong>6A00 porucha intelektového vývoje</strong> (mírná, středně těžká, těžká, hluboká, provizorní) a stupeň neurčuje jen z IQ, ale i z adaptivního chování.</p>"
+    ]},
+   {"najdi": "Pro popis závažnosti stavu se používají termíny", "proc": "DSM-5: závažnost podle adaptivního fungování", "odkaz": "mkn11", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Pro popis závažnosti stavu se používají termíny“</span>.</p>",
+     "<p>DSM-5 (i DSM-5-TR) stupeň závažnosti <strong>neurčuje podle pásem IQ</strong>, ale podle úrovně adaptivního fungování v konceptuální, sociální a praktické oblasti. Pásma IQ jsou z MKN-10 a starších DSM; podle MKN-10 je lehká MR 50–69, středně těžká 35–49, těžká 20–34 a hluboká pod 20.</p>"
+    ]},
+   {"najdi": "319 Mentální postižení", "proc": "DSM-5-TR kódy", "odkaz": "mkn11", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„319 Mentální postižení“</span>.</p>",
+     "<p>Kód 319 je kód původního DSM-5 z roku 2013 (převzatý z ICD-9-CM). Aktuální <strong>DSM-5-TR</strong> (2022) poruchu nazývá porucha intelektového vývoje (mentální postižení) a používá kódy <strong>F70–F73</strong> podle závažnosti, F88 celkové opoždění vývoje a F79 nespecifikovanou poruchu.</p>"
+    ]},
+   {"najdi": "MKF (Mezinárodní klasifikace funkčních schopnosti, postižení a zdraví", "proc": "název a složky MKF", "odkaz": "mkf", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„MKF (Mezinárodní klasifikace funkčních schopnosti, postižení a zdraví“</span>.</p>",
+     "<p>Oficiální český název je <strong>Mezinárodní klasifikace funkčních schopností, disability a zdraví</strong> (MKF; anglicky International Classification of Functioning, Disability and Health, ICF; WHO 2001). Část 1 <em>Funkční schopnost a disabilita</em> má složky <strong>tělesné funkce a struktury</strong> a <strong>aktivity a participace</strong>, část 2 <em>Kontextové faktory</em> složky <strong>faktory prostředí</strong> a <strong>osobní faktory</strong>.</p>"
+    ]}
+  ],
+  "4": [
+   {"najdi": "Zákon je upraven vyhláškou 27/2016 Sb. ze dne 21. ledna 2016, v platném účinném znění od 1. 9. 2018", "proc": "vyhláška 27/2016 ve znění pozdějších předpisů", "odkaz": "skoly", "bylo": "vyhl. 27/2016 Sb. „v platném účinném znění od 1. 9. 2018“", "plati": "ve znění pozdějších předpisů, naposledy 306/2025 Sb. (aktuální od 1. 9. 2026)", "zdroj": ["https://e-sbirka.gov.cz/sb/2016/27?zalozka=historie"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Zákon je upraven vyhláškou 27/2016 Sb. ze dne 21. ledna 2016, v platném účinném znění od 1. 9. 2018“</span>.</p>",
+     "<p>Vyhláška zákon nemění, ale <strong>provádí</strong> — je prováděcím předpisem ke školskému zákonu. Vyhláška č. 27/2016 Sb. platí <strong>ve znění pozdějších předpisů</strong>; novelizovaly ji vyhlášky č. 270/2017, 416/2017, 244/2018, 196/2019, 248/2019, 606/2020 a 306/2025 Sb., aktuální znění je od 1. 9. 2026. Údaj „znění od 1. 9. 2018“ je tedy dávno překonaný.</p>"
+    ]},
+   {"najdi": "v mateřské, základní nebo střední škole individuální integrací;", "proc": "integrace podle zrušené 73/2005", "odkaz": "vyhlaska-73", "bylo": "„individuální / skupinová integrace“", "plati": "podpůrná opatření; školy a třídy podle § 16 odst. 9 šk. zák. (73/2005 zrušena 1. 9. 2016)", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/561", "https://e-sbirka.gov.cz/sb/2016/27"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„v mateřské, základní nebo střední škole individuální integrací;“</span>.</p>",
+     "<p>„Individuální“ a „skupinová integrace“ jsou pojmy <strong>zrušené vyhlášky č. 73/2005 Sb.</strong> (zrušila ji vyhláška č. 27/2016 Sb., § 33, s účinností od 1. 9. 2016). Dnes se dítě se speciálními vzdělávacími potřebami vzdělává v běžné škole s <strong>podpůrnými opatřeními</strong>, nebo ve škole, třídě, oddělení či studijní skupině zřízené podle <strong>§ 16 odst. 9</strong> školského zákona — tam jen tehdy, když by samotná podpůrná opatření nestačila.</p>"
+    ]},
+   {"najdi": "žáků s autismem pak se souhlasem zřizovatele do dvacátého šestého roku věku", "proc": "§ 55 odst. 2", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„žáků s autismem pak se souhlasem zřizovatele do dvacátého šestého roku věku“</span>.</p>",
+     "<p>Platné znění § 55 odst. 2 školského zákona: žákovi uvedenému v § 16 odst. 9 může ředitel ve výjimečných případech povolit pokračování v základním vzdělávání do konce školního roku, v němž dosáhne <strong>20 let</strong>; žákům vzdělávajícím se <strong>ve vzdělávacím programu základní školy speciální</strong> pak se souhlasem zřizovatele do <strong>26 let</strong>. Zákon tedy nevyjmenovává „těžké MP, více vad, autismus“.</p>"
+    ]},
+   {"najdi": "dětem s PAS se souběžným středně těžkým a těžkým mentálním postižením", "proc": "§ 48a přípravný stupeň", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„dětem s PAS se souběžným středně těžkým a těžkým mentálním postižením“</span>.</p>",
+     "<p>Podle § 48a školského zákona je přípravný stupeň základní školy speciální určen dětem <strong>se středně těžkým a těžkým mentálním postižením, se souběžným postižením více vadami nebo s autismem</strong> — souběžné mentální postižení u autismu zákon nevyžaduje. O zařazení rozhoduje ředitel na žádost zákonného zástupce a na základě písemného doporučení ŠPZ.</p>"
+    ]},
+   {"najdi": "nejčastěji žáci s vysoce funkčním autismem a s Aspergerovým syndromem", "proc": "Asperger v MKN-11", "odkaz": "mkn11", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„nejčastěji žáci s vysoce funkčním autismem a s Aspergerovým syndromem“</span>.</p>",
+     "<p>Aspergerův syndrom (F84.5) je samostatnou diagnózou jen v MKN-10. DSM-5 (2013) i MKN-11 jej sloučily do jediné diagnózy <strong>porucha autistického spektra</strong> (MKN-11 <strong>6A02</strong>), rozlišené podle intelektu a jazyka; „vysoce funkční autismus“ diagnostickou kategorií není.</p>"
+    ]}
+  ],
+  "5": [
+   {"najdi": "Úmluvu ratifikovala ihned mezi prvními zeměmi, a to v roce 2007.", "nahrad": "Úmluvu <span class=\"fix\">podepsala</span> ihned mezi prvními zeměmi, a to v roce 2007; <span class=\"fix\">ratifikovala ji 28. 9. 2009 a závazná je pro ni od 28. 10. 2009</span>.", "proc": "ratifikace Úmluvy 2009", "odkaz": "umluva", "bylo": "Úmluvu „ratifikovala … v roce 2007“", "plati": "podpis 30. 3. 2007, ratifikace 28. 9. 2009, platnost pro ČR 28. 10. 2009 (10/2010 Sb. m. s.)", "zdroj": ["https://e-sbirka.gov.cz/sm/2010/10"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Úmluvu ratifikovala ihned mezi prvními zeměmi, a to v roce 2007“</span>.</p>",
+     "<p>Podle sdělení Ministerstva zahraničních věcí č. 10/2010 Sb. m. s. Česká republika Úmluvu o právech osob se zdravotním postižením <strong>podepsala 30. 3. 2007</strong>, ratifikační listinu uložila <strong>28. 9. 2009</strong> a pro Českou republiku Úmluva vstoupila v platnost <strong>28. 10. 2009</strong>.</p>"
+    ]},
+   {"najdi": "chráněné dílny, podporované zaměstnání.", "proc": "chráněné dílny", "odkaz": "chranena-dilna", "bylo": "„chráněné dílny“ jako současná služba", "plati": "pracovní místo zřízené pro OZP (§ 75), chráněný trh práce (§ 78), sociálně terapeutické dílny (§ 67 zák. 108/2006 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/435", "https://e-sbirka.gov.cz/sb/2006/108"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„chráněné dílny, podporované zaměstnání“</span>.</p>",
+     "<p>Vývoj podle zákona č. 435/2004 Sb., o zaměstnanosti: <strong>chráněná pracovní dílna</strong> (pracoviště s nejméně 60 % OZP, § 76) zákon zná jen do 31. 12. 2011; od 1. 1. 2012 zůstalo <strong>chráněné pracovní místo</strong> (§ 75) a od 1. 1. 2018 (novela 327/2017 Sb.) ani to — dnes zákon mluví o <strong>pracovním místě zřízeném pro osobu se zdravotním postižením</strong> (§ 75) a o <strong>chráněném trhu práce</strong>, který tvoří zaměstnavatelé s více než 50 % zaměstnanců se zdravotním postižením uznaní dohodou s Úřadem práce (§ 78). Dílny pro lidi, kteří se na trh práce nedostanou, jsou dnes <strong>sociálně terapeutické dílny</strong> — sociální služba podle § 67 zákona č. 108/2006 Sb.</p>"
+    ]},
+   {"najdi": "Občanská sdružení", "proc": "spolky místo občanských sdružení", "odkaz": "zapisky-2025", "bylo": "„občanská sdružení“", "plati": "spolky (§ 3045 zák. č. 89/2012 Sb., od 1. 1. 2014)", "zdroj": ["https://e-sbirka.gov.cz/sb/2012/89"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Občanská sdružení“</span>.</p>",
+     "<p>Právní forma <strong>občanské sdružení</strong> zanikla s novým občanským zákoníkem: sdružení podle zákona č. 83/1990 Sb. se od 1. 1. 2014 považují za <strong>spolky</strong> (§ 3045 zákona č. 89/2012 Sb.). Neziskové organizace dnes působí jako spolky (z. s.), obecně prospěšné společnosti (o. p. s.) nebo ústavy (z. ú.).</p>"
+    ]},
+   {"najdi": "je ve školském zákoně zakotveno právo na vzdělávání formou integrace", "proc": "integrace → podpůrná opatření", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„je ve školském zákoně zakotveno právo na vzdělávání formou integrace“</span>.</p>",
+     "<p>Školský zákon pojem „integrace“ od roku 2016 nepoužívá. Žák se speciálními vzdělávacími potřebami má právo na <strong>bezplatná podpůrná opatření</strong> (§ 16 odst. 1) a vzdělává se v běžné škole, případně ve škole, třídě, oddělení nebo studijní skupině zřízené podle <strong>§ 16 odst. 9</strong>.</p>"
+    ]},
+   {"najdi": "maximálně na tři roky</strong>", "proc": "§ 59 OZ až 5 let", "odkaz": "svepravnost", "bylo": "omezení svéprávnosti „maximálně na tři roky“", "plati": "nejdéle 3 roky, je-li zjevné, že se stav nezlepší, až 5 let (§ 59 odst. 1 OZ)", "zdroj": ["https://e-sbirka.gov.cz/sb/2012/89"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„omezit něčí svéprávnost je možné maximálně na tři roky“</span>.</p>",
+     "<p>Podle <strong>§ 59 odst. 1 občanského zákoníku</strong> lze svéprávnost omezit nejdéle na tři roky, ale <strong>je-li zjevné, že se stav člověka v této době nezlepší, až na pět let</strong>. Po uplynutí doby účinky omezení zanikají, pokud soud nezahájil řízení o prodloužení.</p>"
+    ]}
+  ],
+  "6": [
+   {"najdi": "Další využití AAK u dospělých a seniorů (dle manuálu MŠMT)", "nahrad": "Další využití AAK u dospělých a seniorů (dle manuálu <span class=\"fix\">MPSV</span>)", "proc": "manuál MPSV", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Další využití AAK u dospělých a seniorů (dle manuálu MŠMT)“</span>.</p>",
+     "<p>Manuál, ze kterého zápisky čerpají, je <strong>Praktický manuál pro využití alternativní a augmentativní komunikace u osob s demencí</strong> vydaný <strong>MPSV</strong> v roce 2024 (projekt Rozvoj systému sociálních služeb), ne MŠMT — viz <a href=\"literatura.html#d-mpsv-2024\">literatura</a>.</p>"
+    ]}
+  ],
+  "7": [
+   {"najdi": "chráněný trh práce – pracovní místa upravená pro potřeby osob se zdravotním postižením.", "proc": "chráněný trh práce § 78", "odkaz": "chranena-dilna", "bylo": "chráněný trh práce = „pracovní místa upravená pro OZP“", "plati": "zaměstnavatelé s více než 50 % OZP uznaní dohodou s ÚP (§ 78 zák. 435/2004 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/435"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„chráněný trh práce – pracovní místa upravená pro potřeby osob se zdravotním postižením“</span>.</p>",
+     "<p>Podle § 78 zákona č. 435/2004 Sb. chráněný trh práce netvoří upravená pracovní místa, ale <strong>zaměstnavatelé, kteří zaměstnávají více než 50 % osob se zdravotním postižením</strong> a s nimiž Úřad práce uzavřel dohodu o uznání zaměstnavatele. Pro jednotlivého člověka se zřizuje <strong>pracovní místo pro osobu se zdravotním postižením</strong> (§ 75).</p>"
+    ]},
+   {"najdi": "definována v § 72 zákona č. 435/2004 Sb.", "nahrad": "definována v § <span class=\"fix\">69</span> zákona č. 435/2004 Sb.", "proc": "§ 69 pracovní rehabilitace", "bylo": "pracovní rehabilitace „§ 72“", "plati": "§ 69 zák. 435/2004 Sb. (§ 72 = příprava k práci)", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/435"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„definována v § 72 zákona č. 435/2004 Sb“</span>.</p>",
+     "<p>Pracovní rehabilitaci definuje <strong>§ 69</strong> zákona o zaměstnanosti; § 72 upravuje přípravu k práci (nejdéle 24 měsíců).</p>"
+    ]}
+  ],
+  "8": [
+   {"najdi": "příspěvek na nákup motorového vozidla", "proc": "příspěvek na zvláštní pomůcku", "bylo": "„příspěvek na nákup motorového vozidla“", "plati": "příspěvek na zvláštní pomůcku (§ 9 zák. 329/2011 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2011/329"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„příspěvek na nákup motorového vozidla“</span>.</p>",
+     "<p>Samostatná dávka na koupi auta od 1. 1. 2012 neexistuje. Pořízení motorového vozidla se hradí z <strong>příspěvku na zvláštní pomůcku</strong> podle § 9 zákona č. 329/2011 Sb. — nárok má mimo jiné osoba s autistickou poruchou s těžkým funkčním postižením nebo s těžkou či hlubokou mentální retardací.</p>"
+    ]},
+   {"najdi": "Přípravný stupeň je primárně určen dětem se středně těžkým, těžkým a hlubokým mentálním postižením", "proc": "§ 48a přípravný stupeň", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Přípravný stupeň je primárně určen dětem se středně těžkým, těžkým a hlubokým mentálním postižením“</span>.</p>",
+     "<p>Podle § 48a školského zákona je přípravný stupeň ZŠ speciální určen dětem <strong>se středně těžkým a těžkým mentálním postižením, se souběžným postižením více vadami nebo s autismem</strong>. Hluboké mentální postižení zákon v tomto ustanovení neuvádí (o vzdělávání dětí s hlubokým MP rozhoduje krajský úřad podle § 42) a autismus naopak ano.</p>"
+    ]}
+  ],
+  "9": [
+   {"najdi": "Určena dětem se sociálním znevýhodněním, které se často překrývá s mentálním postižením.", "proc": "§ 47 přípravné třídy", "odkaz": "skoly", "bylo": "přípravné třídy „pro děti se sociálním znevýhodněním“", "plati": "děti v posledním roce před PŠD, přednostně s odkladem (§ 47 šk. zák.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/561"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Určena dětem se sociálním znevýhodněním, které se často překrývá s mentálním postižením“</span>.</p>",
+     "<p>Podle platného § 47 školského zákona jsou přípravné třídy základní školy pro děti v <strong>posledním roce před zahájením povinné školní docházky</strong>, u kterých je předpoklad, že zařazení vyrovná jejich vývoj, <strong>přednostně pro děti s odkladem</strong> povinné školní docházky. Vymezení „pro děti se sociálním znevýhodněním“ je starší znění zákona.</p>"
+    ]},
+   {"najdi": "Určen pro děti se středně těžkým, těžkým, hlubokým MP, kombinovaným postižením nebo autismem.", "proc": "§ 48a", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Určen pro děti se středně těžkým, těžkým, hlubokým MP, kombinovaným postižením nebo autismem“</span>.</p>",
+     "<p>§ 48a školského zákona: přípravný stupeň ZŠ speciální je pro děti <strong>se středně těžkým a těžkým mentálním postižením, se souběžným postižením více vadami nebo s autismem</strong> — hluboké MP v něm uvedeno není.</p>"
+    ]},
+   {"najdi": "u žáků se zdravotním postižením lze dobu prodloužit až do 20 let", "proc": "§ 55 odst. 2", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„u žáků se zdravotním postižením lze dobu prodloužit až do 20 let“</span>.</p>",
+     "<p>§ 55 odst. 2 školského zákona: žákovi uvedenému v § 16 odst. 9 může ředitel ve výjimečných případech povolit pokračování v základním vzdělávání do konce školního roku, v němž dosáhne <strong>20 let</strong>; hranice <strong>26 let</strong> (se souhlasem zřizovatele) platí pro žáky vzdělávající se <strong>ve vzdělávacím programu ZŠ speciální</strong>, ne obecně pro kombinované postižení.</p>"
+    ]},
+   {"najdi": "Do školy je dítě zařazeno na základě souhlasu zákonného zástupce", "proc": "§ 48 žádost ZZ", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Do školy je dítě zařazeno na základě souhlasu zákonného zástupce“</span>.</p>",
+     "<p>§ 48 odst. 1 školského zákona: žáci se mohou vzdělávat v základní škole speciální „<strong>na žádost zákonného zástupce</strong> a na základě <strong>písemného doporučení</strong> školského poradenského zařízení“ — nestačí souhlas, je třeba žádost.</p>"
+    ]},
+   {"najdi": "vzdělávání zajišťuje krajský úřad na základě vyjádření ŠPZ a praktického lékaře.", "proc": "§ 42 odborný lékař", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„vzdělávání zajišťuje krajský úřad na základě vyjádření ŠPZ a praktického lékaře“</span>.</p>",
+     "<p>§ 42 školského zákona: dítěti s hlubokým mentálním postižením stanoví krajský úřad <strong>se souhlasem zákonného zástupce</strong> způsob vzdělávání na základě doporučujícího posouzení <strong>odborného lékaře</strong> a školského poradenského zařízení a zajistí pedagogickou a metodickou pomoc.</p>"
+    ]},
+   {"najdi": "Kompetence k učení, komunikativní, sociální a personální, občanské, pracovní.", "proc": "klíčové kompetence RVP ZV", "odkaz": "rvp", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Kompetence k učení, komunikativní, sociální a personální, občanské, pracovní“</span>.</p>",
+     "<p>RVP ZV má klíčové kompetence k učení, <strong>k řešení problémů</strong>, komunikativní, sociální a personální, občanské, pracovní a od revize v roce 2021 také <strong>digitální</strong>. Revize 2021 zároveň nahradila vzdělávací oblast „Informační a komunikační technologie“ oblastí <strong>Informatika</strong>; oblast se jmenuje „Umění a kultura“, ne „člověk a kultura“.</p>"
+    ]},
+   {"najdi": "IVP se vypracovává před nástupem žáka do školy nebo maximálně měsíc po jeho nástupu", "proc": "lhůta IVP", "odkaz": "skoly", "bylo": "IVP „před nástupem nebo měsíc po nástupu“", "plati": "do 1 měsíce od obdržení doporučení a žádosti (§ 3 odst. 5 vyhl. 27/2016 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2016/27"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„IVP se vypracovává před nástupem žáka do školy nebo maximálně měsíc po jeho nástupu“</span>.</p>",
+     "<p>Lhůta „po nástupu žáka“ pochází ze zrušené vyhlášky č. 73/2005 Sb. Podle § 3 odst. 5 vyhlášky č. 27/2016 Sb. se IVP zpracovává „bez zbytečného odkladu, nejpozději však do <strong>1 měsíce ode dne, kdy škola obdržela doporučení a žádost</strong>“.</p>"
+    ]},
+   {"najdi": "IVP se vyhodnocuje 2x ročně ŠPZ", "nahrad": "IVP se vyhodnocuje <span class=\"fix\">nejméně 1× ročně</span> ŠPZ", "proc": "vyhodnocení IVP", "odkaz": "skoly", "bylo": "IVP se vyhodnocuje „2× ročně“", "plati": "nejméně jednou ročně (vyhl. 27/2016 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2016/27"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„IVP se vyhodnocuje 2x ročně ŠPZ“</span>.</p>",
+     "<p>„Dvakrát ročně“ platilo podle zrušené vyhlášky č. 73/2005 Sb. Podle vyhlášky č. 27/2016 Sb. školské poradenské zařízení ve spolupráci se školou sleduje a <strong>nejméně jednou ročně</strong> vyhodnocuje naplňování IVP.</p>"
+    ]},
+   {"najdi": "PLPP – Předpoklady pro lepší přístup", "nahrad": "PLPP – <span class=\"fix\">plán pedagogické podpory</span>", "proc": "PLPP", "odkaz": "skoly", "bylo": "PLPP = „Předpoklady pro lepší přístup“", "plati": "plán pedagogické podpory (§ 10 vyhl. 27/2016 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2016/27"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„PLPP – Předpoklady pro lepší přístup“</span>.</p>",
+     "<p>PLPP je <strong>plán pedagogické podpory</strong> (§ 10 vyhlášky č. 27/2016 Sb.) — škola ho může zpracovat při podpůrných opatřeních prvního stupně a nejpozději po 3 měsících vyhodnotí, zda vedou k cíli.</p>"
+    ]}
+  ],
+  "10": [
+   {"najdi": "např. ÚSP, podporovaném bydlení, chráněné dílně apod.", "proc": "ÚSP a chráněná dílna", "odkaz": "chranena-dilna", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„např. ÚSP, podporovaném bydlení, chráněné dílně apod“</span>.</p>",
+     "<p>Ústavy sociální péče (ÚSP) nahradil od 1. 1. 2007 zákon č. 108/2006 Sb. — dnes jde například o <strong>domovy pro osoby se zdravotním postižením</strong> (§ 48). K chráněné dílně:</p>",
+     "<p>Vývoj podle zákona č. 435/2004 Sb., o zaměstnanosti: <strong>chráněná pracovní dílna</strong> (pracoviště s nejméně 60 % OZP, § 76) zákon zná jen do 31. 12. 2011; od 1. 1. 2012 zůstalo <strong>chráněné pracovní místo</strong> (§ 75) a od 1. 1. 2018 (novela 327/2017 Sb.) ani to — dnes zákon mluví o <strong>pracovním místě zřízeném pro osobu se zdravotním postižením</strong> (§ 75) a o <strong>chráněném trhu práce</strong>, který tvoří zaměstnavatelé s více než 50 % zaměstnanců se zdravotním postižením uznaní dohodou s Úřadem práce (§ 78). Dílny pro lidi, kteří se na trh práce nedostanou, jsou dnes <strong>sociálně terapeutické dílny</strong> — sociální služba podle § 67 zákona č. 108/2006 Sb.</p>"
+    ]},
+   {"najdi": "například skupina <em>Sami a spolu</em> nebo <em>Řekni to!</em>, ", "nahrad": "", "proc": "neověřené názvy z ChatGPT", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„například skupina Sami a spolu nebo Řekni to!“</span>.</p>",
+     "<p>Názvy skupin „Sami a spolu“ a „Řekni to!“ pocházejí z vložené odpovědi ChatGPT a <strong>nepodařilo se je ověřit</strong> (10/2026), proto jsou z textu vypuštěné. Skupiny sebeobhájců při SPMP ČR existují; jejich aktuální přehled je na webu spmpcr.cz.</p>"
+    ]}
+  ],
+  "11": [
+   {"najdi": "Existují chráněné dílny, chráněná pracovní místa a podporované zaměstnávání", "proc": "chráněné dílny a místa", "odkaz": "chranena-dilna", "bylo": "„chráněné dílny“ a „chráněná pracovní místa“", "plati": "pracovní místo zřízené pro OZP (§ 75, od 2018), chráněný trh práce (§ 78)", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/435/2017-10-01", "https://e-sbirka.gov.cz/sb/2004/435/2018-01-01"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Existují chráněné dílny, chráněná pracovní místa a podporované zaměstnávání“</span>.</p>",
+     "<p>Vývoj podle zákona č. 435/2004 Sb., o zaměstnanosti: <strong>chráněná pracovní dílna</strong> (pracoviště s nejméně 60 % OZP, § 76) zákon zná jen do 31. 12. 2011; od 1. 1. 2012 zůstalo <strong>chráněné pracovní místo</strong> (§ 75) a od 1. 1. 2018 (novela 327/2017 Sb.) ani to — dnes zákon mluví o <strong>pracovním místě zřízeném pro osobu se zdravotním postižením</strong> (§ 75) a o <strong>chráněném trhu práce</strong>, který tvoří zaměstnavatelé s více než 50 % zaměstnanců se zdravotním postižením uznaní dohodou s Úřadem práce (§ 78). Dílny pro lidi, kteří se na trh práce nedostanou, jsou dnes <strong>sociálně terapeutické dílny</strong> — sociální služba podle § 67 zákona č. 108/2006 Sb.</p>"
+    ]},
+   {"najdi": "(s platností od 1. ledna 2012)", "nahrad": "(s <span class=\"fix\">účinností</span> od 1. ledna 2012)", "proc": "účinnost × platnost", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„(s platností od 1. ledna 2012)“</span>.</p>",
+     "<p>Zákon nabývá <strong>účinnosti</strong>, ne „platnosti“ — platný je dnem vyhlášení ve Sbírce. Jinak je věta správně: chráněnou pracovní dílnu zrušila k 1. 1. 2012 novela č. 367/2011 Sb.</p>"
+    ]},
+   {"najdi": "pro absolventy zvláštních škol", "proc": "zvláštní škola", "odkaz": "skoly", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„pro absolventy zvláštních škol“</span>.</p>",
+     "<p>Zvláštní školy zanikly se školským zákonem č. 561/2004 Sb. (účinnost 1. 1. 2005); „odborné učiliště“ dnes není druh školy, jde o střední vzdělání s výučním listem v oborech kategorie E.</p>"
+    ]},
+   {"najdi": "Zaměstnavatel může zvolit kteroukoliv z možností, může je také vzájemně kombinovat.", "proc": "povinný podíl § 81", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Zaměstnavatel může zvolit kteroukoliv z možností, může je také vzájemně kombinovat“</span>.</p>",
+     "<p>Úplně podle § 81 zákona o zaměstnanosti: povinný podíl <strong>4 %</strong> se týká zaměstnavatelů s <strong>více než 25 zaměstnanci</strong> a plní se zaměstnáváním OZP, odebíráním výrobků a služeb nebo zadáváním zakázek zaměstnavatelům uznaným na chráněném trhu práce (a OSVČ se zdravotním postižením bez zaměstnanců), případně odvodem do státního rozpočtu.</p>"
+    ]}
+  ],
+  "12": [
+   {"najdi": "kde je poskytován trvalý dohled a podpora", "proc": "chráněná místa a dílny", "odkaz": "chranena-dilna", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Chráněná pracovní místa a pracovní dílny, kde je poskytován trvalý dohled a podpora“</span>.</p>",
+     "<p>Vývoj podle zákona č. 435/2004 Sb., o zaměstnanosti: <strong>chráněná pracovní dílna</strong> (pracoviště s nejméně 60 % OZP, § 76) zákon zná jen do 31. 12. 2011; od 1. 1. 2012 zůstalo <strong>chráněné pracovní místo</strong> (§ 75) a od 1. 1. 2018 (novela 327/2017 Sb.) ani to — dnes zákon mluví o <strong>pracovním místě zřízeném pro osobu se zdravotním postižením</strong> (§ 75) a o <strong>chráněném trhu práce</strong>, který tvoří zaměstnavatelé s více než 50 % zaměstnanců se zdravotním postižením uznaní dohodou s Úřadem práce (§ 78). Dílny pro lidi, kteří se na trh práce nedostanou, jsou dnes <strong>sociálně terapeutické dílny</strong> — sociální služba podle § 67 zákona č. 108/2006 Sb.</p>"
+    ]},
+   {"najdi": "Rodiny osob se ZP mohou čerpat v souladu se zákonem č. 329/2011 Sb.", "proc": "příspěvek na péči v 108/2006", "bylo": "příspěvek na péči „podle zákona č. 329/2011 Sb.“", "plati": "příspěvek na péči § 7 zák. 108/2006 Sb.; 329/2011 Sb. = mobilita, zvláštní pomůcka, průkaz OZP", "zdroj": ["https://e-sbirka.gov.cz/sb/2006/108", "https://e-sbirka.gov.cz/sb/2011/329"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Rodiny osob se ZP mohou čerpat v souladu se zákonem č. 329/2011 Sb“</span>.</p>",
+     "<p>Příspěvek na péči upravuje <strong>zákon č. 108/2006 Sb.</strong>, o sociálních službách (§ 7 a násl.). Zákon č. 329/2011 Sb. upravuje příspěvek na mobilitu, příspěvek na zvláštní pomůcku a průkaz osoby se zdravotním postižením.</p>"
+    ]}
+  ],
+  "13": [
+   {"najdi": "F84 Pervazivní vývojové poruchy", "proc": "MKN-11: PAS 6A02", "odkaz": "mkn11", "bylo": "PAS jen podle MKN-10 (F84)", "plati": "MKN-11 6A02 porucha autistického spektra", "zdroj": ["https://icd.who.int/browse/2025-01/mms/cs"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„F84 Pervazivní vývojové poruchy“</span>.</p>",
+     "<p>Celá část stojí na <strong>MKN-10</strong> (F84.x). MKN-11 platí od 1. 1. 2022; českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a do roku 2027 běží přechodné období, kdy se k vykazování ještě používá MKN-10. MKN-11 slučuje dětský autismus, atypický autismus a Aspergerův syndrom do jediné diagnózy <strong>porucha autistického spektra (6A02)</strong>, rozlišené podle přítomnosti poruchy intelektového vývoje a funkčního jazyka; <strong>Rettův syndrom</strong> do PAS už nepatří. DSM-5 udělal totéž v roce 2013.</p>"
+    ]},
+   {"najdi": "Všechny současné uznávané diagnostické systémy se shodují v tom, že pro diagnózu autismu je nutná přítomnost postižení ve třech oblastech", "proc": "dyáda místo triády", "odkaz": "mkn11", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Všechny současné uznávané diagnostické systémy se shodují v tom, že pro diagnózu autismu je nutná přítomnost postižení ve třech oblastech“</span>.</p>",
+     "<p>Neplatí pro současné klasifikace: DSM-5 (2013), DSM-5-TR i MKN-11 používají <strong>dvě oblasti</strong> — trvalé obtíže v sociální komunikaci a interakci a omezené, opakující se vzorce chování, zájmů a aktivit. Triádu měla MKN-10 a DSM-IV.</p>"
+    ]},
+   {"najdi": "(infekce, očkování apod.).", "proc": "očkování a autismus", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„alergie a imunologické aberace (infekce, očkování apod.)“</span>.</p>",
+     "<p>Souvislost <strong>očkování a autismu byla vyvrácena</strong>: studie, která ji tvrdila (Wakefield, 1998), byla stažena pro podvod a rozsáhlé populační studie žádnou souvislost nenašly. Očkování mezi příčiny PAS nepatří.</p>"
+    ]}
+  ],
+  "15": [
+   {"najdi": "Osoby, jejichž svéprávnost je omezena, mohou uzavřít manželství pouze s povolením soudu.", "nahrad": "Osoby, jejichž svéprávnost <span class=\"fix\">byla omezena v oblasti uzavírání manželství, manželství uzavřít nemohou (§ 673 občanského zákoníku)</span>.", "proc": "§ 673 OZ manželství", "odkaz": "svepravnost", "bylo": "omezená svéprávnost — sňatek „s povolením soudu“", "plati": "nemůže uzavřít manželství, je-li svéprávnost v této oblasti omezena (§ 673 OZ)", "zdroj": ["https://e-sbirka.gov.cz/sb/2012/89"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Osoby, jejichž svéprávnost je omezena, mohou uzavřít manželství pouze s povolením soudu“</span>.</p>",
+     "<p>Povolení soudu k sňatku je úprava zrušeného zákona o rodině. Podle <strong>§ 673 občanského zákoníku</strong> „manželství nemůže uzavřít osoba, jejíž svéprávnost byla v této oblasti omezena“ — soud omezení svéprávnosti v oblasti manželství buď vysloví, nebo ne, výjimku povolením nedává.</p>"
+    ]},
+   {"najdi": "nesvéprávná v této oblasti", "proc": "sterilizace 373/2011", "odkaz": "svepravnost", "bylo": "sterilizace osoby „nesvéprávné“ se souhlasem soudu", "plati": "s omezenou svéprávností jen ze zdravotních důvodů (§ 13), jinak jen na vlastní žádost od 21 let (§ 14 zák. 373/2011 Sb.)", "zdroj": ["https://e-sbirka.gov.cz/sb/2011/373"], "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„se souhlasem soudu, pokud je osoba nesvéprávná v této oblasti“</span>.</p>",
+     "<p>Podle zákona č. 373/2011 Sb., o specifických zdravotních službách, lze osobě s omezenou svéprávností provést <strong>jen sterilizaci ze zdravotních důvodů</strong>, a to se souhlasem opatrovníka, kladným stanoviskem odborné komise a souhlasem soudu (§ 13). Sterilizace z jiných než zdravotních důvodů je možná <strong>jen na vlastní písemnou žádost</strong> od 21 let (§ 14). Pojem „nesvéprávná“ právo nezná — svéprávnost lze jen omezit.</p>"
+    ]}
+  ],
+  "17": [
+   {"najdi": "jsou za klíčové považovány:", "proc": "digitální kompetence", "odkaz": "rvp", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„jsou za klíčové považovány“</span>.</p>",
+     "<p>Od revize RVP ZV v roce 2021 je klíčových kompetencí sedm: k učení, k řešení problémů, komunikativní, sociální a personální, občanské, pracovní a <strong>digitální</strong>. („PKD“ je zřejmě překlep za PŠD — praktická škola dvouletá.)</p>"
+    ]}
+  ]
+ },
+ "notes": {
+  "10": [
+   "    <aside class=\"box warn\">",
+   "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Část okruhu je vložená konverzace s ChatGPT</h4>",
+   "      <p>Druhá polovina zápisků (od sekce „Kdo školí sebeobhájce?“) je zkopírovaná odpověď ChatGPT a navazuje na ni druhá odpověď na dotaz „A jaký je rozdíl mezi občanskou advokacií a sebeobhajováním?“. <strong>Rámec konverzace je odstraněný</strong> — nabídky typu „Chceš, abych…“, označení modelu a značky „Řekl/a jsi:“ a „ChatGPT řekl:“.</p>",
+   "      <p>Věcný obsah zůstal a je zkontrolovaný: rok ratifikace Úmluvy (2009) a organizace SPMP ČR, Rytmus, Inventura a EPSA odpovídají skutečnosti; názvy dvou skupin sebeobhájců, které se ověřit nepodařilo, jsou vypuštěné (viz poznámka níž). Část odpovědi opakuje výklad z první poloviny zápisků.</p>",
+   "    </aside>"
+  ]
+ },
+ "literatura_uvod": [
+  "    <aside class=\"box warn\">",
+  "      <h4><span class=\"bemo\" aria-hidden=\"true\">⚠️</span>Odkud seznam je</h4>",
+  "      <p>Seznam je převzatý ze zápisků (soubor „ZDROJE SZZ PSYCHOPEDIE“). Z adres je odstraněný prefix prohlížeče PDF (<code>chrome-extension://…/</code>) a sledovací parametr <code>utm_source=chatgpt.com</code>, jinak jsou údaje beze změny. Korporativní autoři mají zkrácený štítek (NRZP ČR, SPMP ČR).</p>",
+  "      <p>Odkazy na okruhy se dohledávají <strong>automaticky podle jména autora</strong> v textu zápisků. Ukazují, kde se autor zmiňuje — ne nutně citaci právě tohoto díla.</p>",
+  "    </aside>"
+ ],
+ "literatura": {
+  "6": {"hledat": ["Inclusion Europe"]},
+  "10": {"stitek": "MKN-10, verze 2024", "pozn": "MKN-10 se v Česku používá dál, ale od 1. 1. 2022 platí <strong>MKN-11</strong> (mentální postižení jako porucha intelektového vývoje, 6A00); českou verzi zveřejnil ÚZIS ČR 14. 2. 2025 a přechodné období běží do roku 2027 (viz <a href=\"pravni-aktualnost.html\">právní aktuálnost</a>)."},
+  "12": {"hledat": ["MPSV"]},
+  "13": {"stitek": "NRZP ČR, 2025", "hledat": ["NRZP", "Národní rada osob se zdravotním postižením"]},
+  "16": {"stitek": "SPMP ČR, 2025", "hledat": ["SPMP", "Společnost pro podporu lidí s mentálním postižením"]},
+  "21": {"stitek": "Vyhláška č. 27/2016 Sb.", "hledat": ["27/2016"], "pozn": "Platí ve znění pozdějších předpisů, naposledy novelizována vyhláškou č. 306/2025 Sb. (viz <a href=\"zakony.html\">klíčové zákony</a>)."},
+  "22": {"stitek": "Školský zákon, 561/2004 Sb.", "hledat": ["561/2004"], "pozn": "Platí ve znění pozdějších předpisů (viz <a href=\"zakony.html\">klíčové zákony</a>)."},
+  "23": {"stitek": "Úřad práce ČR, 2024", "hledat": ["Úřad práce", "ÚP ČR"]}
+ }
+}
