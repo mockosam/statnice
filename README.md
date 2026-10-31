@@ -11,7 +11,7 @@ Obsahuje pět předmětů:
 | **Pedagogika** | 20 | 216 | 216 | 215 pojmů | klíčové zákony, právní audit se 16 zjištěními, mapování na 17 okruhů zadání |
 | **Etopedie** | 20 | 86 | 317 | 105 pojmů | klíčové zákony, právní audit, aktualizační dodatek, mapa na 17 okruhů zadání, **17 podrobných okruhů ze zápisků 2025**, literatura |
 | **Psychopedie** | 20 | 208 | 364 | 208 pojmů | klíčové zákony, právní audit se 17 zjištěními, mapa na 17 okruhů zadání, **3 otázky ze studentských zápisků 2025**, **17 podrobných okruhů ze zápisků 2025**, literatura |
-| **Psychologie** | 19 | 74 | 74 | 57 pojmů | přehled 43 citovaných děl, kontrola aktuálnosti, otázka 17 ze studentských zápisků |
+| **Psychologie** | 19 | 74 | 74 | 57 pojmů | přehled 43 citovaných děl, kontrola aktuálnosti, mapa na 17 okruhů zadání, otázka 17 ze studentských zápisků |
 
 „Balíček předmětu“ spojuje kartičky z otázek s glosářem a u etopedie a psychopedie
 i s klíčovými pojmy podrobných stránek, ale **stejný pojem bere jen jednou** —
@@ -65,13 +65,13 @@ etopedie/
   podrobne-okruh-NN-….html  GENEROVANÉ podrobné stránky ze zápisků 2025, okruhy 1–17 zadání
   literatura.html     GENEROVANÝ seznam zdrojů k zápiskům (25 položek)
 psychologie/
-  index.html          přehled 19 otázek + ukazatel postupu
+  index.html          přehled 19 otázek + ukazatel postupu + seznam podle 17 okruhů zadání A21
   otazka-01-….html    jednotlivé otázky
   otazka-17-….html    ve zdroji není vypracovaná — ze samostatných studentských zápisků (2021/2022)
   glosar.html         GENEROVANÝ rejstřík (make_glosar.py)
   karticky.html       výběr balíčků kartiček
   literatura.html     43 citovaných děl s dohledanými údaji
-  aktualnost.html     co se od 2021/2022 změnilo
+  aktualnost.html     co se od 2021/2022 změnilo + mapa na 17 okruhů zadání A21
   img/                obrázky ze zdrojového dokumentu
 poradenstvi/
   index.html          přehled 20 otázek + ukazatel postupu
@@ -397,7 +397,19 @@ a žádná datovatelná tvrzení neobsahuje (necituje MKN, DSM, RVP ani žádný
 předpis), takže nebylo co opravovat. Doplněny jsou čtyři oblasti, kde se od té
 doby stav změnil: MKN-11, DSM-5-TR, revize RVP ZV a novely vyhlášek. Otázku 17
 hlavní zdroj nevypracoval; její výklad stojí na samostatných studentských
-zápiscích z téhož období.
+zápiscích z téhož období. Součástí je i mapa 19 stránek na 17 okruhů zadání A21:
+okruh 4 spojuje otázky 4 a 14 (zadání k sociálnímu učení přidává „Problematiku
+sociálního zpevňování“), od okruhu 14 je číslo stránky o jedno vyšší než číslo
+okruhu a otázka 19 (Berne, bariéry v komunikaci) do bloku psychologie nepatří —
+je součástí okruhu 6 pedagogiky. Na přehledu předmětu je proto i seznam řazený
+podle zadání s plným zněním okruhů.
+
+**Zadání A21** bylo v říjnu 2026 porovnáno se zněním ze **3. 10. 2024** (PDF
+„Okruhy k SZZ“, 7 bloků po 17 okruzích). Mapy etopedie, pedagogiky a poradenství
+sedí beze změny, u psychopedie se liší jen drobnosti ve formulacích. V poradenství
+zadání přidává „podpůrná opatření“ k **11** ze 17 okruhů (dříve tu stálo 9)
+a okruh 6 samo formuluje se zrušeným pojmem „chráněné dílny“ — na stránce auditu
+je k tomu poznámka, jak odpovídat dnešními pojmy.
 
 **Podrobné zápisky 2025** (etopedie i psychopedie) — oddíl „Podrobné zápisky
 2025“ na obou `pravni-aktualnost.html`. Zápisky jsou o sedm let novější než zdroj
