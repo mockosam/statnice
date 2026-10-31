@@ -443,6 +443,8 @@ details.upd > summary::after {
   font-size: 9.5px; letter-spacing: .08em;
   color: var(--text-mute); text-transform: none;
 }
+/* oprava ověřená později než hlavní kontrola nese vlastní datum */
+details.upd > summary[data-overeno]::after { content: 'ověřeno ' attr(data-overeno); }
 details.upd .upd-body { padding: 2px 14px 12px; color: var(--text-dim); }
 details.upd .upd-body p { margin-bottom: 8px; font-size: 14px; }
 details.upd .upd-body > :last-child { margin-bottom: 0; }

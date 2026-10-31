@@ -146,6 +146,7 @@ ve skriptu.
 | `<p class="defn">= …</p>` | definice uvozená „=“ (zápis z psychologických poznámek) |
 | `<figure class="fig">` | obrázek s popiskem |
 | `<details class="upd">` | poznámka „Aktualizace 2026“; do kartiček ani nadpisů se nepočítá |
+| `<summary data-overeno="10/2026">` | u poznámky ověřené později než hlavní kontrola ukáže vlastní datum místo „ověřeno 08/2026“ |
 | `<span class="fix">` | oranžové zvýraznění opraveného údaje |
 | `<td data-label="…">` | název sloupce, který se na mobilu zobrazí u hodnoty |
 | `<body data-kind="podrobne">` | podrobná stránka ze zápisků; v hledání „Okruh N · podrobně“, kartičky ve vlastním balíčku, do glosáře nejde |
@@ -335,6 +336,13 @@ Všech pět materiálů bylo zkontrolováno proti stavu k **srpnu 2026**. Opravy
 a doplnění jsou vyznačené přímo v textu (oranžově `<span class="fix">`,
 s rozbalovací poznámkou „Aktualizace 2026“) a zdokumentované na samostatných
 stránkách.
+
+V **říjnu 2026** byly dodatečně opraveny dva údaje, ve kterých si předměty
+odporovaly: **doba omezení svéprávnosti** (§ 59 občanského zákoníku od novely
+460/2016 Sb. až 5 let, ne jen 3 roky — psychopedie) a **termín povinné výuky
+podle revidovaného RVP ZV** (po odkladu o rok opatřením MŠMT z března 2026 od
+1. 9. 2028, ne od 1. 9. 2027 — psychologie, pedagogika, poradenství). Poznámky
+k těmto opravám nesou `data-overeno="10/2026"`.
 
 **Psychopedie** — `psychopedie/pravni-aktualnost.html`. Zdroj je z **2. června
 2018** a od té doby se ho nikdo nedotkl; celkem **17 zjištění**. Nejvážnější je
