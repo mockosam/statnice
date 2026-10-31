@@ -622,6 +622,10 @@
    {"najdi": "definována v § 72 zákona č. 435/2004 Sb.", "nahrad": "definována v § <span class=\"fix\">69</span> zákona č. 435/2004 Sb.", "proc": "§ 69 pracovní rehabilitace", "bylo": "pracovní rehabilitace „§ 72“", "plati": "§ 69 zák. 435/2004 Sb. (§ 72 = příprava k práci)", "zdroj": ["https://e-sbirka.gov.cz/sb/2004/435"], "pozn": [
      "<p>Zápisky uvádějí <span class=\"was\">„definována v § 72 zákona č. 435/2004 Sb“</span>.</p>",
      "<p>Pracovní rehabilitaci definuje <strong>§ 69</strong> zákona o zaměstnanosti; § 72 upravuje přípravu k práci (nejdéle 24 měsíců).</p>"
+    ]},
+   {"najdi": "Zřizuje se na základě dohody s Úřadem práce, obvykle na 3 roky.", "proc": "chráněné pracovní místo", "odkaz": "chranena-dilna", "pozn": [
+     "<p>Zápisky uvádějí <span class=\"was\">„Chráněné pracovní místo (CHPM)“</span>.</p>",
+     "<p>Pojem <strong>chráněné pracovní místo</strong> používal zákon o zaměstnanosti do 31. 12. 2017. Od 1. 1. 2018 (novela 327/2017 Sb.) mluví § 75 o <strong>pracovním místě zřízeném pro osobu se zdravotním postižením</strong>: zaměstnavatel ho zřizuje na základě písemné dohody s Úřadem práce, musí ho obsadit <strong>po dobu 3 let</strong> (ne jen „obvykle“) a ÚP na jeho zřízení poskytuje příspěvek. V literatuře i v praxi se starší název dál běžně používá.</p>"
     ]}
   ],
   "8": [

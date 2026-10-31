@@ -894,8 +894,13 @@ def _note_anchor(page: str, at: int) -> tuple[int, str]:
     return -1, target
 
 
+# Opravy v _doplnky_*_podrobne.json jsou porovnané s e-Sbírkou k tomuto měsíci;
+# CSS ho ukáže u poznámky místo výchozího „ověřeno 08/2026“ (README, data-overeno).
+OVERENO = "10/2026"
+
+
 def upd_note(body: str, odkaz: str | None = None, summary: str = "Aktualizace 2026") -> str:
-    out = ['<details class="upd">', "  <summary>%s</summary>" % summary, '  <div class="upd-body">']
+    out = ['<details class="upd">', '  <summary data-overeno="%s">%s</summary>' % (OVERENO, summary), '  <div class="upd-body">']
     out += ["    " + line for line in body.split("\n") if line.strip()]
     if odkaz:
         out.append('    <p><a href="pravni-aktualnost.html#%s">Podrobně v právní aktuálnosti →</a></p>' % odkaz)
